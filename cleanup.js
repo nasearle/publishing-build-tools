@@ -167,16 +167,3 @@ function cleanup(sourceFile, destFile, bookPath) {
 }
 
 exports.cleanup = cleanup;
-
-if (!shell.which('git')) {
-  shell.echo('Sorry, this script requires git');
-  shell.exit(1);
-}
-
-shell.exec('./claat update');
-
-var filesToProcess = glob.find('**/index.md');
-
-filesToProcess.forEach(function(filename) {
-  cleanup(filename, filename, '');
-});
