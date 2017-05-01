@@ -1,7 +1,7 @@
 'use strict';
 
 /*
-    wfCodeLabHelper.js
+    cleanup.js
     TODO
  */
 
