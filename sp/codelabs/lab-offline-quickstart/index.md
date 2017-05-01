@@ -35,7 +35,7 @@ This lab shows you how to add offline capabilities to an application using servi
 #### What you should know
 
 * Basic HTML, CSS, and JavaScript
-* Familiarity with ES2015  [Promises](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
+* Familiarity with ES2015  [Promises](/web/fundamentals/getting-started/primers/promises)
 
 #### What you will need
 
@@ -217,7 +217,7 @@ When our app opens for the first time, the service worker is registered, install
 
 <div class="note">
 
-__Note:__ You might be thinking, why didn't we just cache everything on install? Or, why did we cache anything on install, if all fetched resources are cached? This lab is intended as an overview of how you can bring offline functionality to an app. In practice, there are a variety of caching strategies and tools that let you customize your app's offline experience. Check out the <a href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/">Offline Cookbook</a> for more info.
+__Note:__ You might be thinking, why didn't we just cache everything on install? Or, why did we cache anything on install, if all fetched resources are cached? This lab is intended as an overview of how you can bring offline functionality to an app. In practice, there are a variety of caching strategies and tools that let you customize your app's offline experience. Check out the <a href="/web/fundamentals/instant-and-offline/offline-cookbook/">Offline Cookbook</a> for more info.
 
 </div>
 

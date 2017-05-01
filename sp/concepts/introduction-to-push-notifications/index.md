@@ -498,7 +498,7 @@ The Web Push protocol is complex, but we don't need to understand all of the det
 
 ### Sending a Push Message Using Firebase Cloud Messaging
 
-Chrome currently uses  [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) as its push service.  [FCM recently adopted the Web Push protocol](https://developers.google.com/web/updates/2016/07/web-push-interop-wins). FCM is the successor to Google Cloud Messaging (GCM) and supports the same functionality and more. 
+Chrome currently uses  [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) as its push service.  [FCM recently adopted the Web Push protocol](/web/updates/2016/07/web-push-interop-wins). FCM is the successor to Google Cloud Messaging (GCM) and supports the same functionality and more. 
 
 To use Firebase Cloud Messaging, you need to set up a project on  [Firebase](https://firebase.google.com/) (see the  [section on VAPID](#vapid) to get around this step). Here's how:
 
@@ -527,7 +527,7 @@ To get FCM to push a notification without a payload to your web client, the requ
 * The subscription endpoint URL
 * The public Server key. FCM uses this to check whether the server making the requests is actually allowed to send messages to the receiving user.
 
-A production site or app normally sets up a service to interact with FCM from your server. Check out the  [Web Fundamentals documentation](https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/) for more information. 
+A production site or app normally sets up a service to interact with FCM from your server. Check out the  [Web Fundamentals documentation](/web/fundamentals/engage-and-retain/push-notifications/) for more information. 
 
 We can test push messaging in our app using  [cURL](https://curl.haxx.se/docs/manpage.html). We can send an empty message, called a "tickle", to the push service, then the push service sends a message to the browser. If the notification displays, then we have done everything correctly and our app is ready to push messages from the server.
 
@@ -1089,13 +1089,13 @@ There are a number of options available to solve this:
 
 #### Your first push notifications
 
-*  [Adding Push Notifications to a Web App](https://developers.google.com/web/fundamentals/getting-started/push-notifications/) 
+*  [Adding Push Notifications to a Web App](/web/fundamentals/getting-started/push-notifications/) 
 *  [Adding Push Notifications to a Web App (Codelab)](https://codelabs.developers.google.com/codelabs/push-notifications/index.html?index=..%2F..%2Findex#0)
 *  [Using the Push API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API/Using_the_Push_API)
 
 #### When to use push notifications
 
-*  [Web Push Notifications: Timely, Relevant, and Precise](https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/)
+*  [Web Push Notifications: Timely, Relevant, and Precise](/web/fundamentals/engage-and-retain/push-notifications/)
 
 #### Demos
 
@@ -1104,7 +1104,7 @@ There are a number of options available to solve this:
 
 #### Messaging concepts and options
 
-*  [Setting the lifespan of a message](https://developers.google.com/cloud-messaging/concept-options#ttl)
+*  [Setting the lifespan of a message](/cloud-messaging/concept-options#ttl)
 
 #### Web-push documentation
 
@@ -1124,7 +1124,7 @@ There are a number of options available to solve this:
 
 #### Encryption
 
-*  [Web Push Payload Encryption](https://developers.google.com/web/updates/2016/03/web-push-encryption)
+*  [Web Push Payload Encryption](/web/updates/2016/03/web-push-encryption)
 *  [Push Encryption Verifier](https://tests.peter.sh/push-encryption-verifier/)
 *  [Message Encryption for Web Push](https://tools.ietf.org/html/draft-ietf-webpush-encryption-01)
 

@@ -211,6 +211,7 @@ __Table of Common Caching Strategies__
 </tr></table>
 
 
+
 The example below demonstrates some `sw-toolbox` strategies to cache different parts of an application.
 
 ```

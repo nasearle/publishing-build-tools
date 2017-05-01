@@ -1,0 +1,13 @@
+{
+	"2day": ["responsive-design-lab", "response-images-lab",
+		"offline-quickstart-lab", "lighthouse-lab", "promises-lab",
+		"fetch-api-lab", "cache-api-lab", "gulp-lab", "sw-precache-lab",
+		"indexed-db-lab"
+	],
+	"3day": ["responsive-design-lab", "response-images-lab",
+		"offline-quickstart-lab", "lighthouse-lab", "promises-lab",
+		"fetch-api-lab", "cache-api-lab", "gulp-lab", "sw-precache-lab",
+		"indexed-db-lab", "google-analytics-lab", "push-notification-lab",
+		"service-worker-lab"
+	]
+}

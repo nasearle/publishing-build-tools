@@ -108,7 +108,7 @@ Save the file. Refresh the page in the browser and <a href="tools_for_pwa_develo
 
 <div class="note">
 
-__Warning:__ Device emulation gives you a close approximation as to how your site will look on a mobile device, but to get the full picture you should always test your site on real devices. You can learn more about debugging Android devices on <a href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/">Chrome</a> and <a href="https://developer.mozilla.org/en-US/docs/Tools/Remote_Debugging">Firefox</a>.
+__Warning:__ Device emulation gives you a close approximation as to how your site will look on a mobile device, but to get the full picture you should always test your site on real devices. You can learn more about debugging Android devices on <a href="/web/tools/chrome-devtools/remote-debugging/">Chrome</a> and <a href="https://developer.mozilla.org/en-US/docs/Tools/Remote_Debugging">Firefox</a>.
 
 </div>
 
@@ -120,7 +120,7 @@ The initial-scale property controls the zoom level when the page is first loaded
 
 #### For more information
 
-*  [Set the viewport](https://developers.google.com/web/fundamentals/design-and-ui/responsive/fundamentals/set-the-viewport) - Responsive Web Design Basics 
+*  [Set the viewport](/web/fundamentals/design-and-ui/responsive/fundamentals/set-the-viewport) - Responsive Web Design Basics 
 *  [Using the viewport meta tag to control layout on mobile browsers](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag) - MDN
 
 <a id="4" />
@@ -346,7 +346,7 @@ You have learned to style your content to make it responsive. Using media querie
 
 #### Learn more about the basics of responsive design
 
-*  [Responsive Web Design Basics - Set the viewport](https://developers.google.com/web/fundamentals/design-and-ui/responsive/#set-the-viewport) 
+*  [Responsive Web Design Basics - Set the viewport](/web/fundamentals/design-and-ui/responsive/#set-the-viewport) 
 *  [A tale of two viewports](http://www.quirksmode.org/mobile/viewports2.html)
 
 #### Learn more about Flexbox as a progressive enhancement

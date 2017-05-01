@@ -105,6 +105,7 @@ Different browsers allow different amounts of offline storage. This table summar
 </tr></table>
 
 
+
 <a id="examples" />
 
 
@@ -150,6 +151,7 @@ IndexedDB is a noSQL database. IndexedDB data is stored as key-value pairs in __
 <p>{id: 222, name: 'water', price: 11.99, quantity: 300}</p>
 </td>
 </tr></table>
+
 
 
 The data is organized by a __`keypath`__, which in this case is the item's __`id`__ property. You can learn more about IndexedDB in the corresponding  [text](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working-with-indexeddb.html), or in the  [code lab](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_indexeddb.html).

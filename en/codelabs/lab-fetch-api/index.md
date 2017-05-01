@@ -202,7 +202,7 @@ function fetchJSON() {
 }
 ```
 
-This is  [promise chaining](https://developers.google.com/web/fundamentals/getting-started/primers/promises#chaining).
+This is  [promise chaining](/web/fundamentals/getting-started/primers/promises#chaining).
 
 Save the script and refresh the page. Click __Fetch JSON__. Now the response for __examples/non-existent.json__ should trigger the `catch` block, unlike in section 2.2. Check the console to confirm this.
 
@@ -273,7 +273,7 @@ Step 4. Finally, the JSON data from the original request to __examples/animals.j
 
 *  [Response.json()](https://developer.mozilla.org/en-US/docs/Web/API/Body/json)
 *  [Response methods](https://developer.mozilla.org/en-US/docs/Web/API/Response#Methods)
-*  [Promise chaining](https://developers.google.com/web/fundamentals/getting-started/primers/promises#chaining)
+*  [Promise chaining](/web/fundamentals/getting-started/primers/promises#chaining)
 
 #### Solution code
 
@@ -700,7 +700,7 @@ You now know how to use the Fetch API to request resources and post data to serv
 *  [Learn more about the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 *  [Learn more about Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 *  [Learn more about GlobalFetch.fetch()](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch)
-*  [Get an Introduction to Fetch](https://developers.google.com/web/updates/2015/03/introduction-to-fetch)
+*  [Get an Introduction to Fetch](/web/updates/2015/03/introduction-to-fetch)
 *  [David Walsh's blog on fetch](https://davidwalsh.name/fetch)
 *  [Jake Archibald's blog on fetch](https://jakearchibald.com/2015/thats-so-fetch/)
 

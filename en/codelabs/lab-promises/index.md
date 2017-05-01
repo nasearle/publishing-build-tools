@@ -87,7 +87,7 @@ This folder contains:
 
 
 
-This step uses  [Promises](https://developers.google.com/web/fundamentals/getting-started/primers/promises) to handle asynchronous code in JavaScript.
+This step uses  [Promises](/web/fundamentals/getting-started/primers/promises) to handle asynchronous code in JavaScript.
 
 ### 2.1 Create a promise
 
@@ -126,7 +126,7 @@ __Note: __Navigate to <strong>app/test/test.html</strong> in the browser to chec
 
 #### Explanation
 
-The `getImageName` function creates a  [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). A promise represents a value that might be available now, in the future, or never. In effect, a promise lets an asynchronous function such as `getImageName` (the `setTimeout` method is used to make `getImageName` asynchronous) return a value much like a synchronous function. Rather than returning the final value (in this case, "Spain.png"), `getImageName` returns a promise of a future value (this is what you see in the console log). Promise construction typically looks like  [this example at developers.google.com](https://developers.google.com/web/fundamentals/getting-started/primers/promises#promises_arrive_in_javascript):
+The `getImageName` function creates a  [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). A promise represents a value that might be available now, in the future, or never. In effect, a promise lets an asynchronous function such as `getImageName` (the `setTimeout` method is used to make `getImageName` asynchronous) return a value much like a synchronous function. Rather than returning the final value (in this case, "Spain.png"), `getImageName` returns a promise of a future value (this is what you see in the console log). Promise construction typically looks like  [this example at developers.google.com](/web/fundamentals/getting-started/primers/promises#promises_arrive_in_javascript):
 
 #### main.js
 
@@ -218,7 +218,7 @@ __Optional__: If you wrote the optional `isSpain` function in section 2.1, compl
 #### For more information
 
 *  [Promise object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-*  [Promises introduction](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
+*  [Promises introduction](/web/fundamentals/getting-started/primers/promises)
 *  [Resolve](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve)
 *  [Reject](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject)
 *  [Then](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then)
@@ -413,7 +413,7 @@ You have learned the basics of JavaScript Promises!
 
 ### Resources
 
-*  [Promises introduction](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
+*  [Promises introduction](/web/fundamentals/getting-started/primers/promises)
 *  [Promise - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 

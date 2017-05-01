@@ -168,8 +168,8 @@ function updateCodeLab(sourceFile, destFile, bookPath) {
 exports.updateCodeLab = updateCodeLab;
 
 var filesToProcess = glob.find('**/index.md');
-console.log(filesToProcess);
+// console.log(filesToProcess);
 
-// filesToProcess.forEach(function(filename) {
-//   updateCodeLab(filename, filename, '');
-// });
+filesToProcess.forEach(function(filename) {
+  updateCodeLab(filename, filename, '');
+});

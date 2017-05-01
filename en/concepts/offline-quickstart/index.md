@@ -26,7 +26,7 @@ Codelab:  [Offline Quickstart](https://google-developer-training.gitbooks.io/pro
 
 Increasingly, the growth in internet traffic comes from mobile-first and (in some cases), mobile-only connections. This growth often occurs in regions where internet connectivity is sparse, expensive, or just unreliable.
 
-As application developers, we want to ensure a good user experience, preventing network shortcomings from affecting applications. With  [service workers](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) we now have a way to build offline support. Service workers provide an in-browser, programmable network proxy, so that users can always get to something on your website.
+As application developers, we want to ensure a good user experience, preventing network shortcomings from affecting applications. With  [service workers](/web/fundamentals/getting-started/primers/service-workers) we now have a way to build offline support. Service workers provide an in-browser, programmable network proxy, so that users can always get to something on your website.
 
 Service workers provide many new features to web applications, including programmatic file caching, intercepting network request, and receiving push messages. The service worker runs independently of the web app and can even be called when the app isn't running (for example to wake it up and deliver a message).  
 
@@ -38,7 +38,7 @@ Some benefits of implementing service workers include:
 
 ### Offline access
 
-Service workers can use the  [Cache ](https://developer.mozilla.org/en-US/docs/Web/API/Cache)interface to cache an application's assets. A service worker script can implement a number of  [caching strategies](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/), allowing fine tuning of an app's offline and low-connectivity performance.
+Service workers can use the  [Cache ](https://developer.mozilla.org/en-US/docs/Web/API/Cache)interface to cache an application's assets. A service worker script can implement a number of  [caching strategies](/web/fundamentals/instant-and-offline/offline-cookbook/), allowing fine tuning of an app's offline and low-connectivity performance.
 
 The Cache interface's storage is controlled programmatically and __is independent__ of the browser's HTTP cache. Unlike the browser's HTTP cache, the Cache interface's storage is available offline. The service worker can use this to enable offline support in browsers. 
 
@@ -68,7 +68,7 @@ Service workers are the foundation for browser independent features for web appl
 
 
 
-The core of an offline experience is the service worker. It lets the developer choose when to cache resources and when to retrieve content from the cache instead of from the network (see  [The Offline Cookbook](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/) for more information on caching strategies).
+The core of an offline experience is the service worker. It lets the developer choose when to cache resources and when to retrieve content from the cache instead of from the network (see  [The Offline Cookbook](/web/fundamentals/instant-and-offline/offline-cookbook/) for more information on caching strategies).
 
 A possible implementation pattern could look like this:
 
@@ -197,7 +197,7 @@ After the first user visit, the app will open even when offline!
 
 <div class="note">
 
-__Note: __You might be thinking, why didn't we just cache everything on install? Or, why did we cache anything on install if all fetched resources are cached? This is intended as an overview of how you can bring offline functionality to an app. In practice, there are a variety of caching strategies and tools that let you customize your app's offline experience. Check out the <a href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/">Offline Cookbook</a> for more info.
+__Note: __You might be thinking, why didn't we just cache everything on install? Or, why did we cache anything on install if all fetched resources are cached? This is intended as an overview of how you can bring offline functionality to an app. In practice, there are a variety of caching strategies and tools that let you customize your app's offline experience. Check out the <a href="/web/fundamentals/instant-and-offline/offline-cookbook/">Offline Cookbook</a> for more info.
 
 </div>
 
@@ -211,7 +211,7 @@ __Note: __You might be thinking, why didn't we just cache everything on install?
 
 *  [Is ServiceWorker Ready?](https://jakearchibald.github.io/isserviceworkerready/)
 *  [ServiceWorker interface](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker) (MDN)
-*  [Introduction to service workers](https://developers.google.com/web/fundamentals/primers/service-worker/)
+*  [Introduction to service workers](/web/fundamentals/primers/service-worker/)
 *  [Fetch Event](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent) (MDN)
 
 

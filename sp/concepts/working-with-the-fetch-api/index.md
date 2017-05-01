@@ -461,7 +461,7 @@ fetch('http://bar.com/data.json', {
 *  [Learn more about the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 *  [Learn more about Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 *  [Learn more about GlobalFetch.fetch()](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch)
-*  [Get an Introduction to Fetch](https://developers.google.com/web/updates/2015/03/introduction-to-fetch)
+*  [Get an Introduction to Fetch](/web/updates/2015/03/introduction-to-fetch)
 *  [David Welsh's blog on fetch](https://davidwalsh.name/fetch)
 *  [Jake Archibald's blog on fetch](https://jakearchibald.com/2015/thats-so-fetch/)
 

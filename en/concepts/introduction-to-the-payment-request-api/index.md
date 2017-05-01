@@ -42,7 +42,7 @@ For businesses, checkout can be a complicated process to develop and complete. T
 
 Mobile users are likely to abandon online purchase forms that are user-intensive, difficult to use, slow to load and refresh, and require multiple steps to complete. This is because two primary components of online payments – security and convenience – often work at cross-purposes, where more of one typically means less of the other. 
 
-Any system that improves or solves one or more of those problems is a welcome change. We've found that forms and payments are completed 25% more when autofill is available, increasing odds for conversion. We started solving the problem already with  [Autofill](https://developers.google.com/web/updates/2015/06/checkout-faster-with-autofill), but now we're talking about a more comprehensive solution called the Payment Request API.
+Any system that improves or solves one or more of those problems is a welcome change. We've found that forms and payments are completed 25% more when autofill is available, increasing odds for conversion. We started solving the problem already with  [Autofill](/web/updates/2015/06/checkout-faster-with-autofill), but now we're talking about a more comprehensive solution called the Payment Request API.
 
 <a id="introduction" />
 
@@ -87,7 +87,7 @@ Payment Request demos are available at these URLs:
 * Demo:  [https://emerald-eon.appspot.com/](https://emerald-eon.appspot.com/)
 * Polymer Shop demo:  [https://polykart-credential-payment.appspot.com/](https://polykart-credential-payment.appspot.com/)
 * Simple demos and sample code:  [https://googlechrome.github.io/samples/paymentrequest/](https://googlechrome.github.io/samples/paymentrequest/)
-* Deep dive documentation:  [https://developers.google.com/web/fundamentals/discovery-and-monetization/payment-request/deep-dive-into-payment-request](https://developers.google.com/web/fundamentals/discovery-and-monetization/payment-request/deep-dive-into-payment-request)
+* Deep dive documentation:  [https://developers.google.com/web/fundamentals/discovery-and-monetization/payment-request/deep-dive-into-payment-request](/web/fundamentals/discovery-and-monetization/payment-request/deep-dive-into-payment-request)
 * Samsung Internet demos: 
 *  [https://samsunginter.net/examples/payment-request-demo-simple/](https://samsunginter.net/examples/payment-request-demo-simple/)
 *  [https://samsunginter.net/examples/payment-request-demo-options/](https://samsunginter.net/examples/payment-request-demo-options/)
@@ -102,7 +102,7 @@ Payment Request demos are available at these URLs:
 
 Using the Payment Request API, the transaction process is made as seamless as possible for both users and merchants.
 
-![e108534a11ad1075.png](img/e108534a11ad1075.png)[IMAGEINFO]: process.png, Payment Request Processing
+![Payment Request Processing](img/e108534a11ad1075.png)
 
 The process begins when the merchant site creates a new `PaymentRequest` and passes to the browser all the information required to make the purchase: the amount to be charged, what currency they expect payment in, and what payment methods are accepted by the site. The browser determines compatibility between the accepted payment methods for the site and the methods the user has installed on the target device.
 
@@ -120,9 +120,9 @@ From the user's perspective, all the previously tedious interaction—request, a
 
 
 
-[Bringing Easy and Fast Checkout with Payment Request API](https://developers.google.com/web/updates/2016/07/payment-request)
+[Bringing Easy and Fast Checkout with Payment Request API](/web/updates/2016/07/payment-request)
 
-[Payment Request API: an Integration Guide](https://developers.google.com/web/fundamentals/primers/payment-request/)
+[Payment Request API: an Integration Guide](/web/fundamentals/primers/payment-request/)
 
 <a id="resources" />
 

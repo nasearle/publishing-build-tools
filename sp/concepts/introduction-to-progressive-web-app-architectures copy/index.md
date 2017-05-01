@@ -195,6 +195,7 @@ The app shell model is great but how does it work in browsers that do not suppor
 </tr></table>
 
 
+
 <a id="styles" />
 
 
@@ -374,6 +375,7 @@ __Note: __For browsers that do not support service workers, we gracefully degrad
 <p><a href="https://events.google.com/io2016/schedule">https://events.google.com/io2016/schedule</a> </p>
 </td>
 </tr></table>
+
 
 
 <a id="migrating" />
@@ -678,6 +680,7 @@ Use the following table to determine which caching strategy is most appropriate 
 </tr></table>
 
 
+
 While you can implement these strategies yourself manually, using `sw-toolbox` is recommended for caching your app's dynamic content. The last column in the table shows the `sw-toolbox` library that provides a canonical implementation of each strategy. If you do implement additional caching logic, put the code in a separate JavaScript file and include it using the `importScripts()` method.
 
 Note that you do not have to choose just one strategy. The `sw-toolbox` routing syntax allows you to apply different strategies to different URL patterns. For example:
@@ -759,6 +762,7 @@ Use the following table to identify which caching strategy provides the right ba
 </tr></table>
 
 
+
 #### Example
 
 <table markdown="1">
@@ -822,6 +826,7 @@ Use the following table to identify which caching strategy provides the right ba
 <p>Network only</p>
 </td>
 </tr></table>
+
 
 
 <div class="note">

@@ -28,7 +28,7 @@ Codelab:  [Promises](https://google-developer-training.gitbooks.io/progressive-w
 
 
 
-[Promises](https://developers.google.com/web/fundamentals/getting-started/primers/promises) offer a better way to handle asynchronous code in JavaScript. Promises have been around for a while in the form of libraries, such as:
+[Promises](/web/fundamentals/getting-started/primers/promises) offer a better way to handle asynchronous code in JavaScript. Promises have been around for a while in the form of libraries, such as:
 
 *  [Q](https://github.com/kriskowal/q)
 *  [when](https://github.com/cujojs/when)
@@ -394,7 +394,7 @@ Promise.race([promise1, promise2])
 });
 ```
 
-This example appears to race the cache against the network, using the fastest returned resource. However, both the  [Cache API](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage) and  [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) can resolve with "bad" responses ( [fetch](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch) resolves even for 404s, and  [caches.match](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/match) resolves with falsey values if a resource is not available). In this example, if a resource is not available in the cache (which typically responds faster than the network), `Promise.race` resolves with the falsey value from the cache, and ignores the network request (which may resolve). See the  [Cache & network race](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-and-network-race) section in the  [Offline Cookbook](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/) for an example of a race function that works as expected.
+This example appears to race the cache against the network, using the fastest returned resource. However, both the  [Cache API](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage) and  [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) can resolve with "bad" responses ( [fetch](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch) resolves even for 404s, and  [caches.match](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/match) resolves with falsey values if a resource is not available). In this example, if a resource is not available in the cache (which typically responds faster than the network), `Promise.race` resolves with the falsey value from the cache, and ignores the network request (which may resolve). See the  [Cache & network race](/web/fundamentals/instant-and-offline/offline-cookbook/#cache-and-network-race) section in the  [Offline Cookbook](/web/fundamentals/instant-and-offline/offline-cookbook/) for an example of a race function that works as expected.
 
 <a id="further" />
 
@@ -404,7 +404,7 @@ This example appears to race the cache against the network, using the fastest re
 
 
 
-*  [JavaScript Promises: an Introduction](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
+*  [JavaScript Promises: an Introduction](/web/fundamentals/getting-started/primers/promises)
 *  [Promise - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 

@@ -58,7 +58,7 @@ This lab shows you how to integrate Google Analytics into your web apps.
 #### What you should know
 
 * Basic JavaScript and HTML
-* Familiarity with  [Push Notifications](https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/)
+* Familiarity with  [Push Notifications](/web/fundamentals/engage-and-retain/push-notifications/)
 * Some familiarity with the  [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 * The concept of an  [Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) (IIFE)
 * How to enable the developer console
@@ -107,7 +107,7 @@ In the browser, you should be prompted to allow notifications. If the prompt doe
 
 You should also see that a service worker registration is logged to the console.
 
-The app for this lab is a simple web page that has some  [push notification](https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/) code. 
+The app for this lab is a simple web page that has some  [push notification](/web/fundamentals/engage-and-retain/push-notifications/) code. 
 
 __main.js__ requests notification permission and registers a service worker, __sw.js__. The service worker has listeners for push events and notification events.
 
@@ -153,7 +153,7 @@ In a separate tab or window, navigate to  [analytics.google.com](https://analyti
 
 Create another one. Select the __Admin__ tab. Under __account__, select your current Google Analytics account and choose __create new account__. A single Gmail account can have multiple (currently 100) Google Analytics accounts. 
 
-![67167bdc1b3d25ee.png](img/67167bdc1b3d25ee.png)[IMAGEINFO]: ga_add_existing.png, Adding an account
+![Adding an account](img/67167bdc1b3d25ee.png)
 
 #### If you don't have a Google Analytics account:
 
@@ -161,7 +161,7 @@ Select __Sign up__ to begin creating your account.
 
 The account creation screen should look like this:
 
-![77f0da1cc8479fea.png](img/77f0da1cc8479fea.png)[IMAGEINFO]: ga_account_create.png, Creating an account
+![Creating an account](img/77f0da1cc8479fea.png)
 
 #### What would you like to track? 
 
@@ -230,7 +230,7 @@ If you lost your place:
 3. Then under __property__, select your property (for example "GA Code Lab Site") from the down list. 
 4. Now choose __Tracking Info__, followed by __Tracking Code__. 
 
-![e6c84f2ccde27125.png](img/e6c84f2ccde27125.png)[IMAGEINFO]: ga_find_snippet.png, Finding the snippet
+![Finding the snippet](img/e6c84f2ccde27125.png)
 
 Your tracking ID looks like `UA-XXXXXXXX-Y` and your tracking code snippet looks like:
 
@@ -257,11 +257,11 @@ Now return to the Google Analytics site. Examine the real time data:
 2. Select __Real-Time.__
 3. Select __Overview.__
 
-![b2dba5f011013e99.png](img/b2dba5f011013e99.png)[IMAGEINFO]: ga_realtime_nav.png, Real-time navigation
+![Real-time navigation](img/b2dba5f011013e99.png)
 
 You should see yourself being tracked. The screen should look similar to this (note that the full path may be shown):
 
-![83ce80dc15443148.png](img/83ce80dc15443148.png)[IMAGEINFO]: ga_realtime_me.png, Real-time screen
+![Real-time screen](img/83ce80dc15443148.png)
 
 <div class="note">
 
@@ -278,7 +278,7 @@ When a page loads, the tracking snippet script is executed. The  [Immediately In
 1. Creates another `script` tag that starts asynchronously downloading __analytics.js__, the library that does all of the analytics work. 
 2. Initializes a global `ga` function, called the command queue. This function allows "commands" to be scheduled and run once the __analytics.js__ library has loaded. 
 
-The next lines add two commands to the queue. The first creates a new  [tracker object](https://developers.google.com/analytics/devguides/collection/analyticsjs/tracker-object-reference). Tracker objects track and store data. When the new tracker is created, the analytics library gets the user's IP address, user agent, and other page information, and stores it in the tracker. From this info Google Analytics can extract:
+The next lines add two commands to the queue. The first creates a new  [tracker object](/analytics/devguides/collection/analyticsjs/tracker-object-reference). Tracker objects track and store data. When the new tracker is created, the analytics library gets the user's IP address, user agent, and other page information, and stores it in the tracker. From this info Google Analytics can extract:
 
 * User's geographic location
 * User's browser and operating system (OS)
@@ -290,7 +290,7 @@ The second command sends a " [hit](https://support.google.com/analytics/answer/6
 
 Real-time mode in the Google Analytics dashboard shows the hit received from this script execution, along with the page (__Active Page__) that it was executed on.
 
-You can read this  [documentation](https://developers.google.com/analytics/devguides/collection/analyticsjs/how-analyticsjs-works) to learn more about how __analytics.js__ works.
+You can read this  [documentation](/analytics/devguides/collection/analyticsjs/how-analyticsjs-works) to learn more about how __analytics.js__ works.
 
 The code so far provides the basic functionality of Google Analytics. A tracker is created and a  pageview hit is sent every time the page is visited. In addition to the data gathered by tracker creation, the pageview event allows Google Analytics to infer:
 
@@ -300,14 +300,14 @@ The code so far provides the basic functionality of Google Analytics. A tracker 
 
 #### For more information
 
-*  [The tracking snippet](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
-*  [Tracker objects](https://developers.google.com/analytics/devguides/collection/analyticsjs/tracker-object-reference)
-*  [Creating trackers](https://developers.google.com/analytics/devguides/collection/analyticsjs/creating-trackers)
-*  [The create command](https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference#create)
-*  [The send command](https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference#send)
+*  [The tracking snippet](/analytics/devguides/collection/analyticsjs/)
+*  [Tracker objects](/analytics/devguides/collection/analyticsjs/tracker-object-reference)
+*  [Creating trackers](/analytics/devguides/collection/analyticsjs/creating-trackers)
+*  [The create command](/analytics/devguides/collection/analyticsjs/command-queue-reference#create)
+*  [The send command](/analytics/devguides/collection/analyticsjs/command-queue-reference#send)
 *  [Hits](https://support.google.com/analytics/answer/6086082)
-*  [The data sent in a hit](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters)
-*  [How analytics.js works](https://developers.google.com/analytics/devguides/collection/analyticsjs/how-analyticsjs-works)
+*  [The data sent in a hit](/analytics/devguides/collection/protocol/v1/parameters)
+*  [How analytics.js works](/analytics/devguides/collection/analyticsjs/how-analyticsjs-works)
 
 <a id="4" />
 
@@ -327,11 +327,11 @@ __Note:__ Data for our app is not available yet. It takes some time to process t
 
 Here you can see general information such as pageview records, bounce rate, ratio of new and returning visitors, and other statistics.
 
-![1b6463f39646e4e1.png](img/1b6463f39646e4e1.png)[IMAGEINFO]: ga_records_overview.png, Records overview
+![Records overview](img/1b6463f39646e4e1.png)
 
 You can also see specific information like visitors' language, country, city, browser, operating system, service provider, screen resolution, and device.
 
-![66759e07d712dd12.png](img/66759e07d712dd12.png)[IMAGEINFO]: ga_records_details.png, Records details
+![Records details](img/66759e07d712dd12.png)
 
 #### For more information
 
@@ -368,7 +368,7 @@ Navigate back to __app/index.html__ using the __Back__ link. Check the console l
 #### For more information
 
 *  [Chrome debugger extension](https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna)
-*  [Debugging Google Analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/debugging)
+*  [Debugging Google Analytics](/analytics/devguides/collection/analyticsjs/debugging)
 
 <a id="6" />
 
@@ -397,7 +397,7 @@ Save the script and refresh the page. Click __BUY NOW!!!__. Check the console lo
 
 Now return to the real-time reporting section of the Google Analytics dashboard (from the __Reporting__ tab, select __Real-Time__). Instead of selecting __Overview__, select __Events__. Do you see the custom event? (If not, try clicking __BUY NOW!!!__ again.)
 
-![1f21b1938268723a.png](img/1f21b1938268723a.png)[IMAGEINFO]: ga_realtime_events.png, Real-time events
+![Real-time events](img/1f21b1938268723a.png)
 
 #### Explanation
 
@@ -407,21 +407,21 @@ When using the send command in the `ga` command queue, the hit type can be set t
 
 __Note:__ Many of the <code>ga</code> commands are flexible and can use multiple signatures. 
 
-You can see all method signatures in the <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference">command queue reference</a>.
+You can see all method signatures in the <a href="/analytics/devguides/collection/analyticsjs/command-queue-reference">command queue reference</a>.
 
 </div>
 
-__Optional__: Update the custom event that you just added to use the alternative signature described in the <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference">command queue reference</a>. Hint: Look for the "send" command examples.
+__Optional__: Update the custom event that you just added to use the alternative signature described in the <a href="/analytics/devguides/collection/analyticsjs/command-queue-reference">command queue reference</a>. Hint: Look for the "send" command examples.
 
 You can view past events in the Google Analytics dashboard from the __Reporting__ tab by selecting __Behavior__, followed by __Events__ and then __Overview__. However your account won't yet have any past events to view (because you just created it).
 
-![3107f35a9adc1fb3.png](img/3107f35a9adc1fb3.png)[IMAGEINFO]: ga_record_events.png, Recorded events
+![Recorded events](img/3107f35a9adc1fb3.png)
 
 #### For more information
 
-*  [Event tracking](https://developers.google.com/analytics/devguides/collection/analyticsjs/events)
+*  [Event tracking](/analytics/devguides/collection/analyticsjs/events)
 *  [About events](https://support.google.com/analytics/answer/1033068)
-*  [Command queue reference](https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference)
+*  [Command queue reference](/analytics/devguides/collection/analyticsjs/command-queue-reference)
 
 <a id="7" />
 
@@ -487,7 +487,7 @@ ga('send', 'event', 'push', 'unsubscribe', 'success');
 
 Save the script and refresh the app. Now test the subscribe and unsubscribe buttons. Confirm that you see the custom events logged in the browser console, and that they are also shown on the Google Analytics dashboard. 
 
-Note that this time we used the alternative  [send command signature](https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference#send), which is more concise.
+Note that this time we used the alternative  [send command signature](/analytics/devguides/collection/analyticsjs/command-queue-reference#send), which is more concise.
 
 __Optional__: Add analytics hits for the `catch` blocks of the `subscribe` and `unsubscribe` functions. In other words, add analytics code to record when users have errors subscribing or unsubscribing. Then manually block notifications in the app by clicking the icon next to the URL and revoking permission for notifications. Refresh the page and test subscribing, you should see an event fired for the subscription error logged in the console (and in the real-time section of the Google Analytics dashboard). Remember to restore notification permissions when you are done.
 
@@ -603,7 +603,7 @@ Save the script.
 
 #### Explanation
 
-Because the service worker does not have access to the analytics command queue, `ga`, we need to use the Google Analytics  [Measurement Protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/) interface. This interface lets us make HTTP requests to send hits, regardless of the execution context. 
+Because the service worker does not have access to the analytics command queue, `ga`, we need to use the Google Analytics  [Measurement Protocol](/analytics/devguides/collection/protocol/v1/) interface. This interface lets us make HTTP requests to send hits, regardless of the execution context. 
 
 We start by creating a variable with your tracking ID. This will be used to ensure that hits are sent to your account and property, just like in the analytics snippet. 
 
@@ -630,9 +630,9 @@ var payloadData = {
 };
 ```
 
-The __version number__, __client ID__, __tracking ID__, and __hit type__ parameters are  [required by the API](https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide). The __event category__, __event action__, and __event label__ are the same parameters that we have been using with the command queue interface.
+The __version number__, __client ID__, __tracking ID__, and __hit type__ parameters are  [required by the API](/analytics/devguides/collection/protocol/v1/devguide). The __event category__, __event action__, and __event label__ are the same parameters that we have been using with the command queue interface.
 
-Next, the hit data is  [formatted into a URI](https://developers.google.com/analytics/devguides/collection/protocol/v1/reference) with the following code:
+Next, the hit data is  [formatted into a URI](/analytics/devguides/collection/protocol/v1/reference) with the following code:
 
 #### analytics-helper.js
 
@@ -647,7 +647,7 @@ var payloadString = Object.keys(payloadData)
 .join('&');
 ```
 
-Finally the data is sent to the  [API endpoint](https://developers.google.com/analytics/devguides/collection/protocol/v1/reference) (__https://www.google-analytics.com/collect__) with the following code:
+Finally the data is sent to the  [API endpoint](/analytics/devguides/collection/protocol/v1/reference) (__https://www.google-analytics.com/collect__) with the following code:
 
 #### analytics-helper.js
 
@@ -668,7 +668,7 @@ __Note:__ You can learn more about the Fetch API in the  [fetch codelab](https:/
 
 #### For more information
 
-*  [Measurement Protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/)
+*  [Measurement Protocol](/analytics/devguides/collection/protocol/v1/)
 *  [Push demo](https://github.com/gauntface/simple-push-demo)
 
 ### 8.2 Send hits from the service worker
@@ -721,7 +721,7 @@ Do you see console logs for each event? Do you see events on Google Analytics?
 
 <div class="note">
 
-__Note: __Because these events use the Measurement Protocol interface instead of <strong>analytics_debug.js</strong>, the debug console logs don't appear. You can debug the Measurement Protocol hits with <a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/validating-hits"> hit validation</a>.
+__Note: __Because these events use the Measurement Protocol interface instead of <strong>analytics_debug.js</strong>, the debug console logs don't appear. You can debug the Measurement Protocol hits with <a href="/analytics/devguides/collection/protocol/v1/validating-hits"> hit validation</a>.
 
 </div>
 
@@ -777,7 +777,7 @@ You will see an error in the console because we are offline and can't make reque
 
 [Now check IndexedDB](tools_for_pwa_developers.md#indexeddb). Open __offline-google-analytics__. You should see a URL cached. If you are using Chrome (see screenshot below), it is shown in __urls__.You may need to click the refresh icon in the __urls__ interface.
 
-![88188d9545f98f83.png](img/88188d9545f98f83.png)[IMAGEINFO]: ga_offline.png, Offline hits
+![Offline hits](img/88188d9545f98f83.png)
 
 Now disable offline mode, and refresh the page. Check __IndexedDB__ again, and observe that the URL is no longer cached.
 
@@ -785,7 +785,7 @@ Now check the Google Analytics dashboard. You should see the custom event!
 
 #### Explanation
 
-Here we import and initialize the __offline-google-analytics-import.js__ library. You can check out the  [documentation](https://developers.google.com/web/updates/2016/07/offline-google-analytics) for details, but this library adds a fetch event handler to the service worker that only listens for requests made to the Google Analytics domain. The handler attempts to send Google Analytics data just like we have done so far, by network requests. If the network request fails, the request is stored in IndexedDB. The requests are then sent later when connectivity is re-established.
+Here we import and initialize the __offline-google-analytics-import.js__ library. You can check out the  [documentation](/web/updates/2016/07/offline-google-analytics) for details, but this library adds a fetch event handler to the service worker that only listens for requests made to the Google Analytics domain. The handler attempts to send Google Analytics data just like we have done so far, by network requests. If the network request fails, the request is stored in IndexedDB. The requests are then sent later when connectivity is re-established.
 
 This strategy won't work for hits sent from our service worker because the service worker doesn't listen to fetch events from itself (that could cause some serious problems!). This isn't so important in this case because all the hits that we would want to send from the service worker are tied to online events (like push notifications) anyways.
 
@@ -804,8 +804,8 @@ __Note:__ Some users have reported a bug in Chrome that recreates deleted databa
 #### For more information
 
 *  [ImportScripts](https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts)
-*  [Offline Google Analytics](https://developers.google.com/web/updates/2016/07/offline-google-analytics)
-*  [Google I/O offline example](https://developers.google.com/web/showcase/2015/service-workers-iowa#offline_google_analytics)
+*  [Offline Google Analytics](/web/updates/2016/07/offline-google-analytics)
+*  [Google I/O offline example](/web/showcase/2015/service-workers-iowa#offline_google_analytics)
 *  [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
 
 <a id="10" />
@@ -834,17 +834,17 @@ __Note:__ Notification actions may not be available in Firefox.
 
 How can you send analytics hits for an action that takes the user away from your page, such as clicking a link to an external vendor or submitting a form (many browsers stop executing JavaScript once the current page starts unloading, preventing send commands from being executed)? 
 
-Research the  [hitCallback](https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits) functionality. Use a hitCallback to send an analytics event whenever a user clicks the __Special offers__ external link. Make sure to use a timeout so that if the analytics library fails, the user's desired action will still complete!
+Research the  [hitCallback](/analytics/devguides/collection/analyticsjs/sending-hits) functionality. Use a hitCallback to send an analytics event whenever a user clicks the __Special offers__ external link. Make sure to use a timeout so that if the analytics library fails, the user's desired action will still complete!
 
 <div class="note">
 
-__Note:__ If the user's browser supports <code>navigator.sendBeacon</code> then 'beacon' can be specified as the transport mechanism. This avoids the need for a hitCallback. See the <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits">documentation</a> for more info.
+__Note:__ If the user's browser supports <code>navigator.sendBeacon</code> then 'beacon' can be specified as the transport mechanism. This avoids the need for a hitCallback. See the <a href="/analytics/devguides/collection/analyticsjs/sending-hits">documentation</a> for more info.
 
 </div>
 
 #### For more information
 
-*  [Sending hits](https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits)
+*  [Sending hits](/analytics/devguides/collection/analyticsjs/sending-hits)
 
 #### Solution code
 
@@ -864,7 +864,7 @@ You now know how to integrate Google Analytics into your apps, and how to use an
 
 ### Resources
 
-*  [Adding analytics.js to Your Site](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
+*  [Adding analytics.js to Your Site](/analytics/devguides/collection/analyticsjs/)
 *  [Google Analytics Academy](https://analyticsacademy.withgoogle.com/) (non-technical)
 *  [Measuring Critical Performance Metrics with Google Analytics](https://codelabs.developers.google.com/codelabs/performance-analytics/index.html?index=..%2F..%2Findex#0) code lab
 *  [pageVisibilityTracker plugin](https://github.com/googleanalytics/autotrack/blob/master/docs/plugins/page-visibility-tracker.md#improving-session-duration-calculations) (improves pageview and session duration accuracy)

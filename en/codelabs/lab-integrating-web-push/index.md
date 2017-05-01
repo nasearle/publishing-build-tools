@@ -870,7 +870,7 @@ The web-push library makes using VAPID relatively simple, but the process is act
 
 #### For more information
 
-*  [Web Push Interoperability Wins](https://developers.google.com/web/updates/2016/07/web-push-interop-wins)
+*  [Web Push Interoperability Wins](/web/updates/2016/07/web-push-interop-wins)
 *  [Using VAPID](https://blog.mozilla.org/services/2016/04/04/using-vapid-with-webpush/)
 
 #### Solution code
@@ -1058,8 +1058,8 @@ In this lab we have learned how to create notifications and configure them so th
 
 #### Introduction to push notifications
 
-*  [Enable Push Notifications for your Web App](https://developers.google.com/web/fundamentals/getting-started/push-notifications/)
-*  [Web Push Notifications: Timely, Relevant, and Precise](https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/)
+*  [Enable Push Notifications for your Web App](/web/fundamentals/getting-started/push-notifications/)
+*  [Web Push Notifications: Timely, Relevant, and Precise](/web/fundamentals/engage-and-retain/push-notifications/)
 
 #### Demos
 
@@ -1072,7 +1072,7 @@ In this lab we have learned how to create notifications and configure them so th
 
 #### Learn about encryption
 
-*  [Web Push Payload Encryption](https://developers.google.com/web/updates/2016/03/web-push-encryption)
+*  [Web Push Payload Encryption](/web/updates/2016/03/web-push-encryption)
 *  [Web Push: Data Encryption Test Page](https://jrconlin.github.io/WebPushDataTestPage/)
 
 #### Learn about Firebase Cloud Messaging

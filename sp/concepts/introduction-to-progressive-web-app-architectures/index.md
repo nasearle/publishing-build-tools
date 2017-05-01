@@ -40,7 +40,7 @@ Progressive Web Apps combine many of the advantages of native apps and the Web. 
 
 PWAs deliver a speedy experience even when the user is offline or on an unreliable network. There is also the potential to incorporate features previously available only to native applications, such as push notifications. Developing web apps with offline functionality and high performance depends on using service workers in combination with a client-side storage API, such as the  [Cache Storage API](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage)  [o](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage)r [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API). 
 
-__Service workers__: Thanks to the caching and storage APIs available to service workers, PWAs can precache parts of a web app so that it loads instantly the next time a user opens it. Using a service worker gives your web app the ability to intercept and handle network requests, including managing multiple caches, minimizing data traffic, and saving offline user-generated data until online again. This caching allows developers to focus on speed, giving web apps the same instant loading and regular updates seen in native applications. If you are unfamiliar with service workers, read  [Introduction To Service Workers](https://developers.google.com/web/fundamentals/primers/service-worker/) to learn more about what they can do, how their lifecycle works, and more.
+__Service workers__: Thanks to the caching and storage APIs available to service workers, PWAs can precache parts of a web app so that it loads instantly the next time a user opens it. Using a service worker gives your web app the ability to intercept and handle network requests, including managing multiple caches, minimizing data traffic, and saving offline user-generated data until online again. This caching allows developers to focus on speed, giving web apps the same instant loading and regular updates seen in native applications. If you are unfamiliar with service workers, read  [Introduction To Service Workers](/web/fundamentals/primers/service-worker/) to learn more about what they can do, how their lifecycle works, and more.
 
 A service worker performs its functions without the need for an open web page or user interaction. This enables new services such as Push Messaging or capturing user actions while offline and delivering them while online. (This is unlikely to bloat your application because the browser starts and stops the service worker as needed to manage memory.)
 
@@ -88,7 +88,7 @@ Here is a high-level description of how it works:
 
     Next, the SPA requests content (for example, via `XMLHttpRequest` or the  [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)) and page content is fetched and used to populate the view. Each request triggers a `fetch` event inside the service worker that can be handled any way you choose. Once those handlers complete, your service worker enters into an idle state. So, the service worker is idle until a network request fires off a new event. And, in response to a network request, a `fetch` event handler intercepts the request and responds as you see fit. After a period of idleness your service worker script is stopped automatically but when the next network request is made when the page is loaded again the service worker is started back up and can immediately respond to `fetch` events. 
 
-![c9f7d527c81ed1a1.png](img/c9f7d527c81ed1a1.png)[IMAGEINFO]: service-worker-lifecycle.png, Service Worker Lifecycle
+![Service Worker Lifecycle](img/c9f7d527c81ed1a1.png)
 
 <div class="note">
 
@@ -104,124 +104,96 @@ The app shell model is great but how does it work in browsers that do not suppor
 
 <table markdown="1">
 <tr><td colspan="1" rowspan="1">
-
-__Component__
+<p><strong>Component</strong></p>
 </td><td colspan="1" rowspan="1">
-
-__Description__
+<p><strong>Description</strong></p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-app shell
+<p>app shell</p>
 </td><td colspan="1" rowspan="1">
-
-The minimal HTML, CSS, and JavaScript and any other static resources that provide the structure for your page, minus the actual content specific to the page. 
+<p>The minimal HTML, CSS, and JavaScript and any other static resources that provide the structure for your page, minus the actual content specific to the page. </p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-cache
+<p>cache</p>
 </td><td colspan="1" rowspan="1">
-
-There are two types of cache in the browser: browser-managed cache and application-managed cache (service worker).
-
-* __Browser-managed caches__ are a temporary storage location on your computer for files downloaded by your browser to display websites. Files that are cached locally include any documents that make up a website, such as HTML files, CSS style sheets, JavaScript scripts, as well as graphic images and other multimedia content. This cache is managed automatically by the browser and is not available offline.
-* __Application-managed caches__ are created using the  [Cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache) independent of the browser-managed caches. This API is available to applications (via window.caches) and the service worker. Application- managed caches hold the same kinds of assets as a browser cache but are  accessible offline (e.g. by the service worker to enables offline support.) Code that uses the Cache API manages the contents of its own caches.
-
-Cache is a great tool you can use when building your app, as long as the cache you use is appropriate for each resource. Several caching strategies are described in the PWA  [Caching Strategies](#bestcaching) tutorial.
+<p>There are two types of cache in the browser: browser-managed cache and application-managed cache (service worker).</p>
+<ul>
+<li><strong>Browser-managed caches</strong> are a temporary storage location on your computer for files downloaded by your browser to display websites. Files that are cached locally include any documents that make up a website, such as HTML files, CSS style sheets, JavaScript scripts, as well as graphic images and other multimedia content. This cache is managed automatically by the browser and is not available offline.</li>
+<li><strong>Application-managed caches</strong> are created using the  <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache">Cache API</a> independent of the browser-managed caches. This API is available to applications (via window.caches) and the service worker. Application- managed caches hold the same kinds of assets as a browser cache but are  accessible offline (e.g. by the service worker to enables offline support.) Code that uses the Cache API manages the contents of its own caches.</li>
+</ul>
+<p>Cache is a great tool you can use when building your app, as long as the cache you use is appropriate for each resource. Several caching strategies are described in the PWA  <a href="#bestcaching">Caching Strategies</a> tutorial.</p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-client-side rendering (CSR)
+<p>client-side rendering (CSR)</p>
 </td><td colspan="1" rowspan="1">
-
-Client-side rendering means JavaScript running in the browser produces HTML (probably via templating). The benefit is that you can update the screen instantly when the user clicks, rather than waiting a few hundred milliseconds at least while the server is contacted to ask what to display. Sites where you mostly navigate and view static content can get away with mostly server-side rendering. Any portion of a page that is animated or highly interactive (a draggable slider, a sortable table, a dropdown menu) almost certainly uses client-side rendering.
+<p>Client-side rendering means JavaScript running in the browser produces HTML (probably via templating). The benefit is that you can update the screen instantly when the user clicks, rather than waiting a few hundred milliseconds at least while the server is contacted to ask what to display. Sites where you mostly navigate and view static content can get away with mostly server-side rendering. Any portion of a page that is animated or highly interactive (a draggable slider, a sortable table, a dropdown menu) almost certainly uses client-side rendering.</p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-dynamic content
+<p>dynamic content</p>
 </td><td colspan="1" rowspan="1">
-
-Dynamic content is all of the data, images, and other resources that your web app needs to function, but exists independently from your app shell. Although the app shell is intended to quickly populate the content of your site, users might expect dynamic content, in which case your app must fetch data specific to the user's needs. Sometimes an app pulls this data from external, third-party APIs, and sometimes from first-party data that is dynamically generated or frequently updated.
+<p>Dynamic content is all of the data, images, and other resources that your web app needs to function, but exists independently from your app shell. Although the app shell is intended to quickly populate the content of your site, users might expect dynamic content, in which case your app must fetch data specific to the user's needs. Sometimes an app pulls this data from external, third-party APIs, and sometimes from first-party data that is dynamically generated or frequently updated.</p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Fetch API
+<p>Fetch API</p>
 </td><td colspan="1" rowspan="1">
-
-You can optionally implement the  [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) to help the service worker get data.  For example, if your web app is for a newspaper, it might make use of a first-party API to fetch recent articles, and a third-party API to fetch the current weather. Both of those types of requests fall into the category of dynamic content.
+<p>You can optionally implement the  <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a> to help the service worker get data.  For example, if your web app is for a newspaper, it might make use of a first-party API to fetch recent articles, and a third-party API to fetch the current weather. Both of those types of requests fall into the category of dynamic content.</p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-progressive enhancement
+<p>progressive enhancement</p>
 </td><td colspan="1" rowspan="1">
-
-An approach to web development that begins with common browser features, and then adds in functionality or enhancements when the user's browser supports more modern technologies.
+<p>An approach to web development that begins with common browser features, and then adds in functionality or enhancements when the user's browser supports more modern technologies.</p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-PWA architecture styles
+<p>PWA architecture styles</p>
 </td><td colspan="1" rowspan="1">
-
-Any of several approaches to building PWAs based on the back-end technologies available and the performance requirements. The patterns include using an app shell, server-side rendering, client-side rendering, and others. These patterns are listed in  [PWA Architectural Patterns](#patterns).  
+<p>Any of several approaches to building PWAs based on the back-end technologies available and the performance requirements. The patterns include using an app shell, server-side rendering, client-side rendering, and others. These patterns are listed in  <a href="#patterns">PWA Architectural Patterns</a>.  </p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-server-side rendering (SSR)
+<p>server-side rendering (SSR)</p>
 </td><td colspan="1" rowspan="1">
-
-SSR means when the browser navigates to a URL and fetches the page, it immediately gets back HTML describing the page. SSR is nice because the page loads faster (this can be a server-rendered version of the full page, just the app shell or the content). There's no  *white page*  displayed while the browser downloads the rendering code and data and runs the code.  If rendering content on the server-side, users can get meaningful text on their screens even if a spotty network connection prevents assets like JavaScript from being fully fetched and parsed. SSR also maintains the idea that pages are documents, and if you ask a server for a document by its URL, then the text of the document is returned, rather than a program that generates that text using a complicated API.
+<p>SSR means when the browser navigates to a URL and fetches the page, it immediately gets back HTML describing the page. SSR is nice because the page loads faster (this can be a server-rendered version of the full page, just the app shell or the content). There's no  <em>white page</em>  displayed while the browser downloads the rendering code and data and runs the code.  If rendering content on the server-side, users can get meaningful text on their screens even if a spotty network connection prevents assets like JavaScript from being fully fetched and parsed. SSR also maintains the idea that pages are documents, and if you ask a server for a document by its URL, then the text of the document is returned, rather than a program that generates that text using a complicated API.</p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-service worker
+<p>service worker</p>
 </td><td colspan="1" rowspan="1">
-
-A type of  [web worker](http://www.w3.org/TR/workers/) that runs alongside your web app but with a life span that is tied to the execution of the app's events. Some of its services include a network proxy written in JavaScript that intercepts HTTP/HTTPS requests made from web pages. It also receives push messages. Additional features are planned in the future.
+<p>A type of  <a href="http://www.w3.org/TR/workers/">web worker</a> that runs alongside your web app but with a life span that is tied to the execution of the app's events. Some of its services include a network proxy written in JavaScript that intercepts HTTP/HTTPS requests made from web pages. It also receives push messages. Additional features are planned in the future.</p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-`sw-precache`
+<p><code>sw-precache</code></p>
 </td><td colspan="1" rowspan="1">
-
-The `sw-precache` module integrates with your build process and generates code for caching and maintaining all the resources in your app shell. 
+<p>The <code>sw-precache</code> module integrates with your build process and generates code for caching and maintaining all the resources in your app shell. </p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-`sw-toolbox`
+<p><code>sw-toolbox</code></p>
 </td><td colspan="1" rowspan="1">
-
-The `sw-toolbox` library is loaded by your service worker at run time and provides pre-written tools for applying common caching strategies to different URL patterns.
+<p>The <code>sw-toolbox</code> library is loaded by your service worker at run time and provides pre-written tools for applying common caching strategies to different URL patterns.</p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Universal JavaScript rendering
+<p>Universal JavaScript rendering</p>
 </td><td colspan="1" rowspan="1">
-
-Universal or Isomorphic JavaScript apps have code that can run on the client-side and the server-side. This means that some of your application view logic can be executed on both the server and the client. This means better performance time to first paint and more stateful web apps. Universal apps come with interesting sets of challenges around routing (ideally, having a single set of routes mapping URI patterns to route handlers), universal data fetching (describing resources for a component independent from the fetching mechanism so they can be rendered entirely on the server or the client) and view rendering. (Views must be renderable on either the client or the server depending on our app needs.)
+<p>Universal or Isomorphic JavaScript apps have code that can run on the client-side and the server-side. This means that some of your application view logic can be executed on both the server and the client. This means better performance time to first paint and more stateful web apps. Universal apps come with interesting sets of challenges around routing (ideally, having a single set of routes mapping URI patterns to route handlers), universal data fetching (describing resources for a component independent from the fetching mechanism so they can be rendered entirely on the server or the client) and view rendering. (Views must be renderable on either the client or the server depending on our app needs.)</p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-web app manifest
+<p>web app manifest</p>
 </td><td colspan="1" rowspan="1">
-
-The app shell is deployed alongside a  [__web app manifest__](https://www.w3.org/TR/appmanifest/), which is a simple JSON file that controls how the application appears to the user and how it can be launched. (This is typically named `manifest.json`.) When connecting to a network for the first time, a web browser reads the manifest file, downloads the resources given and stores them locally. Then, if there is no network connection, the browser uses the local cache to render the web app while offline.
-
-__ *Note:* __ * Do not confuse this with the older *  *`.manifest`*  * file used by AppCache. PWAs should use the service worker to implement caching and the web app manifest to enable "add to homescreen" and push messaging. * 
+<p>The app shell is deployed alongside a  <a href="https://www.w3.org/TR/appmanifest/"><strong>web app manifest</strong></a>, which is a simple JSON file that controls how the application appears to the user and how it can be launched. (This is typically named <code>manifest.json</code>.) When connecting to a network for the first time, a web browser reads the manifest file, downloads the resources given and stores them locally. Then, if there is no network connection, the browser uses the local cache to render the web app while offline.</p>
+<p><strong> <em>Note:</em> </strong> <em> Do not confuse this with the older </em>  <em><code>.manifest</code></em>  <em> file used by AppCache. PWAs should use the service worker to implement caching and the web app manifest to enable "add to homescreen" and push messaging. </em> </p>
 </td>
 </tr></table>
+
 
 <a id="styles" />
 
@@ -275,7 +247,7 @@ In an app shell architecture, a server-side component should be able to treat th
 
 ### PWA Architectural Patterns
 
-PWAs can be built with any architectural style (SSR, CSR, or a hybrid of the two) but service workers imply some subtle changes in how you build your application architecture. See also  [Instant Loading Web Apps with an Application Shell Architecture, which ](https://developers.google.com/web/updates/2015/11/app-shell)provides an in-depth description of the following patterns, that are known styles for building PWAs. The patterns are listed below in recommended order. See the  [Table of Known Patterns for Building PWAs](#patternstable) for examples of real-world businesses using each pattern. 
+PWAs can be built with any architectural style (SSR, CSR, or a hybrid of the two) but service workers imply some subtle changes in how you build your application architecture. See also  [Instant Loading Web Apps with an Application Shell Architecture, which ](/web/updates/2015/11/app-shell)provides an in-depth description of the following patterns, that are known styles for building PWAs. The patterns are listed below in recommended order. See the  [Table of Known Patterns for Building PWAs](#patternstable) for examples of real-world businesses using each pattern. 
 
 1. Application shell (SSR both shell + content for entry page) + use JavaScript to fetch content for any further routes and do a "take over"
 
@@ -319,128 +291,90 @@ __Note: __For browsers that do not support service workers, we gracefully degrad
 
 <table markdown="1">
 <tr><td colspan="1" rowspan="1">
-
-__Use-case__
+<p><strong>Use-case</strong></p>
 </td><td colspan="1" rowspan="1">
-
-__Patterns__
+<p><strong>Patterns</strong></p>
 </td><td colspan="1" rowspan="1">
-
-__Examples__
+<p><strong>Examples</strong></p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Publishing
+<p>Publishing</p>
 </td><td colspan="1" rowspan="1">
-
-Full SSR
+<p>Full SSR</p>
 </td><td colspan="1" rowspan="1">
-
-[https://babe.news/](https://babe.news/read/7787068/begini-dalih-ahok-tanggapi-teguran-presiden-soal-apbd)
-
-[https://ampbyexample.com](https://ampbyexample.com)
-
-[https://ampproject.org](https://ampproject.org)
+<p><a href="https://babe.news/read/7787068/begini-dalih-ahok-tanggapi-teguran-presiden-soal-apbd">https://babe.news/</a></p>
+<p><a href="https://ampbyexample.com">https://ampbyexample.com</a></p>
+<p><a href="https://ampproject.org">https://ampproject.org</a></p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Publishing
+<p>Publishing</p>
 </td><td colspan="1" rowspan="1">
-
-Application Shell
+<p>Application Shell</p>
 </td><td colspan="1" rowspan="1">
-
-[https://app.jalantikus.com/](https://app.jalantikus.com/) 
-
-[https://m.geo.tv/](https://m.geo.tv/) 
-
-[https://app.kompas.com/](https://app.kompas.com/) 
-
-[https://www.nfl.com/now/](https://www.nfl.com/now/) 
-
-[https://www.chromestatus.com](https://www.chromestatus.com) 
+<p><a href="https://app.jalantikus.com/">https://app.jalantikus.com/</a> </p>
+<p><a href="https://m.geo.tv/">https://m.geo.tv/</a> </p>
+<p><a href="https://app.kompas.com/">https://app.kompas.com/</a> </p>
+<p><a href="https://www.nfl.com/now/">https://www.nfl.com/now/</a> </p>
+<p><a href="https://www.chromestatus.com">https://www.chromestatus.com</a> </p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Publishing
+<p>Publishing</p>
 </td><td colspan="1" rowspan="1">
-
-AppShell + SSR content for entry pages
+<p>AppShell + SSR content for entry pages</p>
 </td><td colspan="1" rowspan="1">
-
-[https://react-hn.appspot.com](https://react-hn.appspot.com)
-
-[https://www.polymer-project.org/1.0/](https://www.polymer-project.org/1.0/) 
+<p><a href="https://react-hn.appspot.com">https://react-hn.appspot.com</a></p>
+<p><a href="https://www.polymer-project.org/1.0/">https://www.polymer-project.org/1.0/</a> </p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Publishing
+<p>Publishing</p>
 </td><td colspan="1" rowspan="1">
-
-Streams for body content / UI
+<p>Streams for body content / UI</p>
 </td><td colspan="1" rowspan="1">
-
-[https://wiki-offline.jakearchibald.com/wiki/The_Raccoons](https://wiki-offline.jakearchibald.com/wiki/The_Raccoons) 
+<p><a href="https://wiki-offline.jakearchibald.com/wiki/The_Raccoons">https://wiki-offline.jakearchibald.com/wiki/The_Raccoons</a> </p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Social
+<p>Social</p>
 </td><td colspan="1" rowspan="1">
-
-AppShell
+<p>AppShell</p>
 </td><td colspan="1" rowspan="1">
-
-[https://web.telegram.org/](https://web.telegram.org/) 
+<p><a href="https://web.telegram.org/">https://web.telegram.org/</a> </p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-E-commerce
+<p>E-commerce</p>
 </td><td colspan="1" rowspan="1">
-
-Application Shell
+<p>Application Shell</p>
 </td><td colspan="1" rowspan="1">
-
-[https://m.aliexpress.com/](https://m.aliexpress.com/) 
-
-[https://kongax.konga.com/](https://kongax.konga.com/) 
-
-[https://m.flipkart.com](https://m.flipkart.com) (mobile/emulate)
-
-[https://m.airberlin.com/en/pwa](https://m.airberlin.com/en/pwa)
-
-[https://shop.polymer-project.org/](https://shop.polymer-project.org/) 
+<p><a href="https://m.aliexpress.com/">https://m.aliexpress.com/</a> </p>
+<p><a href="https://kongax.konga.com/">https://kongax.konga.com/</a> </p>
+<p><a href="https://m.flipkart.com">https://m.flipkart.com</a> (mobile/emulate)</p>
+<p><a href="https://m.airberlin.com/en/pwa">https://m.airberlin.com/en/pwa</a></p>
+<p><a href="https://shop.polymer-project.org/">https://shop.polymer-project.org/</a> </p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-E-commerce
+<p>E-commerce</p>
 </td><td colspan="1" rowspan="1">
-
-AppShell + SSR content for entry page
+<p>AppShell + SSR content for entry page</p>
 </td><td colspan="1" rowspan="1">
-
-[https://selio.com/](https://selio.com/) (try on mobile/emulate) 
-
-[https://lite.5milesapp.com/](https://lite.5milesapp.com/) (partial)
+<p><a href="https://selio.com/">https://selio.com/</a> (try on mobile/emulate) </p>
+<p><a href="https://lite.5milesapp.com/">https://lite.5milesapp.com/</a> (partial)</p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Conference
+<p>Conference</p>
 </td><td colspan="1" rowspan="1">
-
-AppShell
+<p>AppShell</p>
 </td><td colspan="1" rowspan="1">
-
-[https://events.google.com/io2016/schedule](https://events.google.com/io2016/schedule) 
+<p><a href="https://events.google.com/io2016/schedule">https://events.google.com/io2016/schedule</a> </p>
 </td>
 </tr></table>
+
 
 <a id="migrating" />
 
@@ -458,13 +392,13 @@ Each milestone allows you to deploy separately, measure the potential performanc
 
 <div class="note">
 
-__Note:__ Understanding the network traffic is key to successful migration. You can use the guidelines in  [Measure Resource Loading Times](https://developers.google.com/web/tools/chrome-devtools/profile/network-performance/resource-loading) to get started using the Network DevTools panel.
+__Note:__ Understanding the network traffic is key to successful migration. You can use the guidelines in  [Measure Resource Loading Times](/web/tools/chrome-devtools/profile/network-performance/resource-loading) to get started using the Network DevTools panel.
 
 </div>
 
 ### Migrating an Existing Site with Server Rendering to PWA
 
-Server-rendered pages can vary in complexity, either being (primarily) static HTML pages or involve more dynamic content. It is useful to think about how you might want to handle dynamic content as a number of different offline caching strategies can be used here. The  [Offline Cookbook](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/) is a good reference point once you moved your site over to  [HTTPS](https://developers.google.com/web/fundamentals/security/encrypt-in-transit/why-https), added a  [Web App manifest](https://developers.google.com/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android) and can start crafting your service worker story.
+Server-rendered pages can vary in complexity, either being (primarily) static HTML pages or involve more dynamic content. It is useful to think about how you might want to handle dynamic content as a number of different offline caching strategies can be used here. The  [Offline Cookbook](/web/fundamentals/instant-and-offline/offline-cookbook/) is a good reference point once you moved your site over to  [HTTPS](/web/fundamentals/security/encrypt-in-transit/why-https), added a  [Web App manifest](/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android) and can start crafting your service worker story.
 
 <div class="note">
 
@@ -477,17 +411,17 @@ Once you decide on a strategy for caching then you must implement it. A SPA arch
 However, it can take some time to refactor an existing site/app over to the SPA architecture. If refactoring is a daunting task or if using an exclusively SSR approach is your only option for now, then you can still take advantage of service worker caching. But, you might end up treating your UI app shell the same way you would dynamic content. 
 
 * A cache-first strategy will not be entirely safe here if your server-rendered content is not entirely static and may change.
-* A  [cache/network race](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-and-network-race) approach might work as with some combinations of hardware, getting resources from the network can be quicker than going to disk. Just keep in mind that requesting content from the network when the user has some copy of it on their device can waste potentially costly data.
-* A  [network-first approach that falls back to the cache](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#network-falling-back-to-cache) might also work. Effectively, provide online users with the most up to date version of the content, but offline users get an older cached version. If a network request succeeds, then ensure the cached version gets updated. 
+* A  [cache/network race](/web/fundamentals/instant-and-offline/offline-cookbook/#cache-and-network-race) approach might work as with some combinations of hardware, getting resources from the network can be quicker than going to disk. Just keep in mind that requesting content from the network when the user has some copy of it on their device can waste potentially costly data.
+* A  [network-first approach that falls back to the cache](/web/fundamentals/instant-and-offline/offline-cookbook/#network-falling-back-to-cache) might also work. Effectively, provide online users with the most up to date version of the content, but offline users get an older cached version. If a network request succeeds, then ensure the cached version gets updated. 
 
-Any of these strategies implements a web app that works offline. However, it is possible for data (any common HTML between /route1, /route2 , /route3, etc) to be cached twice. There can be performance and bandwidth hits when going to the network for the full content of the page as opposed to the app shell approach only fetches content (instead of content + UI). This can be mitigated using proper  [HTTP browser caching headers](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching).
+Any of these strategies implements a web app that works offline. However, it is possible for data (any common HTML between /route1, /route2 , /route3, etc) to be cached twice. There can be performance and bandwidth hits when going to the network for the full content of the page as opposed to the app shell approach only fetches content (instead of content + UI). This can be mitigated using proper  [HTTP browser caching headers](/web/fundamentals/performance/optimizing-content-efficiency/http-caching).
 
 If you have time for a larger refactor, then try to implement a hybrid approach that relies on server-side rendering for non-service worker controlled navigations. This then upgrades to an SPA-style experience when the service worker is installed. To accomplish this, use a JavaScript framework that supports universal rendering so that the code to render pages is shared between the server and client. React, Ember and Angular are examples of solutions that have universal rendering options.
 
 ### Additional Migration and Architectural Considerations
 
 * The app shell architecture comes with some challenges because the network request for content is delayed by the app shell loading from the cache, the JavaScript executing, and initiating the fetch. Eventually, Streams is a viable option in this case. Until then, the four known patterns described earlier for building PWAs are valid approaches.
-* The app shell should be managed with a cache-first strategy (cache-first, network-fallback). The point is to get reliable performance and to achieve this you must get the cache out of the network. See the caching strategies in  [The Offline Cookbook](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/)  for more information.
+* The app shell should be managed with a cache-first strategy (cache-first, network-fallback). The point is to get reliable performance and to achieve this you must get the cache out of the network. See the caching strategies in  [The Offline Cookbook](/web/fundamentals/instant-and-offline/offline-cookbook/)  for more information.
 
 <a id="what" />
 
@@ -518,11 +452,11 @@ All resources that are precached are fetched by a service worker that runs in a 
 
 The app shell keeps your UI local and pulls in content dynamically through an API but does not sacrifice the linkability and discoverability of the web. The next time the user accesses your app, the latest version displays automatically. There is no need to download new versions before using it. 
 
-![a153ef8c0cdd2345.png](img/a153ef8c0cdd2345.png)[IMAGEINFO]: app-shell.png, Application Shell
+![Application Shell](img/a153ef8c0cdd2345.png)
 
 Building a PWA does not mean starting from scratch. If you are building a modern  [single-page app (SPA)](https://en.wikipedia.org/wiki/Single-page_application), then you are probably using something similar to an app shell already whether you call it that or not. The details might vary a bit depending upon which libraries or frameworks you are using, but the concept itself is framework agnostic. 
 
-To see how Google built an app shell architecture, take a look at  [To the Lighthouse](https://developers.google.com/web/shows/pwa-devsummit/amsterdam-2016/to-the-lighthouse-progressive-web-app-summit-2016) demo. . This real-world app started with a SPA to create a PWA that pre caches content using a service worker, dynamically loads new pages, gracefully transitions between views, and reuses content after the first load. 
+To see how Google built an app shell architecture, take a look at  [To the Lighthouse](/web/shows/pwa-devsummit/amsterdam-2016/to-the-lighthouse-progressive-web-app-summit-2016) demo. . This real-world app started with a SPA to create a PWA that pre caches content using a service worker, dynamically loads new pages, gracefully transitions between views, and reuses content after the first load. 
 
 When should you use the app shell architecture?  It makes the most sense for apps and sites with relatively unchanging navigation but changing content. A number of modern JavaScript frameworks and libraries already encourage splitting your application logic from the content, making this architecture more straightforward to apply. For a certain class of websites that only have static content you can still follow the same model but the site is 100% app shell.
 
@@ -554,7 +488,7 @@ For a simple example of a web app manifest file, see the Use a Web App Manifest 
 
 You can see actual offline application shells demonstrated in Jake Archibald's demo of an  [offline Wikipedia app](https://wiki-offline.jakearchibald.com/wiki/Rick_and_Morty),  [Flipkart Lite](http://tech-blog.flipkart.net/2015/11/progressive-web-app/) (an e-commerce company), and  [Voice Memos](https://github.com/googlechrome/voice-memos) (a sample web app that records voice memos). For a very basic app shell plus service worker example with minimal options about frameworks or libraries, see  [app-shell.appspot.com](http://app-shell.appspot.com). 
 
-Other great examples include  [AliExpress](https://developers.google.com/web/showcase/2016/aliexpress), one of the world's largest e-commerce sites,  [BaBe](https://developers.google.com/web/showcase/2016/babe), an Indonesian news aggregator service,  [United eXtra](https://developers.google.com/web/showcase/2016/extra), a leading retailer in Saudi Arabia, and  [The Washington Post](https://www.washingtonpost.com/pr/wp/2016/05/19/the-washington-post-introduces-new-progressive-web-app-experience/), America's most widely circulated newspaper.
+Other great examples include  [AliExpress](/web/showcase/2016/aliexpress), one of the world's largest e-commerce sites,  [BaBe](/web/showcase/2016/babe), an Indonesian news aggregator service,  [United eXtra](/web/showcase/2016/extra), a leading retailer in Saudi Arabia, and  [The Washington Post](https://www.washingtonpost.com/pr/wp/2016/05/19/the-washington-post-introduces-new-progressive-web-app-experience/), America's most widely circulated newspaper.
 
 <a id="how" />
 
@@ -662,7 +596,7 @@ Because `sw-precache` is a build-time code generation tool, it has direct access
 
 The service worker code generated by `sw-precache` caches and serves the resources that you configure as part of your build process. For mostly static sites, you can have it precache every image, HTML, JavaScript, and CSS file that makes up your site. Everything works offline, and loads fast on subsequent visits without any extra effort. For sites with lots of dynamic content, or many large images that are not always needed, precaching a subset of your site often makes the most sense.
 
-You can combine `sw-precache` with one of the service worker "recipes" or techniques outlined in the  [Offline Cookbook](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/) to provide a robust offline experience with sensible fallbacks. For example, when a large, uncached image is requested offline, serve up a smaller, cached placeholder image instead. You can also use wildcards to precache all of the resources that match a given pattern. There is no list of files or URLs that require manual maintenance.
+You can combine `sw-precache` with one of the service worker "recipes" or techniques outlined in the  [Offline Cookbook](/web/fundamentals/instant-and-offline/offline-cookbook/) to provide a robust offline experience with sensible fallbacks. For example, when a large, uncached image is requested offline, serve up a smaller, cached placeholder image instead. You can also use wildcards to precache all of the resources that match a given pattern. There is no list of files or URLs that require manual maintenance.
 
 A code example is shown in the  [Using `sw-precache` to Create the App Shell](#swprecache) section. There is also a lot more information on the  [GitHub project page](https://github.com/jeffposnick/sw-precache), including a demo project with  [`gulpfile.js`](https://github.com/jeffposnick/sw-precache/blob/master/demo/gulpfile.js) and  [`Gruntfile.js`](https://github.com/jeffposnick/sw-precache/blob/master/demo/Gruntfile.js) samples, and a  [script](https://github.com/jeffposnick/sw-precache/blob/master/demo/app/js/service-worker-registration.js) you can use to register the generated service worker. To see it in action, look at the  [app-shell-demo on Github](https://github.com/GoogleChrome/sw-precache/tree/master/app-shell-demo). 
 
@@ -682,91 +616,67 @@ Use the following table to determine which caching strategy is most appropriate 
 
 <table markdown="1">
 <tr><td colspan="1" rowspan="1">
-
-__Strategy__
+<p><strong>Strategy</strong></p>
 </td><td colspan="1" rowspan="1">
-
-__The service worker ...__
+<p><strong>The service worker ...</strong></p>
 </td><td colspan="1" rowspan="1">
-
-__Best strategy for ....__
+<p><strong>Best strategy for ....</strong></p>
 </td><td colspan="1" rowspan="1">
-
-__Corresponding ____`sw-toolbox`__ __handler__
+<p><strong>Corresponding __</strong><code>sw-toolbox</code>__ <strong>handler</strong></p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Cache first,
-
-Network fallback
+<p>Cache first,</p>
+<p>Network fallback</p>
 </td><td colspan="1" rowspan="1">
-
-Loads the local (cached) HTML and JavaScript first, if possible, bypassing the network. If cached content is not available, then the service worker returns a response from the network instead and caches the network response. 
+<p>Loads the local (cached) HTML and JavaScript first, if possible, bypassing the network. If cached content is not available, then the service worker returns a response from the network instead and caches the network response. </p>
 </td><td colspan="1" rowspan="1">
-
-When dealing with remote resources that are very unlikely to change, such as static images. 
+<p>When dealing with remote resources that are very unlikely to change, such as static images. </p>
 </td><td colspan="1" rowspan="1">
-
-`toolbox.cacheFirst`
+<p><code>toolbox.cacheFirst</code></p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Network first, Cache fallback
+<p>Network first, Cache fallback</p>
 </td><td colspan="1" rowspan="1">
-
-Checks the network first for a response and, if successful, returns current data to the page. If the network request fails, then the service worker returns the cached entry instead. 
+<p>Checks the network first for a response and, if successful, returns current data to the page. If the network request fails, then the service worker returns the cached entry instead. </p>
 </td><td colspan="1" rowspan="1">
-
-When data must be as fresh as possible, such as a real-time API response, but you still want to display something as a fallback when the network is unavailable.
+<p>When data must be as fresh as possible, such as a real-time API response, but you still want to display something as a fallback when the network is unavailable.</p>
 </td><td colspan="1" rowspan="1">
-
-`toolbox.networkFirst`
+<p><code>toolbox.networkFirst</code></p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Cache/network race
+<p>Cache/network race</p>
 </td><td colspan="1" rowspan="1">
-
-Fires the same request to the network and the cache simultaneously. In most cases, the cached data loads first and that is returned directly to the page. Meanwhile, the network response updates the previously cached entry. The cache updates keep the cached data relatively fresh. The updates occur in the background and do not block rendering of the cached content. 
+<p>Fires the same request to the network and the cache simultaneously. In most cases, the cached data loads first and that is returned directly to the page. Meanwhile, the network response updates the previously cached entry. The cache updates keep the cached data relatively fresh. The updates occur in the background and do not block rendering of the cached content. </p>
 </td><td colspan="1" rowspan="1">
-
-When content is updated frequently, such as for articles, social media timelines, and game leaderboards. It can also be useful when chasing performance on devices with slow disk access where getting resources from the network might be quicker than pulling data from cache.
+<p>When content is updated frequently, such as for articles, social media timelines, and game leaderboards. It can also be useful when chasing performance on devices with slow disk access where getting resources from the network might be quicker than pulling data from cache.</p>
 </td><td colspan="1" rowspan="1">
-
-`toolbox.fastest`
+<p><code>toolbox.fastest</code></p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Network only
+<p>Network only</p>
 </td><td colspan="1" rowspan="1">
-
-Only checks the network. There is no going to the cache for data. If the network fails, then the request fails. 
+<p>Only checks the network. There is no going to the cache for data. If the network fails, then the request fails. </p>
 </td><td colspan="1" rowspan="1">
-
-When only fresh data can be displayed on your site. 
+<p>When only fresh data can be displayed on your site. </p>
 </td><td colspan="1" rowspan="1">
-
-`toolbox.networkOnly`
+<p><code>toolbox.networkOnly</code></p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Cache only
+<p>Cache only</p>
 </td><td colspan="1" rowspan="1">
-
-The data is cached during the `install` event so you can depend on the data being there.
+<p>The data is cached during the <code>install</code> event so you can depend on the data being there.</p>
 </td><td colspan="1" rowspan="1">
-
-When displaying static data on your site.
+<p>When displaying static data on your site.</p>
 </td><td colspan="1" rowspan="1">
-
-`toolbox.cacheOnly`
+<p><code>toolbox.cacheOnly</code></p>
 </td>
 </tr></table>
+
 
 While you can implement these strategies yourself manually, using `sw-toolbox` is recommended for caching your app's dynamic content. The last column in the table shows the `sw-toolbox` library that provides a canonical implementation of each strategy. If you do implement additional caching logic, put the code in a separate JavaScript file and include it using the `importScripts()` method.
 
@@ -778,7 +688,7 @@ toolbox.router.get('/api', toolbox.networkFirst);
 toolbox.router.get('/profile', toolbox.fastest);
 ```
 
-For more information about caching strategies, see the  [Offline Cookbook](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/).
+For more information about caching strategies, see the  [Offline Cookbook](/web/fundamentals/instant-and-offline/offline-cookbook/).
 
 <div class="note">
 
@@ -792,191 +702,127 @@ Use the following table to identify which caching strategy provides the right ba
 
 <table markdown="1">
 <tr><td colspan="1" rowspan="1">
-
-__Kind of data__
+<p><strong>Kind of data</strong></p>
 </td><td colspan="1" rowspan="1">
-
-__When data changes...__
+<p><strong>When data changes...</strong></p>
 </td><td colspan="1" rowspan="1">
-
-__Caching Strategy__
+<p><strong>Caching Strategy</strong></p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-&nbsp;
+<p> </p>
 </td><td colspan="1" rowspan="1">
-
-☐Almost never changes
-
-☐User can see old value
-
-☐User should see new value when possible
-
-☐User must always see latest value
-
-☐Secure information - do not cache
+<p>☐Almost never changes</p>
+<p>☐User can see old value</p>
+<p>☐User should see new value when possible</p>
+<p>☐User must always see latest value</p>
+<p>☐Secure information - do not cache</p>
 </td><td colspan="1" rowspan="1">
-
- &nbsp;
+<p>  </p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
- &nbsp;
+<p>  </p>
 </td><td colspan="1" rowspan="1">
-
-☐Almost never changes
-
-☐User can see old value
-
-☐User should see new value when possible
-
-☐User must always see latest value
-
-☐Secure information - do not cache
+<p>☐Almost never changes</p>
+<p>☐User can see old value</p>
+<p>☐User should see new value when possible</p>
+<p>☐User must always see latest value</p>
+<p>☐Secure information - do not cache</p>
 </td><td colspan="1" rowspan="1">
-
- &nbsp;
+<p>  </p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
- &nbsp;
+<p>  </p>
 </td><td colspan="1" rowspan="1">
-
-☐Almost never changes
-
-☐User can see old value
-
-☐User should see new value when possible
-
-☐User must always see latest value
-
-☐Secure information - do not cache
+<p>☐Almost never changes</p>
+<p>☐User can see old value</p>
+<p>☐User should see new value when possible</p>
+<p>☐User must always see latest value</p>
+<p>☐Secure information - do not cache</p>
 </td><td colspan="1" rowspan="1">
-
- &nbsp;
+<p>  </p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
- &nbsp;
+<p>  </p>
 </td><td colspan="1" rowspan="1">
-
-☐Almost never changes
-
-☐User can see old value
-
-☐User should see new value when possible
-
-☐User must always see latest value
-
-☐Secure information - do not cache
+<p>☐Almost never changes</p>
+<p>☐User can see old value</p>
+<p>☐User should see new value when possible</p>
+<p>☐User must always see latest value</p>
+<p>☐Secure information - do not cache</p>
 </td><td colspan="1" rowspan="1">
-
- &nbsp;
+<p>  </p>
 </td>
 </tr></table>
+
 
 #### Example
 
 <table markdown="1">
 <tr><td colspan="1" rowspan="1">
-
-__Kind of data__
+<p><strong>Kind of data</strong></p>
 </td><td colspan="1" rowspan="1">
-
-__When data changes...__
+<p><strong>When data changes...</strong></p>
 </td><td colspan="1" rowspan="1">
-
-__Caching Strategy__
+<p><strong>Caching Strategy</strong></p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-User name
+<p>User name</p>
 </td><td colspan="1" rowspan="1">
-
-☑Almost never changes
-
-☐User can see old value
-
-☐User should see new value when possible
-
-☐User must always see latest value
-
-☐Secure information - do not cache
+<p>☑Almost never changes</p>
+<p>☐User can see old value</p>
+<p>☐User should see new value when possible</p>
+<p>☐User must always see latest value</p>
+<p>☐Secure information - do not cache</p>
 </td><td colspan="1" rowspan="1">
-
-Cache first,
-
-Network fallback
+<p>Cache first,</p>
+<p>Network fallback</p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Product description
+<p>Product description</p>
 </td><td colspan="1" rowspan="1">
-
-☑Almost never changes
-
-☐User can see old value
-
-☐User should see new value when possible
-
-☐User must always see latest value
-
-☐Secure information - do not cache
+<p>☑Almost never changes</p>
+<p>☐User can see old value</p>
+<p>☐User should see new value when possible</p>
+<p>☐User must always see latest value</p>
+<p>☐Secure information - do not cache</p>
 </td><td colspan="1" rowspan="1">
-
-Cache first,
-
-Network fallback
+<p>Cache first,</p>
+<p>Network fallback</p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Product price
+<p>Product price</p>
 </td><td colspan="1" rowspan="1">
-
-☐Almost never changes
-
-☐User can see old value
-
-☑User should see new value when possible
-
-☐User must always see latest value
-
-☐Secure information - do not cache
+<p>☐Almost never changes</p>
+<p>☐User can see old value</p>
+<p>☑User should see new value when possible</p>
+<p>☐User must always see latest value</p>
+<p>☐Secure information - do not cache</p>
 </td><td colspan="1" rowspan="1">
-
-Network first, Cache fallback 
-
-or
-
-Cache/network race
+<p>Network first, Cache fallback </p>
+<p>or</p>
+<p>Cache/network race</p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
-
-Product availability
+<p>Product availability</p>
 </td><td colspan="1" rowspan="1">
-
-☐Almost never changes
-
-☐User can see old value
-
-☐User should see new value when possible
-
-☑User must always see latest value
-
-☐Secure information - do not cache
+<p>☐Almost never changes</p>
+<p>☐User can see old value</p>
+<p>☐User should see new value when possible</p>
+<p>☑User must always see latest value</p>
+<p>☐Secure information - do not cache</p>
 </td><td colspan="1" rowspan="1">
-
-Network only
+<p>Network only</p>
 </td>
 </tr></table>
+
 
 <div class="note">
 
@@ -990,7 +836,7 @@ Remember that `sw-precache` integrates with your build process, but `sw-toolbox`
 
 * Service worker caching should be considered a progressive enhancement. If your web app follows the model of conditionally registering a service worker only if it is supported (determined by `if('serviceWorker' in navigator)`), then you get offline support on browsers with service workers and on browsers that do not support service workers. The offline-specific code is never called and there is no overhead or breakage for older browsers.  [Registering a Service Worker](#register) shows an example of this.
 * All resources that are precached are fetched by a service worker running in a separate thread as soon as the service worker is installed. You should be judicious in what you cache, because listing files that are non essential (large images that are not shown on every page, for instance) result in browsers downloading more data than is strictly necessary.
-* Precaching does not make sense for all architectures (described in the  [PWA Architectural Styles and Patterns](#styles) section and also outlined in the  [Offline Cookbook](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/),). Several  [caching strategies](#bestcaching) are described later in this document that can be used in conjunction with the `sw-precache` module to provide the best experience for your users. If you do implement additional caching logic, put the code in a separate JavaScript file and include it using the `importScripts()` method.
+* Precaching does not make sense for all architectures (described in the  [PWA Architectural Styles and Patterns](#styles) section and also outlined in the  [Offline Cookbook](/web/fundamentals/instant-and-offline/offline-cookbook/),). Several  [caching strategies](#bestcaching) are described later in this document that can be used in conjunction with the `sw-precache` module to provide the best experience for your users. If you do implement additional caching logic, put the code in a separate JavaScript file and include it using the `importScripts()` method.
 * The `sw-precache` library uses a cache-first strategy, which results in a copy of any cached content being returned without consulting the network. A useful pattern to adopt with this strategy is to display an alert to your users when new content is available, and give them an opportunity to reload the page to pick up that new content (which the service worker adds to the cache, and makes available at the next page load). The code for listening for a service worker update lives in the JavaScript for the page that registers the service worker. To see an example, go to this  [Github repository](https://github.com/GoogleChrome/sw-precache/blob/master/demo/app/js/service-worker-registration.js#L27). 
 
 ### The Key to Designing UIs for PWAs
@@ -1110,7 +956,7 @@ __Tip:__
 
 Service worker caching should be considered a progressive enhancement. If you follow the model of conditionally registering a service worker only when supported by the browser (determined by `if('serviceWorker' in navigator)`), you get offline support on browsers with service workers and on browsers that do not support service workers, the offline-specific code is never called. There's no overhead/breakage for older browsers.
 
-For an look at what's required to make your app work offline, see  [The Service Worker Lifecycle](https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/lifecycle) and try the step-by-step PWA codelab  [Scripting the Service Worker](https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/lifecycle). To see a complete, sophisticated implementation, see the service worker lifecycle management code in  [Github](https://github.com/GoogleChrome/sw-precache/blob/master/demo/app/js/service-worker-registration.js#L25).
+For an look at what's required to make your app work offline, see  [The Service Worker Lifecycle](/web/fundamentals/instant-and-offline/service-worker/lifecycle) and try the step-by-step PWA codelab  [Scripting the Service Worker](/web/fundamentals/instant-and-offline/service-worker/lifecycle). To see a complete, sophisticated implementation, see the service worker lifecycle management code in  [Github](https://github.com/GoogleChrome/sw-precache/blob/master/demo/app/js/service-worker-registration.js#L25).
 
 ### Caching the Application Shell
 
@@ -1240,7 +1086,7 @@ Remember to rerun the API each time any of your app shell resources change to pi
 
 
 
-Once the first interaction with a user is complete, re-engaging on the web can be tricky. Push notifications address this challenge on native apps, and now the  [push API](https://developers.google.com/web/fundamentals/getting-started/push-notifications/) is available on the web as well. This allows developers to reconnect with users even if the browser is not running. Over 10 billion push notifications are sent every day in Chrome, and it is growing quickly. Push Notifications can provide great benefits for users if applied in a timely, relevant and and precise manner. 
+Once the first interaction with a user is complete, re-engaging on the web can be tricky. Push notifications address this challenge on native apps, and now the  [push API](/web/fundamentals/getting-started/push-notifications/) is available on the web as well. This allows developers to reconnect with users even if the browser is not running. Over 10 billion push notifications are sent every day in Chrome, and it is growing quickly. Push Notifications can provide great benefits for users if applied in a timely, relevant and and precise manner. 
 
 ### How Do Push Notifications Work?
 

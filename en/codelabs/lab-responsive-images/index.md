@@ -159,7 +159,7 @@ __Note:__ In Chrome, with <strong>DevTools</strong> open, the browser window dim
 
 </div>
 
-![b0b54f95a301d01d.png](img/b0b54f95a301d01d.png)[IMAGEINFO]: chrome-dimensions.png, Chrome Window Dimensions
+![Chrome Window Dimensions](img/b0b54f95a301d01d.png)
 
 #### Explanation
 

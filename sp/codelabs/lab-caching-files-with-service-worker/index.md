@@ -48,7 +48,7 @@ This lab covers the basics of caching files with the service worker. The technol
 #### What you should know
 
 * Basic JavaScript and HTML
-* Familiarity with the concept and basic syntax of ES2015  [Promises](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
+* Familiarity with the concept and basic syntax of ES2015  [Promises](/web/fundamentals/getting-started/primers/promises)
 
 #### What you will need
 
@@ -204,7 +204,7 @@ Save the code and [update the service worker](tools_for_pwa_developers.md#update
 
 #### Explanation
 
-The `fetch` event listener intercepts all requests. We use  [`event.respondWith`](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/respondWith) to create a custom response to the request. Here we are using the  [Cache falling back to network](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) strategy: we first check the cache for the requested resource (with  [`caches.match`](https://developer.mozilla.org/en-US/docs/Web/API/Cache/match)) and then, if that fails, we send the request to the network.
+The `fetch` event listener intercepts all requests. We use  [`event.respondWith`](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/respondWith) to create a custom response to the request. Here we are using the  [Cache falling back to network](/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) strategy: we first check the cache for the requested resource (with  [`caches.match`](https://developer.mozilla.org/en-US/docs/Web/API/Cache/match)) and then, if that fails, we send the request to the network.
 
 #### For more information
 
@@ -386,7 +386,7 @@ You have learned the basics of using the Cache API in the service worker. We hav
 #### Learn more about caching and the Cache API
 
 *  [Cache - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Cache)
-*  [The Offline Cookbook](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/)
+*  [The Offline Cookbook](/web/fundamentals/instant-and-offline/offline-cookbook/)
 
 #### Learn more about using service workers
 

@@ -1,10 +1,15 @@
 #!/bin/bash
 
 function pull_gdocs {
-  claat update
+  ./claat update
+  npm install
+  node codeLabHelper.js
 }
 
+pull_gdocs
+
 function build_packages {
+  "1-day 3-day 5-day semester"
 
 }
 

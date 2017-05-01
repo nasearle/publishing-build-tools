@@ -32,7 +32,7 @@ You are responsible for implementing how your script (service worker) handles up
 
 ### Storing resources
 
-In this section, we outline a few common patterns for caching resources:  *on service worker install* ,  *on user interaction* , and  *on network response* . There are a few patterns we don't cover here. See the  [Offline Cookbook](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/) for a more complete list.
+In this section, we outline a few common patterns for caching resources:  *on service worker install* ,  *on user interaction* , and  *on network response* . There are a few patterns we don't cover here. See the  [Offline Cookbook](/web/fundamentals/instant-and-offline/offline-cookbook/) for a more complete list.
 
 #### On install - caching the application shell
 
@@ -137,7 +137,7 @@ To serve content from the cache and make your app available offline you need to 
 * network falling back to cache
 * cache then network
 
-There are a few approaches we don't cover here. See Jake Archibald's  [Offline Cookbook](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/) for a full list.
+There are a few approaches we don't cover here. See Jake Archibald's  [Offline Cookbook](/web/fundamentals/instant-and-offline/offline-cookbook/) for a full list.
 
 #### Cache only
 
@@ -446,10 +446,10 @@ The keys method can also be called on the caches entry point to return the keys 
 #### Learn about the Cache API
 
 *  [Cache](https://developer.mozilla.org/en-US/docs/Web/API/Cache) - MDN
-*  [The Offline Cookbook](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/)
+*  [The Offline Cookbook](/web/fundamentals/instant-and-offline/offline-cookbook/)
 
 #### Learn about using service workers
 
-*  [Using Service Workers](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers)
+*  [Using Service Workers](/web/fundamentals/getting-started/primers/service-workers)
 
 

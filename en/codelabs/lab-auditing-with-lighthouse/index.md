@@ -89,7 +89,7 @@ This folder contains:
 
 Lighthouse is available as a Chrome extension for  [Chrome](https://www.google.com/chrome/browser/desktop/index.html) 52 and later. 
 
-Download the Lighthouse Chrome extension from the  [Chrome Web Store](http://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk). When installed it places an [ICON HERE] icon in your taskbar.  ![91e97511ef44e440.png](img/91e97511ef44e440.png)[IMAGEINFO]: ic_lighthouse-icon.png, Lighthouse Icon 
+Download the Lighthouse Chrome extension from the  [Chrome Web Store](http://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk). When installed it places an <img src="img/91e97511ef44e440.png" style="width:20px;height:20px;" alt="Lighthouse Icon ">  icon in your taskbar.  
 
 <a id="3" />
 
@@ -103,7 +103,7 @@ In the browser (on the __app__ page) click the Lighthouse icon and choose __Gene
 
 Lighthouse runs the report and generates an HTML page with the results. The report page should look similar to this:
 
-![be57a3905fb6f93f.png](img/be57a3905fb6f93f.png)[IMAGEINFO]: lighthouse-lab-starter-score.png, starting-score
+![starting-score](img/be57a3905fb6f93f.png)
 
 <div class="note">
 
@@ -218,7 +218,7 @@ This lets us satisfy the manifest related requirements of Lighthouse (and a PWA)
 #### For more information
 
 *  [Add to home screen](https://developer.chrome.com/multidevice/android/installtohomescreen)
-*  [Web app manifests](https://developers.google.com/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android)
+*  [Web app manifests](/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android)
 
 <a id="5" />
 
@@ -330,7 +330,7 @@ __Note:__ You may need to <a href="tools_for_pwa_developers.md#disablehttpcache"
 
  The report should look something like this:
 
-![76f48671607bf2b2.png](img/76f48671607bf2b2.png)[IMAGEINFO]: lighthouse-lab-solution-score.png, solution-score
+![solution-score](img/76f48671607bf2b2.png)
 
 Now our score is much better (your score may not match exactly). 
 

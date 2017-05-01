@@ -41,7 +41,7 @@ This lab walks you through creating a simple service worker.
 #### What you should know
 
 * Basic JavaScript and HTML
-* Concepts and basic syntax of ES2015  [Promises](https://developers.google.com/web/fundamentals/getting-started/primers/promises) 
+* Concepts and basic syntax of ES2015  [Promises](/web/fundamentals/getting-started/primers/promises) 
 * Concept of an  [Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) (IIFE)
 * How to enable the developer console
 
@@ -252,11 +252,11 @@ Save the file and refresh the page. Notice that the new service worker installs 
 
 #### Explanation
 
-The `skipWaiting()` method allows a service worker to activate as soon as it finishes installation. The install event listener is a common place to put the `skipWaiting()` call, but it can be called anywhere during or before the waiting phase. See  [this documentation](https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/lifecycle#skip_the_waiting_phase) for more on when and how to use `skipWaiting()`. For the rest of the lab, we can now test new service worker code without manually unregistering the service worker.
+The `skipWaiting()` method allows a service worker to activate as soon as it finishes installation. The install event listener is a common place to put the `skipWaiting()` call, but it can be called anywhere during or before the waiting phase. See  [this documentation](/web/fundamentals/instant-and-offline/service-worker/lifecycle#skip_the_waiting_phase) for more on when and how to use `skipWaiting()`. For the rest of the lab, we can now test new service worker code without manually unregistering the service worker.
 
 #### For more information
 
-*  [Service worker lifecycle](https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/lifecycle)
+*  [Service worker lifecycle](/web/fundamentals/instant-and-offline/service-worker/lifecycle)
 
 <a id="intercept-requests"/>
 
@@ -302,7 +302,7 @@ Why didn't any fetch events log on the first refresh? By default, fetch events f
 
 *  [Fetch Event - MDN](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent)
 *  [Using Fetch - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
-*  [Introduction to Fetch - Google Developer](https://developers.google.com/web/updates/2015/03/introduction-to-fetch)
+*  [Introduction to Fetch - Google Developer](/web/updates/2015/03/introduction-to-fetch)
 
 #### Solution code
 

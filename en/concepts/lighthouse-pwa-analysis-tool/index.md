@@ -45,15 +45,15 @@ Lighthouse is available as a Chrome extension for Chrome 52 (and later) and a co
 
 Download the Lighthouse Chrome extension from the  [Chrome Web Store](http://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk). 
 
-When installed it places an [ICON HERE] icon in your taskbar. ![91e97511ef44e440.png](img/91e97511ef44e440.png)[IMAGEINFO]: ic_lighthouse-icon.png, Lighthouse Icon 
+When installed it places an <img src="img/91e97511ef44e440.png" style="width:20px;height:20px;" alt="Lighthouse Icon ">  icon in your taskbar. 
 
 Run Lighthouse on your application by selecting the icon and choosing __Generate report__ (with your app open in the browser page).
 
-![92c3177801055abb.png](img/92c3177801055abb.png)[IMAGEINFO]: lighthouse_generate_report.png, Lighthouse extension showing generate report button
+![Lighthouse extension showing generate report button](img/92c3177801055abb.png)
 
 Lighthouse generates an HTML page with the results. An example page is shown below. 
 
-![76f48671607bf2b2.png](img/76f48671607bf2b2.png)[IMAGEINFO]: lighthouse-lab-solution-score.png, Lighthouse report
+![Lighthouse report](img/76f48671607bf2b2.png)
 
 <div class="note">
 
