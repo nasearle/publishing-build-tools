@@ -11,13 +11,14 @@ var glob = require('globule');
 var moment = require('moment');
 var gutil = require('gulp-util');
 var copydir = require('copy-dir');
+var shell = require('shelljs');
 const path = require('path');
 const remark = require('remark');
 const remarkHtml = require('remark-html');
 const wfRegEx = require('./wfRegEx');
 const mkdirp = require('mkdirp');
 
-function updateCodeLab(sourceFile, destFile, bookPath) {
+function cleanup(sourceFile, destFile, bookPath) {
   gutil.log(' ', 'Processing', sourceFile);
   let matches;
   // var authorId;
@@ -165,11 +166,17 @@ function updateCodeLab(sourceFile, destFile, bookPath) {
   fs.writeFileSync(destFile, result);
 }
 
-exports.updateCodeLab = updateCodeLab;
+exports.cleanup = cleanup;
+
+if (!shell.which('git')) {
+  shell.echo('Sorry, this script requires git');
+  shell.exit(1);
+}
+
+shell.exec('./claat update');
 
 var filesToProcess = glob.find('**/index.md');
-// console.log(filesToProcess);
 
 filesToProcess.forEach(function(filename) {
-  updateCodeLab(filename, filename, '');
+  cleanup(filename, filename, '');
 });
