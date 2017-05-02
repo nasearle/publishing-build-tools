@@ -153,7 +153,7 @@ In a separate tab or window, navigate to  [analytics.google.com](https://analyti
 
 Create another one. Select the __Admin__ tab. Under __account__, select your current Google Analytics account and choose __create new account__. A single Gmail account can have multiple (currently 100) Google Analytics accounts. 
 
-![Adding an account](../../img/67167bdc1b3d25ee.png)
+![Adding an account](../img/67167bdc1b3d25ee.png)
 
 #### If you don't have a Google Analytics account:
 
@@ -161,7 +161,7 @@ Select __Sign up__ to begin creating your account.
 
 The account creation screen should look like this:
 
-![Creating an account](../../img/77f0da1cc8479fea.png)
+![Creating an account](../img/77f0da1cc8479fea.png)
 
 #### What would you like to track? 
 
@@ -230,7 +230,7 @@ If you lost your place:
 3. Then under __property__, select your property (for example "GA Code Lab Site") from the down list. 
 4. Now choose __Tracking Info__, followed by __Tracking Code__. 
 
-![Finding the snippet](../../img/e6c84f2ccde27125.png)
+![Finding the snippet](../img/e6c84f2ccde27125.png)
 
 Your tracking ID looks like `UA-XXXXXXXX-Y` and your tracking code snippet looks like:
 
@@ -257,11 +257,11 @@ Now return to the Google Analytics site. Examine the real time data:
 2. Select __Real-Time.__
 3. Select __Overview.__
 
-![Real-time navigation](../../img/b2dba5f011013e99.png)
+![Real-time navigation](../img/b2dba5f011013e99.png)
 
 You should see yourself being tracked. The screen should look similar to this (note that the full path may be shown):
 
-![Real-time screen](../../img/83ce80dc15443148.png)
+![Real-time screen](../img/83ce80dc15443148.png)
 
 <div class="note">
 
@@ -327,11 +327,11 @@ __Note:__ Data for our app is not available yet. It takes some time to process t
 
 Here you can see general information such as pageview records, bounce rate, ratio of new and returning visitors, and other statistics.
 
-![Records overview](../../img/1b6463f39646e4e1.png)
+![Records overview](../img/1b6463f39646e4e1.png)
 
 You can also see specific information like visitors' language, country, city, browser, operating system, service provider, screen resolution, and device.
 
-![Records details](../../img/66759e07d712dd12.png)
+![Records details](../img/66759e07d712dd12.png)
 
 #### For more information
 
@@ -397,7 +397,7 @@ Save the script and refresh the page. Click __BUY NOW!!!__. Check the console lo
 
 Now return to the real-time reporting section of the Google Analytics dashboard (from the __Reporting__ tab, select __Real-Time__). Instead of selecting __Overview__, select __Events__. Do you see the custom event? (If not, try clicking __BUY NOW!!!__ again.)
 
-![Real-time events](../../img/1f21b1938268723a.png)
+![Real-time events](../img/1f21b1938268723a.png)
 
 #### Explanation
 
@@ -415,7 +415,7 @@ __Optional__: Update the custom event that you just added to use the alternative
 
 You can view past events in the Google Analytics dashboard from the __Reporting__ tab by selecting __Behavior__, followed by __Events__ and then __Overview__. However your account won't yet have any past events to view (because you just created it).
 
-![Recorded events](../../img/3107f35a9adc1fb3.png)
+![Recorded events](../img/3107f35a9adc1fb3.png)
 
 #### For more information
 
@@ -777,7 +777,7 @@ You will see an error in the console because we are offline and can't make reque
 
 [Now check IndexedDB](tools_for_pwa_developers.md#indexeddb). Open __offline-google-analytics__. You should see a URL cached. If you are using Chrome (see screenshot below), it is shown in __urls__.You may need to click the refresh icon in the __urls__ interface.
 
-![Offline hits](../../img/88188d9545f98f83.png)
+![Offline hits](../img/88188d9545f98f83.png)
 
 Now disable offline mode, and refresh the page. Check __IndexedDB__ again, and observe that the URL is no longer cached.
 
