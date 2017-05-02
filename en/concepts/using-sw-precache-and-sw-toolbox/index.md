@@ -146,7 +146,70 @@ It's important to consider all of the caching strategies and find the right bala
 
 __Table of Common Caching Strategies__
 
-[object Object]
+<table markdown="1">
+<tr><td colspan="1" rowspan="1">
+<p><strong>Strategy</strong></p>
+</td><td colspan="1" rowspan="1">
+<p><strong>The service worker ...</strong></p>
+</td><td colspan="1" rowspan="1">
+<p><strong>Best use of this strategy ....</strong></p>
+</td><td colspan="1" rowspan="1">
+<p><strong>Corresponding </p>
+<p>sw-toolbox handler </strong></p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>Cache first,</p>
+<p>Network fallback</p>
+</td><td colspan="1" rowspan="1">
+<p>Loads the local (cached) HTML and JavaScript first, if possible, bypassing the network. If cached content is not available, then the service worker returns a response from the network instead. </p>
+</td><td colspan="1" rowspan="1">
+<p>When dealing with remote resources that are very unlikely to change, such as static images. </p>
+</td><td colspan="1" rowspan="1">
+<p><code>toolbox.cacheFirst</code></p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>Network first, Cache fallback</p>
+</td><td colspan="1" rowspan="1">
+<p>Checks the network first for a response and, if successful, returns current data to the page. If the network request fails, then the service worker returns the cached entry instead. </p>
+</td><td colspan="1" rowspan="1">
+<p>When data must be as fresh as possible, such as for a real-time API response, but you still want to display something as a fallback when the network is unavailable.</p>
+</td><td colspan="1" rowspan="1">
+<p><code>toolbox.networkFirst</code></p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>Cache/network race</p>
+</td><td colspan="1" rowspan="1">
+<p>Fires the same request to the network and the cache simultaneously. In most cases, the cached data loads first and is returned directly to the page. Meanwhile, the network response updates the previously cached entry. The cache updates keep the cached data relatively fresh. The updates occur in the background and do not block rendering of the cached content. </p>
+</td><td colspan="1" rowspan="1">
+<p>When content is updated frequently, such as for articles, social media timelines, and game leaderboards. It can also be useful when chasing performance on devices with slow disk access where getting resources from the network might be quicker than pulling data from cache.</p>
+</td><td colspan="1" rowspan="1">
+<p><code>toolbox.fastest</code></p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>Network only</p>
+</td><td colspan="1" rowspan="1">
+<p>Only checks the network. There is no going to the cache for data. If the network fails, then the request fails. </p>
+</td><td colspan="1" rowspan="1">
+<p>When only fresh data can be displayed on your site. </p>
+</td><td colspan="1" rowspan="1">
+<p><code>toolbox.networkOnly</code></p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>Cache only</p>
+</td><td colspan="1" rowspan="1">
+<p>The data is cached during the install event so you can depend on the data being there.</p>
+</td><td colspan="1" rowspan="1">
+<p>When displaying static data on your site.</p>
+</td><td colspan="1" rowspan="1">
+<p><code>toolbox.cacheOnly</code></p>
+</td>
+</tr></table>
+
 
 The example below demonstrates some `sw-toolbox` strategies to cache different parts of an application.
 

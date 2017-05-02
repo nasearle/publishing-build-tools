@@ -684,6 +684,47 @@ This code does something very similar to previous examples in this tutorial exce
 
 Here is a short reference of the differences between the IndexedDB API and the IndexedDB Promised library.
 
-[object Object]
+<table markdown="1">
+<tr><td colspan="1" rowspan="1">
+<p> </p>
+</td><td colspan="1" rowspan="1">
+<p>IndexedDB Promised</p>
+</td><td colspan="1" rowspan="1">
+<p>IndexedDB API</p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>Open database</p>
+</td><td colspan="1" rowspan="1">
+<p><code>idb.open(name, version, upgradeCallback)</code></p>
+</td><td colspan="1" rowspan="1">
+<p><code>indexedDB.open(name, version)</code></p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>Upgrade database</p>
+</td><td colspan="1" rowspan="1">
+<p>Inside upgradeCallback</p>
+</td><td colspan="1" rowspan="1">
+<p><code>request.onupgradeneeded</code></p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>Success</p>
+</td><td colspan="1" rowspan="1">
+<p><code>.then</code></p>
+</td><td colspan="1" rowspan="1">
+<p><code>request.onsuccess</code></p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>Error</p>
+</td><td colspan="1" rowspan="1">
+<p><code>.catch</code></p>
+</td><td colspan="1" rowspan="1">
+<p><code>request.onerror</code></p>
+</td>
+</tr></table>
+
 
 

@@ -54,7 +54,56 @@ __Note:__ Some developers have run into issues with Safari 10's IndexedDB implem
 
 Different browsers allow different amounts of offline storage. This table summarizes storage limits for major browsers:
 
-[object Object]
+<table markdown="1">
+<tr><td colspan="1" rowspan="1">
+<p><strong>Browser </strong></p>
+</td><td colspan="1" rowspan="1">
+<p><strong>Limitation</strong></p>
+</td><td colspan="1" rowspan="1">
+<p><strong>Notes</strong></p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>Chrome, Opera, and Samsung Internet</p>
+</td><td colspan="1" rowspan="1">
+<p>Up to a  <a href="https://www.html5rocks.com/en/tutorials/offline/quota-research/">quota</a>. Check usage with the  <a href="https://www.w3.org/TR/quota-api/">Quota API</a></p>
+</td><td colspan="1" rowspan="1">
+<p>Storage is per origin not per API (local storage, session storage, service worker cache and IndexedDB all share the same space)</p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>Firefox</p>
+</td><td colspan="1" rowspan="1">
+<p>No limit</p>
+</td><td colspan="1" rowspan="1">
+<p>Prompts after 50 MB of data is stored</p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>Mobile Safari</p>
+</td><td colspan="1" rowspan="1">
+<p>50MB</p>
+</td><td colspan="1" rowspan="1">
+<p> </p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>Desktop Safari</p>
+</td><td colspan="1" rowspan="1">
+<p>No limit</p>
+</td><td colspan="1" rowspan="1">
+<p>Prompts after 5MB of data is stored</p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>Internet Explorer (10+)</p>
+</td><td colspan="1" rowspan="1">
+<p>250MB</p>
+</td><td colspan="1" rowspan="1">
+<p>Prompts after 10MB of data is stored</p>
+</td>
+</tr></table>
+
 
 <a id="examples" />
 
@@ -68,7 +117,40 @@ Different browsers allow different amounts of offline storage. This table summar
 
 IndexedDB is a noSQL database. IndexedDB data is stored as key-value pairs in __object stores__. The table below shows an example of an object store, in this case containing beverage items:
 
-[object Object]
+<table markdown="1">
+<tr><td colspan="1" rowspan="1">
+<p><strong>#</strong></p>
+</td><td colspan="1" rowspan="1">
+<p><strong>Key (keypath 'id')</strong></p>
+</td><td colspan="1" rowspan="1">
+<p><strong>Value</strong></p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>0</p>
+</td><td colspan="1" rowspan="1">
+<p>1234</p>
+</td><td colspan="1" rowspan="1">
+<p>{id: 123, name: 'coke', price: 10.99, quantity: 200}</p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>1</p>
+</td><td colspan="1" rowspan="1">
+<p>9876</p>
+</td><td colspan="1" rowspan="1">
+<p>{id: 321, name: 'pepsi', price: 8.99, quantity: 100}</p>
+</td>
+</tr>
+<tr><td colspan="1" rowspan="1">
+<p>2</p>
+</td><td colspan="1" rowspan="1">
+<p>4567</p>
+</td><td colspan="1" rowspan="1">
+<p>{id: 222, name: 'water', price: 11.99, quantity: 300}</p>
+</td>
+</tr></table>
+
 
 The data is organized by a __`keypath`__, which in this case is the item's __`id`__ property. You can learn more about IndexedDB in the corresponding  [text](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working-with-indexeddb.html), or in the  [code lab](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_indexeddb.html).
 
