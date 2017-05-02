@@ -89,7 +89,7 @@ This folder contains:
 
 Lighthouse is available as a Chrome extension for  [Chrome](https://www.google.com/chrome/browser/desktop/index.html) 52 and later. 
 
-Download the Lighthouse Chrome extension from the  [Chrome Web Store](http://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk). When installed it places an <img src="img/91e97511ef44e440.png" style="width:20px;height:20px;" alt="Lighthouse Icon ">  icon in your taskbar.  
+Download the Lighthouse Chrome extension from the  [Chrome Web Store](http://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk). When installed it places an <img src="../../img/91e97511ef44e440.png" style="width:20px;height:20px;" alt="Lighthouse Icon ">  icon in your taskbar.  
 
 <a id="3" />
 
@@ -103,7 +103,7 @@ In the browser (on the __app__ page) click the Lighthouse icon and choose __Gene
 
 Lighthouse runs the report and generates an HTML page with the results. The report page should look similar to this:
 
-![starting-score](img/be57a3905fb6f93f.png)
+![starting-score](../../img/be57a3905fb6f93f.png)
 
 <div class="note">
 
@@ -330,7 +330,7 @@ __Note:__ You may need to <a href="tools_for_pwa_developers.md#disablehttpcache"
 
  The report should look something like this:
 
-![solution-score](img/76f48671607bf2b2.png)
+![solution-score](../../img/76f48671607bf2b2.png)
 
 Now our score is much better (your score may not match exactly). 
 

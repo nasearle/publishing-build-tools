@@ -9,15 +9,15 @@ if (!shell.which('git')) {
 }
 
 var languages = ['en', 'sp'];
-
-// Pull GDoc files as markdown
-shell.exec('./claat update');
-
-// Clean up markdown
-var filesToProcess = glob.find('**/index.md');
-filesToProcess.forEach(function(filename) {
-  cleanup.cleanup(filename, filename, '');
-});
+// 
+// // Pull GDoc files as markdown
+// shell.exec('./claat update');
+//
+// // Clean up markdown
+// var filesToProcess = glob.find('**/index.md');
+// filesToProcess.forEach(function(filename) {
+//   cleanup.cleanup(filename, filename, '');
+// });
 
 // Push course packages
 for (var courseTitle in courses) {
@@ -34,20 +34,22 @@ for (var courseTitle in courses) {
     });
   } else {
     languages.forEach(function(lang) {
-      console.log('cp -R ../' + lang + '/' + course.type + '/', './' + lang + '/');
-      shell.cp('-R', '../' + lang + '/' + course.type + '/', './' + lang + '/');
+      // console.log('cp -R ../' + lang + '/' + course.type + '/', './' + lang + '/');
+      course.modules.forEach(function(module) {
+        shell.cp('../' + lang + '/' + course.type + '/' + module + '/index.md', './' + lang + '/' + module + '.md');
+      });
     });
   }
   console.log('echo "node_modules" > .gitignore');
   shell.exec('echo "node_modules" > .gitignore');
   console.log('echo "node_modules" > .gitignore');
   shell.exec('echo ".DS_Store" >> .gitignore');
-  console.log('git add . && git commit -m "autoupdate' + Date.now() +
-    '" && git push');
-  shell.exec('git add . && git commit -m "autoupdate' + Date.now() +
-    '" && git push');
+  // console.log('git add . && git commit -m "autoupdate' + Date.now() +
+  //   '" && git push');
+  // shell.exec('git add . && git commit -m "autoupdate' + Date.now() +
+  //   '" && git push');
   console.log('cd ..');
   shell.cd('..');
-  console.log('-rf ' + courseTitle);
-  shell.rm('-rf', courseTitle);
+  // console.log('-rf ' + courseTitle);
+  // shell.rm('-rf', courseTitle);
 }
