@@ -1,4 +1,3 @@
-
 var cleanup = require('./cleanup');
 var glob = require('globule');
 var shell = require('shelljs');
@@ -9,14 +8,16 @@ if (!shell.which('git')) {
   shell.exit(1);
 }
 
+// Pull GDoc files as markdown
 shell.exec('./claat update');
 
+// Clean up markdown
 var filesToProcess = glob.find('**/index.md');
-
 filesToProcess.forEach(function(filename) {
   cleanup.cleanup(filename, filename, '');
 });
 
+// Push course packages
 for (var course in courses) {
   shell.exec('git clone https://github.com/nasearle/' + course + '.git');
   shell.cd(course);

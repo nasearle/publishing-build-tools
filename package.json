@@ -1,50 +1,33 @@
 {
-  "name": "WebFundamentals",
-  "version": "2.0.0",
-  "description": "Google Web Fundamentals",
+  "name": "auto-publish-ilt",
+  "version": "1.0.0",
+  "description": "Converts GDocs to markdown & cleans the markdown for GitBook formatting, then organizes the files based on metadata and pushes to appropriate repositories.",
+  "main": "main.js",
+  "start": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "node main.js"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/google/WebFundamentals.git"
+    "url": "git+https://github.com/nasearle/pwa-training-source.git"
   },
-  "keywords": [
-    "web",
-    "fundamentals"
-  ],
+  "contributors": "Nicolas Searle, David Scales, Nikita Gamolsky",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/google/WebFundamentals/issues"
+    "url": "https://github.com/nasearle/pwa-training-source/issues"
   },
-  "homepage": "https://github.com/google/WebFundamentals",
+  "homepage": "https://github.com/nasearle/pwa-training-source#readme",
   "devDependencies": {
-    "copy-dir": "^0.3.0",
-    "gulp-remark": "^3.0.0",
-    "shelljs": "^0.7.7"
-  },
-  "private": true,
-  "dependencies": {
     "chalk": "^1.1.3",
-    "del": "^2.2.2",
-    "github": "^8.1.1",
-    "globule": "^1.0.0",
-    "googleapis": "^12.4.0",
-    "gulp": "^3.9.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-util": "^3.0.7",
-    "handlebars": "^4.0.5",
-    "handlebars-helpers": "^0.7.5",
-    "js-yaml": "^3.6.1",
-    "marked": "^0.3.6",
-    "mdast-util-to-string": "^1.0.2",
-    "minimist": "^1.2.0",
+    "copy-dir": "^0.3.0",
+    "globule": "^1.1.0",
+    "gulp-util": "^3.0.8",
     "mkdirp": "^0.5.1",
-    "moment": "^2.14.1",
-    "parse-diff": "^0.4.0",
-    "remark": "^6.2.0",
-    "remark-html": "^5.1.0",
-    "remark-lint": "^5.4.0",
-    "require-dir": "^0.3.0",
-    "rsync": "^0.5.0",
-    "run-sequence": "^1.2.2",
-    "unist-util-visit": "^1.1.1",
-    "vfile": "^2.0.1"
+    "moment": "^2.18.1",
+    "path": "^0.12.7",
+    "remark": "^7.0.1",
+    "remark-html": "^6.0.0",
+    "shelljs": "^0.7.7"
   }
 }
