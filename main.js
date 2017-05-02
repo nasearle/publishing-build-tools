@@ -8,6 +8,8 @@ if (!shell.which('git')) {
   shell.exit(1);
 }
 
+var languages = ['en', 'sp'];
+
 // Pull GDoc files as markdown
 shell.exec('./claat update');
 
@@ -18,18 +20,34 @@ filesToProcess.forEach(function(filename) {
 });
 
 // Push course packages
-for (var course in courses) {
-  shell.exec('git clone https://github.com/nasearle/' + course + '.git');
-  shell.cd(course);
+for (var courseTitle in courses) {
+  shell.exec('git clone https://github.com/nasearle/' + courseTitle + '.git');
+  console.log('cd ' + courseTitle);
+  shell.cd(courseTitle);
+  console.log('rm -rf $(ls)');
   shell.exec('rm -rf $(ls)');
-  courses[course].forEach(function(module) {
-    shell.cp('-R', '../en/code/' + module, './' + module);
-  });
-  shell.exec('touch .gitignore');
-  shell.exec('echo "node_modules" >> .gitignore');
+  var course = courses[courseTitle];
+  if (course.type == 'code') {
+    course.modules.forEach(function(module) {
+      console.log('cp -R ../en/code/' + module, './' + module);
+      shell.cp('-R', '../en/code/' + module, './' + module);
+    });
+  } else {
+    languages.forEach(function(lang) {
+      console.log('cp -R ../' + lang + '/' + course.type + '/', './' + lang + '/');
+      shell.cp('-R', '../' + lang + '/' + course.type + '/', './' + lang + '/');
+    });
+  }
+  console.log('echo "node_modules" > .gitignore');
+  shell.exec('echo "node_modules" > .gitignore');
+  console.log('echo "node_modules" > .gitignore');
   shell.exec('echo ".DS_Store" >> .gitignore');
+  console.log('git add . && git commit -m "autoupdate' + Date.now() +
+    '" && git push');
   shell.exec('git add . && git commit -m "autoupdate' + Date.now() +
     '" && git push');
+  console.log('cd ..');
   shell.cd('..');
-  shell.rm('-rf', course);
+  console.log('-rf ' + courseTitle);
+  shell.rm('-rf', courseTitle);
 }
