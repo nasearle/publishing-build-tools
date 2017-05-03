@@ -80,3 +80,5 @@ for (var groupingName in groupings) {
   // console.log('rm -rf ' + groupingName);
   shell.rm('-rf', groupingName);
 }
+
+console.log('Complete.\nRemember to commit & push!');
