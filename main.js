@@ -2,6 +2,7 @@ var cleanup = require('./cleanup');
 var glob = require('globule');
 var shell = require('shelljs');
 var courses = require('./courses.json');
+var fs = require('fs');
 
 if (!shell.which('git')) {
   shell.echo('Sorry, this script requires git');
@@ -37,6 +38,10 @@ for (var courseTitle in courses) {
     shell.rm('-rf', 'img');
     console.log('mkdir img');
     shell.mkdir('img');
+    if (!fs.existsSync('./README.md')) {
+      console.log('echo "readme" > README.md');
+      shell.exec('echo "readme" > README.md');
+    }
     languages.forEach(function(lang) {
       var files = shell.ls('./' + lang);
       console.log('rm -rf ' + lang + '/*');
@@ -53,6 +58,10 @@ for (var courseTitle in courses) {
           folderName + '/img', './');
       });
     });
+  }
+  if (!fs.existsSync('./.gitignore')) {
+    console.log('echo "node_modules\n.DS_Store" > .gitignore');
+    shell.exec('echo "node_modules\n.DS_Store" > .gitignore');
   }
   console.log('git add . && git commit -m "autoupdate' + Date.now() +
     '" && git push');
