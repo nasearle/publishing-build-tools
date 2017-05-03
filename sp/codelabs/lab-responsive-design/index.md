@@ -8,21 +8,21 @@
 
 
 
-[__Overview__](#overview)__        __
+[<strong>Overview</strong> ](#overview)<strong>        </strong> 
 
-[__1. Get set up__](#1)__        __
+[<strong>1. Get set up</strong> ](#1)<strong>        </strong> 
 
-[__2. Test the page__](#2)__        __
+[<strong>2. Test the page</strong> ](#2)<strong>        </strong> 
 
-[__3. Set the visual viewport__](#3)__        __
+[<strong>3. Set the visual viewport</strong> ](#3)<strong>        </strong> 
 
-[__4. Use media queries__](#4)__        __
+[<strong>4. Use media queries</strong> ](#4)<strong>        </strong> 
 
-[__5. Using Flexbox__](#5)__        __
+[<strong>5. Using Flexbox</strong> ](#5)<strong>        </strong> 
 
-[__6. Using Flexbox as a progressive enhancement__](#6)__        __
+[<strong>6. Using Flexbox as a progressive enhancement</strong> ](#6)<strong>        </strong> 
 
-[__Congratulations!__](#congrats)
+[<strong>Congratulations!</strong> ](#congrats)
 
 <a id="overview" />
 
@@ -60,21 +60,21 @@ This lab shows you how to style your content to make it responsive.
 
 If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
 
-Open your browser and navigate to __localhost:8080/responsive-design-lab/app__.
+Open your browser and navigate to <strong>localhost:8080/responsive-design-lab/app</strong> .
 
 <div class="note">
 
-__Note:__ <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
+<strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
 
 </div>
 
-If you have a text editor that lets you open a project, open the __responsive-design-lab/app__ folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The __app__ folder is where you will be building the lab. 
+If you have a text editor that lets you open a project, open the <strong>responsive-design-lab/app</strong>  folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong>  folder is where you will be building the lab. 
 
 This folder contains:
 
-* __index.html__ is the main HTML page for our sample site/application
-* __modernizr-custom.js__ is a feature detection tool that simplifies testing for Flexbox support
-* __styles/main.css__ is the cascading style sheet for the sample site
+* <strong>index.html</strong>  is the main HTML page for our sample site/application
+* <strong>modernizr-custom.js</strong>  is a feature detection tool that simplifies testing for Flexbox support
+* <strong>styles/main.css</strong>  is the cascading style sheet for the sample site
 
 <a id="2" />
 
@@ -108,7 +108,7 @@ Save the file. Refresh the page in the browser and <a href="tools_for_pwa_develo
 
 <div class="note">
 
-__Warning:__ Device emulation gives you a close approximation as to how your site will look on a mobile device, but to get the full picture you should always test your site on real devices. You can learn more about debugging Android devices on <a href="/web/tools/chrome-devtools/remote-debugging/">Chrome</a> and <a href="https://developer.mozilla.org/en-US/docs/Tools/Remote_Debugging">Firefox</a>.
+<strong>Warning:</strong>  Device emulation gives you a close approximation as to how your site will look on a mobile device, but to get the full picture you should always test your site on real devices. You can learn more about debugging Android devices on <a href="/web/tools/chrome-devtools/remote-debugging/">Chrome</a> and <a href="https://developer.mozilla.org/en-US/docs/Tools/Remote_Debugging">Firefox</a>.
 
 </div>
 
@@ -131,7 +131,7 @@ The initial-scale property controls the zoom level when the page is first loaded
 
 
 
-Replace TODO 4 in __styles/main.css__ with the following code:
+Replace TODO 4 in <strong>styles/main.css</strong>  with the following code:
 
 #### main.css
 
@@ -161,11 +161,11 @@ The  [Flexible Box Layout Module](https://www.w3.org/TR/css-flexbox-1/) (Flexbox
 
 ### 5.1 Comment out existing rules in CSS
 
-Comment out all of the rules in __styles/main.css__ by wrapping them in `/*` and `*/`. We will make these our fallback rules for when Flexbox is not supported in the  [Flexbox as progressive enhancement](#6) section.
+Comment out all of the rules in <strong>styles/main.css</strong>  by wrapping them in `/*` and `*/`. We will make these our fallback rules for when Flexbox is not supported in the  [Flexbox as progressive enhancement](#6) section.
 
 ### 5.2 Add Flexbox layout
 
-Replace TODO 5.2 in __styles/main.css__ with the following code:
+Replace TODO 5.2 in <strong>styles/main.css</strong>  with the following code:
 
 #### main.css
 
@@ -184,11 +184,11 @@ Replace TODO 5.2 in __styles/main.css__ with the following code:
 }
 ```
 
-Save the code and refresh __index.html__ in your browser. Disable device mode in the browser and refresh the page. If you make your browser window narrower, the columns grow thinner until only one of them remains visible. We'll fix this with media queries in the next exercise.
+Save the code and refresh <strong>index.html</strong>  in your browser. Disable device mode in the browser and refresh the page. If you make your browser window narrower, the columns grow thinner until only one of them remains visible. We'll fix this with media queries in the next exercise.
 
 #### Explanation
 
-The first rule defines the `container` `div` as the flex container. This enables a flex context for all its direct children. We are mixing old and new syntax for including Flexbox to get broader support (see __For more information__ for details).
+The first rule defines the `container` `div` as the flex container. This enables a flex context for all its direct children. We are mixing old and new syntax for including Flexbox to get broader support (see <strong>For more information</strong>  for details).
 
 The second rule uses the `.col` class to create our equal width flex children. Setting the first argument of the  [`flex`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#article-header-id-13) property to `1` for all `div`s with class `col` divides the remaining space evenly between them. This is more convenient than calculating and setting the relative width ourselves.
 
@@ -209,7 +209,7 @@ Use the  [nth-child pseudo-class](https://developer.mozilla.org/en-US/docs/Web/C
 
 ### 5.4 Use media queries with Flexbox
 
-Replace TODO 5.4 in __styles/main.css__ with the code below:
+Replace TODO 5.4 in <strong>styles/main.css</strong>  with the code below:
 
 #### main.css
 
@@ -224,7 +224,7 @@ Replace TODO 5.4 in __styles/main.css__ with the code below:
 }
 ```
 
-Save the code and refresh __index.html__ in your browser. Now if you shrink the browser width, the content reorganizes into one column.
+Save the code and refresh <strong>index.html</strong>  in your browser. Now if you shrink the browser width, the content reorganizes into one column.
 
 #### Explanation
 
@@ -244,7 +244,7 @@ As Flexbox is a relatively new technology, we should include fallbacks in our CS
 
 [Modernizr](https://modernizr.com/docs) is a feature detection tool that simplifies testing for Flexbox support.
 
-Replace TODO 6.1 in __index.html__ with the code to include the custom Modernizr build:
+Replace TODO 6.1 in <strong>index.html</strong>  with the code to include the custom Modernizr build:
 
 #### index.html
 
@@ -254,11 +254,11 @@ Replace TODO 6.1 in __index.html__ with the code to include the custom Modernizr
 
 #### Explanation
 
-We include a  [Modernizr build](https://modernizr.com/download) at the top of __index.html__, which tests for Flexbox support. This runs the test on page-load and appends the class `flexbox` to the `<html>` element if the browser supports Flexbox. Otherwise, it appends a `no-flexbox` class to the `<html>` element. In the next section we add these classes to the CSS.
+We include a  [Modernizr build](https://modernizr.com/download) at the top of <strong>index.html</strong> , which tests for Flexbox support. This runs the test on page-load and appends the class `flexbox` to the `<html>` element if the browser supports Flexbox. Otherwise, it appends a `no-flexbox` class to the `<html>` element. In the next section we add these classes to the CSS.
 
 <div class="note">
 
-__Note:__ If we were using the <code>flex-wrap</code> property of Flexbox, we would need to add a separate Modernizr detector just for this feature. Older versions of some browsers partially support Flexbox, and do not include this feature.
+<strong>Note:</strong> If we were using the <code>flex-wrap</code> property of Flexbox, we would need to add a separate Modernizr detector just for this feature. Older versions of some browsers partially support Flexbox, and do not include this feature.
 
 </div>
 
@@ -266,7 +266,7 @@ __Note:__ If we were using the <code>flex-wrap</code> property of Flexbox, we wo
 
 Let's use the `flexbox` and `no-flexbox` classes in the CSS to provide fallback rules when Flexbox is not supported.
 
-Now in __styles/main.css__, add `.no-flexbox` in front of each rule that we commented out:
+Now in <strong>styles/main.css</strong> , add `.no-flexbox` in front of each rule that we commented out:
 
 #### main.css
 
@@ -319,7 +319,7 @@ In the same file, add `.flexbox` in front of the rest of the rules:
 
 Remember to add `.flexbox` to the rules for the individual columns if you completed the optional step 5.3.
 
-Save the code and refresh __index.html__ in the browser. The page should look the same as before, but now it works well in any browser on any device. If you have a  [browser that doesn't support Flexbox](http://caniuse.com/#search=flexbox), you can test the fallback rules by opening __index.html__ in that browser.
+Save the code and refresh <strong>index.html</strong>  in the browser. The page should look the same as before, but now it works well in any browser on any device. If you have a  [browser that doesn't support Flexbox](http://caniuse.com/#search=flexbox), you can test the fallback rules by opening <strong>index.html</strong>  in that browser.
 
 #### For more information
 

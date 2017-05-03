@@ -8,19 +8,19 @@
 
 
 
-[__Overview__](#overview)          
+[<strong>Overview</strong> ](#overview)          
 
-[__1. Get set up__](#1)          
+[<strong>1. Get set up</strong> ](#1)          
 
-[__2. Check for support__](#2)          
+[<strong>2. Check for support</strong> ](#2)          
 
-[__3. Creating the database and adding items__](#3)          
+[<strong>3. Creating the database and adding items</strong> ](#3)          
 
-[__4. Searching the database__](#4)          
+[<strong>4. Searching the database</strong> ](#4)          
 
-[__5. Optional: Processing orders__](#5)          
+[<strong>5. Optional: Processing orders</strong> ](#5)          
 
-[__Congratulations!__](#6)
+[<strong>Congratulations!</strong> ](#6)
 
 Concepts:  [Working with IndexedDB](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working-with-indexeddb.html)
 
@@ -63,22 +63,22 @@ This lab builds a furniture store app,  *Couches-n-Things* , to demonstrate the 
 
 If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
 
-Open your browser and navigate to __localhost:8080/indexed-db-lab/app__.
+Open your browser and navigate to <strong>localhost:8080/indexed-db-lab/app</strong> .
 
 <div class="note">
 
-__Note:__ <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
+<strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
 
 </div>
 
-If you have a text editor that lets you open a project, open the __indexed-db-lab/app__ folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The __app__ folder is where you will be building the lab. 
+If you have a text editor that lets you open a project, open the <strong>indexed-db-lab/app</strong>  folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong>  folder is where you will be building the lab. 
 
 This folder contains:
 
-* __js/main.js__ is where we will write the scripts to interact with the database
-* __js/idb.js__ is the IndexedDB Promised library
-* __test/test.html__ is a QUnit test page
-* __index.html__ is the main HTML page for our sample site/application, and which contains some forms for interacting with our IndexedDB database
+* <strong>js/main.js</strong>  is where we will write the scripts to interact with the database
+* <strong>js/idb.js</strong>  is the IndexedDB Promised library
+* <strong>test/test.html</strong>  is a QUnit test page
+* <strong>index.html</strong>  is the main HTML page for our sample site/application, and which contains some forms for interacting with our IndexedDB database
 
 <a id="2" />
 
@@ -123,11 +123,11 @@ var dbPromise = idb.open('couches-n-things', 1);
 
 In the browser, [open IndexedDB](tools_for_pwa_developers.md#indexeddb) in the developer tools and confirm that your database exists.
 
-Open the QUnit test page, __app/test/test.html__, in another browser tab. This page contains several tests for testing our app at each stage of the codelab. Passed tests are blue and failed tests are red. Your app should pass the first test that checks whether the `couches-n-things` database exists in the browser.
+Open the QUnit test page, <strong>app/test/test.html</strong> , in another browser tab. This page contains several tests for testing our app at each stage of the codelab. Passed tests are blue and failed tests are red. Your app should pass the first test that checks whether the `couches-n-things` database exists in the browser.
 
 <div class="note">
 
-__Note:__ Be sure to open the test page using the localhost address so that it opens from the server and not directly from the file system.
+<strong>Note:</strong> Be sure to open the test page using the localhost address so that it opens from the server and not directly from the file system.
 
 </div>
 
@@ -137,7 +137,7 @@ __Note:__ Be sure to open the test page using the localhost address so that it o
 
 <div class="note">
 
-__Note: __If at any point in the codelab your database gets into a bad state, you can delete it from the console with the following command: <code>indexedDB.deleteDatabase('couches-n-things');</code>. Note that you can't delete the database while the testing page is open.
+<strong>Note:</strong> If at any point in the codelab your database gets into a bad state, you can delete it from the console with the following command: <code>indexedDB.deleteDatabase('couches-n-things');</code>. Note that you can't delete the database while the testing page is open.
 
 </div>
 
@@ -147,7 +147,7 @@ Let's create an object store in the database to hold the furniture objects.
 
 <div class="note">
 
-__Note:__ Close the test page. The database version can't be changed while another page is using the database.
+<strong>Note:</strong> Close the test page. The database version can't be changed while another page is using the database.
 
 </div>
 
@@ -190,7 +190,7 @@ We have specified the `id` property as the `keyPath` for the object store. Objec
 
 <div class="note">
 
-__Note:__ We are deliberately not including `break` statements in the switch block to ensure all of the cases after the starting case will execute.
+<strong>Note:</strong> We are deliberately not including `break` statements in the switch block to ensure all of the cases after the starting case will execute.
 
 </div>
 
@@ -279,7 +279,7 @@ dbPromise.then(function(db) {
 });
 ```
 
-Save the file and reload the page in the browser. Click __Add Products__ and refresh the page. Confirm that the objects display in the `products` object store under `couches-n-things` in the developer tools.
+Save the file and reload the page in the browser. Click <strong>Add Products</strong>  and refresh the page. Confirm that the objects display in the `products` object store under `couches-n-things` in the developer tools.
 
 Reload the test page. The app should now pass the third test that checks whether the objects have been added to the `products` object store. 
 
@@ -289,7 +289,7 @@ All database operations must be carried out within a  [transaction](https://deve
 
 <div class="note">
 
-__Note:__ Specify the transaction mode as <code>readwrite</code> when making changes to the database (that is, using the <code>add</code>, <code>put</code>, or <code>delete</code> methods).
+<strong>Note:</strong> Specify the transaction mode as <code>readwrite</code> when making changes to the database (that is, using the <code>add</code>, <code>put</code>, or <code>delete</code> methods).
 
 </div>
 
@@ -312,7 +312,7 @@ Create some indexes on your object store.
 
 <div class="note">
 
-__Note:__ Close the test page. The database version can't be changed while another page is using the database.
+<strong>Note:</strong> Close the test page. The database version can't be changed while another page is using the database.
 
 </div>
 
@@ -329,7 +329,7 @@ case 2:
 
 <div class="note">
 
-__Important:__ Remember to change the version number to 3 before you test the code in the browser.
+<strong>Important:</strong>  Remember to change the version number to 3 before you test the code in the browser.
 
 </div>
 
@@ -362,7 +362,7 @@ var dbPromise = idb.open('couches-n-things', 3, function(upgradeDb) {
 
 <div class="note">
 
-__Note:__ We did not include break statements in the switch block so that all of the latest updates to the database will execute even if the user is one or more versions behind.
+<strong>Note:</strong> We did not include break statements in the switch block so that all of the latest updates to the database will execute even if the user is one or more versions behind.
 
 </div>
 
@@ -385,13 +385,13 @@ To complete TODO 4.2 in <strong>main.js</strong>, write a case 3 to add  and `de
 
 <div class="note">
 
-__Note: __Remember to change the version number of the database to 4 before testing the code.
+<strong>Note:</strong> Remember to change the version number of the database to 4 before testing the code.
 
 </div>
 
 <div class="note">
 
-__Note:__ Remember to close the test page. The database version can't be changed while another page is using the database.
+<strong>Note:</strong> Remember to close the test page. The database version can't be changed while another page is using the database.
 
 </div>
 
@@ -420,17 +420,17 @@ Save the code and refresh the page in the browser.
 
 <div class="note">
 
-__Note:__ Make sure the items we added to the database in the previous step are still in the database. If the database is empty, click <strong>Add Products</strong> to populate it.
+<strong>Note:</strong> Make sure the items we added to the database in the previous step are still in the database. If the database is empty, click <strong>Add Products</strong> to populate it.
 
 </div>
 
-Enter an item name from step 3.3 into the __By Name__ field and click __Search__ next to the text box. The corresponding furniture item should display on the page.
+Enter an item name from step 3.3 into the <strong>By Name</strong>  field and click <strong>Search</strong>  next to the text box. The corresponding furniture item should display on the page.
 
 Refresh the test page. The app should pass the seventh test, which checks if the `getByName` function returns a database object.
 
 <div class="note">
 
-__Note:__ The <code>get</code> method is case sensitive.
+<strong>Note:</strong> The <code>get</code> method is case sensitive.
 
 </div>
 
@@ -486,11 +486,11 @@ dbPromise.then(function(db) {
 });
 ```
 
-Save the code and refresh the page in the browser. Enter some prices into the 'price' text boxes (without a currency symbol) and click __Search__. Items should appear on the page ordered by price. 
+Save the code and refresh the page in the browser. Enter some prices into the 'price' text boxes (without a currency symbol) and click <strong>Search</strong> . Items should appear on the page ordered by price. 
 
 <strong>Optional</strong>: Replace TODO 4.4b in the <code>getByDesc()</code> function with the code to get the items by their descriptions. The first part is done for you. The function uses the 'only' method on <code>IDBKeyrange</code> to match all items with exactly the provided description.
 
-Save the code and refresh the page in the browser. Enter a description (must match the description in the desired object exactly) into the description text box and click __Search__.
+Save the code and refresh the page in the browser. Enter a description (must match the description in the desired object exactly) into the description text box and click <strong>Search</strong> .
 
 #### Explanation
 
@@ -504,7 +504,7 @@ After getting the price values from the page, we determine which method to call 
 
 #### Solution code
 
-The solution code can be found in the __04-4-get-data__ directory.
+The solution code can be found in the <strong>04-4-get-data</strong>  directory.
 
 <a id="5" />
 
@@ -524,13 +524,13 @@ To complete TODO 5.1 in <strong>main.js</strong>, write a case 4 that adds an `o
 
 <div class="note">
 
-__Important:__ Remember to change the version number of the database to 5 so the callback executes.
+<strong>Important:</strong>  Remember to change the version number of the database to 5 so the callback executes.
 
 </div>
 
 <div class="note">
 
-__Note:__ Remember to close the test page. The database version can't be changed while another page is using the database.
+<strong>Note:</strong> Remember to close the test page. The database version can't be changed while another page is using the database.
 
 </div>
 
@@ -544,7 +544,7 @@ To complete TODO 5.2 in <strong>main.js</strong>, add the following items to the
 
 <div class="note">
 
-__Note:__ You'll need to write the code to actually add the items.
+<strong>Note:</strong> You'll need to write the code to actually add the items.
 
 </div>
 
@@ -582,7 +582,7 @@ var items = [
 ];
 ```
 
-Save the code and refresh the page in the browser. Click __Add Orders__ and refresh the page again. Confirm that the objects show up in the `orders` store in the developer tools.
+Save the code and refresh the page in the browser. Click <strong>Add Orders</strong>  and refresh the page again. Confirm that the objects show up in the `orders` store in the developer tools.
 
 Refresh the test page. Your app should now pass the ninth test which checks if the sample orders were added to the `orders` object store.
 
@@ -590,7 +590,7 @@ Refresh the test page. Your app should now pass the ninth test which checks if t
 
 To complete TODO 5.3 in <strong>main.js</strong>, write the code to display all of the objects in the `orders` object store on the page. This is very similar to the <code>getByPrice</code> function except you don't need to define a range for the cursor. The code to insert the <code>s</code> variable into the HTML is already written.
 
-Save the code and refresh the page in the browser. Click __Show Orders__ to display the orders on the page.
+Save the code and refresh the page in the browser. Click <strong>Show Orders</strong>  to display the orders on the page.
 
 ### 5.4 Get all orders
 
@@ -598,7 +598,7 @@ To complete TODO 5.4 in the <code>getOrders</code> function in <strong>main.js</
 
 <div class="note">
 
-__Hint:__ Return the call to <code>dbPromise</code> otherwise the orders array will not be passed to the <code>processOrders</code> function.
+<strong>Hint:</strong>  Return the call to <code>dbPromise</code> otherwise the orders array will not be passed to the <code>processOrders</code> function.
 
 </div>
 
@@ -677,13 +677,13 @@ Replace TODO 5.7 in <strong>main.js</strong> with the code to update the items i
 * Remember to make the transaction mode <code>'readwrite'</code>
 * Remember to return <code>transaction.complete</code> (<code>tx.complete</code>) after putting the items into the store
 
-Save the code and refresh the page in the browser. Check the quantity property of the cabinet, armchair, and couch items in the products object store. Click __Fulfill__ in the page, refresh, and check the quantities again. They should be reduced by the amount of each product that was ordered.
+Save the code and refresh the page in the browser. Check the quantity property of the cabinet, armchair, and couch items in the products object store. Click <strong>Fulfill</strong>  in the page, refresh, and check the quantities again. They should be reduced by the amount of each product that was ordered.
 
 Refresh the test page. Your app should now pass the last test, which checks whether the `updateProductsStore` function updates the items in the `products` object store with their reduced quantities.
 
 #### Solution code
 
-The solution code can be found in the __solution__ directory.
+The solution code can be found in the <strong>solution</strong>  directory.
 
 <a id="6" />
 

@@ -8,21 +8,21 @@
 
 
 
-[__Overview__](#overview)          
+[<strong>Overview</strong> ](#overview)          
 
-[__1. Get set up__](#1)          
+[<strong>1. Get set up</strong> ](#1)          
 
-[__2. Set the relative width__](#2)          
+[<strong>2. Set the relative width</strong> ](#2)          
 
-[__3. Using the srcset attribute__](#3)          
+[<strong>3. Using the srcset attribute</strong> ](#3)          
 
-[__4. Using the sizes attribute__](#4)          
+[<strong>4. Using the sizes attribute</strong> ](#4)          
 
-[__5. Using media queries__](#5)          
+[<strong>5. Using media queries</strong> ](#5)          
 
-[__6. Optional: Use the picture and source elements__](#6)          
+[<strong>6. Optional: Use the picture and source elements</strong> ](#6)          
 
-[__Congratulations!__](#7)__        __
+[<strong>Congratulations!</strong> ](#7)<strong>        </strong> 
 
 <a id="overview" />
 
@@ -59,21 +59,21 @@ This lab shows you how to make images on your web page look good on all devices.
 
 If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
 
-Open your browser and navigate to __localhost:8080/responsive-images-lab/app__.
+Open your browser and navigate to <strong>localhost:8080/responsive-images-lab/app</strong> .
 
 <div class="note">
 
-__Note:__ <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
+<strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
 
 </div>
 
-If you have a text editor that lets you open a project, open the __responsive-images-lab/app__ folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The __app__ folder is where you will be building the lab. 
+If you have a text editor that lets you open a project, open the <strong>responsive-images-lab/app</strong>  folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong>  folder is where you will be building the lab. 
 
 This folder contains:
 
-* __images__ folder contains sample images, each with several versions at different resolutions
-* __index.html__ is the main HTML page for our sample site/application
-* __styles/main.css__ is the cascading style sheet for the sample site
+* <strong>images</strong>  folder contains sample images, each with several versions at different resolutions
+* <strong>index.html</strong>  is the main HTML page for our sample site/application
+* <strong>styles/main.css</strong>  is the cascading style sheet for the sample site
 
 <a id="2" />
 
@@ -103,7 +103,7 @@ The value in `max-width` represents a percentage of the containing element, in t
 
 <div class="note">
 
-__Note: __You could also specify the <code>max-width</code> in terms of the viewport width using <code>vw</code> units (for example, <code>100vw</code>). In this case we are using a percentage value to keep the images the same width as the text.
+<strong>Note:</strong> You could also specify the <code>max-width</code> in terms of the viewport width using <code>vw</code> units (for example, <code>100vw</code>). In this case we are using a percentage value to keep the images the same width as the text.
 
 </div>
 
@@ -127,11 +127,11 @@ To complete TODO 3.1 in <strong>index.html</strong>, add the following <code>src
 srcset="images/sfo-1600_large.jpg, images/sfo-1000_large.jpg, images/sfo-800_medium.jpg, images/sfo-500_small.jpg"
 ```
 
-Save the code and refresh the page in the browser. Open your browser's Developer Tools and [look at the network requests](tools_for_pwa_developers.md#viewnetwork). Try refreshing the page at different window sizes. You should see that the browser is fetching __images/sfo-1600_large.jpg__ no matter the window size.
+Save the code and refresh the page in the browser. Open your browser's Developer Tools and [look at the network requests](tools_for_pwa_developers.md#viewnetwork). Try refreshing the page at different window sizes. You should see that the browser is fetching <strong>images/sfo-1600_large.jpg</strong>  no matter the window size.
 
 #### Explanation
 
-In the __images__ folder there are several versions of the SFO image, each at different resolutions. We list these in the `srcset` attribute to give the browser the option to choose which file to use. However, the browser has no way of determining the file sizes before it loads them, so it always chooses the first image in the list. 
+In the <strong>images</strong>  folder there are several versions of the SFO image, each at different resolutions. We list these in the `srcset` attribute to give the browser the option to choose which file to use. However, the browser has no way of determining the file sizes before it loads them, so it always chooses the first image in the list. 
 
 ### 3.2 Add width descriptors to the srcset
 
@@ -145,17 +145,17 @@ To complete TODO 3.2 in <strong>index.html</strong>, add width descriptors to th
 srcset="images/sfo-1600_large.jpg 1600w, images/sfo-1000_large.jpg 1000w, images/sfo-800_medium.jpg 800w, images/sfo-500_small.jpg 500w"
 ```
 
-Save the code and refresh the page in the browser. Refresh the page at various window sizes and [check the network requests](tools_for_pwa_developers.md#viewnetwork) to see which version of the image is fetched at each size. On a 1x display, the browser fetches __sfo-500_small.jpg__ when the window is narrower than 500px, __sfo-800_medium.jpg__ when it is narrower than 800px, and so forth.
+Save the code and refresh the page in the browser. Refresh the page at various window sizes and [check the network requests](tools_for_pwa_developers.md#viewnetwork) to see which version of the image is fetched at each size. On a 1x display, the browser fetches <strong>sfo-500_small.jpg</strong>  when the window is narrower than 500px, <strong>sfo-800_medium.jpg</strong>  when it is narrower than 800px, and so forth.
 
 <div class="note">
 
-__Note:__ If a larger version of an image is available in the browser (HTTP) cache, some browsers might load that image even if it is not the one specified by <code>srcset</code> (because if the browser already has a higher resolution image stored locally, why not use it?). To disable this for the lab, make sure your <a href="tools_for_pwa_developers.md#disablehttpcache">HTTP cache is disabled</a> in developer tools.
+<strong>Note:</strong> If a larger version of an image is available in the browser (HTTP) cache, some browsers might load that image even if it is not the one specified by <code>srcset</code> (because if the browser already has a higher resolution image stored locally, why not use it?). To disable this for the lab, make sure your <a href="tools_for_pwa_developers.md#disablehttpcache">HTTP cache is disabled</a> in developer tools.
 
 </div>
 
 <div class="note">
 
-__Note:__ In Chrome, with <strong>DevTools</strong> open, the browser window dimensions appear as it is being resized (see the image below). This feature will be very useful throughout this codelab.
+<strong>Note:</strong> In Chrome, with <strong>DevTools</strong> open, the browser window dimensions appear as it is being resized (see the image below). This feature will be very useful throughout this codelab.
 
 </div>
 
@@ -167,7 +167,7 @@ By adding a width descriptor to each file in the `srcset`, we are telling the br
 
 <div class="note">
 
-__Note:__ You can also optionally specify a pixel density instead of a width. However, you cannot specify both pixel densities and widths in the same <code>srcset</code> attribute. We explore using pixel densities in a later section.
+<strong>Note:</strong> You can also optionally specify a pixel density instead of a width. However, you cannot specify both pixel densities and widths in the same <code>srcset</code> attribute. We explore using pixel densities in a later section.
 
 </div>
 
@@ -245,7 +245,7 @@ Replace TODO 5.1 in <strong>styles/main.css</strong> with the following code:
 }
 ```
 
-Save the code and refresh the page in the browser. Shrink the window to less than 700px (in Chrome, the viewport dimensions are shown on the screen if __DevTools__ is open). The image should resize to fill 90% of the window width.
+Save the code and refresh the page in the browser. Shrink the window to less than 700px (in Chrome, the viewport dimensions are shown on the screen if <strong>DevTools</strong>  is open). The image should resize to fill 90% of the window width.
 
 #### Explanation
 
@@ -267,7 +267,7 @@ To complete TODO 5.2 in <strong>index.html</strong>, update the <code>sizes</cod
 sizes="(max-width: 700px) 90vw, 50vw"
 ```
 
-Save the code and refresh the page in the browser. Resize the browser window so that it is 600px wide. On a 1x display, the browser should fetch __sfo-800_medium.jpg__. 
+Save the code and refresh the page in the browser. Resize the browser window so that it is 600px wide. On a 1x display, the browser should fetch <strong>sfo-800_medium.jpg</strong> . 
 
 <a id="6" />
 
@@ -303,11 +303,11 @@ Save the code and refresh the page in the browser. Try resizing the browser wind
 
 The <code>&lt;picture&gt;</code> element lets us define multiple source files using the <code>&lt;source&gt;</code> tag. This is different than simply using an <code>&lt;img&gt;</code> tag with the `srcset` attribute because the source tag lets us add things like media queries to each set of sources. Instead of giving the browser the image sizes and letting it decide which files to use, we can define the images to use at each window size. 
 
-We have included several versions of the sample image, each at different resolutions and cropped to make the focus of the image visible at smaller sizes. In the code above, at larger than 750px, the browser fetches either __horses-1600_large_2x.jpg__ (if the device has a 2x display) or __horses-800_large_1x.jpg__. If the window's width is less than 750px but greater than 500px, the browser fetches __horses_medium.jpg__. At less than 500px the browser fetches the fallback image, __horses_small.jpg__.
+We have included several versions of the sample image, each at different resolutions and cropped to make the focus of the image visible at smaller sizes. In the code above, at larger than 750px, the browser fetches either <strong>horses-1600_large_2x.jpg</strong>  (if the device has a 2x display) or <strong>horses-800_large_1x.jpg</strong> . If the window's width is less than 750px but greater than 500px, the browser fetches <strong>horses_medium.jpg</strong> . At less than 500px the browser fetches the fallback image, <strong>horses_small.jpg</strong> .
 
 <div class="note">
 
-__Note:__ If the user's browser doesn't support the <code>&lt;picture&gt;</code> element, it fetches whatever is in the <code>&lt;img&gt;</code> element. The <code>&lt;picture&gt;</code> element is just used to specify multiple sources for the <code>&lt;img&gt;</code> element contained in it. The <code>&lt;img&gt;</code> element is what displays the image.
+<strong>Note:</strong> If the user's browser doesn't support the <code>&lt;picture&gt;</code> element, it fetches whatever is in the <code>&lt;img&gt;</code> element. The <code>&lt;picture&gt;</code> element is just used to specify multiple sources for the <code>&lt;img&gt;</code> element contained in it. The <code>&lt;img&gt;</code> element is what displays the image.
 
 </div>
 

@@ -8,17 +8,17 @@
 
 
 
-[__Overview__](#overview)__  __
+[<strong>Overview</strong> ](#overview)<strong>  </strong> 
 
-[__1. Get set up__](#1)__  __
+[<strong>1. Get set up</strong> ](#1)<strong>  </strong> 
 
-[__2. ____Using promises__](#2)__  __
+[<strong>2. </strong> <strong>Using promises</strong> ](#2)<strong>  </strong> 
 
-[__3. Chaining promises__](#3)__  __
+[<strong>3. Chaining promises</strong> ](#3)<strong>  </strong> 
 
-[__4. Optional: Using Promise.all and Promise.race__](#4)__  __
+[<strong>4. Optional: Using Promise.all and Promise.race</strong> ](#4)<strong>  </strong> 
 
-[__Congratulations!__](#congrats)
+[<strong>Congratulations!</strong> ](#congrats)
 
 Concepts:  [Working with Promises](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_promises.html)
 
@@ -62,22 +62,22 @@ This lab teaches you how to use JavaScript  [Promises](https://developer.mozilla
 
 If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md). 
 
-Open your browser and navigate to __localhost:8080/promises-lab/app__.
+Open your browser and navigate to <strong>localhost:8080/promises-lab/app</strong> .
 
 <div class="note">
 
-__Note:__ <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
+<strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
 
 </div>
 
-If you have a text editor that lets you open a project, open the __promises-lab/app__ folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The __app__ folder is where you will be building the lab.
+If you have a text editor that lets you open a project, open the <strong>promises-lab/app</strong>  folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong>  folder is where you will be building the lab.
 
 This folder contains:
 
-* __flags/chile.png__, __flags/peru.png__, __flags/spain.png__ - sample resources that we use to experiment
-* __js/main.js__ is the main JavaScript file for the app
-* __test/test.html__ is a file for testing your progress
-* __index.html__ is the main HTML page for our sample site/application
+* <strong>flags/chile.png</strong> , <strong>flags/peru.png</strong> , <strong>flags/spain.png</strong>  - sample resources that we use to experiment
+* <strong>js/main.js</strong>  is the main JavaScript file for the app
+* <strong>test/test.html</strong>  is a file for testing your progress
+* <strong>index.html</strong>  is the main HTML page for our sample site/application
 
 <a id="2">
 
@@ -114,13 +114,13 @@ return promiseOfImageName;
 
 Save the script and refresh the page. 
 
-Enter "Spain" into the app's __Country Name__ field. Then, click __Get Image Name__. You should see a  [Promise object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) logged in the console.
+Enter "Spain" into the app's <strong>Country Name</strong>  field. Then, click <strong>Get Image Name</strong> . You should see a  [Promise object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) logged in the console.
 
-Now enter "Hello World" into the __Country Name__ field and click __Get Image Name__. You should see another Promise object logged in the console, followed by an error.
+Now enter "Hello World" into the <strong>Country Name</strong>  field and click <strong>Get Image Name</strong> . You should see another Promise object logged in the console, followed by an error.
 
 <div class="note">
 
-__Note: __Navigate to <strong>app/test/test.html</strong> in the browser to check your function implementations. Functions that are incorrectly implemented or unimplemented show red errors. Be sure to open the test page using the localhost address so that it opens from the server and not directly from the file system.
+<strong>Note:</strong> Navigate to <strong>app/test/test.html</strong> in the browser to check your function implementations. Functions that are incorrectly implemented or unimplemented show red errors. Be sure to open the test page using the localhost address so that it opens from the server and not directly from the file system.
 
 </div>
 
@@ -145,7 +145,7 @@ var promise = new Promise(function(resolve, reject) {
 
 Depending on the outcome of an asynchronous operation, a promise can either  [resolve](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) with a value or  [reject](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject) with an error. In the `getImageName` function, the `promiseOfImageName` promise either resolves with an image filename, or rejects with a custom error signifying that the function input was invalid. 
 
-__Optional__: Complete the `isSpain` function so that it takes a string as input, and returns a new promise that resolves if the function input is "Spain", and rejects otherwise. You can verify that you implemented `isSpain` correctly by navigating to __app/test/test.html__ and checking the `isSpain` test. Note that this exercise is optional and is not used in the app.
+<strong>Optional</strong> : Complete the `isSpain` function so that it takes a string as input, and returns a new promise that resolves if the function input is "Spain", and rejects otherwise. You can verify that you implemented `isSpain` correctly by navigating to <strong>app/test/test.html</strong>  and checking the `isSpain` test. Note that this exercise is optional and is not used in the app.
 
 ### 2.2. Use the promise
 
@@ -162,9 +162,9 @@ return getImageName(country)
 
 Save the script and refresh the page. 
 
-Enter "Spain" into the app's __Country Name__ field again. Now click __Flag Chain__. In addition to the promise object, "Spain.png" should now be logged.
+Enter "Spain" into the app's <strong>Country Name</strong>  field again. Now click <strong>Flag Chain</strong> . In addition to the promise object, "Spain.png" should now be logged.
 
-Now enter "Hello World" into the __Country Name__ text input and click __Flag Chain__ again. You should see another promise logged in the console, followed by a custom error message.
+Now enter "Hello World" into the <strong>Country Name</strong>  text input and click <strong>Flag Chain</strong>  again. You should see another promise logged in the console, followed by a custom error message.
 
 #### Explanation
 
@@ -177,7 +177,7 @@ If the first function is called, then it is implicitly passed the resolved promi
 
 <div class="note">
 
-__Note:__ We used named functions inside <code>then</code> as good practice, but we could use <a href="https://en.wikibooks.org/wiki/JavaScript/Anonymous_functions">anonymous functions</a> as well.
+<strong>Note:</strong> We used named functions inside <code>then</code> as good practice, but we could use <a href="https://en.wikibooks.org/wiki/JavaScript/Anonymous_functions">anonymous functions</a> as well.
 
 </div>
 
@@ -213,7 +213,7 @@ return getImageName(country)
 
 The difference is subtle, but extremely useful. Promise rejections skip forward to the next `then` with a rejection callback (or `catch`, since they're equivalent). With `then(func1, func2)`, `func1` or `func2` will be called, never both. But with `then(func1).catch(func2)`, both will be called if `func1` rejects, as they're separate steps in the chain. 
 
-__Optional__: If you wrote the optional `isSpain` function in section 2.1, complete the `spainTest` function so that it takes a string as input and returns a promise using an `isSpain` call with the input string. Use `then` and `catch` such that `spainTest` returns a value of true if the `isSpain` promise resolves and false if the `isSpain` promise rejects (you can use the `returnTrue` and `returnFalse` helper functions). You can verify that you have implemented `spainTest` correctly by navigating to __app/test/test.html__ and checking the `spainTest` test.
+<strong>Optional</strong> : If you wrote the optional `isSpain` function in section 2.1, complete the `spainTest` function so that it takes a string as input and returns a promise using an `isSpain` call with the input string. Use `then` and `catch` such that `spainTest` returns a value of true if the `isSpain` promise resolves and false if the `isSpain` promise rejects (you can use the `returnTrue` and `returnFalse` helper functions). You can verify that you have implemented `spainTest` correctly by navigating to <strong>app/test/test.html</strong>  and checking the `spainTest` test.
 
 #### For more information
 
@@ -226,7 +226,7 @@ __Optional__: If you wrote the optional `isSpain` function in section 2.1, compl
 
 #### Solution code
 
-To get a copy of the working code, navigate to the __02-basic-promises__ folder.
+To get a copy of the working code, navigate to the <strong>02-basic-promises</strong>  folder.
 
 <a id="3" />
 
@@ -254,9 +254,9 @@ return getImageName(country)
 
 Save the script and refresh the page.
 
-Enter "Spain" into the app's __Country Name__ text input. Now click __Flag Chain__. You should see the Spanish flag display on the page.
+Enter "Spain" into the app's <strong>Country Name</strong>  text input. Now click <strong>Flag Chain</strong> . You should see the Spanish flag display on the page.
 
-Now enter "Hello World" into the __Country Name__ text input and click __Flag Chain__. The console should show that the error is triggering `catch`.
+Now enter "Hello World" into the <strong>Country Name</strong>  text input and click <strong>Flag Chain</strong> . The console should show that the error is triggering `catch`.
 
 #### Explanation
 
@@ -273,15 +273,15 @@ If any of the promises reject, then all subsequent `then` blocks are skipped, an
 
 The `flagChain` function does not add a flag to the page if an invalid country is used as input (`getImageName` rejects and execution skips to the `catch` block). 
 
-Add a `catch` to the promise chain that uses the `fallbackName` function to supply a fallback image file name to the `fetchFlag` function if an invalid country is supplied to `flagChain`. To verify this was added correctly, navigate to __app/test/test.html__ and check the `flagChain` test.
+Add a `catch` to the promise chain that uses the `fallbackName` function to supply a fallback image file name to the `fetchFlag` function if an invalid country is supplied to `flagChain`. To verify this was added correctly, navigate to <strong>app/test/test.html</strong>  and check the `flagChain` test.
 
 <div class="note">
 
-__Note:__ This test is asynchronous and may take a few moments to complete.
+<strong>Note:</strong> This test is asynchronous and may take a few moments to complete.
 
 </div>
 
-Save the script and refresh the page. Enter "Hello World" in the __Country Name__ field and click __Flag Chain__. Now the Chilean flag should display even though an invalid input was passed to `flagChain`.
+Save the script and refresh the page. Enter "Hello World" in the <strong>Country Name</strong>  field and click <strong>Flag Chain</strong> . Now the Chilean flag should display even though an invalid input was passed to `flagChain`.
 
 #### Explanation
 
@@ -293,7 +293,7 @@ Because `catch` returns a promise, you can use the `catch` method inside a promi
 
 #### Solution code
 
-To get a copy of the working code, navigate to the __03-chaining-promises__ folder.
+To get a copy of the working code, navigate to the <strong>03-chaining-promises</strong>  folder.
 
 <a id="4" />
 
@@ -307,7 +307,7 @@ To get a copy of the working code, navigate to the __03-chaining-promises__ fold
 
 Often we want to take action only after a collection of asynchronous operations have completed successfully. 
 
-Complete the `allFlags` function such that it takes a list of promises as input. The function should use  [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) to evaluate the list of promises. If all promises resolve successfully, then `allFlags` returns the values of the resolved promises as a list. Otherwise, `allFlags` returns `false`. To verify that you have done this correctly, navigate to __app/test/test.html__ and check the `allFlags` test.
+Complete the `allFlags` function such that it takes a list of promises as input. The function should use  [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) to evaluate the list of promises. If all promises resolve successfully, then `allFlags` returns the values of the resolved promises as a list. Otherwise, `allFlags` returns `false`. To verify that you have done this correctly, navigate to <strong>app/test/test.html</strong>  and check the `allFlags` test.
 
 Test the function by replacing TODO 4.1 in <strong>js/main.js</strong> with the following code:
 
@@ -329,7 +329,7 @@ Save the script and refresh the page. The console should log each promise object
 
 <div class="note">
 
-__Note: __In this example we are using an <a href="https://en.wikibooks.org/wiki/JavaScript/Anonymous_functions">anonymous function</a> inside the <code>then</code> call. This is not related to <code>Promise.all</code>.
+<strong>Note:</strong> In this example we are using an <a href="https://en.wikibooks.org/wiki/JavaScript/Anonymous_functions">anonymous function</a> inside the <code>then</code> call. This is not related to <code>Promise.all</code>.
 
 </div>
 
@@ -341,13 +341,13 @@ Change one of the inputs in the `getImageName` calls inside the `promises` varia
 
 <div class="note">
 
-__Note: __<code>Promise.all</code> would not work if the promises passed in were from <code>flagChain</code> calls because <code>flagChain</code> uses <code>catch</code> to ensure that the returned promise always resolves.
+<strong>Note:</strong> <code>Promise.all</code> would not work if the promises passed in were from <code>flagChain</code> calls because <code>flagChain</code> uses <code>catch</code> to ensure that the returned promise always resolves.
 
 </div>
 
 <div class="note">
 
-__Note:__ Even if an input promise rejects, causing <code>Promise.all</code> to reject, the remaining input promises still settle. In other words, the remaining promises still execute, they simply are not returned by <code>Promise.all</code>.
+<strong>Note:</strong> Even if an input promise rejects, causing <code>Promise.all</code> to reject, the remaining input promises still settle. In other words, the remaining promises still execute, they simply are not returned by <code>Promise.all</code>.
 
 </div>
 
@@ -389,7 +389,7 @@ In this example, if `promise2` resolves before `promise1` settles, the `then` bl
 
 <div class="note">
 
-__Note:__ Because <code>Promise.race</code> rejects immediately if one of the supplied promises rejects (even if another supplied promise resolves later) <code>Promise.race</code> by itself can't be used to reliably return the first promise that resolves. See the <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_promises.html#race">concepts section</a> for more details. 
+<strong>Note:</strong> Because <code>Promise.race</code> rejects immediately if one of the supplied promises rejects (even if another supplied promise resolves later) <code>Promise.race</code> by itself can't be used to reliably return the first promise that resolves. See the <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_promises.html#race">concepts section</a> for more details. 
 
 </div>
 
@@ -399,7 +399,7 @@ __Note:__ Because <code>Promise.race</code> rejects immediately if one of the su
 
 #### Solution code
 
-To get a copy of the working code, navigate to the __solution__ folder.
+To get a copy of the working code, navigate to the <strong>solution</strong>  folder.
 
 <a id="congrats">
 

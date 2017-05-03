@@ -42,6 +42,9 @@ function cleanup(sourceFile, destFile, bookPath) {
   // Eliminate the Duration on Codelabs
   markdown = markdown.replace(/^\*Duration is \d+ min\*\n/gm, '');
 
+  // Change bold underscores to <strong> tags
+  markdown = markdown.replace(/__(.*?)__/g, '<strong>$1</strong> ');
+
   // Make any links to d.g.c absolute, but not fully qualified
   markdown = markdown.replace(/\(https:\/\/developers.google.com\//g, '(\/');
   markdown = markdown.replace(/href="https:\/\/developers.google.com\//g, 'href="/');

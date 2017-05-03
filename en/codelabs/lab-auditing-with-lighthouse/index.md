@@ -8,23 +8,23 @@
 
 
 
-[__Overview__](#overview)        
+[<strong>Overview</strong> ](#overview)        
 
-[__1. Get set up__](#1)        
+[<strong>1. Get set up</strong> ](#1)        
 
-[__2. Install Lighthouse__](#2)        
+[<strong>2. Install Lighthouse</strong> ](#2)        
 
-[__3. Test the app__](#3)        
+[<strong>3. Test the app</strong> ](#3)        
 
-[__4. Adding a manifest file__](#4)        
+[<strong>4. Adding a manifest file</strong> ](#4)        
 
-[__5. Adding a service worker__](#5)        
+[<strong>5. Adding a service worker</strong> ](#5)        
 
-[__6. Test the updated app__](#6)        
+[<strong>6. Test the updated app</strong> ](#6)        
 
-[__7. Optional: Run Lighthouse from the command line__](#7)        
+[<strong>7. Optional: Run Lighthouse from the command line</strong> ](#7)        
 
-[__Congratulations!__](#8)
+[<strong>Congratulations!</strong> ](#8)
 
 Concepts:  [Lighthouse PWA Analysis Tool](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/lighthouse-pwa-analysis-tool.html)
 
@@ -63,21 +63,21 @@ This lab shows you how you can use  [Lighthouse](https://github.com/GoogleChrome
 
 If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
 
-Open your browser and navigate to __localhost:8080/lighthouse-lab/app__.
+Open your browser and navigate to <strong>localhost:8080/lighthouse-lab/app</strong> .
 
 <div class="note">
 
-__Note:__ <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
+<strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
 
 </div>
 
-If you have a text editor that lets you open a project, open the __lighthouse-lab/app__ folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The __app__ folder is where you will be building the lab.
+If you have a text editor that lets you open a project, open the <strong>lighthouse-lab/app</strong>  folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong>  folder is where you will be building the lab.
 
 This folder contains:
 
-* __css/main.css__ is the cascading stylesheet for the application
-* __images__ folder contains images for the app and home screen icon
-* __index.html__ is the main HTML page for our sample site/application
+* <strong>css/main.css</strong>  is the cascading stylesheet for the application
+* <strong>images</strong>  folder contains images for the app and home screen icon
+* <strong>index.html</strong>  is the main HTML page for our sample site/application
 
 <a id="2" />
 
@@ -99,7 +99,7 @@ Download the Lighthouse Chrome extension from the  [Chrome Web Store](http://chr
 
 
 
-In the browser (on the __app__ page) click the Lighthouse icon and choose __Generate report__.
+In the browser (on the <strong>app</strong>  page) click the Lighthouse icon and choose <strong>Generate report</strong> .
 
 Lighthouse runs the report and generates an HTML page with the results. The report page should look similar to this:
 
@@ -107,7 +107,7 @@ Lighthouse runs the report and generates an HTML page with the results. The repo
 
 <div class="note">
 
-__Note:__ The UI for Lighthouse is still being updated, so your report may not look exactly like this one.
+<strong>Note:</strong> The UI for Lighthouse is still being updated, so your report may not look exactly like this one.
 
 </div>
 
@@ -125,9 +125,9 @@ The report indicates that we need a manifest file.
 
 ### 4.1 Create the manifest file
 
-Create an empty file called __manifest.json__ in the __app__ directory. 
+Create an empty file called <strong>manifest.json</strong>  in the <strong>app</strong>  directory. 
 
-Replace TODO 4.1 in __index.html__ with the following:
+Replace TODO 4.1 in <strong>index.html</strong>  with the following:
 
 #### index.html
 
@@ -138,7 +138,7 @@ Replace TODO 4.1 in __index.html__ with the following:
 
 ### 4.2 Add manifest code
 
-Add the following to the __manifest.json__ file:
+Add the following to the <strong>manifest.json</strong>  file:
 
 #### manifest.json
 
@@ -210,8 +210,8 @@ Replace TODO 4.3 in <strong>index.html</strong> with the following:
 
 We have created a manifest file and "add to homescreen" tags. Don't worry about the details of the manifest and these tags. Here is how they work:
 
-1. Chrome uses __manifest.json__ to know how to style and format some of the progressive parts of your app, such as the "add to homescreen" icon and splash screen.
-2. Other browsers don't (currently) use the __manifest.json__ file to do this, and instead rely on HTML tags for this information. While Lighthouse doesn't require these tags, we've added them because they are important for supporting as many browsers as possible. 
+1. Chrome uses <strong>manifest.json</strong>  to know how to style and format some of the progressive parts of your app, such as the "add to homescreen" icon and splash screen.
+2. Other browsers don't (currently) use the <strong>manifest.json</strong>  file to do this, and instead rely on HTML tags for this information. While Lighthouse doesn't require these tags, we've added them because they are important for supporting as many browsers as possible. 
 
 This lets us satisfy the manifest related requirements of Lighthouse (and a PWA). 
 
@@ -232,7 +232,7 @@ We can see from the report that having a service worker is necessary.
 
 ### 5.1 Register a service worker 
 
-Create an empty JavaScript file in the root directory (__app__) and name it __service-worker.js__. This is going to be our service worker file. 
+Create an empty JavaScript file in the root directory (<strong>app</strong> ) and name it <strong>service-worker.js</strong> . This is going to be our service worker file. 
 
 Now replace TODO 5.1 in <strong>index.html</strong> with the following and save the file:
 
@@ -260,7 +260,7 @@ Now replace TODO 5.1 in <strong>index.html</strong> with the following and save 
 
 The report also indicates that our app must respond with a 200 when offline and must have our starting URL ("start_url") cached. 
 
-Add the following code to the empty __service-worker.js__ file (which should be at __app/service-worker.js__):
+Add the following code to the empty <strong>service-worker.js</strong>  file (which should be at <strong>app/service-worker.js</strong> ):
 
 #### service-worker.js
 
@@ -304,11 +304,11 @@ We have created a service worker for our app and registered it. Here is what it 
 1. The first block (`install` event listener) caches the files our app's files, so that they are saved locally. This lets us access them even when offline, which is what the next block does.
 2. The second block (`fetch` event listener) intercepts requests for resources and checks first if they are cached locally. If they are, the browser gets them from the cache without needing to make a network request. This lets us respond with a 200 even when offline. 
 
-Once we have loaded the app initially, all the files needed to run the app are saved in the cache. If the page is loaded again, the browser grabs the files from the cache regardless of network conditions. This also lets us satisfy the requirement of having our starting URL (__index.html__) cached.
+Once we have loaded the app initially, all the files needed to run the app are saved in the cache. If the page is loaded again, the browser grabs the files from the cache regardless of network conditions. This also lets us satisfy the requirement of having our starting URL (<strong>index.html</strong> ) cached.
 
 #### Solution code
 
-To get a copy of the working code, navigate to the __solution__ folder.
+To get a copy of the working code, navigate to the <strong>solution</strong>  folder.
 
 <a id="6" />
 
@@ -324,7 +324,7 @@ Now we should have passed many more tests.
 
 <div class="note">
 
-__Note:__ You may need to <a href="tools_for_pwa_developers.md#disablehttpcache">disable the browser cache</a> to see the improved results. Then refresh the app and run Lighthouse again.
+<strong>Note:</strong> You may need to <a href="tools_for_pwa_developers.md#disablehttpcache">disable the browser cache</a> to see the improved results. Then refresh the app and run Lighthouse again.
 
 </div>
 

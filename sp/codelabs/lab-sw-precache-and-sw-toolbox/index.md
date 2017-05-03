@@ -8,21 +8,21 @@
 
 
 
-[__Overview__](#overview)          
+[<strong>Overview</strong> ](#overview)          
 
-[__1. Get set up__](#1)          
+[<strong>1. Get set up</strong> ](#1)          
 
-[__2. Installing the global tools__](#2)          
+[<strong>2. Installing the global tools</strong> ](#2)          
 
-[__3. Installing gulp, sw-precache, and sw-toolbox plugins__](#3)          
+[<strong>3. Installing gulp, sw-precache, and sw-toolbox plugins</strong> ](#3)          
 
-[__4. Creating the service worker with sw-precache and gulp__](#4)          
+[<strong>4. Creating the service worker with sw-precache and gulp</strong> ](#4)          
 
-[__5. Creating routes with sw-toolbox__](#5)          
+[<strong>5. Creating routes with sw-toolbox</strong> ](#5)          
 
-[__6. Optional: Creating the service worker in the command line__](#6)          
+[<strong>6. Optional: Creating the service worker in the command line</strong> ](#6)          
 
-[__Congratulations!__](#congrats)
+[<strong>Congratulations!</strong> ](#congrats)
 
 Concepts:  [Using sw-precache and sw-toolbox](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/using-sw-precache-and-sw-toolbox.html)
 
@@ -68,24 +68,24 @@ The sw-precache module and sw-toolbox (Node.js) library make it easy to create p
 
 If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
 
-Open your browser and navigate to __localhost:8080/sw-precache-lab/app__.
+Open your browser and navigate to <strong>localhost:8080/sw-precache-lab/app</strong> .
 
 <div class="note">
 
-__Note:__ <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
+<strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
 
 </div>
 
-If you have a text editor that lets you open a project, open the __sw-precache-lab/app__ folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The __app__ folder is where you will be building the lab. 
+If you have a text editor that lets you open a project, open the <strong>sw-precache-lab/app</strong>  folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong>  folder is where you will be building the lab. 
 
 This folder contains:
 
-* __css/main.css__ is the cascading stylesheet for the sample page
-* __images__ folder contains sample images
-* __js/toolbox-scripts.js__ is our custom sw-toolbox script
-* __gulpfile.js__ is where we will write the sw-precache gulp task
-* __index.html__ is a sample HTML page
-* __sw-precache-config.json__ is an optional configuration file for using sw-precache from the command line
+* <strong>css/main.css</strong>  is the cascading stylesheet for the sample page
+* <strong>images</strong>  folder contains sample images
+* <strong>js/toolbox-scripts.js</strong>  is our custom sw-toolbox script
+* <strong>gulpfile.js</strong>  is where we will write the sw-precache gulp task
+* <strong>index.html</strong>  is a sample HTML page
+* <strong>sw-precache-config.json</strong>  is an optional configuration file for using sw-precache from the command line
 
 <a id="2" />
 
@@ -117,27 +117,27 @@ Because `sw-precache` and `sw-toolbox` are Node.js based applications, we can in
 
 ### 3.1 Run npm init
 
-From __app/__ (the project root), run the following in the command line:
+From <strong>app/</strong>  (the project root), run the following in the command line:
 
     npm init -y
 
-Note that a __package.json__ file was created.
+Note that a <strong>package.json</strong>  file was created.
 
 #### Explanation
 
-This command initializes a node package file, __package.json__ (the `-y` flag uses default configuration values for simplicity). Node uses __package.json__ to store information about the project and its dependencies.
+This command initializes a node package file, <strong>package.json</strong>  (the `-y` flag uses default configuration values for simplicity). Node uses <strong>package.json</strong>  to store information about the project and its dependencies.
 
 ### 3.2 Install gulp plugin
 
-From the same directory (__app/__), run the following in the command line:
+From the same directory (<strong>app/</strong> ), run the following in the command line:
 
     npm install gulp --save-dev
 
-This command downloads the necessary dependencies for gulp. Note that a __node_modules__ directory has been added to the project with various packages. Also note that __package.json__ now lists "gulp" as a dependency.
+This command downloads the necessary dependencies for gulp. Note that a <strong>node_modules</strong>  directory has been added to the project with various packages. Also note that <strong>package.json</strong>  now lists "gulp" as a dependency.
 
 ### 3.3 Install sw-precache and sw-toolbox
 
-From the same directory (__app/__), run the following from the command line:
+From the same directory (<strong>app/</strong> ), run the following from the command line:
 
     npm install --save-dev path sw-precache sw-toolbox
 
@@ -199,11 +199,11 @@ gulp.task('service-worker', function(callback) {
 });
 ```
 
-Save the file. To test the code, enter the following command at the project root (__app/__):
+Save the file. To test the code, enter the following command at the project root (<strong>app/</strong> ):
 
     gulp service-worker
 
-A __service-worker.js__ script is created in __app/__. Open the __service-worker.js__ file in a text editor and look at the code for yourself.
+A <strong>service-worker.js</strong>  script is created in <strong>app/</strong> . Open the <strong>service-worker.js</strong>  file in a text editor and look at the code for yourself.
 
 Refresh the app in the browser and then [inspect the cache](tools_for_pwa_developers.md#storage) (you may need to refresh the cache). You should see that all files in the `staticFileGlobs` array have been added to the cache.
 
@@ -214,7 +214,7 @@ The code first creates a variable, `paths`, to define the path of the source fil
 The call to `swPrecache.write()` does the following:
 
 1. Uses the `path` module to join `paths.src` (the location of our source code) with the string `service-worker.js` to indicate the name and location of the service worker. 
-2. Writes an `install` event listener in the service worker that adds all the files in `staticFilesGlobs` to the cache (in this case, __index.html__ and __main.css__).
+2. Writes an `install` event listener in the service worker that adds all the files in `staticFilesGlobs` to the cache (in this case, <strong>index.html</strong>  and <strong>main.css</strong> ).
 3. Writes an  [importScripts](https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts) method in the service worker that imports the scripts under `importScripts`. 
 4. Strips the prefixes from the files to make them relative URLs using the `stripPrefix` method.
 
@@ -257,13 +257,13 @@ Save the code and [unregister the service worker](tools_for_pwa_developers.md#un
 
 This code sets up several  [routes](https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-usage) that serve specific URLs, file types, and origins.
 
-Route #1 creates a new cache called `googleapis` and stores up to 20 items (the `maxEntries` value) originating from any domain that matches the origin (any URL that ends with __googleapis.com__). The route uses the  [cache-first](/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) strategy to access resources. It first checks if the cache contains the resource. If that fails, it sends the request to the network and caches the response.
+Route #1 creates a new cache called `googleapis` and stores up to 20 items (the `maxEntries` value) originating from any domain that matches the origin (any URL that ends with <strong>googleapis.com</strong> ). The route uses the  [cache-first](/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) strategy to access resources. It first checks if the cache contains the resource. If that fails, it sends the request to the network and caches the response.
 
-Route #2 also uses the cache-first strategy. It matches all the files ending in __png__, __gif__, or __jpg__ (image files) using a regular expression and stores them in the `images-cache` cache with a limit of 50 items in the cache. If a new item is added to a full cache, then the oldest is deleted to make space. 
+Route #2 also uses the cache-first strategy. It matches all the files ending in <strong>png</strong> , <strong>gif</strong> , or <strong>jpg</strong>  (image files) using a regular expression and stores them in the `images-cache` cache with a limit of 50 items in the cache. If a new item is added to a full cache, then the oldest is deleted to make space. 
 
 <div class="note">
 
-__Note:__ You can add <code>toolbox.options.debug = true;</code> to the script for more verbose console logs.
+<strong>Note:</strong> You can add <code>toolbox.options.debug = true;</code> to the script for more verbose console logs.
 
 </div>
 
@@ -297,7 +297,7 @@ This command installs `sw-precache` globally and makes the `sw-precache` command
 
 The `sw-precache` command line tool can be passed a configuration file to specify the options for the service worker.
 
-Copy and paste the following code into the __sw-precache-config.json__ file:
+Copy and paste the following code into the <strong>sw-precache-config.json</strong>  file:
 
 #### sw-precache-config.json
 
