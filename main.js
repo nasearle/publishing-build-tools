@@ -10,14 +10,14 @@ if (!shell.which('git')) {
 
 var languages = ['en', 'sp'];
 
-// Pull GDoc files as markdown
-shell.exec('./claat update');
-
-// Clean up markdown
-var filesToProcess = glob.find('**/index.md');
-filesToProcess.forEach(function(filename) {
-  cleanup.cleanup(filename, filename, '');
-});
+// // Pull GDoc files as markdown
+// shell.exec('./claat update');
+//
+// // Clean up markdown
+// var filesToProcess = glob.find('**/index.md');
+// filesToProcess.forEach(function(filename) {
+//   cleanup.cleanup(filename, filename, '');
+// });
 
 // Push course packages
 for (var courseTitle in courses) {
@@ -26,9 +26,9 @@ for (var courseTitle in courses) {
   shell.cd(courseTitle);
   var course = courses[courseTitle];
   if (course.type == 'code') {
-    console.log('rm -rf $(ls)');
-    shell.exec('rm -rf $(ls)');
     course.modules.forEach(function(module) {
+      console.log('rm -rf ' + module);
+      shell.exec('rm -rf ' + module);
       console.log('cp -R ../en/code/' + module, './' + module);
       shell.cp('-R', '../en/code/' + module, './' + module);
     });
@@ -39,15 +39,16 @@ for (var courseTitle in courses) {
       var files = shell.ls('./' + lang);
       console.log('rm -rf ' + lang + '/*');
       shell.exec('rm -rf ' + lang + '/*');
-      files.forEach(function(file) {
-        console.log('cp ../' + lang + '/' + course.type + '/' + file +
-          '/index.md', './' + lang + '/' + file + '.md');
-        shell.cp('../' + lang + '/' + course.type + '/' + file +
-          '/index.md', './' + lang + '/' + file + '.md');
-        console.log('cp -R', '../' + lang + '/' + course.type + '/' + file +
-          '/img', './img');
-        shell.cp('-R', '../' + lang + '/' + course.type + '/' + file +
-          '/img', './');
+      files.forEach(function(fileName) {
+        var folderName = fileName.slice(0, -3); // remove file's .md extension
+        console.log('cp ../' + lang + '/' + course.type + '/' + folderName +
+          '/index.md', './' + lang + '/' + fileName);
+        shell.cp('../' + lang + '/' + course.type + '/' + folderName +
+          '/index.md', './' + lang + '/' + fileName);
+        console.log('cp -R', '../' + lang + '/' + course.type + '/' +
+          folderName + '/img', './img');
+        shell.cp('-R', '../' + lang + '/' + course.type + '/' +
+          folderName + '/img', './');
       });
     });
   }

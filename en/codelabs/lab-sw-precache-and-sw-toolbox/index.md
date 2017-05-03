@@ -119,13 +119,13 @@ Because `sw-precache` and `sw-toolbox` are Node.js based applications, we can in
 
 From __app/__ (the project root), run the following in the command line:
 
-    npm init
+    npm init -y
 
-Follow the command prompts (you can leave everything blank). Note that a __package.json__ file was created.
+Note that a __package.json__ file was created.
 
 #### Explanation
 
-This command initializes a node package file, __package.json__. Node uses __package.json__ to store information about the project and its dependencies.
+This command initializes a node package file, __package.json__ (the `-y` flag uses default configuration values for simplicity). Node uses __package.json__ to store information about the project and its dependencies.
 
 ### 3.2 Install gulp plugin
 

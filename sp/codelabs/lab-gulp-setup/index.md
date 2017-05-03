@@ -108,9 +108,9 @@ All projects that use gulp need to have the gulp package installed locally.
 
 From __app/__ (the project root), run the following in the command line:
 
-    npm init
+    npm init -y
 
-Follow the command prompts (you can leave everything blank). Note that a __package.json__ file was created. Open the file and inspect it.
+Note that a __package.json__ file was created. Open the file and inspect it.
 
 From the same directory, run the following in the command line:
 
@@ -134,7 +134,7 @@ var gulp = require('gulp');
 
 #### Explanation 
 
-We start by generating __package.json__ with `npm init`. This file is used to keep track of the packages that your project uses, including gulp and its dependencies.
+We start by generating __package.json__ with `npm init` (the `-y` flag uses default configuration values for simplicity). This file is used to keep track of the packages that your project uses, including gulp and its dependencies.
 
 The next command installs the gulp package and its dependencies in the project. These are put in a __node_modules__ folder. The `--save-dev` flag adds the corresponding package (in this case gulp) to __package.json__. Tracking packages like this allows quick re-installation of all the packages and their dependencies on future builds (the `npm install` command will read __package.json__ and automatically install everything listed).
 
