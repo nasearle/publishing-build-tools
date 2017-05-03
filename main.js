@@ -10,14 +10,14 @@ if (!shell.which('git')) {
 
 var languages = ['en', 'sp'];
 
-// // Pull GDoc files as markdown
-// shell.exec('./claat update');
-//
-// // Clean up markdown
-// var filesToProcess = glob.find('**/index.md');
-// filesToProcess.forEach(function(filename) {
-//   cleanup.cleanup(filename, filename, '');
-// });
+// Pull GDoc files as markdown
+shell.exec('./claat update');
+
+// Clean up markdown
+var filesToProcess = glob.find('**/index.md');
+filesToProcess.forEach(function(filename) {
+  cleanup.cleanup(filename, filename, '');
+});
 
 // Push course packages
 for (var courseTitle in courses) {
@@ -33,6 +33,8 @@ for (var courseTitle in courses) {
       shell.cp('-R', '../en/code/' + module, './' + module);
     });
   } else {
+    console.log('rm -rf', 'img');
+    shell.rm('-rf', 'img');
     console.log('mkdir img');
     shell.mkdir('img');
     languages.forEach(function(lang) {
@@ -52,10 +54,6 @@ for (var courseTitle in courses) {
       });
     });
   }
-  console.log('echo "node_modules" > .gitignore');
-  shell.exec('echo "node_modules" > .gitignore');
-  console.log('echo ".DS_Store" >> .gitignore');
-  shell.exec('echo ".DS_Store" >> .gitignore');
   console.log('git add . && git commit -m "autoupdate' + Date.now() +
     '" && git push');
   shell.exec('git add . && git commit -m "autoupdate' + Date.now() +
