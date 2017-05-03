@@ -9,6 +9,8 @@ if (!shell.which('git')) {
   shell.exit(1);
 }
 
+shell.exec('git pull');
+
 var languages = ['en', 'sp'];
 
 console.log('\nUpdating codelabs & concepts markdown files from GDocs...\n');
