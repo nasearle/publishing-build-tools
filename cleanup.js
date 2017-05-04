@@ -46,7 +46,7 @@ function cleanup(sourceFile, destFile, bookPath) {
   markdown = markdown.replace(/__(.*?)__/g, '<strong>$1</strong>');
 
   // Change italics *'s to <em> tags
-  markdown = markdown.replace(/([^*])\*([^*]+?)\*([^*])/g, '$1<em>$2</em>$3');
+  markdown = markdown.replace(/([^*])\*([^*\n]+?)\*([^*])/g, '$1<em>$2</em>$3');
 
   // Change inline backticks to <code> tags
   markdown = markdown.replace(/`([^`\n]+?)`/g, '<code>$1</code>');
