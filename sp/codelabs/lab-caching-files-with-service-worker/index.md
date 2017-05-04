@@ -8,23 +8,23 @@
 
 
 
-[<strong>Overview</strong> ](#overview)          
+[<strong>Overview</strong>](#overview)          
 
-[<strong>1. Get set up</strong> ](#1)          
+[<strong>1. Get set up</strong>](#1)          
 
-[<strong>2. Cache the application shell</strong> ](#2)          
+[<strong>2. Cache the application shell</strong>](#2)          
 
-[<strong>3. Serve files from the cache</strong> ](#3)          
+[<strong>3. Serve files from the cache</strong>](#3)          
 
-[<strong>4. Add network responses to the cache</strong> ](#4)<strong>  </strong> 
+[<strong>4. Add network responses to the cache</strong>](#4)<strong>  </strong>
 
-[<strong>5. Respond with custom 404 page</strong> ](#5)          
+[<strong>5. Respond with custom 404 page</strong>](#5)          
 
-[<strong>6. Respond with custom offline page</strong> ](#6)          
+[<strong>6. Respond with custom offline page</strong>](#6)          
 
-[<strong>7. Delete outdated caches</strong> ](#7)          
+[<strong>7. Delete outdated caches</strong>](#7)          
 
-[<strong>Congratulations!</strong> ](#8)<strong>  </strong> 
+[<strong>Congratulations!</strong>](#8)<strong>  </strong>
 
 Concepts:  [Caching Files with Service Worker](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/caching-files-with-service-worker.html)
 
@@ -67,7 +67,7 @@ This lab covers the basics of caching files with the service worker. The technol
 
 If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
 
-Open your browser and navigate to <strong>localhost:8080/cache-api-lab/app</strong> .
+Open your browser and navigate to <strong>localhost:8080/cache-api-lab/app</strong>.
 
 <div class="note">
 
@@ -75,16 +75,16 @@ Open your browser and navigate to <strong>localhost:8080/cache-api-lab/app</stro
 
 </div>
 
-If you have a text editor that lets you open a project, open the <strong>cache-api-lab/app</strong>  folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong>  folder is where you will be building the lab. 
+If you have a text editor that lets you open a project, open the <strong>cache-api-lab/app</strong> folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong> folder is where you will be building the lab. 
 
 This folder contains:
 
-* <strong>images</strong>  folder contains sample images, each with several versions at different resolutions
-* <strong>pages</strong>  folder contains sample pages and a custom offline page
-* <strong>style</strong>  folder contains the app's cascading stylesheet
-* <strong>test</strong>  folder contains QUnit tests
-* <strong>index.html</strong>  is the main HTML page for our sample site/application
-* <strong>service-worker.js</strong>  is the service worker file where we set up the interactions with the cache
+* <strong>images</strong> folder contains sample images, each with several versions at different resolutions
+* <strong>pages</strong> folder contains sample pages and a custom offline page
+* <strong>style</strong> folder contains the app's cascading stylesheet
+* <strong>test</strong> folder contains QUnit tests
+* <strong>index.html</strong> is the main HTML page for our sample site/application
+* <strong>service-worker.js</strong> is the service worker file where we set up the interactions with the cache
 
 <a id="2" />
 
@@ -96,7 +96,7 @@ This folder contains:
 
 Cache the application shell in the "install" event handler in the service worker.
 
-Replace TODO 2 in <strong>serviceworker.js</strong>  with the following code:
+Replace TODO 2 in <strong>serviceworker.js</strong> with the following code:
 
 #### service-worker.js
 
@@ -130,11 +130,11 @@ self.addEventListener('install', function(event) {
 
 Save the code and reload the page in the browser. [Update the service worker](tools_for_pwa_developers.md#update) and then [open the cache storage](tools_for_pwa_developers.md#storage) in the browser. You should see the files appear in the table. You may need to refresh the page again for the changes to appear.
 
-Open the first QUnit test page, <strong>app/test/test1.html</strong> , in another browser tab.
+Open the first QUnit test page, <strong>app/test/test1.html</strong>, in another browser tab.
 
 <div class="note">
 
-<strong>Note:</strong> Be sure to open the test page using the localhost address so that it opens from the server and not directly from the file system.
+<strong>Note: </strong>Be sure to open the test page using the localhost address so that it opens from the server and not directly from the file system.
 
 </div> 
 
@@ -142,7 +142,7 @@ This page contains several tests for testing our app at each stage of the codela
 
 <div class="note">
 
-<strong>Caution:</strong>  Close the test page when you're finished with it, otherwise you won't be able to activate the updated service worker in the next sections. See the  [Introduction to service worker](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction_to_service_workers.html#activation) text for an explanation. 
+<strong>Caution:</strong> Close the test page when you're finished with it, otherwise you won't be able to activate the updated service worker in the next sections. See the  [Introduction to service worker](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction_to_service_workers.html#activation) text for an explanation. 
 
 </div>
 
@@ -200,7 +200,7 @@ self.addEventListener('fetch', function(event) {
 });
 ```
 
-Save the code and [update the service worker](tools_for_pwa_developers.md#update) in the browser (make sure you have closed the <strong>test.html</strong>  page). Refresh the page to see the network requests being logged to the console. Now [take the app offline](tools_for_pwa_developers.md#offline) and refresh the page. The page should load normally!
+Save the code and [update the service worker](tools_for_pwa_developers.md#update) in the browser (make sure you have closed the <strong>test.html</strong> page). Refresh the page to see the network requests being logged to the console. Now [take the app offline](tools_for_pwa_developers.md#offline) and refresh the page. The page should load normally!
 
 #### Explanation
 
@@ -242,7 +242,7 @@ Replace TODO 4 in the `fetch` event handler with the code to add the files retur
 
 Save the code. Take the app back online and [update the service worker](tools_for_pwa_developers.md#update). Visit at least one of the links on the homepage, then take the app offline again. Now if you revisit the pages they should load normally! Try navigating to some pages you haven't visited before.
 
-Take the app back online and open <strong>app/test/test1.html</strong>  in a new tab. Your app should now pass the third test that checks whether network responses are being added to the cache. Remember to close the test page when you're done.
+Take the app back online and open <strong>app/test/test1.html</strong> in a new tab. Your app should now pass the third test that checks whether network responses are being added to the cache. Remember to close the test page when you're done.
 
 #### Explanation
 
@@ -264,9 +264,9 @@ We have wrapped the code to cache the response in an `if` statement to ensure we
 
 
 
-Below TODO 5 in <strong>service-worker.js</strong> , write the code to respond with the <strong>404.html</strong> page from the cache if the response status is <code>404</code>. You can check the response status with <code>response.status</code>.
+Below TODO 5 in <strong>service-worker.js</strong>, write the code to respond with the <strong>404.html</strong> page from the cache if the response status is <code>404</code>. You can check the response status with <code>response.status</code>.
 
-To test your code, save what you've written and then [update the service worker](tools_for_pwa_developers.md#update) in the browser. Click the <strong>Non-existent file</strong>  link to request a resource that doesn't exist.
+To test your code, save what you've written and then [update the service worker](tools_for_pwa_developers.md#update) in the browser. Click the <strong>Non-existent file</strong> link to request a resource that doesn't exist.
 
 #### Explanation
 
@@ -274,7 +274,7 @@ Network response errors do not throw an error in the `fetch` promise. Instead, `
 
 <div class="note">
 
-<strong>Note:</strong> When intercepting a network request and serving a custom response, the service worker does not redirect the user to the address of the new response. The response is served at the address of the original request. For example, if the user requests a nonexistent file at <strong>www.example.com/non-existent.html</strong>  and the service worker responds with a custom 404 page, <strong>404.html</strong> , the custom page will display at <strong>www.example.com/non-existent.html</strong> , not <strong>www.example.com/404.html</strong> .
+<strong>Note:</strong> When intercepting a network request and serving a custom response, the service worker does not redirect the user to the address of the new response. The response is served at the address of the original request. For example, if the user requests a nonexistent file at <strong>www.example.com/non-existent.html</strong> and the service worker responds with a custom 404 page, <strong>404.html</strong>, the custom page will display at <strong>www.example.com/non-existent.html</strong>, not <strong>www.example.com/404.html</strong>.
 
 </div>
 
@@ -286,7 +286,7 @@ Network response errors do not throw an error in the `fetch` promise. Instead, `
 
 #### Solution code
 
-The solution code can be found in the <strong>05-404-page</strong>  directory.
+The solution code can be found in the <strong>05-404-page</strong> directory.
 
 <a id="6" />
 
@@ -306,7 +306,7 @@ If `fetch` cannot reach the network, it throws an error and sends it to a `.catc
 
 #### Solution code
 
-The solution code can be found in the <strong>06-offline-page</strong>  directory.
+The solution code can be found in the <strong>06-offline-page</strong> directory.
 
 <a id="7" />
 
@@ -352,7 +352,7 @@ var staticCacheName = 'pages-cache-v2';
 
 Save the code and [update the service worker](tools_for_pwa_developers.md#update) in the browser. [Inspect the cache storage](tools_for_pwa_developers.md#storage) in your browser. You should see just the new cache. The old cache, `pages-cache-v1`, has been removed.
 
-Open <strong>app/test/test2.html</strong>  in a new browser tab. The test checks whether `pages-cache-v1` has been deleted and that `pages-cache-v2` has been created.
+Open <strong>app/test/test2.html</strong> in a new browser tab. The test checks whether `pages-cache-v1` has been deleted and that `pages-cache-v2` has been created.
 
 #### Explanation
 
@@ -365,7 +365,7 @@ We delete old caches in the `activate` event to make sure that we aren't deletin
 
 #### Solution code
 
-The solution code can be found in the <strong>solution</strong>  directory.
+The solution code can be found in the <strong>solution</strong> directory.
 
 <a id="8" />
 

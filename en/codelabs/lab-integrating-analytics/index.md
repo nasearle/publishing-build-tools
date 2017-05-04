@@ -8,31 +8,31 @@
 
 
 
-[<strong>Overview</strong> ](#overview)
+[<strong>Overview</strong>](#overview)
 
-[<strong>1. Get set up</strong> ](#1)
+[<strong>1. Get set up</strong>](#1)
 
-[<strong>2. Create a Google Analytics account</strong> ](#2)
+[<strong>2. Create a Google Analytics account</strong>](#2)
 
-[<strong>3. Get your tracking ID and snippet</strong> ](#3)
+[<strong>3. Get your tracking ID and snippet</strong>](#3)
 
-[<strong>4. View user data</strong> ](#4)
+[<strong>4. View user data</strong>](#4)
 
-[<strong>5. Use debug mode</strong> ](#5)
+[<strong>5. Use debug mode</strong>](#5)
 
-[<strong>6. Add custom events</strong> ](#6)
+[<strong>6. Add custom events</strong>](#6)
 
-[<strong>7. Showing push notifications</strong> ](#7)
+[<strong>7. Showing push notifications</strong>](#7)
 
-[<strong>8. Using analytics in the service worker</strong> ](#8)
+[<strong>8. Using analytics in the service worker</strong>](#8)
 
-[<strong>9. Use analytics offline</strong> ](#9)
+[<strong>9. Use analytics offline</strong>](#9)
 
-[<strong>10. Optional: Add hits for notification actions</strong> ](#10)
+[<strong>10. Optional: Add hits for notification actions</strong>](#10)
 
-[<strong>11. Optional: Use hitCallback</strong> ](#11)
+[<strong>11. Optional: Use hitCallback</strong>](#11)
 
-[<strong>Congratulations!</strong> ](#12)
+[<strong>Congratulations!</strong>](#12)
 
 Concepts:  [Integrating Analytics](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/integrating-analytics.html)
 
@@ -81,7 +81,7 @@ This lab shows you how to integrate Google Analytics into your web apps.
 
 If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
 
-Open Chrome and navigate to <strong>localhost:8080/google-analytics-lab/app</strong> .
+Open Chrome and navigate to <strong>localhost:8080/google-analytics-lab/app</strong>.
 
 <div class="note">
 
@@ -89,19 +89,19 @@ Open Chrome and navigate to <strong>localhost:8080/google-analytics-lab/app</str
 
 </div>
 
-If you have a text editor that lets you open a project, open the <strong>google-analytics-lab/app</strong>  folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong>  folder is where you will be building the lab.
+If you have a text editor that lets you open a project, open the <strong>google-analytics-lab/app</strong> folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong> folder is where you will be building the lab.
 
 This folder contains:
 
-* <strong>pages</strong>  folder contains sample resources that we use in experimenting:
-* <strong>page-push-notification.html</strong> 
-* <strong>other.html</strong> 
-* <strong>images</strong>  folder contains images to style our notifications
-* <strong>index.html</strong>  is the main HTML page for our sample site/application
-* <strong>main.js</strong>  is the main JavaScript for the app
-* <strong>analytics-helper.js</strong>  is an empty helper file
-* <strong>sw.js</strong>  is the service worker file
-* <strong>manifest.json</strong>  is the manifest for push notifications
+* <strong>pages</strong> folder contains sample resources that we use in experimenting:
+* <strong>page-push-notification.html</strong>
+* <strong>other.html</strong>
+* <strong>images</strong> folder contains images to style our notifications
+* <strong>index.html</strong> is the main HTML page for our sample site/application
+* <strong>main.js</strong> is the main JavaScript for the app
+* <strong>analytics-helper.js</strong> is an empty helper file
+* <strong>sw.js</strong> is the service worker file
+* <strong>manifest.json</strong> is the manifest for push notifications
 
 In the browser, you should be prompted to allow notifications. If the prompt does not appear, then [manually allow notifications](tools_for_pwa_developers.md#permissions). You should see a permission status of "granted" in the console.
 
@@ -109,9 +109,9 @@ You should also see that a service worker registration is logged to the console.
 
 The app for this lab is a simple web page that has some  [push notification](/web/fundamentals/engage-and-retain/push-notifications/) code. 
 
-<strong>main.js</strong>  requests notification permission and registers a service worker, <strong>sw.js</strong> . The service worker has listeners for push events and notification events.
+<strong>main.js</strong> requests notification permission and registers a service worker, <strong>sw.js</strong>. The service worker has listeners for push events and notification events.
 
-<strong>main.js</strong>  also contains functions for subscribing and unsubscribing for push notifications. We will address that later (subscribing to push isn't yet possible because we haven't registered with a push service).
+<strong>main.js</strong> also contains functions for subscribing and unsubscribing for push notifications. We will address that later (subscribing to push isn't yet possible because we haven't registered with a push service).
 
 Test the notification code by using developer tools to [send a push notification](tools_for_pwa_developers.md#push).
 
@@ -119,7 +119,7 @@ A notification should appear on your screen. Try clicking it. It should take you
 
 <div class="note">
 
-<strong>Note:</strong> The developer tools UI is constantly changing and, depending on the browser, may look a little different when you try it.
+<strong>Note: </strong>The developer tools UI is constantly changing and, depending on the browser, may look a little different when you try it.
 
 </div>
 
@@ -151,13 +151,13 @@ In a separate tab or window, navigate to  [analytics.google.com](https://analyti
 
 #### If you already have a Google Analytics account:
 
-Create another one. Select the <strong>Admin</strong>  tab. Under <strong>account</strong> , select your current Google Analytics account and choose <strong>create new account</strong> . A single Gmail account can have multiple (currently 100) Google Analytics accounts. 
+Create another one. Select the <strong>Admin</strong> tab. Under <strong>account</strong>, select your current Google Analytics account and choose <strong>create new account</strong>. A single Gmail account can have multiple (currently 100) Google Analytics accounts. 
 
 ![Adding an account](../img/67167bdc1b3d25ee.png)
 
 #### If you don't have a Google Analytics account:
 
-Select <strong>Sign up</strong>  to begin creating your account.
+Select <strong>Sign up</strong> to begin creating your account.
 
 The account creation screen should look like this:
 
@@ -169,7 +169,7 @@ Choose website.
 
 <div class="note">
 
-<strong>Note:</strong> Websites and mobile apps implement Google Analytics differently. This lab covers web sites. For mobile apps, see <a href="https://support.google.com/analytics/answer/2587086?ref_topic=2587085&rd=1">analytics for mobile applications</a>.
+<strong>Note: </strong>Websites and mobile apps implement Google Analytics differently. This lab covers web sites. For mobile apps, see <a href="https://support.google.com/analytics/answer/2587086?ref_topic=2587085&rd=1">analytics for mobile applications</a>.
 
 </div>
 
@@ -188,18 +188,18 @@ Enter an account name (for example "PWA Training").
 The property must be associated with a site. We will use a mock  [GitHub Pages](https://pages.github.com/) site. 
 
 1. Set the website name to whatever you want, for example "GA Code Lab Site".   
-2. Set the website URL to <strong>USERNAME.github.io/google-analytics-lab/</strong> , where <strong>USERNAME</strong>  is your  [GitHub](https://github.com/) username (or just your name if you don't have a GitHub account). Set the protocol to <strong>https://</strong> . 
+2. Set the website URL to <strong>USERNAME.github.io/google-analytics-lab/</strong>, where <strong>USERNAME</strong> is your  [GitHub](https://github.com/) username (or just your name if you don't have a GitHub account). Set the protocol to <strong>https://</strong>. 
 
 <div class="note">
 
-<strong>Note:</strong> For this lab, the site is just a placeholder, you do not need to set up a GitHub Pages site or be familiar with GitHub Pages or even GitHub. The site URL that you use to create your Google Analytics account is only used for things like automated testing. 
+<strong>Note: </strong>For this lab, the site is just a placeholder, you do not need to set up a GitHub Pages site or be familiar with GitHub Pages or even GitHub. The site URL that you use to create your Google Analytics account is only used for things like automated testing. 
 
 </div>
 
 3. Select any industry or category. 
 4. Select your timezone. 
 5. Unselect any data sharing settings.
-6. Then choose <strong>Get Tracking ID</strong>  and agree to the terms and conditions. 
+6. Then choose <strong>Get Tracking ID</strong> and agree to the terms and conditions. 
 
 #### Explanation
 
@@ -225,10 +225,10 @@ You should now see your property's tracking ID and tracking code snippet.
 
 If you lost your place:
 
-1. Select the <strong>Admin</strong>  tab. 
-2. Under <strong>account</strong> , select your account (for example "PWA Training") from the drop down list. 
-3. Then under <strong>property</strong> , select your property (for example "GA Code Lab Site") from the down list. 
-4. Now choose <strong>Tracking Info</strong> , followed by <strong>Tracking Code</strong> . 
+1. Select the <strong>Admin</strong> tab. 
+2. Under <strong>account</strong>, select your account (for example "PWA Training") from the drop down list. 
+3. Then under <strong>property</strong>, select your property (for example "GA Code Lab Site") from the down list. 
+4. Now choose <strong>Tracking Info</strong>, followed by <strong>Tracking Code</strong>. 
 
 ![Finding the snippet](../img/e6c84f2ccde27125.png)
 
@@ -253,9 +253,9 @@ Copy this script (from the Google Analytics page) and paste it in TODO 3 in <str
 
 Now return to the Google Analytics site. Examine the real time data:
 
-1. Select the <strong>Reporting</strong>  tab.
-2. Select <strong>Real-Time.</strong> 
-3. Select <strong>Overview.</strong> 
+1. Select the <strong>Reporting</strong> tab.
+2. Select <strong>Real-Time.</strong>
+3. Select <strong>Overview.</strong>
 
 ![Real-time navigation](../img/b2dba5f011013e99.png)
 
@@ -265,18 +265,18 @@ You should see yourself being tracked. The screen should look similar to this (n
 
 <div class="note">
 
-<strong>Note:</strong> If you don't see this, refresh the <strong>app</strong> page and check again.
+<strong>Note: </strong>If you don't see this, refresh the <strong>app</strong> page and check again.
 
 </div>
 
-The <strong>Active Page</strong>  indicates which page is being viewed. Back in the app, click <strong>Other page</strong>  to navigate to the other page. Then return to the Google Analytics site and check <strong>Active Page</strong>  again. It should now show <strong>app/pages/other.html</strong>  (this might take a few seconds).
+The <strong>Active Page</strong> indicates which page is being viewed. Back in the app, click <strong>Other page</strong> to navigate to the other page. Then return to the Google Analytics site and check <strong>Active Page</strong> again. It should now show <strong>app/pages/other.html</strong> (this might take a few seconds).
 
 #### Explanation
 
 When a page loads, the tracking snippet script is executed. The  [Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) (IIFE) in the script does two things:
 
-1. Creates another `script` tag that starts asynchronously downloading <strong>analytics.js</strong> , the library that does all of the analytics work. 
-2. Initializes a global `ga` function, called the command queue. This function allows "commands" to be scheduled and run once the <strong>analytics.js</strong>  library has loaded. 
+1. Creates another `script` tag that starts asynchronously downloading <strong>analytics.js</strong>, the library that does all of the analytics work. 
+2. Initializes a global `ga` function, called the command queue. This function allows "commands" to be scheduled and run once the <strong>analytics.js</strong> library has loaded. 
 
 The next lines add two commands to the queue. The first creates a new  [tracker object](/analytics/devguides/collection/analyticsjs/tracker-object-reference). Tracker objects track and store data. When the new tracker is created, the analytics library gets the user's IP address, user agent, and other page information, and stores it in the tracker. From this info Google Analytics can extract:
 
@@ -288,9 +288,9 @@ The next lines add two commands to the queue. The first creates a new  [tracker 
 
 The second command sends a " [hit](https://support.google.com/analytics/answer/6086082)." This sends the tracker's data to Google Analytics. Sending a hit is also used to note a user interaction with your app. The user interaction is specified by the hit type, in this case a "pageview." Because the tracker was created with your tracking ID, this data is sent to your account and property.
 
-Real-time mode in the Google Analytics dashboard shows the hit received from this script execution, along with the page (<strong>Active Page</strong> ) that it was executed on.
+Real-time mode in the Google Analytics dashboard shows the hit received from this script execution, along with the page (<strong>Active Page</strong>) that it was executed on.
 
-You can read this  [documentation](/analytics/devguides/collection/analyticsjs/how-analyticsjs-works) to learn more about how <strong>analytics.js</strong>  works.
+You can read this  [documentation](/analytics/devguides/collection/analyticsjs/how-analyticsjs-works) to learn more about how <strong>analytics.js</strong> works.
 
 The code so far provides the basic functionality of Google Analytics. A tracker is created and a  pageview hit is sent every time the page is visited. In addition to the data gathered by tracker creation, the pageview event allows Google Analytics to infer:
 
@@ -317,7 +317,7 @@ The code so far provides the basic functionality of Google Analytics. A tracker 
 
 
 
-We are using the real-time viewing mode because we have just created the app. Normally, records of past data would also be available. You can view this from the reporting tab by selecting <strong>Audience</strong>  and then <strong>Overview</strong> . 
+We are using the real-time viewing mode because we have just created the app. Normally, records of past data would also be available. You can view this from the reporting tab by selecting <strong>Audience</strong> and then <strong>Overview</strong>. 
 
 <div class="note">
 
@@ -345,7 +345,7 @@ You can also see specific information like visitors' language, country, city, br
 
 
 
-Checking the dashboard is not an efficient method of testing. Google Analytics offers the <strong>analytics.js</strong>  library with a debug mode.
+Checking the dashboard is not an efficient method of testing. Google Analytics offers the <strong>analytics.js</strong> library with a debug mode.
 
 TODO: Replace <strong>analytics.js</strong> in the tracking snippet (in <strong>index.html</strong> and <strong>pages/other.html</strong>) with <strong>analytics_debug.js</strong>.
 
@@ -363,7 +363,7 @@ Save the scripts and refresh the page. You should see the browser console loggin
 
 </div>
 
-Navigate back to <strong>app/index.html</strong>  using the <strong>Back</strong>  link. Check the console logs again. Note how the location field changes on the data sent by the send command.
+Navigate back to <strong>app/index.html</strong> using the <strong>Back</strong> link. Check the console logs again. Note how the location field changes on the data sent by the send command.
 
 #### For more information
 
@@ -393,9 +393,9 @@ ga('send', {
 });
 ```
 
-Save the script and refresh the page. Click <strong>BUY NOW!!!</strong> . Check the console log, do you see the custom event? 
+Save the script and refresh the page. Click <strong>BUY NOW!!!</strong>. Check the console log, do you see the custom event? 
 
-Now return to the real-time reporting section of the Google Analytics dashboard (from the <strong>Reporting</strong>  tab, select <strong>Real-Time</strong> ). Instead of selecting <strong>Overview</strong> , select <strong>Events</strong> . Do you see the custom event? (If not, try clicking <strong>BUY NOW!!!</strong>  again.)
+Now return to the real-time reporting section of the Google Analytics dashboard (from the <strong>Reporting</strong> tab, select <strong>Real-Time</strong>). Instead of selecting <strong>Overview</strong>, select <strong>Events</strong>. Do you see the custom event? (If not, try clicking <strong>BUY NOW!!!</strong> again.)
 
 ![Real-time events](../img/1f21b1938268723a.png)
 
@@ -411,9 +411,9 @@ You can see all method signatures in the <a href="/analytics/devguides/collectio
 
 </div>
 
-<strong>Optional</strong> : Update the custom event that you just added to use the alternative signature described in the <a href="/analytics/devguides/collection/analyticsjs/command-queue-reference">command queue reference</a>. Hint: Look for the "send" command examples.
+<strong>Optional</strong>: Update the custom event that you just added to use the alternative signature described in the <a href="/analytics/devguides/collection/analyticsjs/command-queue-reference">command queue reference</a>. Hint: Look for the "send" command examples.
 
-You can view past events in the Google Analytics dashboard from the <strong>Reporting</strong>  tab by selecting <strong>Behavior</strong> , followed by <strong>Events</strong>  and then <strong>Overview</strong> . However your account won't yet have any past events to view (because you just created it).
+You can view past events in the Google Analytics dashboard from the <strong>Reporting</strong> tab by selecting <strong>Behavior</strong>, followed by <strong>Events</strong> and then <strong>Overview</strong>. However your account won't yet have any past events to view (because you just created it).
 
 ![Recorded events](../img/3107f35a9adc1fb3.png)
 
@@ -437,12 +437,12 @@ Lets use a custom event to let us know when users subscribe to push notification
 
 First we need to add push subscribing to our app. To subscribe to the push service in Chrome, you need to create a project on Firebase.
 
-1. In the  [Firebase console](https://console.firebase.google.com/), select <strong>Create New Project</strong> .
-2. Supply a project name and click <strong>Create Project</strong> .
-3. Click the <strong>Settings</strong>  (gear) icon next to your project name in the navigation pane, and select <strong>Project Settings</strong> .
-4. Select the <strong>Cloud Messaging</strong>  tab. You can find your <strong>Server key</strong>  and <strong>Sender ID</strong>  in this page. Save these values.
+1. In the  [Firebase console](https://console.firebase.google.com/), select <strong>Create New Project</strong>.
+2. Supply a project name and click <strong>Create Project</strong>.
+3. Click the <strong>Settings</strong> (gear) icon next to your project name in the navigation pane, and select <strong>Project Settings</strong>.
+4. Select the <strong>Cloud Messaging</strong> tab. You can find your <strong>Server key</strong> and <strong>Sender ID</strong> in this page. Save these values.
 
-Replace `YOUR_SENDER_ID`  in the <strong>manifest.json</strong>  file with the Sender ID of your Firebase project. The <strong>manifest.json</strong>  file should look like this:
+Replace `YOUR_SENDER_ID`  in the <strong>manifest.json</strong> file with the Sender ID of your Firebase project. The <strong>manifest.json</strong> file should look like this:
 
 #### manifest.json
 
@@ -453,7 +453,7 @@ Replace `YOUR_SENDER_ID`  in the <strong>manifest.json</strong>  file with the S
 }
 ```
 
-Save the file. Refresh the app and click <strong>Subscribe</strong> . The browser console should indicate that you have subscribed to push notifications.
+Save the file. Refresh the app and click <strong>Subscribe</strong>. The browser console should indicate that you have subscribed to push notifications.
 
 #### Explanation
 
@@ -489,7 +489,7 @@ Save the script and refresh the app. Now test the subscribe and unsubscribe butt
 
 Note that this time we used the alternative  [send command signature](/analytics/devguides/collection/analyticsjs/command-queue-reference#send), which is more concise.
 
-<strong>Optional</strong> : Add analytics hits for the `catch` blocks of the `subscribe` and `unsubscribe` functions. In other words, add analytics code to record when users have errors subscribing or unsubscribing. Then manually block notifications in the app by clicking the icon next to the URL and revoking permission for notifications. Refresh the page and test subscribing, you should see an event fired for the subscription error logged in the console (and in the real-time section of the Google Analytics dashboard). Remember to restore notification permissions when you are done.
+<strong>Optional</strong>: Add analytics hits for the `catch` blocks of the `subscribe` and `unsubscribe` functions. In other words, add analytics code to record when users have errors subscribing or unsubscribing. Then manually block notifications in the app by clicking the icon next to the URL and revoking permission for notifications. Refresh the page and test subscribing, you should see an event fired for the subscription error logged in the console (and in the real-time section of the Google Analytics dashboard). Remember to restore notification permissions when you are done.
 
 #### Explanation
 
@@ -630,7 +630,7 @@ var payloadData = {
 };
 ```
 
-The <strong>version number</strong> , <strong>client ID</strong> , <strong>tracking ID</strong> , and <strong>hit type</strong>  parameters are  [required by the API](/analytics/devguides/collection/protocol/v1/devguide). The <strong>event category</strong> , <strong>event action</strong> , and <strong>event label</strong>  are the same parameters that we have been using with the command queue interface.
+The <strong>version number</strong>, <strong>client ID</strong>, <strong>tracking ID</strong>, and <strong>hit type</strong> parameters are  [required by the API](/analytics/devguides/collection/protocol/v1/devguide). The <strong>event category</strong>, <strong>event action</strong>, and <strong>event label</strong> are the same parameters that we have been using with the command queue interface.
 
 Next, the hit data is  [formatted into a URI](/analytics/devguides/collection/protocol/v1/reference) with the following code:
 
@@ -647,7 +647,7 @@ var payloadString = Object.keys(payloadData)
 .join('&');
 ```
 
-Finally the data is sent to the  [API endpoint](/analytics/devguides/collection/protocol/v1/reference) (<strong>https://www.google-analytics.com/collect</strong> ) with the following code:
+Finally the data is sent to the  [API endpoint](/analytics/devguides/collection/protocol/v1/reference) (<strong>https://www.google-analytics.com/collect</strong>) with the following code:
 
 #### analytics-helper.js
 
@@ -721,13 +721,13 @@ Do you see console logs for each event? Do you see events on Google Analytics?
 
 <div class="note">
 
-<strong>Note:</strong> Because these events use the Measurement Protocol interface instead of <strong>analytics_debug.js</strong>, the debug console logs don't appear. You can debug the Measurement Protocol hits with <a href="/analytics/devguides/collection/protocol/v1/validating-hits"> hit validation</a>.
+<strong>Note: </strong>Because these events use the Measurement Protocol interface instead of <strong>analytics_debug.js</strong>, the debug console logs don't appear. You can debug the Measurement Protocol hits with <a href="/analytics/devguides/collection/protocol/v1/validating-hits"> hit validation</a>.
 
 </div>
 
 #### Explanation
 
-We start by using  [ImportScripts](https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts) to import the <strong>analytics-helper.js</strong>  file with our `sendAnalyticsEvent` helper function. Then we use this function to send custom events at appropriate places (such as when push events are received, or notifications are interacted with). We pass in the `eventAction` and `eventCategory` that we want to associate with the event as parameters. 
+We start by using  [ImportScripts](https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts) to import the <strong>analytics-helper.js</strong> file with our `sendAnalyticsEvent` helper function. Then we use this function to send custom events at appropriate places (such as when push events are received, or notifications are interacted with). We pass in the `eventAction` and `eventCategory` that we want to associate with the event as parameters. 
 
 <div class="note">
 
@@ -765,27 +765,27 @@ importScripts('path/to/offline-google-analytics-import.js');
 goog.offlineGoogleAnalytics.initialize();
 ```
 
-Where `path/to/offline-google-analytics-import.js` is the path to the <strong>offline-google-analytics-import.js</strong>  file in the <strong>node_module</strong>  folder. 
+Where `path/to/offline-google-analytics-import.js` is the path to the <strong>offline-google-analytics-import.js</strong> file in the <strong>node_module</strong> folder. 
 
 Now save the script. Update the service worker by refreshing the page and closing and reopening the app (remember to close all tabs and windows running the app).
 
 Now [simulate offline behavior](tools_for_pwa_developers.md#offline).
 
-Click <strong>BUY NOW!!!</strong>  to fire our first custom analytics event. 
+Click <strong>BUY NOW!!!</strong> to fire our first custom analytics event. 
 
 You will see an error in the console because we are offline and can't make requests to Google Analytics servers. You can confirm by checking the real-time section of Google Analytics dashboard and noting that the event is not shown.
 
-[Now check IndexedDB](tools_for_pwa_developers.md#indexeddb). Open <strong>offline-google-analytics</strong> . You should see a URL cached. If you are using Chrome (see screenshot below), it is shown in <strong>urls</strong> .You may need to click the refresh icon in the <strong>urls</strong>  interface.
+[Now check IndexedDB](tools_for_pwa_developers.md#indexeddb). Open <strong>offline-google-analytics</strong>. You should see a URL cached. If you are using Chrome (see screenshot below), it is shown in <strong>urls</strong>.You may need to click the refresh icon in the <strong>urls</strong> interface.
 
 ![Offline hits](../img/88188d9545f98f83.png)
 
-Now disable offline mode, and refresh the page. Check <strong>IndexedDB</strong>  again, and observe that the URL is no longer cached.
+Now disable offline mode, and refresh the page. Check <strong>IndexedDB</strong> again, and observe that the URL is no longer cached.
 
 Now check the Google Analytics dashboard. You should see the custom event!
 
 #### Explanation
 
-Here we import and initialize the <strong>offline-google-analytics-import.js</strong>  library. You can check out the  [documentation](/web/updates/2016/07/offline-google-analytics) for details, but this library adds a fetch event handler to the service worker that only listens for requests made to the Google Analytics domain. The handler attempts to send Google Analytics data just like we have done so far, by network requests. If the network request fails, the request is stored in IndexedDB. The requests are then sent later when connectivity is re-established.
+Here we import and initialize the <strong>offline-google-analytics-import.js</strong> library. You can check out the  [documentation](/web/updates/2016/07/offline-google-analytics) for details, but this library adds a fetch event handler to the service worker that only listens for requests made to the Google Analytics domain. The handler attempts to send Google Analytics data just like we have done so far, by network requests. If the network request fails, the request is stored in IndexedDB. The requests are then sent later when connectivity is re-established.
 
 This strategy won't work for hits sent from our service worker because the service worker doesn't listen to fetch events from itself (that could cause some serious problems!). This isn't so important in this case because all the hits that we would want to send from the service worker are tied to online events (like push notifications) anyways.
 
@@ -834,7 +834,7 @@ Add two actions to the push notifications. Send a distinct analytics hit for eac
 
 How can you send analytics hits for an action that takes the user away from your page, such as clicking a link to an external vendor or submitting a form (many browsers stop executing JavaScript once the current page starts unloading, preventing send commands from being executed)? 
 
-Research the  [hitCallback](/analytics/devguides/collection/analyticsjs/sending-hits) functionality. Use a hitCallback to send an analytics event whenever a user clicks the <strong>Special offers</strong>  external link. Make sure to use a timeout so that if the analytics library fails, the user's desired action will still complete!
+Research the  [hitCallback](/analytics/devguides/collection/analyticsjs/sending-hits) functionality. Use a hitCallback to send an analytics event whenever a user clicks the <strong>Special offers</strong> external link. Make sure to use a timeout so that if the analytics library fails, the user's desired action will still complete!
 
 <div class="note">
 
@@ -848,7 +848,7 @@ Research the  [hitCallback](/analytics/devguides/collection/analyticsjs/sending-
 
 #### Solution code
 
-To get a copy of the working code, navigate to the <strong>solution</strong>  folder.
+To get a copy of the working code, navigate to the <strong>solution</strong> folder.
 
 <a id="12" />
 

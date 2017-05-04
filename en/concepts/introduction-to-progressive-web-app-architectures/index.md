@@ -8,21 +8,21 @@
 
 
 
-[<strong>Instant Loading with Service Workers and Application Shells</strong> ](#instant)<strong>        </strong> 
+[<strong>Instant Loading with Service Workers and Application Shells</strong>](#instant)<strong>        </strong>
 
-[<strong>Architectural Styles and Patterns</strong> ](#styles)<strong>        </strong> 
+[<strong>Architectural Styles and Patterns</strong>](#styles)<strong>        </strong>
 
-[<strong>Migrating an Existing Site to PWA</strong> ](#migrating)<strong>        </strong> 
+[<strong>Migrating an Existing Site to PWA</strong>](#migrating)<strong>        </strong>
 
-[<strong>What is an Application Shell?</strong> ](#what)<strong>        </strong> 
+[<strong>What is an Application Shell?</strong>](#what)<strong>        </strong>
 
-[<strong>How to Create an App Shell</strong> ](#how)<strong>        </strong> 
+[<strong>How to Create an App Shell</strong>](#how)<strong>        </strong>
 
-[<strong>Building Your App Shell</strong> ](#build)<strong>        </strong> 
+[<strong>Building Your App Shell</strong>](#build)<strong>        </strong>
 
-[<strong>Push Notifications</strong> ](#push)<strong>        </strong> 
+[<strong>Push Notifications</strong>](#push)<strong>        </strong>
 
-[<strong>Conclusion</strong> ](#conclusion)
+[<strong>Conclusion</strong>](#conclusion)
 
 Progressive Web Apps (PWAs) use modern web capabilities to deliver fast, engaging, and reliable mobile web experiences that are great for users and businesses. 
 
@@ -40,7 +40,7 @@ Progressive Web Apps combine many of the advantages of native apps and the Web. 
 
 PWAs deliver a speedy experience even when the user is offline or on an unreliable network. There is also the potential to incorporate features previously available only to native applications, such as push notifications. Developing web apps with offline functionality and high performance depends on using service workers in combination with a client-side storage API, such as the  [Cache Storage API](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage)  [o](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage)r [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API). 
 
-<strong>Service workers</strong> : Thanks to the caching and storage APIs available to service workers, PWAs can precache parts of a web app so that it loads instantly the next time a user opens it. Using a service worker gives your web app the ability to intercept and handle network requests, including managing multiple caches, minimizing data traffic, and saving offline user-generated data until online again. This caching allows developers to focus on speed, giving web apps the same instant loading and regular updates seen in native applications. If you are unfamiliar with service workers, read  [Introduction To Service Workers](/web/fundamentals/primers/service-worker/) to learn more about what they can do, how their lifecycle works, and more.
+<strong>Service workers</strong>: Thanks to the caching and storage APIs available to service workers, PWAs can precache parts of a web app so that it loads instantly the next time a user opens it. Using a service worker gives your web app the ability to intercept and handle network requests, including managing multiple caches, minimizing data traffic, and saving offline user-generated data until online again. This caching allows developers to focus on speed, giving web apps the same instant loading and regular updates seen in native applications. If you are unfamiliar with service workers, read  [Introduction To Service Workers](/web/fundamentals/primers/service-worker/) to learn more about what they can do, how their lifecycle works, and more.
 
 A service worker performs its functions without the need for an open web page or user interaction. This enables new services such as Push Messaging or capturing user actions while offline and delivering them while online. (This is unlikely to bloat your application because the browser starts and stops the service worker as needed to manage memory.)
 
@@ -60,7 +60,7 @@ Service workers provide services such as:
 
 The concept of caching is exciting because it allows you to support offline experiences and it gives developers complete control over what exactly that experience is. But, to take full advantage of the service worker and progressively incorporate more and more PWA capabilities also invites a new way of thinking about building web sites by using the  *application shell architecture* . 
 
-<strong>Application Shell (app shell):</strong>  PWAs tend to be architected around an application shell. This contains the local resources that your web app needs to load the skeleton of your user interface so it works offline and populates its content using JavaScript. If the application shell has been cached by service worker, then on repeat visits the app shell allows you to get meaningful pixels on the screen really fast without the network. Making use of an app shell is not a hard requirement for building PWAs, but it can result in significant performance gains when cached and served correctly.
+<strong>Application Shell (app shell):</strong> PWAs tend to be architected around an application shell. This contains the local resources that your web app needs to load the skeleton of your user interface so it works offline and populates its content using JavaScript. If the application shell has been cached by service worker, then on repeat visits the app shell allows you to get meaningful pixels on the screen really fast without the network. Making use of an app shell is not a hard requirement for building PWAs, but it can result in significant performance gains when cached and served correctly.
 
 The shell of the functionality is loaded and displayed to the user (and potentially cached by the service worker so that it can be accessed offline), and then the page content is loaded dynamically as the user navigates around the app. This reliably and instantly loads on your users' screens, similar to what is seen in native applications.
 
@@ -76,7 +76,7 @@ Service worker caching should be considered a progressive enhancement. If your w
 
 ### Key Concepts
 
-The app shell approach relies on caching the "shell" of your web application using a service worker. Using the <strong> *app shell + dynamic content model* </strong>  greatly improves app performance and works really well with service worker caching as a progressive enhancement. Progressively enhancing your web app means you can gradually add in features like offline caching, push notifications, and add-to-home-screen. 
+The app shell approach relies on caching the "shell" of your web application using a service worker. Using the <strong> *app shell + dynamic content model* </strong> greatly improves app performance and works really well with service worker caching as a progressive enhancement. Progressively enhancing your web app means you can gradually add in features like offline caching, push notifications, and add-to-home-screen. 
 
 Here is a high-level description of how it works:
 
@@ -96,7 +96,7 @@ Here is a high-level description of how it works:
 
 </div>
 
-<strong>What about browsers that do not support service workers?</strong> 
+<strong>What about browsers that do not support service workers?</strong>
 
 The app shell model is great but how does it work in browsers that do not support service workers? Don't worry! Your web app can still be loaded even if a browser is used without service workers. Everything necessary to load your UI (e.g. HTML, CSS, JavaScript) is the same whether or not you use service workers. The service worker simply adds native-like features to your app. Without a service worker, your app continues to operate via HTTPS requests instead of cached assets. In other words, when service workers are not supported, the assets are not cached offline but the content is still fetched over the network and the user still gets a basic experience. 
 
@@ -195,8 +195,6 @@ The app shell model is great but how does it work in browsers that do not suppor
 </tr></table>
 
 
-
-
 <a id="styles" />
 
 
@@ -212,18 +210,18 @@ Building a PWA does not mean starting from scratch. If you are building a modern
 * Fonts
 * Data retrieved and used by JavaScript to build content. This might include HTML, CSS, or JavaScript, text to update content, URLs (for images and other resources, but maybe also for content retrieved via APIs), and so on.
 
-The prevalent architecture up until recently has been to use <strong>server-side rendering (SSR)</strong> , which is when the browser fetches the page over HTTP/HTTPS and it immediately gets back a complete page with any dynamic data pre-rendered. Server-side rendering is nice because:
+The prevalent architecture up until recently has been to use <strong>server-side rendering (SSR)</strong>, which is when the browser fetches the page over HTTP/HTTPS and it immediately gets back a complete page with any dynamic data pre-rendered. Server-side rendering is nice because:
 
 * SSR can provide a quick time to first render. On the other hand, the consequence of reloading a SSR page is you end up throwing away your entire DOM for each navigation. That means having to pay the cost of parsing, rendering, and laying out the resources on the page each time. 
 * SSR is a mature technique with a significant amount of tooling to support it. Also, SSR pages work across a range of browsers without concern over differences in JavaScript implementations.
 
 Sites where you mostly navigate and view static content (such as news outlets) can get away with using a strictly SSR approach. For sites that are more dynamic (such as social media or shopping), the disadvantage is that SSR throws away the entire DOM whenever you navigate to a new page. And, because of this delay, the app loses its perception of being fast, and users are quickly frustrated and abandon your app. 
 
-<strong>Client-side rendering (CSR)</strong>  is when JavaScript runs in the browser and manipulates the DOM. The benefit of CSR is it offloads page updates to the client so that screen updates occur  instantly when the user clicks, rather than waiting while the server is contacted for information about what to display. Thus, when data has changed after the initial page render, CSR can selectively re-render portions of the page (or reload the entire page) when new data is received from the server or following user interaction. 
+<strong>Client-side rendering (CSR)</strong> is when JavaScript runs in the browser and manipulates the DOM. The benefit of CSR is it offloads page updates to the client so that screen updates occur  instantly when the user clicks, rather than waiting while the server is contacted for information about what to display. Thus, when data has changed after the initial page render, CSR can selectively re-render portions of the page (or reload the entire page) when new data is received from the server or following user interaction. 
 
 <div class="note">
 
-<strong>Note:</strong> As with SSR, the consequence of reloading the entire page is you end up replacing your entire DOM for each navigation. That means reparsing, rerendering, and laying out the resources on the page each time even if it's only a small portion of the page that changed. 
+<strong>Note: </strong>As with SSR, the consequence of reloading the entire page is you end up replacing your entire DOM for each navigation. That means reparsing, rerendering, and laying out the resources on the page each time even if it's only a small portion of the page that changed. 
 
 </div>
 
@@ -253,17 +251,15 @@ PWAs can be built with any architectural style (SSR, CSR, or a hybrid of the two
 
 1. Application shell (SSR both shell + content for entry page) + use JavaScript to fetch content for any further routes and do a "take over"
 
+ <div class="note">
+
+<strong>Note: </strong>In the future, consider a server-side render of UI with Streams for body content model (even better). See <a href="https://jakearchibald.com/2016/streams-ftw/">https://jakearchibald.com/2016/streams-ftw/</a> to learn more.
+
+</div>
+
 <div class="note">
 
-<strong>Notes:</strong> 
-
-<ul>
-
-<li>In the future, consider a server-side render of UI with Streams for body content model (even better). See <a href="https://jakearchibald.com/2016/streams-ftw/">https://jakearchibald.com/2016/streams-ftw/</a> to learn more.</li>
-
-<li>If you are building a PWA using Polymer leveraging this pattern, then it might be worth exploring SSR of content in the Light DOM</li>
-
-</ul>
+<strong>Note:</strong> If you are building a PWA using Polymer leveraging this pattern, then it might be worth exploring SSR of content in the Light DOM.
 
 </div>
 
@@ -271,7 +267,7 @@ PWAs can be built with any architectural style (SSR, CSR, or a hybrid of the two
 
     SSR is optional. Your shell is likely to be highly static, but SSR provides slightly better performance in some cases.
 
-<div class="note">
+ <div class="note">
 
 <strong>Note:</strong> If you are already considering  [Accelerated Mobile Pages (AMP)](https://www.ampproject.org/), you may be interested in an app shell (SSR) "viewer" + use AMP for leaf nodes (content). 
 
@@ -279,9 +275,9 @@ PWAs can be built with any architectural style (SSR, CSR, or a hybrid of the two
 
 3. Server-side rendering full page (full page caching)
 
-<div class="note">
+ <div class="note">
 
-<strong>Note:</strong> For browsers that do not support service workers, we gracefully degrade to still server-side rendering content (for example, iOS). 
+<strong>Note: </strong>For browsers that do not support service workers, we gracefully degrade to still server-side rendering content (for example, iOS). 
 
 </div>
 
@@ -378,8 +374,6 @@ PWAs can be built with any architectural style (SSR, CSR, or a hybrid of the two
 </tr></table>
 
 
-
-
 <a id="migrating" />
 
 
@@ -437,7 +431,7 @@ If you have time for a larger refactor, then try to implement a hybrid approach 
 
 Using the application shell architecture is one way to build PWAs that reliably and instantly load on your users' screens, similar to what you see in native applications. An app shell is the recommended approach to migrating existing single-page apps (SPAs) and structuring your PWA. This architecture provides connectivity resilience and it is what makes a PWA feel like a native app to the user, giving it application-like interaction and navigation, and reliable performance.
 
-An <strong>application shell (or app shell)</strong>  refers to the local resources that your web app needs to load the skeleton of your user interface (UI). Think of your app's shell like the bundle of code you would publish to a native app store when building a native app. It is the load needed to get off the ground but might not be the whole story. For example, if you have a native news application, you upload all of the views and fonts and images necessary to render the basic skeleton of the app but not the actual news stories. The news is the dynamic content that is not  uploaded to the native app store but is fetched at runtime when the app is opened.
+An <strong>application shell (or app shell)</strong> refers to the local resources that your web app needs to load the skeleton of your user interface (UI). Think of your app's shell like the bundle of code you would publish to a native app store when building a native app. It is the load needed to get off the ground but might not be the whole story. For example, if you have a native news application, you upload all of the views and fonts and images necessary to render the basic skeleton of the app but not the actual news stories. The news is the dynamic content that is not  uploaded to the native app store but is fetched at runtime when the app is opened.
 
 For SPAs with JavaScript-heavy architectures, an application shell is the go-to approach. This approach relies on aggressively caching the "shell" of your web application (typically the basic HTML, JavaScript, and CSS) needed to display your layout and to get the application running. Next, the dynamic content loads for each page using JavaScript. An app shell is useful for getting some initial HTML to the screen fast without a network.
 
@@ -559,7 +553,7 @@ More usage information is available in the  [app-shell](https://github.com/Googl
 
 Besides applying common caching strategies, the `sw-toolbox` library is useful for solving a couple of additional problems that arise while fetching your content, making service worker caching even more useful in real world scenarios:  
 
-* <strong>"Lie-fi"</strong>  is when the device is connected but the network connection is extremely unreliable or slow and the network request drags on and on before eventually failing. Users end up wasting precious seconds just waiting for the inevitable.
+* <strong>"Lie-fi"</strong> is when the device is connected but the network connection is extremely unreliable or slow and the network request drags on and on before eventually failing. Users end up wasting precious seconds just waiting for the inevitable.
 
     While your app shell should always be cached first, there might be some cases where you app uses the "network first" caching strategy to request the dynamic content used to populate your shell. You can avoid Lie-fi in those cases by using `sw-toolbox` to set an explicit network timeout. 
 
@@ -573,7 +567,7 @@ toolbox.router.get(
 );
 ```
 
-* <strong>Cache expiration</strong>  - As users go from page to page on your site you are probably caching the page-specific content such as the images associated with each page the user visits at run time. This ensures that the full page loads instantly (not just the app shell) on a repeat visit.
+* <strong>Cache expiration</strong> - As users go from page to page on your site you are probably caching the page-specific content such as the images associated with each page the user visits at run time. This ensures that the full page loads instantly (not just the app shell) on a repeat visit.
 
     But, if you keep adding to dynamic caches indefinitely then your app consumes an ever increasing amount of storage. So `sw-toolbox` actually manages cache expiration for you, saving you the trouble of implementing it yourself. 
 
@@ -626,7 +620,7 @@ Use the following table to determine which caching strategy is most appropriate 
 </td><td colspan="1" rowspan="1">
 <p><strong>Best strategy for ....</strong></p>
 </td><td colspan="1" rowspan="1">
-<p><strong>Corresponding <strong></strong><code>sw-toolbox</code></strong>  <strong>handler</strong></p>
+<p><strong>Corresponding </strong><strong><code>sw-toolbox</code></strong> <strong>handler</strong></p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
@@ -680,8 +674,6 @@ Use the following table to determine which caching strategy is most appropriate 
 <p><code>toolbox.cacheOnly</code></p>
 </td>
 </tr></table>
-
-
 
 
 While you can implement these strategies yourself manually, using `sw-toolbox` is recommended for caching your app's dynamic content. The last column in the table shows the `sw-toolbox` library that provides a canonical implementation of each strategy. If you do implement additional caching logic, put the code in a separate JavaScript file and include it using the `importScripts()` method.
@@ -765,8 +757,6 @@ Use the following table to identify which caching strategy provides the right ba
 </tr></table>
 
 
-
-
 #### Example
 
 <table markdown="1">
@@ -830,8 +820,6 @@ Use the following table to identify which caching strategy provides the right ba
 <p>Network only</p>
 </td>
 </tr></table>
-
-
 
 
 <div class="note">
@@ -954,7 +942,7 @@ To include the manifest file in your app, include a link tag in your index.html 
 <link rel="manifest" href="manifest.json">
 ```
 
-<strong>Tip:</strong> 
+<strong>Tip:</strong>
 
 * To read the W3C draft specification, see the  [W3C Web App Manifest](https://w3c.github.io/manifest/).
 * To automatically generate a manifest from existing HTML, try the  [ManifeStation](https://webmanife.st) website.
@@ -1008,7 +996,7 @@ self.addEventListener('install', function(e) {
 
 The  [`sw-precache Module`](#precachemodule) section in this document describes this API in detail. This section describes how you can run the  [`sw-precache`](https://developer.mozilla.org/en-US/docs/Web/API/Cache) API as a command-line tool or as part of your build process. 
 
-<strong>Important:</strong>  Every time you make changes to local files and are ready to deploy a new version of your site, re-run this step. To ensure this is done, include the task that generates your service worker code in your list of tasks that are automatically run as part of your deployment process. 
+<strong>Important:</strong> Every time you make changes to local files and are ready to deploy a new version of your site, re-run this step. To ensure this is done, include the task that generates your service worker code in your list of tasks that are automatically run as part of your deployment process. 
 
 ##### Using `sw-precache` From the Command Line
 

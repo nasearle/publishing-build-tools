@@ -8,13 +8,13 @@
 
 
 
-[<strong>Introduction</strong> ](#introduction)
+[<strong>Introduction</strong>](#introduction)
 
-[<strong>Where should offline data be stored?</strong> ](#where)
+[<strong>Where should offline data be stored?</strong>](#where)
 
-[<strong>Using IndexedDB and the Cache interface</strong> ](#examples)
+[<strong>Using IndexedDB and the Cache interface</strong>](#examples)
 
-[<strong>Further reading</strong> ](#resources)
+[<strong>Further reading</strong>](#resources)
 
 <a id="introduction" />
 
@@ -105,8 +105,6 @@ Different browsers allow different amounts of offline storage. This table summar
 </tr></table>
 
 
-
-
 <a id="examples" />
 
 
@@ -117,7 +115,7 @@ Different browsers allow different amounts of offline storage. This table summar
 
 ### Storing data with IndexedDB
 
-IndexedDB is a noSQL database. IndexedDB data is stored as key-value pairs in <strong>object stores</strong> . The table below shows an example of an object store, in this case containing beverage items:
+IndexedDB is a noSQL database. IndexedDB data is stored as key-value pairs in <strong>object stores</strong>. The table below shows an example of an object store, in this case containing beverage items:
 
 <table markdown="1">
 <tr><td colspan="1" rowspan="1">
@@ -154,9 +152,7 @@ IndexedDB is a noSQL database. IndexedDB data is stored as key-value pairs in <s
 </tr></table>
 
 
-
-
-The data is organized by a <strong>`keypath`</strong> , which in this case is the item's <strong>`id`</strong>  property. You can learn more about IndexedDB in the corresponding  [text](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working-with-indexeddb.html), or in the  [code lab](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_indexeddb.html).
+The data is organized by a <strong>`keypath`</strong>, which in this case is the item's <strong>`id`</strong> property. You can learn more about IndexedDB in the corresponding  [text](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working-with-indexeddb.html), or in the  [code lab](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_indexeddb.html).
 
 The following function could be used to create an IndexedDB object store like the example above:
 
@@ -203,7 +199,7 @@ self.addEventListener('activate', function(event) {
 
 <div class="note">
 
-<strong>Note:</strong> `event.waitUntil` ensures that a service worker does not terminate during asynchronous operations.
+<strong>Note: </strong>`event.waitUntil` ensures that a service worker does not terminate during asynchronous operations.
 
 </div>
 
@@ -252,7 +248,7 @@ function cacheAssets() {
 }
 ```
 
-This code opens a `cache-v1` cache, and stores <strong>index.html</strong> , <strong>main.css</strong> , <strong>offline.js</strong> , and <strong>coke.jpg</strong> .
+This code opens a `cache-v1` cache, and stores <strong>index.html</strong>, <strong>main.css</strong>, <strong>offline.js</strong>, and <strong>coke.jpg</strong>.
 
 The service worker installation event is a good time to cache static assets like these. This ensures that all the resources a service worker is expected to have are cached when the service worker is installed. The following code (in the service worker file) could be used to cache these types of files during the service worker install event:
 

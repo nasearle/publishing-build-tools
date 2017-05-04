@@ -8,11 +8,11 @@
 
 
 
-[<strong>Using the Cache API in the service worker</strong> ](#cacheinsw)        
+[<strong>Using the Cache API in the service worker</strong>](#cacheinsw)        
 
-[<strong>Using the Cache API</strong> ](#cacheapi)        
+[<strong>Using the Cache API</strong>](#cacheapi)        
 
-[<strong>Further reading</strong> ](#moreresources)<strong>        </strong> 
+[<strong>Further reading</strong>](#moreresources)<strong>        </strong>
 
 Codelab:  [Caching Files with Service Worker](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_caching_files_with_service_worker.html)
 
@@ -60,7 +60,7 @@ This event listener triggers when the service worker is first installed.
 
 <div class="note">
 
-<strong>Note:</strong> It is important to note that while this event is happening, any previous version of your service worker is still running and serving pages, so the things you do here must not disrupt that. For instance, this is not a good place to delete old caches, because the previous service worker may still be using them at this point.
+<strong>Note: </strong>It is important to note that while this event is happening, any previous version of your service worker is still running and serving pages, so the things you do here must not disrupt that. For instance, this is not a good place to delete old caches, because the previous service worker may still be using them at this point.
 
 </div>
 

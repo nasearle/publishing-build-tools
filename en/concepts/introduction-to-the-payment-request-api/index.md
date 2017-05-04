@@ -8,15 +8,15 @@
 
 
 
-[<strong>About Web Payments</strong> ](#about)
+[<strong>About Web Payments</strong>](#about)
 
-[<strong>Introduction to the Payment Request API</strong> ](#introduction)
+[<strong>Introduction to the Payment Request API</strong>](#introduction)
 
-[<strong>How Payment Request Processing Works</strong> ](#howitworks)
+[<strong>How Payment Request Processing Works</strong>](#howitworks)
 
-[<strong>Using the Payment Request API</strong> ](#using)
+[<strong>Using the Payment Request API</strong>](#using)
 
-[<strong>Resources</strong> ](#resources)
+[<strong>Resources</strong>](#resources)
 
 The Payment Request API improves mobile web checkout (shopping cart) and accepts credit cards electronically (and eventually a number of other payment services and solutions in the wild). 
 

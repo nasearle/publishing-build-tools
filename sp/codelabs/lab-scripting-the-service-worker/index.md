@@ -8,19 +8,19 @@
 
 
 
-[<strong>Overview</strong> ](#overview)
+[<strong>Overview</strong>](#overview)
 
-[<strong>1. Get set up</strong> ](#setting-up)
+[<strong>1. Get set up</strong>](#setting-up)
 
-[<strong>2. Register the service worker</strong> ](#register-service-worker)
+[<strong>2. Register the service worker</strong>](#register-service-worker)
 
-[<strong>3. Listening for life cycle events</strong> ](#listen-events)
+[<strong>3. Listening for life cycle events</strong>](#listen-events)
 
-[<strong>4. Intercept network requests</strong> ](#intercept-requests)
+[<strong>4. Intercept network requests</strong>](#intercept-requests)
 
-[<strong>5. Optional: Exploring service worker scope</strong> ](#explore-scope)
+[<strong>5. Optional: Exploring service worker scope</strong>](#explore-scope)
 
-[<strong>Congratulations!</strong> ](#congratulations)
+[<strong>Congratulations!</strong>](#congratulations)
 
 Concepts:  [Introduction to Service Worker](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction_to_service_worker.html)
 
@@ -62,7 +62,7 @@ This lab walks you through creating a simple service worker.
 
 If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md). 
 
-Open your browser and navigate to <strong>localhost:8080/service-worker-lab/app</strong> .
+Open your browser and navigate to <strong>localhost:8080/service-worker-lab/app</strong>.
 
 <div class="note">
 
@@ -70,16 +70,16 @@ Open your browser and navigate to <strong>localhost:8080/service-worker-lab/app<
 
 </div>
 
-If you have a text editor that lets you open a project, open the <strong>service-worker/app</strong>  folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong>  folder is where you will be building the lab.
+If you have a text editor that lets you open a project, open the <strong>service-worker/app</strong> folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong> folder is where you will be building the lab.
 
 This folder contains:
 
-* <strong>other.html</strong> , <strong>js/other.js</strong> , <strong>below/another.html</strong> , and <strong>js/another.js</strong>  are sample resources that we use to experiment
-* <strong>index.html</strong>  is the main HTML page for our sample site/application
-* <strong>index.css</strong>  is the cascading stylesheet for <strong>index.html</strong> 
-* <strong>service-worker.js</strong>  is the JavaScript file that is used to create our service worker
-* <strong>styles</strong>  folder contains the cascading stylesheets for this lab
-* <strong>test</strong>  folder contains files for testing your progress
+* <strong>other.html</strong>, <strong>js/other.js</strong>, <strong>below/another.html</strong>, and <strong>js/another.js</strong> are sample resources that we use to experiment
+* <strong>index.html</strong> is the main HTML page for our sample site/application
+* <strong>index.css</strong> is the cascading stylesheet for <strong>index.html</strong>
+* <strong>service-worker.js</strong> is the JavaScript file that is used to create our service worker
+* <strong>styles</strong> folder contains the cascading stylesheets for this lab
+* <strong>test</strong> folder contains files for testing your progress
 
 <a id="register-service-worker" />
 
@@ -89,7 +89,7 @@ This folder contains:
 
 
 
-Open <strong>service-worker.js</strong>  in your text editor. Note that the file contains only an empty function. We have not added any code to run within the service worker yet. 
+Open <strong>service-worker.js</strong> in your text editor. Note that the file contains only an empty function. We have not added any code to run within the service worker yet. 
 
 <div class="note">
 
@@ -97,7 +97,7 @@ Open <strong>service-worker.js</strong>  in your text editor. Note that the file
 
 </div>
 
-Open <strong>index.html</strong>  in your text editor. 
+Open <strong>index.html</strong> in your text editor. 
 
 Replace TODO 2 with the following code:
 
@@ -119,7 +119,7 @@ navigator.serviceWorker.register('service-worker.js')
 
 Save the script and refresh the page. The <a href="tools_for_pwa_developers.md#console">console</a> should return a message indicating that the service worker was registered. 
 
-In your browser, navigate to <strong>test-registered.html</strong>  (<strong>app/test/test-registered.html</strong> ) to confirm that you have registered the service worker. This is a unit test. Passed tests are blue and failed tests are red. If you've done everything correctly so far, this test should be blue. Close the test page when you are done with it.
+In your browser, navigate to <strong>test-registered.html</strong> (<strong>app/test/test-registered.html</strong>) to confirm that you have registered the service worker. This is a unit test. Passed tests are blue and failed tests are red. If you've done everything correctly so far, this test should be blue. Close the test page when you are done with it.
 
 <div class="note">
 
@@ -127,7 +127,7 @@ In your browser, navigate to <strong>test-registered.html</strong>  (<strong>app
 
 </div>
 
-<strong>Optional</strong> : Open the site on an  [unsupported browser](https://jakearchibald.github.io/isserviceworkerready/) and verify that the support check conditional works. 
+<strong>Optional</strong>: Open the site on an  [unsupported browser](https://jakearchibald.github.io/isserviceworkerready/) and verify that the support check conditional works. 
 
 #### Explanation
 
@@ -147,7 +147,7 @@ Changes in the service worker's status trigger events in the service worker.
 
 ### 3.1 Add event listeners
 
-Open <strong>service-worker.js</strong>  in your text editor. 
+Open <strong>service-worker.js</strong> in your text editor. 
 
 Replace TODO 3.1 with the following code:
 
@@ -164,7 +164,7 @@ self.addEventListener('activate', function(event) {
 });
 ```
 
-Save the file. Close <strong>app/test/test-registered.html</strong>  page if you have not already. Manually <a href="tools_for_pwa_developers.md#unregister">unregister the service worker</a> and refresh the page to install and activate the updated service worker. The console log should indicate that the new service worker was registered, installed, and activated. 
+Save the file. Close <strong>app/test/test-registered.html</strong> page if you have not already. Manually <a href="tools_for_pwa_developers.md#unregister">unregister the service worker</a> and refresh the page to install and activate the updated service worker. The console log should indicate that the new service worker was registered, installed, and activated. 
 
 <div class="note">
 
@@ -174,7 +174,7 @@ Save the file. Close <strong>app/test/test-registered.html</strong>  page if you
 
 <div class="note">
 
-<strong>Note:</strong> The registration log may appear out of order with the other logs (installation and activation). The service worker runs concurrently with the page, so we can't guarantee the order of the logs (the registration log comes from the page, while the installation and activation logs come from the service worker). Installation, activation, and other service worker events occur in a defined order inside the service worker, however, and should always appear in the expected order.
+<strong>Note: </strong>The registration log may appear out of order with the other logs (installation and activation). The service worker runs concurrently with the page, so we can't guarantee the order of the logs (the registration log comes from the page, while the installation and activation logs come from the service worker). Installation, activation, and other service worker events occur in a defined order inside the service worker, however, and should always appear in the expected order.
 
 </div>
 
@@ -190,7 +190,7 @@ Only one service worker can be active at a time for a given scope (see  [Explori
 
 <div class="note">
 
-<strong>Note:</strong> Simply refreshing the page is not sufficient to transfer control to a new service worker, because the new page will be requested before the the current page is unloaded, and there won't be a time when the old service worker is not in use.
+<strong>Note: </strong>Simply refreshing the page is not sufficient to transfer control to a new service worker, because the new page will be requested before the the current page is unloaded, and there won't be a time when the old service worker is not in use.
 
 </div>
 
@@ -212,7 +212,7 @@ After initial installation and activation, re-registering an existing worker doe
 
 ### 3.3 Update the service worker
 
-Replace TODO 3.3 in <strong>service-worker.js </strong> with the following comment:
+Replace TODO 3.3 in <strong>service-worker.js </strong>with the following comment:
 
 #### service-worker.js
 
@@ -222,9 +222,9 @@ Replace TODO 3.3 in <strong>service-worker.js </strong> with the following comme
 
 Save the file and refresh the page. Notice that the new service worker installs but does not activate. 
 
-Navigate to <strong>test-waiting.html</strong>  (<strong>app/test/test-waiting.html</strong> ) to confirm that the new service worker is installed but not activated. The test should be passing (blue).
+Navigate to <strong>test-waiting.html</strong> (<strong>app/test/test-waiting.html</strong>) to confirm that the new service worker is installed but not activated. The test should be passing (blue).
 
-Close all pages associated with the service worker (including the <strong>app/test/test-waiting.html</strong>  page). Reopen the <strong>app/</strong>  page. The console log should indicate that the new service worker has now activated. 
+Close all pages associated with the service worker (including the <strong>app/test/test-waiting.html</strong> page). Reopen the <strong>app/</strong> page. The console log should indicate that the new service worker has now activated. 
 
 <div class="note">
 
@@ -282,7 +282,7 @@ Save the script and refresh the page to install and activate the updated service
 
 Check the console and observe that no fetch events were logged. Refresh the page and check the console again. You should see fetch events this time for the page and its assets (like CSS).
 
-Click the links to <strong>Other page</strong> , <strong>Another page</strong> , and <strong>Back</strong> .
+Click the links to <strong>Other page</strong>, <strong>Another page</strong>, and <strong>Back</strong>.
 
 You'll see fetch events in the console for each of the pages and their assets. Do all the logs make sense? 
 
@@ -306,7 +306,7 @@ Why didn't any fetch events log on the first refresh? By default, fetch events f
 
 #### Solution code
 
-To get a copy of the working code, navigate to the <strong>04-intercepting-network-requests</strong>  folder.
+To get a copy of the working code, navigate to the <strong>04-intercepting-network-requests</strong> folder.
 
 <a id="explore-scope"/>
 
@@ -320,7 +320,7 @@ Service workers have scope. The scope of the service worker determines from whic
 
 ### 5.1 Find the scope
 
-Update the registration code in <strong>index.html</strong>  with:
+Update the registration code in <strong>index.html</strong> with:
 
 #### index.html
 
@@ -338,7 +338,7 @@ navigator.serviceWorker.register('service-worker.js')
 });
 ```
 
-Refresh the browser. Notice that the console shows the scope of the service worker (for example <strong>http://localhost:8080/service-worker-lab/app/</strong> ). 
+Refresh the browser. Notice that the console shows the scope of the service worker (for example <strong>http://localhost:8080/service-worker-lab/app/</strong>). 
 
 #### Explanation
 
@@ -348,27 +348,27 @@ The default scope is the path to the service worker file, and extends to all low
 
 ### 5.2 Move the service worker 
 
-Move <strong>service-worker.js</strong>  into the <strong>app/below</strong>  directory and update the service worker URL in the registration code. <a href="tools_for_pwa_developers.md#unregister">Unregister the service worker</a> and refresh the page. 
+Move <strong>service-worker.js</strong> into the <strong>app/below</strong> directory and update the service worker URL in the registration code. <a href="tools_for_pwa_developers.md#unregister">Unregister the service worker</a> and refresh the page. 
 
-The console shows that the scope of the service worker is now <strong>localhost:8080/service-worker-lab/app/below/</strong> . 
+The console shows that the scope of the service worker is now <strong>localhost:8080/service-worker-lab/app/below/</strong>. 
 
-Navigate to <strong>test-scoped.html</strong>  (<strong>app/test/test-scoped.html</strong> ) to confirm that that service worker is registered in <strong>app/below/</strong> . If you've done everything correctly, you shouldn't see any red errors. Close the test page when you are done with it.
+Navigate to <strong>test-scoped.html</strong> (<strong>app/test/test-scoped.html</strong>) to confirm that that service worker is registered in <strong>app/below/</strong>. If you've done everything correctly, you shouldn't see any red errors. Close the test page when you are done with it.
 
-Back on the main page, click <strong>Other page</strong> ,  <strong>Another page</strong>  and  <strong>Back</strong> . Which fetch requests are being logged? Which aren't?
+Back on the main page, click <strong>Other page</strong>,  <strong>Another page</strong> and  <strong>Back</strong>. Which fetch requests are being logged? Which aren't?
 
 #### Explanation
 
-The service worker's default scope is the path to the service worker file. Since the service worker file is now in <strong>app/below/</strong> , that is its scope. The console is now only logging fetch events for <strong>another.html</strong> , <strong>another.css</strong> , and <strong>another.js</strong> , because these are the only resources within the service worker's scope (<strong>app/below/</strong> ).
+The service worker's default scope is the path to the service worker file. Since the service worker file is now in <strong>app/below/</strong>, that is its scope. The console is now only logging fetch events for <strong>another.html</strong>, <strong>another.css</strong>, and <strong>another.js</strong>, because these are the only resources within the service worker's scope (<strong>app/below/</strong>).
 
 ### 5.3 Set an arbitrary scope
 
-Move the service worker back out into the project root directory (<strong>app</strong> ) and update the service worker URL in the registration code.
+Move the service worker back out into the project root directory (<strong>app</strong>) and update the service worker URL in the registration code.
 
-Use the  [reference on MDN](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register) to set the scope of the service worker to the <strong>app/below/</strong>  directory using the optional parameter in `register()`. <a href="tools_for_pwa_developers.md#unregister">Unregister the service worker</a> and refresh the page. Click <strong>Other page</strong> , <strong>Another page</strong>  and <strong>Back</strong> .
+Use the  [reference on MDN](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register) to set the scope of the service worker to the <strong>app/below/</strong> directory using the optional parameter in `register()`. <a href="tools_for_pwa_developers.md#unregister">Unregister the service worker</a> and refresh the page. Click <strong>Other page</strong>, <strong>Another page</strong> and <strong>Back</strong>.
 
-Again the console shows that the scope of the service worker is now <strong>localhost:8080/service-worker-lab/app/below</strong> , and logs fetch events only for <strong>another.html</strong> , <strong>another.css</strong> , and <strong>another.js</strong> . 
+Again the console shows that the scope of the service worker is now <strong>localhost:8080/service-worker-lab/app/below</strong>, and logs fetch events only for <strong>another.html</strong>, <strong>another.css</strong>, and <strong>another.js</strong>. 
 
-Navigate to <strong>test-scoped.html</strong>  again to confirm that the service worker is registered in <strong>app/below/</strong> . 
+Navigate to <strong>test-scoped.html</strong> again to confirm that the service worker is registered in <strong>app/below/</strong>. 
 
 #### Explanation
 
@@ -382,7 +382,7 @@ navigator.serviceWorker.register('/service-worker.js', {
 });
 ```
 
-In the above example the scope of the service worker is set to <strong>/kitten/</strong> . The service worker intercepts requests from pages in <strong>/kitten/</strong>  and <strong>/kitten/lower/</strong>  but not from pages like <strong>/kitten</strong>  or <strong>/</strong> . 
+In the above example the scope of the service worker is set to <strong>/kitten/</strong>. The service worker intercepts requests from pages in <strong>/kitten/</strong> and <strong>/kitten/lower/</strong> but not from pages like <strong>/kitten</strong> or <strong>/</strong>. 
 
 <div class="note">
 
@@ -398,7 +398,7 @@ In the above example the scope of the service worker is set to <strong>/kitten/<
 
 #### Solution code
 
-To get a copy of the working code, navigate to the <strong>solution</strong>  folder.
+To get a copy of the working code, navigate to the <strong>solution</strong> folder.
 
 <a id="congratulations"/>
 

@@ -8,27 +8,27 @@
 
 
 
-[<strong>Introduction</strong> ](#introduction)
+[<strong>Introduction</strong>](#introduction)
 
-[<strong>What is IndexedDB?</strong> ](#what)<strong>        </strong> 
+[<strong>What is IndexedDB?</strong>](#what)<strong>        </strong>
 
-[<strong>IndexedDB terms</strong> ](#terms)<strong>        </strong> 
+[<strong>IndexedDB terms</strong>](#terms)<strong>        </strong>
 
-[<strong>Check for IndexedDB support</strong> ](#support)<strong>        </strong> 
+[<strong>Check for IndexedDB support</strong>](#support)<strong>        </strong>
 
-[<strong>Opening a database</strong> ](#open)<strong>        </strong> 
+[<strong>Opening a database</strong>](#open)<strong>        </strong>
 
-[<strong>Working with object stores</strong> ](#stores)<strong>        </strong> 
+[<strong>Working with object stores</strong>](#stores)<strong>        </strong>
 
-[<strong>Working with data</strong> ](#data)<strong>        </strong> 
+[<strong>Working with data</strong>](#data)<strong>        </strong>
 
-[<strong>Getting all the data</strong> ](#get)<strong>        </strong> 
+[<strong>Getting all the data</strong>](#get)<strong>        </strong>
 
-[<strong>Using database versioning</strong> ](#versioning)<strong>        </strong> 
+[<strong>Using database versioning</strong>](#versioning)<strong>        </strong>
 
-[<strong>Further reading</strong> ](#resources)<strong>        </strong> 
+[<strong>Further reading</strong>](#resources)<strong>        </strong>
 
-[<strong>Appendix</strong> ](#appendix)
+[<strong>Appendix</strong>](#appendix)
 
 Codelab:  [IndexedDB](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_indexeddb.html)
 
@@ -725,8 +725,6 @@ Here is a short reference of the differences between the IndexedDB API and the I
 <p><code>request.onerror</code></p>
 </td>
 </tr></table>
-
-
 
 
 

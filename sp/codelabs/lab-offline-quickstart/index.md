@@ -8,13 +8,13 @@
 
 
 
-[<strong>Overview</strong> ](#overview)          
+[<strong>Overview</strong>](#overview)          
 
-[<strong>1.</strong> <strong>Get set up</strong> ](#1)<strong>  </strong> 
+[<strong>1.</strong><strong>Get set up</strong>](#1)<strong>  </strong>
 
-[<strong>2. Taking the app offline</strong> ](#2)<strong>  </strong> 
+[<strong>2. Taking the app offline</strong>](#2)<strong>  </strong>
 
-[<strong>Congratulations!</strong> ](#3)<strong>  </strong> 
+[<strong>Congratulations!</strong>](#3)<strong>  </strong>
 
 Concepts:  [Offline Quickstart](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/offline_quickstart.html)
 
@@ -54,7 +54,7 @@ This lab shows you how to add offline capabilities to an application using servi
 
 If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
 
-Open your browser and navigate to <strong>localhost:8080/offline-quickstart-lab/app</strong> .
+Open your browser and navigate to <strong>localhost:8080/offline-quickstart-lab/app</strong>.
 
 <div class="note">
 
@@ -62,14 +62,14 @@ Open your browser and navigate to <strong>localhost:8080/offline-quickstart-lab/
 
 </div>
 
-If you have a text editor that lets you open a project, open the <strong>offline-quickstart-lab/app</strong>  folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong>  folder is where you will be building the lab.
+If you have a text editor that lets you open a project, open the <strong>offline-quickstart-lab/app</strong> folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong> folder is where you will be building the lab.
 
 This folder contains:
 
-* <strong>images</strong>  folder contains sample images
-* <strong>styles/main.css</strong>  is the main cascading stylesheet for the app
-* <strong>index.html</strong>  is the main HTML page for our sample site/application
-* <strong>service-worker.js</strong>  is the service worker file (currently empty)
+* <strong>images</strong> folder contains sample images
+* <strong>styles/main.css</strong> is the main cascading stylesheet for the app
+* <strong>index.html</strong> is the main HTML page for our sample site/application
+* <strong>service-worker.js</strong> is the service worker file (currently empty)
 
 <a id="2" />
 
@@ -112,7 +112,7 @@ Save the file.
 
 This code starts by defining a cache name, and a list of URLs to be cached. An install event listener is then added to the service worker. When the service worker installs, it opens a cache and stores the app's static assets. Now these assets are available for quick loading from the cache, without a network request.
 
-Note that <strong>.</strong>  is also cached. This represents the current directory, in this case, <strong>app/</strong> . We do this because the browser attempts to fetch <strong>app/</strong>  first before fetching <strong>index.html</strong> . When the app is offline, this results in a 404 error if we have not cached <strong>app/</strong> . They should both be cached to be safe.  
+Note that <strong>.</strong> is also cached. This represents the current directory, in this case, <strong>app/</strong>. We do this because the browser attempts to fetch <strong>app/</strong> first before fetching <strong>index.html</strong>. When the app is offline, this results in a 404 error if we have not cached <strong>app/</strong>. They should both be cached to be safe.  
 
 <div class="note">
 
@@ -199,7 +199,7 @@ This code first checks that service worker is supported by the browser. If it is
 
 ### 2.4 Test the app offline
 
-Now our app has offline functionality. Save all files and refresh the <strong>app/</strong>  in the browser. You can [check the cache](tools_for_pwa_developers.md#cache) and see that the HTML and CSS are cached from the service worker installation event.
+Now our app has offline functionality. Save all files and refresh the <strong>app/</strong> in the browser. You can [check the cache](tools_for_pwa_developers.md#cache) and see that the HTML and CSS are cached from the service worker installation event.
 
 Refresh the page again. This fetches all of the page's assets, and the fetch listener caches any asset that isn't already cached.
 
@@ -223,7 +223,7 @@ When our app opens for the first time, the service worker is registered, install
 
 #### Solution code
 
-To get a copy of the working code, navigate to the <strong>solution</strong>  folder.
+To get a copy of the working code, navigate to the <strong>solution</strong> folder.
 
 <a id="3" />
 
