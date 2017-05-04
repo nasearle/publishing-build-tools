@@ -83,7 +83,7 @@ The first step in offline functionality is registering a service worker. Use the
 
 #### index.html
 
-<code></code>`
+```
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js')
   .then(function(registration) {
@@ -93,7 +93,7 @@ if ('serviceWorker' in navigator) {
     console.log('Registration failed: ', error);
   });
 }
-<code></code>`
+```
 
 This code starts by checking for browser support, and then registers the service worker. If this is the first time the user has visited your app, the service worker will install and activate.
 
@@ -103,7 +103,7 @@ A common strategy is to cache the site's static assets when the service worker i
 
 #### service-worker.js
 
-<code></code>`
+```
 var CACHE_NAME = 'static-cache';
 var urlsToCache = [
   '.',
@@ -118,7 +118,7 @@ self.addEventListener('install', function(event) {
     })
   );
 });
-<code></code>`
+```
 
 This code starts by defining a cache name and a list of URLs to be cached (the static assets). It creates an install event listener that executes the code inside of it when the service worker installs. In this example, the code in the install listener opens a cache and stores the list of assets.
 
@@ -136,7 +136,7 @@ Now that there are assets in the cache, the service worker can use those resourc
 
 #### service-worker.js
 
-<code></code>`
+```
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request)
@@ -164,7 +164,7 @@ function fetchAndCache(url) {
     // You could return a custom offline 404 page here
   });
 }
-<code></code>`
+```
 
 #### Explanation
 
@@ -172,8 +172,8 @@ In the example, a fetch event listener is added to the service worker. When a re
 
 * Tries to match the request with the content of the cache and if the resource is in the cache, then returns it.
 * If the resource is not in the cache, attempts to get the resource from the network using fetch.
-* If the response is invalid, throws an error and logs a message to the console (<code>catch</code>).
-* If the response is valid, creates a copy of the response (<code>clone</code>), stores it in the cache, and then returns the original response.
+* If the response is invalid, throws an error and logs a message to the console (`catch`).
+* If the response is valid, creates a copy of the response (`clone`), stores it in the cache, and then returns the original response.
 
 Not only does this prioritize getting resources from the cache instead of the network, but it also caches all future requests.
 

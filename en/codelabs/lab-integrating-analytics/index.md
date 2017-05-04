@@ -222,7 +222,7 @@ Your tracking ID looks like <code>UA-XXXXXXXX-Y</code> and your tracking code sn
 
 #### index.html
 
-<code></code>`
+```
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]) \ 
 .push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0]; \
@@ -233,7 +233,7 @@ a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script', \
   ga('send', 'pageview');
 
 </script>
-<code></code>`
+```
 
 Copy this script (from the Google Analytics page) and paste it in TODO 3 in <strong>index.html</strong> and <strong>pages/other.html</strong>. Save the scripts and refresh the <strong>app</strong> page (you can close the <strong>page-push-notification.html</strong> page that was opened from the notification click). 
 
@@ -362,14 +362,14 @@ In <strong>main.js</strong>, replace TODO 6 with the following:
 
 #### main.js
 
-<code></code>`
+```
 ga('send', {
   hitType: 'event',
   eventCategory: 'products',
   eventAction: 'purchase',
   eventLabel: 'Summer products launch'
 });
-<code></code>`
+```
 
 Save the script and refresh the page. Click <strong>BUY NOW!!!</strong>. Check the console log, do you see the custom event? 
 
@@ -379,7 +379,7 @@ Now return to the real-time reporting section of the Google Analytics dashboard 
 
 #### Explanation
 
-When using the send command in the <code>ga</code> command queue, the hit type can be set to 'event', and values associated with an event can be added as parameters. These values represent the <code>eventCategory</code>, <code>eventAction</code>, and <code>eventLabel</code>. All of these are arbitrary, and used to organize events. Sending these custom events allows us to deeply understand user interactions with our site.
+When using the send command in the <code>ga</code> command queue, the hit type can be set to 'event', and values associated with an event can be added as parameters. These values represent the `eventCategory`, `eventAction`, and `eventLabel`. All of these are arbitrary, and used to organize events. Sending these custom events allows us to deeply understand user interactions with our site.
 
 <div class="note">
 <strong>Note:</strong> Many of the <code>ga</code> commands are flexible and can use multiple signatures. 
@@ -422,12 +422,12 @@ Replace <code>YOUR_SENDER_ID</code>  in the <strong>manifest.json</strong> file 
 
 #### manifest.json
 
-<code></code>`
+```
 {
   "name": "Google Analytics codelab",
   "gcm_sender_id": "YOUR_SENDER_ID"
 }
-<code></code>`
+```
 
 Save the file. Refresh the app and click <strong>Subscribe</strong>. The browser console should indicate that you have subscribed to push notifications.
 
@@ -447,17 +447,17 @@ Replace TODO 7.2a with the following code
 
 #### main.js
 
-<code></code>`
+```
 ga('send', 'event', 'push', 'subscribe', 'success');
-<code></code>`
+```
 
 Replace TODO 7.2b with the following code
 
 #### main.js
 
-<code></code>`
+```
 ga('send', 'event', 'push', 'unsubscribe', 'success');
-<code></code>`
+```
 
 Save the script and refresh the app. Now test the subscribe and unsubscribe buttons. Confirm that you see the custom events logged in the browser console, and that they are also shown on the Google Analytics dashboard. 
 
@@ -477,7 +477,7 @@ We have added Google Analytics send commands inside our push subscription code. 
 
 
 
-The service worker does not have access to the analytics command queue, <code>ga</code>, because the command queue is in the main thread (not the service worker thread) and requires the <code>window</code> object. We will need to use a separate API to send hits from the service worker.
+The service worker does not have access to the analytics command queue, <code>ga`, because the command queue is in the main thread (not the service worker thread) and requires the `window</code> object. We will need to use a separate API to send hits from the service worker.
 
 ### 8.1 Use the Measurement Protocol interface
 
@@ -485,16 +485,16 @@ In <strong>analytics-helper.js</strong>, replace TODO 8.1a with the following co
 
 #### analytics-helper.js
 
-<code></code>`
+```
 // Set this to your tracking ID
 var trackingId = 'UA-XXXXXXXX-Y';
-<code></code>`
+```
 
 Replace TODO 8.1b in the same file with the following code:
 
 #### analytics-helper.js
 
-<code></code>`
+```
 function sendAnalyticsEvent(eventAction, eventCategory) {
   'use strict';
 
@@ -571,13 +571,13 @@ function sendAnalyticsEvent(eventAction, eventCategory) {
     console.warn('Unable to send the analytics event', err);
   });
 }
-<code></code>`
+```
 
 Save the script.
 
 #### Explanation
 
-Because the service worker does not have access to the analytics command queue, <code>ga</code>, we need to use the Google Analytics  [Measurement Protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/) interface. This interface lets us make HTTP requests to send hits, regardless of the execution context. 
+Because the service worker does not have access to the analytics command queue, `ga`, we need to use the Google Analytics  [Measurement Protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/) interface. This interface lets us make HTTP requests to send hits, regardless of the execution context. 
 
 We start by creating a variable with your tracking ID. This will be used to ensure that hits are sent to your account and property, just like in the analytics snippet. 
 
@@ -585,7 +585,7 @@ The <code>sendAnalyticsEvent</code> helper function starts by checking that the 
 
 #### analytics-helper.js
 
-<code></code>`
+```
 var payloadData = {
   // Version Number
   v: 1,
@@ -602,7 +602,7 @@ var payloadData = {
   // Event Label
   el: 'serviceworker'
 };
-<code></code>`
+```
 
 The <strong>version number</strong>, <strong>client ID</strong>, <strong>tracking ID</strong>, and <strong>hit type</strong> parameters are  [required by the API](https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide). The <strong>event category</strong>, <strong>event action</strong>, and <strong>event label</strong> are the same parameters that we have been using with the command queue interface.
 
@@ -610,7 +610,7 @@ Next, the hit data is  [formatted into a URI](https://developers.google.com/anal
 
 #### analytics-helper.js
 
-<code></code>`
+```
 var payloadString = Object.keys(payloadData)
 .filter(function(analyticsKey) {
   return payloadData[analyticsKey];
@@ -619,18 +619,18 @@ var payloadString = Object.keys(payloadData)
   return analyticsKey + '=' + encodeURIComponent(payloadData[analyticsKey]);
 })
 .join('&');
-<code></code>`
+```
 
 Finally the data is sent to the  [API endpoint](https://developers.google.com/analytics/devguides/collection/protocol/v1/reference) (<strong>https://www.google-analytics.com/collect</strong>) with the following code:
 
 #### analytics-helper.js
 
-<code></code>`
+```
 return fetch('https://www.google-analytics.com/collect', {
   method: 'post',
   body: payloadString
 });
-<code></code>`
+```
 
 The hit is sent with the  [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) using a POST request. The body of the request is the hit data.
 
@@ -651,35 +651,35 @@ Replace TODO 8.2a in <strong>sw.js</strong> with the following code:
 
 #### sw.js
 
-<code></code>`
+```
 self.importScripts('js/analytics-helper.js');
-<code></code>`
+```
 
 Replace TODO 8.2b in <strong>sw.js</strong> with the following code:
 
 #### sw.js
 
-<code></code>`
+```
 e.waitUntil(
   sendAnalyticsEvent('close', 'notification')
 );
-<code></code>`
+```
 
 Replace TODO 8.2c in <strong>sw.js</strong> with the following code:
 
 #### sw.js
 
-<code></code>`
+```
 sendAnalyticsEvent('click', 'notification')
-<code></code>`
+```
 
 Replace TODO 8.2d in <strong>sw.js</strong> with the following code:
 
 #### sw.js
 
-<code></code>`
+```
 sendAnalyticsEvent('received', 'push')
-<code></code>`
+```
 
 Save the script. Refresh the page to install the new service worker. Then close and reopen the app to activate the new service worker (remember to close all tabs and windows running the app). 
 
@@ -728,10 +728,10 @@ In <strong>sw.js</strong> replace TODO 9 with:
 
 #### sw.js
 
-<code></code>`
+```
 importScripts('path/to/offline-google-analytics-import.js');
 goog.offlineGoogleAnalytics.initialize();
-<code></code>`
+```
 
 Where <code>path/to/offline-google-analytics-import.js</code> is the path to the <strong>offline-google-analytics-import.js</strong> file in the <strong>node_module</strong> folder. 
 

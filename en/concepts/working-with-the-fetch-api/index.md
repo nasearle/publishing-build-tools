@@ -40,13 +40,13 @@ You can check for browser support of fetch in the window interface. For example:
 
 #### main.js
 
-<code></code>`
+```
 if (!('fetch' in window)) {
   console.log('Fetch API not found, try including the polyfill');
   return;
 }
 // We can safely use fetch from now on
-<code></code>`
+```
 
 There is a  [polyfill](https://github.com/github/fetch) for  [browsers that are not currently supported](http://caniuse.com/#feat=fetch) (but see the readme for important caveats.). 
 
@@ -64,7 +64,7 @@ Let's look at a simple example of fetching a JSON file:
 
 #### main.js
 
-<code></code>`
+```
 fetch('examples/example.json')
 .then(function(response) {
   // Do stuff with the response
@@ -72,19 +72,19 @@ fetch('examples/example.json')
 .catch(function(error) {
   console.log('Looks like there was a problem: \n', error);
 });
-<code></code>`
+```
 
 We pass the path for the resource we want to retrieve as a parameter to fetch. In this case this is <strong>examples/example.json</strong>. The fetch call returns a promise that resolves to a response object. 
 
-When the promise resolves, the response is passed to <code>.then</code>. This is where the response could be used. If the request does not complete, <code>.catch</code> takes over and is passed the corresponding error.
+When the promise resolves, the response is passed to <code>.then`. This is where the response could be used. If the request does not complete, `.catch</code> takes over and is passed the corresponding error.
 
-Response objects represent the response to a request. They contain the requested resource and useful properties and methods. For example, <code>response.ok</code>, <code>response.status</code>, and <code>response.statusText</code> can all be used to evaluate the status of the response. 
+Response objects represent the response to a request. They contain the requested resource and useful properties and methods. For example, <code>response.ok`, `response.status`, and `response.statusText</code> can all be used to evaluate the status of the response. 
 
-Evaluating the success of responses is particularly important when using fetch because bad responses (like 404s) still resolve. The only time a fetch promise will reject is if the request was unable to complete. The previous code segment would only fall back to .<code>catch</code> if there was no network connection, but not if the response was bad (like a 404). If the previous code were updated to validate responses it would look like:
+Evaluating the success of responses is particularly important when using fetch because bad responses (like 404s) still resolve. The only time a fetch promise will reject is if the request was unable to complete. The previous code segment would only fall back to .`catch` if there was no network connection, but not if the response was bad (like a 404). If the previous code were updated to validate responses it would look like:
 
 #### main.js
 
-<code></code>`
+```
 fetch('examples/example.json')
 .then(function(response) {
   if (!response.ok) {
@@ -95,7 +95,7 @@ fetch('examples/example.json')
 .catch(function(error) {
   console.log('Looks like there was a problem: \n', error);
 });
-<code></code>`
+```
 
 Now if the response object's <code>ok</code> property is false (indicating a non 200-299 response), the function throws an error containing <code>response.statusText</code> that triggers the <code>.catch</code> block. This prevents bad responses from propagating down the fetch chain.
 
@@ -111,7 +111,7 @@ Responses must be read in order to access the body of the response. Response obj
 
 #### main.js
 
-<code></code>`
+```
 fetch('examples/example.json')
 .then(function(response) {
   if (!response.ok) {
@@ -127,13 +127,13 @@ fetch('examples/example.json')
 .catch(function(error) {
   console.log('Looks like there was a problem: \n', error);
 });
-<code></code>`
+```
 
 This code will be cleaner and easier to understand if it's abstracted into functions:
 
 #### main.js
 
-<code></code>`
+```
 function logResult(result) {
   console.log(result);
 }
@@ -162,23 +162,23 @@ function fetchJSON(pathToResource) {
 }
 
 fetchJSON('examples/example.json');
-<code></code>`
+```
 
 (This is  [promise chaining](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_promises.html).)
 
  To summarize what's happening:
 
-Step 1. Fetch is called on a resource, <strong>examples/example.json</strong>. Fetch returns a promise that will resolve to a response object. When the promise resolves, the response object is passed to <code>validateResponse</code>.
+Step 1. Fetch is called on a resource, <strong>examples/example.json</strong>. Fetch returns a promise that will resolve to a response object. When the promise resolves, the response object is passed to `validateResponse`.
 
-Step 2. <code>validateResponse</code> checks if the response is valid (is it a 200-299?). If it isn't, an error is thrown, skipping the rest of the <code>then</code> blocks and triggering the <code>catch</code> block. This is particularly important. Without this check bad responses are passed down the chain and could break later code that may rely on receiving a valid response. If the response is valid, it is passed to <code>readResponseAsJSON</code>.
+Step 2. <code>validateResponse</code> checks if the response is valid (is it a 200-299?). If it isn't, an error is thrown, skipping the rest of the <code>then</code> blocks and triggering the <code>catch</code> block. This is particularly important. Without this check bad responses are passed down the chain and could break later code that may rely on receiving a valid response. If the response is valid, it is passed to `readResponseAsJSON`.
 
 <div class="note">
 <strong>Note:</strong> You can also handle any network status code using the <code>status</code> property of the <code>response</code> object. This lets you respond with custom pages for different errors or handle other responses that are not <code>ok</code> (i.e., not 200-299), but still usable (e.g., status codes in the 300 range). See  [Caching files with the service worker](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/caching-files-with-service-worker.html#generic-fallback) for an example of a custom response to a 404.
 </div>
 
-Step 3. <code>readResponseAsJSON</code> reads the body of the response using the  [Response.json()](https://developer.mozilla.org/en-US/docs/Web/API/Body/json) method. This method returns a promise that resolves to JSON. Once this promise resolves, the JSON data is passed to <code>logResult</code>. (Can you think of what would happen if the promise from <code>response.json()</code> rejects?)
+Step 3. <code>readResponseAsJSON</code> reads the body of the response using the  [Response.json()](https://developer.mozilla.org/en-US/docs/Web/API/Body/json) method. This method returns a promise that resolves to JSON. Once this promise resolves, the JSON data is passed to <code>logResult`. (Can you think of what would happen if the promise from `response.json()</code> rejects?)
 
-Step 4. Finally, the JSON data from the original request to <strong>examples/example.json</strong> is logged by <code>logResult</code>. 
+Step 4. Finally, the JSON data from the original request to <strong>examples/example.json</strong> is logged by `logResult`. 
 
 #### For more information
 
@@ -192,7 +192,7 @@ Let's look at an example of fetching an image and appending it to a web page.
 
 #### main.js
 
-<code></code>`
+```
 function readResponseAsBlob(response) {
   return response.blob();
 }
@@ -215,9 +215,9 @@ function fetchImage(pathToResource) {
 }
 
 fetchImage('examples/kitten.jpg');
-<code></code>`
+```
 
-In this example an image (<strong>examples/kitten.jpg)</strong> is fetched. As in the previous example, the response is validated with <code>validateResponse</code>. The response is then read as a  [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) (instead of as JSON), and an image element is created and appended to the page, and the image's <code>src</code> attribute is set to a data URL representing the Blob.
+In this example an image (<strong>examples/kitten.jpg)</strong> is fetched. As in the previous example, the response is validated with <code>validateResponse`. The response is then read as a  [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) (instead of as JSON), and an image element is created and appended to the page, and the image's `src</code> attribute is set to a data URL representing the Blob.
 
 <div class="note">
 <strong>Note:</strong> The <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL">URL object's</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL">createObjectURL() method</a> is used to generate a data URL representing the Blob. This is important to note as you cannot set an image's source directly to a Blob. The Blob must first be converted into a data URL.
@@ -235,7 +235,7 @@ Let's look at another example, this time fetching some text and inserting it int
 
 #### main.js
 
-<code></code>`
+```
 function readResponseAsText(response) {
   return response.text();
 }
@@ -255,9 +255,9 @@ function fetchText(pathToResource) {
 }
 
 fetchText('examples/words.txt');
-<code></code>`
+```
 
-In this example a text file is being fetched, <strong>examples/words.txt</strong>. Like the previous two exercises, the response is validated with <code>validateResponse</code>. Then the response is read as text, and appended to the page.
+In this example a text file is being fetched, <strong>examples/words.txt</strong>. Like the previous two exercises, the response is validated with `validateResponse`. Then the response is read as text, and appended to the page.
 
 <div class="note">
 <strong>Note:</strong> It may be tempting to fetch HTML and append that using the <code>innerHTML</code> attribute, but be careful -- this can expose your site to <a href="https://www.google.com/about/appsecurity/learning/xss/">cross site scripting attacks</a>!
@@ -279,7 +279,7 @@ In this example a text file is being fetched, <strong>examples/words.txt</strong
 
 
 
-<code>fetch()</code> can also receive a second optional parameter, <code>init</code>, that allows you to create custom settings for the request, such as the  [request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), cache mode, credentials,  [and more](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch).
+`fetch()` can also receive a second optional parameter, `init`, that allows you to create custom settings for the request, such as the  [request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), cache mode, credentials,  [and more](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch).
 
 <a id="head" />
 
@@ -293,11 +293,11 @@ To call an API with a HEAD request, set the method in the <code>init</code> para
 
 #### main.js
 
-<code></code>`
+```
 fetch('examples/words.txt', {
   method: 'HEAD'
 })
-<code></code>`
+```
 
 This will make a HEAD request for <strong>examples/words.txt</strong>. 
 
@@ -305,7 +305,7 @@ You could use a HEAD request to check the size of a resource. For example:
 
 #### main.js
 
-<code></code>`
+```
 function checkSize(response) {
   var size = response.headers.get('content-length');
   // Do stuff based on response size
@@ -322,7 +322,7 @@ function headRequest(pathToResource) {
 }
 
 headRequest('examples/words.txt');
-<code></code>`
+```
 
 Here the HEAD method is used to request the size (in bytes) of a resource (represented in the <strong>content-length</strong> header) without actually loading the resource itself. In practice this could be used to determine if the full resource should be requested (or even how to request it).
 
@@ -332,12 +332,12 @@ Fetch can also send data to an API with POST requests. The following code sends 
 
 #### main.js
 
-<code></code>`
+```
 fetch('someurl/comment', {
   method: 'POST',
   body: 'title=hello&message=world'
 })
-<code></code>`
+```
 
 <div class="note">
 <strong>Note: </strong>In production, remember to always encrypt any sensitive user data.
@@ -349,13 +349,13 @@ The body data could also be extracted from a form using the  [FormData](https://
 
 #### main.js
 
-<code></code>`
+```
 // Assuming an HTML <form> with id of 'myForm'
 fetch('someurl/comment', {
   method: 'POST',
   body: new FormData(document.getElementById('myForm')
 })
-<code></code>`
+```
 
 ### Custom headers
 
@@ -363,7 +363,7 @@ The <code>init</code> parameter can be used with the  [Headers](https://develope
 
 #### main.js
 
-<code></code>`
+```
 var myHeaders = new Headers({
   'Content-Type': 'text/plain',
   'X-Custom-Header': 'hello world'
@@ -372,9 +372,9 @@ var myHeaders = new Headers({
 fetch('/someurl', {
   headers: myHeaders
 });
-<code></code>`
+```
 
-Here we are creating a Headers object where the <code>Content-Type</code> header has the value of <code>text/plain</code> and a custom <code>X-Custom-Header</code> header has the value of <code>hello world</code>. 
+Here we are creating a Headers object where the <code>Content-Type</code> header has the value of <code>text/plain</code> and a custom <code>X-Custom-Header</code> header has the value of `hello world`. 
 
 <div class="note">
 <strong>Note: </strong>Only some headers, like <code>Content-Type</code> can be modified. Others, like <code>Content-Length</code> and <code>Origin</code> are <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Guard">guarded</a>, and cannot be modified (for security reasons).
@@ -399,13 +399,13 @@ Fetch (and XMLHttpRequest) follow the  [same-origin policy](https://developer.mo
 
 #### main.js
 
-<code></code>`
+```
 // From http://foo.com/
 fetch('http://bar.com/data.json') 
 .then(function(response) {
   // Do something with response
 });
-<code></code>`
+```
 
 <div class="note">
 <strong>Note:</strong> Cross-origin request restrictions are often a point of confusion. Many resources like images, stylesheets, and scripts are fetched cross-origin. However, these are exceptions to the same-origin policy. Cross-origin requests are still restricted <em>from within scripts</em>.
@@ -415,11 +415,11 @@ There have been attempts to work around the same-origin policy (such as  [JSONP]
 
 If the server you are requesting from doesn't support CORS, you should get an error in the console indicating that the cross-origin request is blocked due to the CORS <code>Access-Control-Allow-Origin</code> header being missing. 
 
-You can use  [<code>no-cors</code>](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch) mode to request opaque resources.  [Opaque responses](https://fetch.spec.whatwg.org/#concept-filtered-response-opaque) can't be accessed with JavaScript but the response can still be served or cached by a service worker. Using <code>no-cors</code> mode with fetch is relatively simple. To update the above example with <code>no-cors</code>, we pass in the <code>init</code> object with <code>mode</code> set to <code>no-cors</code>:
+You can use  [`no-cors`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch) mode to request opaque resources.  [Opaque responses](https://fetch.spec.whatwg.org/#concept-filtered-response-opaque) can't be accessed with JavaScript but the response can still be served or cached by a service worker. Using <code>no-cors</code> mode with fetch is relatively simple. To update the above example with <code>no-cors`, we pass in the `init</code> object with <code>mode</code> set to `no-cors`:
 
 #### main.js
 
-<code></code>`
+```
   // From http://foo.com/
 fetch('http://bar.com/data.json', {
   mode: 'no-cors' // 'cors' by default
@@ -427,7 +427,7 @@ fetch('http://bar.com/data.json', {
 .then(function(response) {
   // Do something with response
 });
-<code></code>`
+```
 
 #### For more information
 

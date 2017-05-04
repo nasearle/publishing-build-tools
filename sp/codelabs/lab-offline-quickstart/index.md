@@ -85,7 +85,7 @@ Replace the TODO 2.1 comment in <strong>service-worker.js</strong> with the foll
 
 #### service-worker.js
 
-<code></code>`
+```
 var CACHE_NAME = 'static-cache';
 
 var urlsToCache = [
@@ -102,7 +102,7 @@ self.addEventListener('install', function(event) {
     })
   );
 });
-<code></code>`
+```
 
 Save the file.
 
@@ -122,7 +122,7 @@ Replace TODO 2.2 in <strong>service-worker.js</strong> with the following code:
 
 #### service-worker.js
 
-<code></code>`
+```
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request)
@@ -150,7 +150,7 @@ function fetchAndCache(url) {
     // You could return a custom offline 404 page here
   });
 }
-<code></code>`
+```
 
 Save the script.
 
@@ -160,10 +160,10 @@ This code adds a fetch event listener to the service worker. When a resource is 
 
 * Tries to match the request with the content of the cache, and if the resource is in the cache, then returns it.
 * If the resource is not in the cache, attempts to get the resource from the network using fetch.
-* If the response is invalid, throws an error and logs a message to the console (<code>catch</code>).
-* If the response is valid, creates a copy of the response (<code>clone</code>), stores it in the cache, and then returns the original response.
+* If the response is invalid, throws an error and logs a message to the console (`catch`).
+* If the response is valid, creates a copy of the response (`clone`), stores it in the cache, and then returns the original response.
 
-<div class=<code>"</code>note<code>"</code>>
+<div class=`"`note`"`>
 
 <strong>Note:</strong> We <code>clone</code> the response because the request is a stream that can only be consumed once. Because we want to put it in the cache and serve it to the user, we need to clone a copy. See Jake Archibald's <a href="https://jakearchibald.com/2014/reading-responses/">What happens when you read a response</a> article for a more in-depth explanation.
 </div>
@@ -174,7 +174,7 @@ Replace TODO 2.3 in <strong>index.html</strong> with the following code:
 
 #### index.html
 
-<code></code>`
+```
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js')
   .then(function(registration) {
@@ -184,7 +184,7 @@ if ('serviceWorker' in navigator) {
     console.log('Registration failed: ', error);
   });
 }
-<code></code>`
+```
 
 Save the file.
 

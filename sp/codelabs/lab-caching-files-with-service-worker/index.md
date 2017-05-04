@@ -54,7 +54,7 @@ This lab covers the basics of caching files with the service worker. The technol
 
 * Computer with terminal/shell access
 * Connection to the internet
-* A  [browser that supports <code>caches</code>](https://jakearchibald.github.io/isserviceworkerready/)
+* A  [browser that supports `caches`](https://jakearchibald.github.io/isserviceworkerready/)
 * A text editor
 
 <a id="1" />
@@ -98,7 +98,7 @@ Replace TODO 2 in <strong>serviceworker.js</strong> with the following code:
 
 #### service-worker.js
 
-<code></code>`
+```
 var filesToCache = [
   '.',
   'style/main.css',
@@ -124,7 +124,7 @@ self.addEventListener('install', function(event) {
     })
   );
 });
-<code></code>`
+```
 
 Save the code and reload the page in the browser. [Update the service worker](tools_for_pwa_developers.md#update) and then [open the cache storage](tools_for_pwa_developers.md#storage) in the browser. You should see the files appear in the table. You may need to refresh the page again for the changes to appear.
 
@@ -148,7 +148,7 @@ This page contains several tests for testing our app at each stage of the codela
 
 We first define the files to cache and assign them the to the <code>filesToCache</code> variable. These files make up the "application shell" (the static HTML,CSS, and image files that give your app a unified look and feel). We also assign a cache name to a variable so that updating the cache name (and by extension the cache version) happens in one place.
 
-In the install event handler we create the cache with  [<code>caches.open</code>](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/open) and use the  [<code>addAll</code> method](https://developer.mozilla.org/en-US/docs/Web/API/Cache/addAll) to add the files to the cache. We wrap this in  [<code>event.waitUntil</code>](https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil) to extend the lifetime of the event until all of the files are added to the cache and <code>addAll</code> resolves successfully.
+In the install event handler we create the cache with  [`caches.open`](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/open) and use the  [`addAll` method](https://developer.mozilla.org/en-US/docs/Web/API/Cache/addAll) to add the files to the cache. We wrap this in  [`event.waitUntil`](https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil) to extend the lifetime of the event until all of the files are added to the cache and <code>addAll</code> resolves successfully.
 
 #### For more information
 
@@ -169,7 +169,7 @@ Replace TODO 3 in <strong>service-worker.js</strong> with the following:
 
 #### service-worker.js
 
-<code></code>`
+```
 self.addEventListener('fetch', function(event) {
   console.log('Fetch event for ', event.request.url);
   event.respondWith(
@@ -190,13 +190,13 @@ self.addEventListener('fetch', function(event) {
     })
   );
 });
-<code></code>`
+```
 
 Save the code and [update the service worker](tools_for_pwa_developers.md#update) in the browser (make sure you have closed the <strong>test.html</strong> page). Refresh the page to see the network requests being logged to the console. Now [take the app offline](tools_for_pwa_developers.md#offline) and refresh the page. The page should load normally!
 
 #### Explanation
 
-The <code>fetch</code> event listener intercepts all requests. We use  [<code>event.respondWith</code>](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/respondWith) to create a custom response to the request. Here we are using the  [Cache falling back to network](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) strategy: we first check the cache for the requested resource (with  [<code>caches.match</code>](https://developer.mozilla.org/en-US/docs/Web/API/Cache/match)) and then, if that fails, we send the request to the network.
+The <code>fetch</code> event listener intercepts all requests. We use  [`event.respondWith`](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/respondWith) to create a custom response to the request. Here we are using the  [Cache falling back to network](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) strategy: we first check the cache for the requested resource (with  [`caches.match`](https://developer.mozilla.org/en-US/docs/Web/API/Cache/match)) and then, if that fails, we send the request to the network.
 
 #### For more information
 
@@ -218,7 +218,7 @@ Replace TODO 4 in the <code>fetch</code> event handler with the code to add the 
 
 #### service-worker.js
 
-<code></code>`
+```
 .then(function(response) {
 
   // TODO 5 - Respond with custom 404 page
@@ -230,7 +230,7 @@ Replace TODO 4 in the <code>fetch</code> event handler with the code to add the 
     return response;
   });
 });
-<code></code>`
+```
 
 Save the code. Take the app back online and [update the service worker](tools_for_pwa_developers.md#update). Visit at least one of the links on the homepage, then take the app offline again. Now if you revisit the pages they should load normally! Try navigating to some pages you haven't visited before.
 
@@ -240,7 +240,7 @@ Take the app back online and open <strong>app/test/test1.html</strong> in a new 
 
 Here we are taking the responses returned from the network requests and putting them into the cache. 
 
-We need to pass a clone of the response to <code>cache.put</code>, because the response can only be read once. See Jake Archibald's <a href="https://jakearchibald.com/2014/reading-responses/">What happens when you read a response</a> article for an explanation.
+We need to pass a clone of the response to `cache.put`, because the response can only be read once. See Jake Archibald's <a href="https://jakearchibald.com/2014/reading-responses/">What happens when you read a response</a> article for an explanation.
 
 We have wrapped the code to cache the response in an <code>if</code> statement to ensure we are not caching our test page.
 
@@ -262,7 +262,7 @@ To test your code, save what you've written and then [update the service worker]
 
 #### Explanation
 
-Network response errors do not throw an error in the <code>fetch</code> promise. Instead, <code>fetch</code> returns the response object containing the error code of the network error. This means we handle network errors in a <code>.then</code> instead of a <code>.catch</code>. However, if the <code>fetch</code> cannot reach the network (user is offline) an error is thrown in the promise and the <code>.catch</code> executes.
+Network response errors do not throw an error in the <code>fetch</code> promise. Instead, <code>fetch</code> returns the response object containing the error code of the network error. This means we handle network errors in a <code>.then</code> instead of a <code>.catch`. However, if the `fetch</code> cannot reach the network (user is offline) an error is thrown in the promise and the <code>.catch</code> executes.
 
 <div class="note">
 <strong>Note:</strong> When intercepting a network request and serving a custom response, the service worker does not redirect the user to the address of the new response. The response is served at the address of the original request. For example, if the user requests a nonexistent file at <strong>www.example.com/non-existent.html</strong> and the service worker responds with a custom 404 page, <strong>404.html</strong>, the custom page will display at <strong>www.example.com/non-existent.html</strong>, not <strong>www.example.com/404.html</strong>.
@@ -292,7 +292,7 @@ To test your code, save what you've written and then update the service worker i
 
 #### Explanation
 
-If <code>fetch</code> cannot reach the network, it throws an error and sends it to a <code>.catch</code>.
+If <code>fetch</code> cannot reach the network, it throws an error and sends it to a `.catch`.
 
 #### Solution code
 
@@ -312,7 +312,7 @@ Replace TODO 7 in <strong>service-worker.js</strong> with the following code:
 
 #### service-worker.js
 
-<code></code>`
+```
 self.addEventListener('activate', function(event) {
   console.log('Activating new service worker...');
 
@@ -330,17 +330,17 @@ self.addEventListener('activate', function(event) {
     })
   );
 });
-<code></code>`
+```
 
 Try changing the name of the cache to "pages-cache-v2": 
 
 #### service-worker.js
 
-<code></code>`
+```
 var staticCacheName = 'pages-cache-v2';
-<code></code>`
+```
 
-Save the code and [update the service worker](tools_for_pwa_developers.md#update) in the browser. [Inspect the cache storage](tools_for_pwa_developers.md#storage) in your browser. You should see just the new cache. The old cache, <code>pages-cache-v1</code>, has been removed.
+Save the code and [update the service worker](tools_for_pwa_developers.md#update) in the browser. [Inspect the cache storage](tools_for_pwa_developers.md#storage) in your browser. You should see just the new cache. The old cache, `pages-cache-v1`, has been removed.
 
 Open <strong>app/test/test2.html</strong> in a new browser tab. The test checks whether <code>pages-cache-v1</code> has been deleted and that <code>pages-cache-v2</code> has been created.
 

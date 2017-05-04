@@ -92,12 +92,12 @@ Replace TODO 2 in <strong>app/js/main.js</strong> with the following code:
 
 #### main.js
 
-<code></code>`
+```
 if (!('indexedDB' in window)) {
   console.log('This browser doesn\'t support IndexedDB');
   return;
 }
-<code></code>`
+```
 
 <a id="3" />
 
@@ -115,9 +115,9 @@ In <strong>js/main.js</strong>, replace <code>var dbPromise;</code> with the fol
 
 #### main.js
 
-<code></code>`
+```
 var dbPromise = idb.open('couches-n-things', 1);
-<code></code>`
+```
 
 In the browser, [open IndexedDB](tools_for_pwa_developers.md#indexeddb) in the developer tools and confirm that your database exists.
 
@@ -129,7 +129,7 @@ Open the QUnit test page, <strong>app/test/test.html</strong>, in another browse
 
 #### Explanation
 
-<code>idb.open</code> takes a database name, version number, and optional callback function for performing database updates (not included in the above code). The version number determines whether the upgrade callback function is called. If the version number is greater than the version number of the database existing in the browser, then the upgrade callback is executed.
+`idb.open` takes a database name, version number, and optional callback function for performing database updates (not included in the above code). The version number determines whether the upgrade callback function is called. If the version number is greater than the version number of the database existing in the browser, then the upgrade callback is executed.
 
 <div class="note">
 <strong>Note: </strong>If at any point in the codelab your database gets into a bad state, you can delete it from the console with the following command: <code>indexedDB.deleteDatabase('couches-n-things');</code>. Note that you can't delete the database while the testing page is open.
@@ -147,7 +147,7 @@ To complete TODO 3.2 in <strong>main.js</strong>, replace <code>var dbPromise = 
 
 #### main.js
 
-<code></code>`
+```
 var dbPromise = idb.open('couches-n-things', 2, function(upgradeDb) {
   switch (upgradeDb.oldVersion) {
     case 0:
@@ -166,7 +166,7 @@ var dbPromise = idb.open('couches-n-things', 2, function(upgradeDb) {
 
   }
 });
-<code></code>`
+```
 
 Save the code and reload the page in the browser. [Open IndexedDB](tools_for_pwa_developers.md#indexeddb) in your browser's developer tools and expand the <code>couches-n-things</code> database. You should see the empty <code>products</code> object store.
 
@@ -174,7 +174,7 @@ Open the QUnit test page. Your app should now pass the second test that checks w
 
 #### Explanation
 
-To ensure database integrity, object stores and indexes can only be created during database upgrades. This means they are created inside the upgrade callback function in <code>idb.open</code>, which executes only if the version number (in this case it's <code>2</code>) is greater than the existing version in the browser or if the database doesn't exist. The callback is passed the <code>UpgradeDB</code> object (see the  [documentation](https://github.com/jakearchibald/idb#idbopenname-version-upgradecallback) for details), which is used to create the object stores.
+To ensure database integrity, object stores and indexes can only be created during database upgrades. This means they are created inside the upgrade callback function in <code>idb.open`, which executes only if the version number (in this case it's `2`) is greater than the existing version in the browser or if the database doesn't exist. The callback is passed the `UpgradeDB</code> object (see the  [documentation](https://github.com/jakearchibald/idb#idbopenname-version-upgradecallback) for details), which is used to create the object stores.
 
 Inside the callback, we include a switch block that executes its cases based on the version of the database already existing in the browser. <code>case 0</code> executes if the database doesn't yet exist. The database already exists for us, but we need a <code>case 0</code> in case we delete the database, or in case someone else uses our app on their own machine.
 
@@ -186,8 +186,8 @@ We have specified the <code>id</code> property as the <code>keyPath</code> for t
 
 #### For more information
 
-*  [<code>idb</code> - Github](https://github.com/jakearchibald/idb)
-*  [<code>createObjectStore</code> method](https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/createObjectStore)
+*  [`idb` - Github](https://github.com/jakearchibald/idb)
+*  [`createObjectStore` method](https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/createObjectStore)
 
 ### 3.3 Add objects to the object store
 
@@ -197,7 +197,7 @@ Replace TODO 3.3 in <strong>main.js</strong> with the following code:
 
 #### main.js
 
-<code></code>`
+```
 dbPromise.then(function(db) {
   var tx = db.transaction('products', 'readwrite');
   var store = tx.objectStore('products');
@@ -267,7 +267,7 @@ dbPromise.then(function(db) {
 }).catch(function(e) {
   console.log('Error adding items: ', e);
 });
-<code></code>`
+```
 
 Save the file and reload the page in the browser. Click <strong>Add Products</strong> and refresh the page. Confirm that the objects display in the <code>products</code> object store under <code>couches-n-things</code> in the developer tools.
 
@@ -306,12 +306,12 @@ Replace TODO 4.1 in <strong>main.js</strong> with the following code:
 
 #### main.js
 
-<code></code>`
+```
 case 2:
   console.log('Creating a name index');
   var store = upgradeDb.transaction.objectStore('products');
   store.createIndex('name', 'name', {unique: true});
-<code></code>`
+```
 
 <div class="note">
 <strong>Important:</strong> Remember to change the version number to 3 before you test the code in the browser.
@@ -321,7 +321,7 @@ The full <code>idb.open</code> method should look like this:
 
 #### main.js
 
-<code></code>`
+```
 var dbPromise = idb.open('couches-n-things', 3, function(upgradeDb) {
   switch (upgradeDb.oldVersion) {
     case 0:
@@ -342,7 +342,7 @@ var dbPromise = idb.open('couches-n-things', 3, function(upgradeDb) {
 
   }
 });
-<code></code>`
+```
 
 <div class="note">
 <strong>Note:</strong> We did not include break statements in the switch block so that all of the latest updates to the database will execute even if the user is one or more versions behind.
@@ -358,8 +358,8 @@ In the example, we create an index on the <code>name</code> property, allowing u
 
 #### For more information
 
-*  [<code>IDBIndex</code> - MDN](https://developer.mozilla.org/en-US/docs/Web/API/IDBIndex)
-*  [<code>createIndex</code> method - MDN](https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/createIndex)
+*  [`IDBIndex` - MDN](https://developer.mozilla.org/en-US/docs/Web/API/IDBIndex)
+*  [`createIndex` method - MDN](https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/createIndex)
 
 ### 4.2 Create <code>price</code> and <code>description</code> indexes
 
@@ -385,14 +385,14 @@ Replace TODO 4.3 in <strong>main.js</strong> with the following code:
 
 #### main.js
 
-<code></code>`
+```
 return dbPromise.then(function(db) {
   var tx = db.transaction('products', 'readonly');
   var store = tx.objectStore('products');
   var index = store.index('name');
   return index.get(key);
 });
-<code></code>`
+```
 
 Save the code and refresh the page in the browser.
 
@@ -414,7 +414,7 @@ This code calls the <code>get</code> method on the 'name' index to retrieve an i
 
 #### For more information
 
-*  [<code>Get</code> method - MDN](https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/get)
+*  [`Get` method - MDN](https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/get)
 
 ### 4.4 Use a cursor object
 
@@ -424,7 +424,7 @@ Replace TODO 4.4a in <strong>main.js</strong> with the following code:
 
 #### main.js
 
-<code></code>`
+```
 var lower = document.getElementById('priceLower').value;
 var upper = document.getElementById('priceUpper').value;
 var lowerNum = Number(document.getElementById('priceLower').value);
@@ -458,7 +458,7 @@ dbPromise.then(function(db) {
   if (s === '') {s = '<p>No results.</p>';}
   document.getElementById('results').innerHTML = s;
 });
-<code></code>`
+```
 
 Save the code and refresh the page in the browser. Enter some prices into the 'price' text boxes (without a currency symbol) and click <strong>Search</strong>. Items should appear on the page ordered by price. 
 
@@ -468,13 +468,13 @@ Save the code and refresh the page in the browser. Enter a description (must mat
 
 #### Explanation
 
-After getting the price values from the page, we determine which method to call on <code>IDBKeyRange</code> to limit the cursor. We open the cursor on the <code>price</code> index and pass the cursor object to the <code>showRange</code> function in <code>.then</code>. This function adds the current object to the html string, moves on to the next object with <code>cursor.continue()</code>, and calls itself, passing in the cursor object. <code>showRange</code> loops through each object in the object store until it reaches the end of the range. Then the cursor object is <code>undefined</code> and <code>if (!cursor) {return;}</code> breaks the loop.
+After getting the price values from the page, we determine which method to call on <code>IDBKeyRange</code> to limit the cursor. We open the cursor on the <code>price</code> index and pass the cursor object to the <code>showRange</code> function in <code>.then`. This function adds the current object to the html string, moves on to the next object with `cursor.continue()`, and calls itself, passing in the cursor object. `showRange</code> loops through each object in the object store until it reaches the end of the range. Then the cursor object is <code>undefined</code> and <code>if (!cursor) {return;}</code> breaks the loop.
 
 #### For more information
 
-*  [<code>IDBCursor</code> - MDN](https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor)
-*  [<code>IDBKeyRange</code> - MDN](https://developer.mozilla.org/en-US/docs/Web/API/IDBKeyRange)
-*  [<code>cursor.continue()</code> - MDN](https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor/continue)
+*  [`IDBCursor` - MDN](https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor)
+*  [`IDBKeyRange` - MDN](https://developer.mozilla.org/en-US/docs/Web/API/IDBKeyRange)
+*  [`cursor.continue()` - MDN](https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor/continue)
 
 #### Solution code
 
@@ -518,7 +518,7 @@ To complete TODO 5.2 in <strong>main.js</strong>, add the following items to the
 
 #### main.js
 
-<code></code>`
+```
 var items = [
   {
     name: 'Cabinet',
@@ -548,7 +548,7 @@ var items = [
     quantity: 3
   }
 ];
-<code></code>`
+```
 
 Save the code and refresh the page in the browser. Click <strong>Add Orders</strong> and refresh the page again. Confirm that the objects show up in the <code>orders</code> store in the developer tools.
 
@@ -578,7 +578,7 @@ Replace TODO 5.5 in <strong>main.js</strong> with the following code:
 
 #### main.js
 
-<code></code>`
+```
 return dbPromise.then(function(db) {
   var tx = db.transaction('products');
   var store = tx.objectStore('products');
@@ -590,7 +590,7 @@ return dbPromise.then(function(db) {
     })
   );
 });
-<code></code>`
+```
 
 #### Explanation
 
@@ -609,7 +609,7 @@ Replace TODO 5.6 in <strong>main.js</strong> with the following code:
 
 #### main.js
 
-<code></code>`
+```
 return new Promise(function(resolve, reject) {
   var item = product;
   var qtyRemaining = item.quantity - order.quantity;
@@ -622,7 +622,7 @@ return new Promise(function(resolve, reject) {
   item.quantity = qtyRemaining;
   resolve(item);
 });
-<code></code>`
+```
 
 Refresh the test page. Your app should now pass the eleventh test, which checks if the <code>decrementQuantity</code> function subtracts the quantity ordered from the quantity available.
 
