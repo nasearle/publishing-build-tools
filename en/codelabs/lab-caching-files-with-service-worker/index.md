@@ -8,25 +8,25 @@
 
 
 
-[<strong>Overview</strong>](#overview)          
+<a href="#overview"><strong>Overview</strong></a>          
 
-[<strong>1. Get set up</strong>](#1)          
+<a href="#1"><strong>1. Get set up</strong></a>          
 
-[<strong>2. Cache the application shell</strong>](#2)          
+<a href="#2"><strong>2. Cache the application shell</strong></a>          
 
-[<strong>3. Serve files from the cache</strong>](#3)          
+<a href="#3"><strong>3. Serve files from the cache</strong></a>          
 
-[<strong>4. Add network responses to the cache</strong>](#4)<strong>  </strong>
+<a href="#4"><strong>4. Add network responses to the cache</strong></a><strong>  </strong>
 
-[<strong>5. Respond with custom 404 page</strong>](#5)          
+<a href="#5"><strong>5. Respond with custom 404 page</strong></a>          
 
-[<strong>6. Respond with custom offline page</strong>](#6)          
+<a href="#6"><strong>6. Respond with custom offline page</strong></a>          
 
-[<strong>7. Delete outdated caches</strong>](#7)          
+<a href="#7"><strong>7. Delete outdated caches</strong></a>          
 
-[<strong>Congratulations!</strong>](#8)<strong>  </strong>
+<a href="#8"><strong>Congratulations!</strong></a><strong>  </strong>
 
-Concepts:  [Caching Files with Service Worker](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/caching-files-with-service-worker.html)
+Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/caching-files-with-service-worker.html">Caching Files with Service Worker</a>
 
 <a id="overview" />
 
@@ -36,7 +36,7 @@ Concepts:  [Caching Files with Service Worker](https://google-developer-training
 
 
 
-This lab covers the basics of caching files with the service worker. The technologies involved are the  [Cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache) and the  [Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API). See the  [Caching files with the service worker](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/caching-files-with-service-worker.html) doc for a full tutorial on the Cache API. See  [Introduction to Service Worker](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction_to_service_worker.html) and  [Lab: Scripting the service worker](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_scripting_the_service_worker.html) for more information on service workers.
+This lab covers the basics of caching files with the service worker. The technologies involved are the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache">Cache API</a> and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">Service Worker API</a>. See the <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/caching-files-with-service-worker.html">Caching files with the service worker</a> doc for a full tutorial on the Cache API. See <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction_to_service_worker.html">Introduction to Service Worker</a> and <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_scripting_the_service_worker.html">Lab: Scripting the service worker</a> for more information on service workers.
 
 #### What you will learn
 
@@ -48,13 +48,13 @@ This lab covers the basics of caching files with the service worker. The technol
 #### What you should know
 
 * Basic JavaScript and HTML
-* Familiarity with the concept and basic syntax of ES2015  [Promises](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
+* Familiarity with the concept and basic syntax of ES2015 <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises</a>
 
 #### What you will need
 
 * Computer with terminal/shell access
 * Connection to the internet
-* A  [browser that supports `caches`](https://jakearchibald.github.io/isserviceworkerready/)
+* A <a href="https://jakearchibald.github.io/isserviceworkerready/">browser that supports `caches`</a>
 * A text editor
 
 <a id="1" />
@@ -65,7 +65,7 @@ This lab covers the basics of caching files with the service worker. The technol
 
 
 
-If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
+If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in <a href="setting_up_the_labs.md">Setting up the labs</a>.
 
 Open your browser and navigate to <strong>localhost:8080/cache-api-lab/app</strong>.
 
@@ -126,7 +126,7 @@ self.addEventListener('install', function(event) {
 });
 ```
 
-Save the code and reload the page in the browser. [Update the service worker](tools_for_pwa_developers.md#update) and then [open the cache storage](tools_for_pwa_developers.md#storage) in the browser. You should see the files appear in the table. You may need to refresh the page again for the changes to appear.
+Save the code and reload the page in the browser.<a href="tools_for_pwa_developers.md#update">Update the service worker</a> and then <a href="tools_for_pwa_developers.md#storage">open the cache storage</a> in the browser. You should see the files appear in the table. You may need to refresh the page again for the changes to appear.
 
 Open the first QUnit test page, <strong>app/test/test1.html</strong>, in another browser tab.
 
@@ -137,7 +137,7 @@ Open the first QUnit test page, <strong>app/test/test1.html</strong>, in another
 This page contains several tests for testing our app at each stage of the codelab. Passed tests are blue and failed tests are red. At this point, your app should pass the first two tests. These check that the cache exists and that it contains the app shell.
 
 <div class="note">
-<strong>Caution:</strong> Close the test page when you're finished with it, otherwise you won't be able to activate the updated service worker in the next sections. See the  [Introduction to service worker](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction_to_service_workers.html#activation) text for an explanation. 
+<strong>Caution:</strong> Close the test page when you're finished with it, otherwise you won't be able to activate the updated service worker in the next sections. See the <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction_to_service_workers.html#activation">Introduction to service worker</a> text for an explanation. 
 </div>
 
 <div class="note">
@@ -148,12 +148,12 @@ This page contains several tests for testing our app at each stage of the codela
 
 We first define the files to cache and assign them the to the <code>filesToCache</code> variable. These files make up the "application shell" (the static HTML,CSS, and image files that give your app a unified look and feel). We also assign a cache name to a variable so that updating the cache name (and by extension the cache version) happens in one place.
 
-In the install event handler we create the cache with  [`caches.open`](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/open) and use the  [`addAll` method](https://developer.mozilla.org/en-US/docs/Web/API/Cache/addAll) to add the files to the cache. We wrap this in  [`event.waitUntil`](https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil) to extend the lifetime of the event until all of the files are added to the cache and <code>addAll</code> resolves successfully.
+In the install event handler we create the cache with <a href="https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/open">`caches.open`</a> and use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/addAll">`addAll` method</a> to add the files to the cache. We wrap this in <a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil">`event.waitUntil`</a> to extend the lifetime of the event until all of the files are added to the cache and <code>addAll</code> resolves successfully.
 
 #### For more information
 
-*  [The Application Shell](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction-to-progressive-web-app-architectures.html)
-*  [The install event - MDN](https://developer.mozilla.org/en-US/docs/Web/API/InstallEvent)
+* <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction-to-progressive-web-app-architectures.html">The Application Shell</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/InstallEvent">The install event - MDN</a>
 
 <a id="3" />
 
@@ -192,17 +192,17 @@ self.addEventListener('fetch', function(event) {
 });
 ```
 
-Save the code and [update the service worker](tools_for_pwa_developers.md#update) in the browser (make sure you have closed the <strong>test.html</strong> page). Refresh the page to see the network requests being logged to the console. Now [take the app offline](tools_for_pwa_developers.md#offline) and refresh the page. The page should load normally!
+Save the code and <a href="tools_for_pwa_developers.md#update">update the service worker</a> in the browser (make sure you have closed the <strong>test.html</strong> page). Refresh the page to see the network requests being logged to the console. Now <a href="tools_for_pwa_developers.md#offline">take the app offline</a> and refresh the page. The page should load normally!
 
 #### Explanation
 
-The <code>fetch</code> event listener intercepts all requests. We use  [`event.respondWith`](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/respondWith) to create a custom response to the request. Here we are using the  [Cache falling back to network](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) strategy: we first check the cache for the requested resource (with  [`caches.match`](https://developer.mozilla.org/en-US/docs/Web/API/Cache/match)) and then, if that fails, we send the request to the network.
+The <code>fetch</code> event listener intercepts all requests. We use <a href="https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/respondWith">`event.respondWith`</a> to create a custom response to the request. Here we are using the <a href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network">Cache falling back to network</a> strategy: we first check the cache for the requested resource (with <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/match">`caches.match`</a>) and then, if that fails, we send the request to the network.
 
 #### For more information
 
-*  [caches.match - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Cache/match)
-*  [The Fetch API](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_the_fetch_api.html)
-*  [The fetch event - MDN](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/match">caches.match - MDN</a>
+* <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_the_fetch_api.html">The Fetch API</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent">The fetch event - MDN</a>
 
 <a id="4" />
 
@@ -232,7 +232,7 @@ Replace TODO 4 in the <code>fetch</code> event handler with the code to add the 
 });
 ```
 
-Save the code. Take the app back online and [update the service worker](tools_for_pwa_developers.md#update). Visit at least one of the links on the homepage, then take the app offline again. Now if you revisit the pages they should load normally! Try navigating to some pages you haven't visited before.
+Save the code. Take the app back online and <a href="tools_for_pwa_developers.md#update">update the service worker</a>. Visit at least one of the links on the homepage, then take the app offline again. Now if you revisit the pages they should load normally! Try navigating to some pages you haven't visited before.
 
 Take the app back online and open <strong>app/test/test1.html</strong> in a new tab. Your app should now pass the third test that checks whether network responses are being added to the cache. Remember to close the test page when you're done.
 
@@ -246,7 +246,7 @@ We have wrapped the code to cache the response in an <code>if</code> statement t
 
 #### For more information
 
-*  [Cache.put - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Cache/put)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/put">Cache.put - MDN</a>
 
 <a id="5" />
 
@@ -258,7 +258,7 @@ We have wrapped the code to cache the response in an <code>if</code> statement t
 
 Below TODO 5 in <strong>service-worker.js</strong>, write the code to respond with the <strong>404.html</strong> page from the cache if the response status is <code>404</code>. You can check the response status with <code>response.status</code>.
 
-To test your code, save what you've written and then [update the service worker](tools_for_pwa_developers.md#update) in the browser. Click the <strong>Non-existent file</strong> link to request a resource that doesn't exist.
+To test your code, save what you've written and then <a href="tools_for_pwa_developers.md#update">update the service worker</a> in the browser. Click the <strong>Non-existent file</strong> link to request a resource that doesn't exist.
 
 #### Explanation
 
@@ -270,9 +270,9 @@ Network response errors do not throw an error in the <code>fetch</code> promise.
 
 #### For more information
 
-*  [Response.status - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Response/status)
-*  [Response status codes - MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
-*  [Response.ok - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Response/ok)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/status">Response.status - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">Response status codes - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/ok">Response.ok - MDN</a>
 
 #### Solution code
 
@@ -288,7 +288,7 @@ The solution code can be found in the <strong>05-404-page</strong> directory.
 
 Below TODO 6 in the <code>.catch</code> in <strong>service-worker.js</strong>, write the code to respond with the <strong>offline.html</strong> page from the cache. The catch will trigger if the fetch to the network fails. 
 
-To test your code, save what you've written and then update the service worker in the browser. [Take the app offline](tools_for_pwa_developers.md#offline) and navigate to a page you haven't visited before to see the custom offline page.
+To test your code, save what you've written and then update the service worker in the browser.<a href="tools_for_pwa_developers.md#offline">Take the app offline</a> and navigate to a page you haven't visited before to see the custom offline page.
 
 #### Explanation
 
@@ -340,7 +340,7 @@ Try changing the name of the cache to "pages-cache-v2":
 var staticCacheName = 'pages-cache-v2';
 ```
 
-Save the code and [update the service worker](tools_for_pwa_developers.md#update) in the browser. [Inspect the cache storage](tools_for_pwa_developers.md#storage) in your browser. You should see just the new cache. The old cache, `pages-cache-v1`, has been removed.
+Save the code and <a href="tools_for_pwa_developers.md#update">update the service worker</a> in the browser.<a href="tools_for_pwa_developers.md#storage">Inspect the cache storage</a> in your browser. You should see just the new cache. The old cache, `pages-cache-v1`, has been removed.
 
 Open <strong>app/test/test2.html</strong> in a new browser tab. The test checks whether <code>pages-cache-v1</code> has been deleted and that <code>pages-cache-v2</code> has been created.
 
@@ -350,8 +350,8 @@ We delete old caches in the <code>activate</code> event to make sure that we are
 
 #### For more information
 
-*  [Promise.all - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
-*  [Array.map - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">Promise.all - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.map - MDN</a>
 
 #### Solution code
 
@@ -375,11 +375,11 @@ You have learned the basics of using the Cache API in the service worker. We hav
 
 #### Learn more about caching and the Cache API
 
-*  [Cache - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Cache)
-*  [The Offline Cookbook](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache">Cache - MDN</a>
+* <a href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/">The Offline Cookbook</a>
 
 #### Learn more about using service workers
 
-*  [Using Service Workers - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers">Using Service Workers - MDN</a>
 
 

@@ -8,21 +8,21 @@
 
 
 
-[<strong>Overview</strong>](#overview)          
+<a href="#overview"><strong>Overview</strong></a>          
 
-[<strong>1. Get set up</strong>](#1)          
+<a href="#1"><strong>1. Get set up</strong></a>          
 
-[<strong>2. Set the relative width</strong>](#2)          
+<a href="#2"><strong>2. Set the relative width</strong></a>          
 
-[<strong>3. Using the srcset attribute</strong>](#3)          
+<a href="#3"><strong>3. Using the srcset attribute</strong></a>          
 
-[<strong>4. Using the sizes attribute</strong>](#4)          
+<a href="#4"><strong>4. Using the sizes attribute</strong></a>          
 
-[<strong>5. Using media queries</strong>](#5)          
+<a href="#5"><strong>5. Using media queries</strong></a>          
 
-[<strong>6. Optional: Use the picture and source elements</strong>](#6)          
+<a href="#6"><strong>6. Optional: Use the picture and source elements</strong></a>          
 
-[<strong>Congratulations!</strong>](#7)<strong>        </strong>
+<a href="#7"><strong>Congratulations!</strong></a><strong>        </strong>
 
 <a id="overview" />
 
@@ -57,7 +57,7 @@ This lab shows you how to make images on your web page look good on all devices.
 
 
 
-If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
+If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in <a href="setting_up_the_labs.md">Setting up the labs</a>.
 
 Open your browser and navigate to <strong>localhost:8080/responsive-images-lab/app</strong>.
 
@@ -123,7 +123,7 @@ To complete TODO 3.1 in <strong>index.html</strong>, add the following <code>src
 srcset="images/sfo-1600_large.jpg, images/sfo-1000_large.jpg, images/sfo-800_medium.jpg, images/sfo-500_small.jpg"
 ```
 
-Save the code and refresh the page in the browser. Open your browser's Developer Tools and [look at the network requests](tools_for_pwa_developers.md#viewnetwork). Try refreshing the page at different window sizes. You should see that the browser is fetching <strong>images/sfo-1600_large.jpg</strong> no matter the window size.
+Save the code and refresh the page in the browser. Open your browser's Developer Tools and <a href="tools_for_pwa_developers.md#viewnetwork">look at the network requests</a>. Try refreshing the page at different window sizes. You should see that the browser is fetching <strong>images/sfo-1600_large.jpg</strong> no matter the window size.
 
 #### Explanation
 
@@ -141,7 +141,7 @@ To complete TODO 3.2 in <strong>index.html</strong>, add width descriptors to th
 srcset="images/sfo-1600_large.jpg 1600w, images/sfo-1000_large.jpg 1000w, images/sfo-800_medium.jpg 800w, images/sfo-500_small.jpg 500w"
 ```
 
-Save the code and refresh the page in the browser. Refresh the page at various window sizes and [check the network requests](tools_for_pwa_developers.md#viewnetwork) to see which version of the image is fetched at each size. On a 1x display, the browser fetches <strong>sfo-500_small.jpg</strong> when the window is narrower than 500px, <strong>sfo-800_medium.jpg</strong> when it is narrower than 800px, and so forth.
+Save the code and refresh the page in the browser. Refresh the page at various window sizes and <a href="tools_for_pwa_developers.md#viewnetwork">check the network requests</a> to see which version of the image is fetched at each size. On a 1x display, the browser fetches <strong>sfo-500_small.jpg</strong> when the window is narrower than 500px, <strong>sfo-800_medium.jpg</strong> when it is narrower than 800px, and so forth.
 
 <div class="note">
 <strong>Note:</strong> If a larger version of an image is available in the browser (HTTP) cache, some browsers might load that image even if it is not the one specified by <code>srcset</code> (because if the browser already has a higher resolution image stored locally, why not use it?). To disable this for the lab, make sure your <a href="tools_for_pwa_developers.md#disablehttpcache">HTTP cache is disabled</a> in developer tools.
@@ -151,7 +151,7 @@ Save the code and refresh the page in the browser. Refresh the page at various w
 <strong>Note:</strong> In Chrome, with <strong>DevTools</strong> open, the browser window dimensions appear as it is being resized (see the image below). This feature will be very useful throughout this codelab.
 </div>
 
-![Chrome Window Dimensions](../img/b0b54f95a301d01d.png)
+!<a href="../img/b0b54f95a301d01d.png">Chrome Window Dimensions</a>
 
 #### Explanation
 
@@ -182,7 +182,7 @@ img#sfo {
 }
 ```
 
-Save the code and refresh the page in the browser. Try refreshing the page at various window sizes and [check the network requests](tools_for_pwa_developers.md#viewnetwork) at each size. The browser is fetching the same sized images as before.
+Save the code and refresh the page in the browser. Try refreshing the page at various window sizes and <a href="tools_for_pwa_developers.md#viewnetwork">check the network requests</a> at each size. The browser is fetching the same sized images as before.
 
 #### Explanation
 
@@ -200,7 +200,7 @@ To complete TODO 4.2 in <strong>index.html</strong> add <code>sizes="50vw"</code
 <img id="sfo" src="images/sfo-500_small.jpg" srcset="images/sfo-1600_large.jpg 1600w, images/sfo-1000_large.jpg 1000w, images/sfo-800_medium.jpg 800w, images/sfo-500_small.jpg 500w" sizes="50vw" alt="View from aircraft window near San Francisco airport">
 ```
 
-Save the code and refresh the page in the browser. Refresh the page at various window sizes and [check the network requests](tools_for_pwa_developers.md#viewnetwork) each time. You should see that for the same approximate window sizes you used to test the previous step, the browser is fetching a smaller image.
+Save the code and refresh the page in the browser. Refresh the page at various window sizes and <a href="tools_for_pwa_developers.md#viewnetwork">check the network requests</a> each time. You should see that for the same approximate window sizes you used to test the previous step, the browser is fetching a smaller image.
 
 #### Explanation
 
@@ -208,7 +208,7 @@ The <code>sizes</code> value matches the image's <code>max-width</code> value in
 
 #### For more information
 
-*  [Srcset and sizes](https://ericportis.com/posts/2014/srcset-sizes/)
+* <a href="https://ericportis.com/posts/2014/srcset-sizes/">Srcset and sizes</a>
 
 <a id="5" />
 
@@ -243,7 +243,7 @@ The media query tests the viewport width of the screen, and applies the CSS if t
 
 #### For more information
 
-*  [@media](https://developer.mozilla.org/en-US/docs/Web/CSS/@media)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">@media</a>
 
 ### 5.2 Add the media query to the sizes attribute
 
@@ -301,8 +301,8 @@ We have included several versions of the sample image, each at different resolut
 
 #### For more information
 
-*  [picture element - MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture)
-*  [source element - MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture">picture element - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source">source element - MDN</a>
 
 <a id="7" />
 
@@ -320,17 +320,17 @@ You have learned how to make images on your web page look good on all devices!
 
 #### Learn about automating the process
 
-*  [Gulp responsive images (NPM)](https://www.npmjs.com/package/gulp-responsive) - requires libvips on Mac
-*  [Gulp responsive images (GitHub)](https://github.com/dcgauld/gulp-responsive-images) - requires graphicsmagick on all platforms
-*  [Responsive Image Breakpoints Generator v2.0](http://www.responsivebreakpoints.com/)
+* <a href="https://www.npmjs.com/package/gulp-responsive">Gulp responsive images (NPM)</a> - requires libvips on Mac
+* <a href="https://github.com/dcgauld/gulp-responsive-images">Gulp responsive images (GitHub)</a> - requires graphicsmagick on all platforms
+* <a href="http://www.responsivebreakpoints.com/">Responsive Image Breakpoints Generator v2.0</a>
 
 #### Learn more about srcset and sizes
 
-*  [Srcset and sizes](https://ericportis.com/posts/2014/srcset-sizes/)
-*  [Responsive Images: If you're just changing resolutions, use srcset](https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/)
+* <a href="https://ericportis.com/posts/2014/srcset-sizes/">Srcset and sizes</a>
+* <a href="https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/">Responsive Images: If you're just changing resolutions, use srcset</a>
 
 #### Learn more about art direction
 
-*  [Use Cases and Requirements for Standardizing Responsive Images](http://usecases.responsiveimages.org/#art-direction) 
+* <a href="http://usecases.responsiveimages.org/#art-direction">Use Cases and Requirements for Standardizing Responsive Images</a> 
 
 

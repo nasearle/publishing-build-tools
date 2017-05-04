@@ -8,25 +8,25 @@
 
 
 
-[<strong>Overview</strong>](#overview)        
+<a href="#overview"><strong>Overview</strong></a>        
 
-[<strong>1. Get set up</strong>](#1)        
+<a href="#1"><strong>1. Get set up</strong></a>        
 
-[<strong>2. Install Lighthouse</strong>](#2)        
+<a href="#2"><strong>2. Install Lighthouse</strong></a>        
 
-[<strong>3. Test the app</strong>](#3)        
+<a href="#3"><strong>3. Test the app</strong></a>        
 
-[<strong>4. Adding a manifest file</strong>](#4)        
+<a href="#4"><strong>4. Adding a manifest file</strong></a>        
 
-[<strong>5. Adding a service worker</strong>](#5)        
+<a href="#5"><strong>5. Adding a service worker</strong></a>        
 
-[<strong>6. Test the updated app</strong>](#6)        
+<a href="#6"><strong>6. Test the updated app</strong></a>        
 
-[<strong>7. Optional: Run Lighthouse from the command line</strong>](#7)        
+<a href="#7"><strong>7. Optional: Run Lighthouse from the command line</strong></a>        
 
-[<strong>Congratulations!</strong>](#8)
+<a href="#8"><strong>Congratulations!</strong></a>
 
-Concepts:  [Lighthouse PWA Analysis Tool](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/lighthouse-pwa-analysis-tool.html)
+Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/lighthouse-pwa-analysis-tool.html">Lighthouse PWA Analysis Tool</a>
 
 <a id="overview" />
 
@@ -36,7 +36,7 @@ Concepts:  [Lighthouse PWA Analysis Tool](https://google-developer-training.gitb
 
 
 
-This lab shows you how you can use  [Lighthouse](https://github.com/GoogleChrome/lighthouse), an open-source tool from Google, to audit a web app for PWA features. Lighthouse provides a set of metrics to help guide you in building a PWA with a full application-like experience for your users. 
+This lab shows you how you can use <a href="https://github.com/GoogleChrome/lighthouse">Lighthouse</a>, an open-source tool from Google, to audit a web app for PWA features. Lighthouse provides a set of metrics to help guide you in building a PWA with a full application-like experience for your users. 
 
 #### What you will learn
 
@@ -49,8 +49,8 @@ This lab shows you how you can use  [Lighthouse](https://github.com/GoogleChrome
 #### What you need before you begin
 
 * Connection to the internet 
-*  [Chrome](https://www.google.com/chrome/browser/desktop/) 52+ browser
-* Node v5+ (or Node v4 with the <code>--harmony</code>  [flag](http://stackoverflow.com/questions/13351965/what-does-node-harmony-do))
+* <a href="https://www.google.com/chrome/browser/desktop/">Chrome</a> 52+ browser
+* Node v5+ (or Node v4 with the <code>--harmony</code> <a href="http://stackoverflow.com/questions/13351965/what-does-node-harmony-do">flag</a>)
 * A text editor
 
 <a id="1" />
@@ -61,7 +61,7 @@ This lab shows you how you can use  [Lighthouse](https://github.com/GoogleChrome
 
 
 
-If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
+If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in <a href="setting_up_the_labs.md">Setting up the labs</a>.
 
 Open your browser and navigate to <strong>localhost:8080/lighthouse-lab/app</strong>.
 
@@ -85,9 +85,9 @@ This folder contains:
 
 
 
-Lighthouse is available as a Chrome extension for  [Chrome](https://www.google.com/chrome/browser/desktop/index.html) 52 and later. 
+Lighthouse is available as a Chrome extension for <a href="https://www.google.com/chrome/browser/desktop/index.html">Chrome</a> 52 and later. 
 
-Download the Lighthouse Chrome extension from the  [Chrome Web Store](http://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk). When installed it places an <img src="../img/91e97511ef44e440.png" style="width:20px;height:20px;" alt="Lighthouse Icon ">  icon in your taskbar.  
+Download the Lighthouse Chrome extension from the <a href="http://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk">Chrome Web Store</a>. When installed it places an <img src="../img/91e97511ef44e440.png" style="width:20px;height:20px;" alt="Lighthouse Icon ">  icon in your taskbar.  
 
 <a id="3" />
 
@@ -101,7 +101,7 @@ In the browser (on the <strong>app</strong> page) click the Lighthouse icon and 
 
 Lighthouse runs the report and generates an HTML page with the results. The report page should look similar to this:
 
-![starting-score](../img/be57a3905fb6f93f.png)
+!<a href="../img/be57a3905fb6f93f.png">starting-score</a>
 
 <div class="note">
 <strong>Note:</strong> The UI for Lighthouse is still being updated, so your report may not look exactly like this one.
@@ -213,8 +213,8 @@ This lets us satisfy the manifest related requirements of Lighthouse (and a PWA)
 
 #### For more information
 
-*  [Add to home screen](https://developer.chrome.com/multidevice/android/installtohomescreen)
-*  [Web app manifests](https://developers.google.com/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android)
+* <a href="https://developer.chrome.com/multidevice/android/installtohomescreen">Add to home screen</a>
+* <a href="https://developers.google.com/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android">Web app manifests</a>
 
 <a id="5" />
 
@@ -324,7 +324,7 @@ Now we should have passed many more tests.
 
  The report should look something like this:
 
-![solution-score](../img/76f48671607bf2b2.png)
+!<a href="../img/76f48671607bf2b2.png">solution-score</a>
 
 Now our score is much better (your score may not match exactly). 
 
@@ -340,7 +340,7 @@ You can see that we are still missing the HTTPS requirements, since we are using
 
 If you want to run Lighthouse from the command line (for example, to integrate it with a build process) it is available as a Node module that you can install from the terminal. 
 
-If you haven't already,  [download Node](https://nodejs.org/en/) and select the version that best suits your environment and operating system. (Remember that you need Node v5+ or Node v4 with the <code>--harmony</code>  [flag](http://stackoverflow.com/questions/13351965/what-does-node-harmony-do).)
+If you haven't already, <a href="https://nodejs.org/en/">download Node</a> and select the version that best suits your environment and operating system. (Remember that you need Node v5+ or Node v4 with the <code>--harmony</code> <a href="http://stackoverflow.com/questions/13351965/what-does-node-harmony-do">flag</a>.)
 
 Install Lighthouse's Node module from the command line:
 

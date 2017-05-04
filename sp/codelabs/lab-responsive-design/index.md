@@ -8,21 +8,21 @@
 
 
 
-[<strong>Overview</strong>](#overview)<strong>        </strong>
+<a href="#overview"><strong>Overview</strong></a><strong>        </strong>
 
-[<strong>1. Get set up</strong>](#1)<strong>        </strong>
+<a href="#1"><strong>1. Get set up</strong></a><strong>        </strong>
 
-[<strong>2. Test the page</strong>](#2)<strong>        </strong>
+<a href="#2"><strong>2. Test the page</strong></a><strong>        </strong>
 
-[<strong>3. Set the visual viewport</strong>](#3)<strong>        </strong>
+<a href="#3"><strong>3. Set the visual viewport</strong></a><strong>        </strong>
 
-[<strong>4. Use media queries</strong>](#4)<strong>        </strong>
+<a href="#4"><strong>4. Use media queries</strong></a><strong>        </strong>
 
-[<strong>5. Using Flexbox</strong>](#5)<strong>        </strong>
+<a href="#5"><strong>5. Using Flexbox</strong></a><strong>        </strong>
 
-[<strong>6. Using Flexbox as a progressive enhancement</strong>](#6)<strong>        </strong>
+<a href="#6"><strong>6. Using Flexbox as a progressive enhancement</strong></a><strong>        </strong>
 
-[<strong>Congratulations!</strong>](#congrats)
+<a href="#congrats"><strong>Congratulations!</strong></a>
 
 <a id="overview" />
 
@@ -58,7 +58,7 @@ This lab shows you how to style your content to make it responsive.
 
 
 
-If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
+If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in <a href="setting_up_the_labs.md">Setting up the labs</a>.
 
 Open your browser and navigate to <strong>localhost:8080/responsive-design-lab/app</strong>.
 
@@ -116,8 +116,8 @@ The initial-scale property controls the zoom level when the page is first loaded
 
 #### For more information
 
-*  [Set the viewport](https://developers.google.com/web/fundamentals/design-and-ui/responsive/fundamentals/set-the-viewport) - Responsive Web Design Basics 
-*  [Using the viewport meta tag to control layout on mobile browsers](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag) - MDN
+* <a href="https://developers.google.com/web/fundamentals/design-and-ui/responsive/fundamentals/set-the-viewport">Set the viewport</a> - Responsive Web Design Basics 
+* <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag">Using the viewport meta tag to control layout on mobile browsers</a> - MDN
 
 <a id="4" />
 
@@ -143,7 +143,7 @@ Save the file. Disable device mode in the browser and refresh the page. Try shri
 
 #### Explanation
 
-To make sure that the text is readable we use a media query when the browser's width becomes 48rem (768 pixels at browser's default font size or 48 times the default font size in the user's browser). See  [When to use Em vs Rem](https://webdesign.tutsplus.com/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984) for a good explanation of why rem is a good choice for relative units. When the media query is triggered we change the layout from three columns to one column by changing the <code>width</code> of each of the three `div`s to fill the page. 
+To make sure that the text is readable we use a media query when the browser's width becomes 48rem (768 pixels at browser's default font size or 48 times the default font size in the user's browser). See <a href="https://webdesign.tutsplus.com/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984">When to use Em vs Rem</a> for a good explanation of why rem is a good choice for relative units. When the media query is triggered we change the layout from three columns to one column by changing the <code>width</code> of each of the three `div`s to fill the page. 
 
 <a id="5" />
 
@@ -153,11 +153,11 @@ To make sure that the text is readable we use a media query when the browser's w
 
 
 
-The  [Flexible Box Layout Module](https://www.w3.org/TR/css-flexbox-1/) (Flexbox) is a useful and easy-to-use tool for making your content responsive.  [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) lets us accomplish the same result as in the previous steps, but it takes care of any spacing calculations for us and provides a bunch of ready-to-use CSS properties for structuring content. 
+The <a href="https://www.w3.org/TR/css-flexbox-1/">Flexible Box Layout Module</a> (Flexbox) is a useful and easy-to-use tool for making your content responsive. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flexbox</a> lets us accomplish the same result as in the previous steps, but it takes care of any spacing calculations for us and provides a bunch of ready-to-use CSS properties for structuring content. 
 
 ### 5.1 Comment out existing rules in CSS
 
-Comment out all of the rules in <strong>styles/main.css</strong> by wrapping them in <code>/*</code> and `*/`. We will make these our fallback rules for when Flexbox is not supported in the  [Flexbox as progressive enhancement](#6) section.
+Comment out all of the rules in <strong>styles/main.css</strong> by wrapping them in <code>/*</code> and `*/`. We will make these our fallback rules for when Flexbox is not supported in the <a href="#6">Flexbox as progressive enhancement</a> section.
 
 ### 5.2 Add Flexbox layout
 
@@ -186,18 +186,18 @@ Save the code and refresh <strong>index.html</strong> in your browser. Disable d
 
 The first rule defines the <code>container</code> `div` as the flex container. This enables a flex context for all its direct children. We are mixing old and new syntax for including Flexbox to get broader support (see <strong>For more information</strong> for details).
 
-The second rule uses the <code>.col</code> class to create our equal width flex children. Setting the first argument of the  [`flex`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#article-header-id-13) property to <code>1</code> for all <code>div`s with class `col</code> divides the remaining space evenly between them. This is more convenient than calculating and setting the relative width ourselves.
+The second rule uses the <code>.col</code> class to create our equal width flex children. Setting the first argument of the <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#article-header-id-13">`flex`</a> property to <code>1</code> for all <code>div`s with class `col</code> divides the remaining space evenly between them. This is more convenient than calculating and setting the relative width ourselves.
 
 #### For more information
 
-*  [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - CSS Tricks
-*  [CSS Flexible Box Layout Module Level 1](https://www.w3.org/TR/css-flexbox-1/) - W3C
-*  [What CSS to prefix?](http://shouldiprefix.com/#flexbox)
-*  [Using Flexbox](https://css-tricks.com/using-flexbox/) - CSS Tricks
+* <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a> - CSS Tricks
+* <a href="https://www.w3.org/TR/css-flexbox-1/">CSS Flexible Box Layout Module Level 1</a> - W3C
+* <a href="http://shouldiprefix.com/#flexbox">What CSS to prefix?</a>
+* <a href="https://css-tricks.com/using-flexbox/">Using Flexbox</a> - CSS Tricks
 
 ### 5.3 Optional: Set different relative widths
 
-Use the  [nth-child pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child) to set the relative widths of the first two columns to 1 and the third to 1.5. You must use the <code>flex</code> property to set the relative widths for each column. For example, the selector for the first column would look like this:
+Use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child">nth-child pseudo-class</a> to set the relative widths of the first two columns to 1 and the third to 1.5. You must use the <code>flex</code> property to set the relative widths for each column. For example, the selector for the first column would look like this:
 
 ```
 .container .col:nth-child(1)
@@ -224,7 +224,7 @@ Save the code and refresh <strong>index.html</strong> in your browser. Now if yo
 
 #### Explanation
 
-When the media query is triggered we change the layout from three-column to one-column by setting the  [`flex-flow`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#article-header-id-5) property to <code>column`. This accomplishes the same result as the media query we added in step 5.  [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) provides tons of other properties like `flex-flow</code> that let you easily structure, re-order, and justify your content so that it responds well in any context.
+When the media query is triggered we change the layout from three-column to one-column by setting the <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#article-header-id-5">`flex-flow`</a> property to <code>column`. This accomplishes the same result as the media query we added in step 5. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flexbox</a> provides tons of other properties like `flex-flow</code> that let you easily structure, re-order, and justify your content so that it responds well in any context.
 
 <a id="6" />
 
@@ -238,7 +238,7 @@ As Flexbox is a relatively new technology, we should include fallbacks in our CS
 
 ### 6.1 Add Modernizr
 
-[Modernizr](https://modernizr.com/docs) is a feature detection tool that simplifies testing for Flexbox support.
+<a href="https://modernizr.com/docs">Modernizr</a> is a feature detection tool that simplifies testing for Flexbox support.
 
 Replace TODO 6.1 in <strong>index.html</strong> with the code to include the custom Modernizr build:
 
@@ -250,7 +250,7 @@ Replace TODO 6.1 in <strong>index.html</strong> with the code to include the cus
 
 #### Explanation
 
-We include a  [Modernizr build](https://modernizr.com/download) at the top of <strong>index.html</strong>, which tests for Flexbox support. This runs the test on page-load and appends the class <code>flexbox</code> to the <code><html></code> element if the browser supports Flexbox. Otherwise, it appends a <code>no-flexbox</code> class to the <code><html></code> element. In the next section we add these classes to the CSS.
+We include a <a href="https://modernizr.com/download">Modernizr build</a> at the top of <strong>index.html</strong>, which tests for Flexbox support. This runs the test on page-load and appends the class <code>flexbox</code> to the <code><html></code> element if the browser supports Flexbox. Otherwise, it appends a <code>no-flexbox</code> class to the <code><html></code> element. In the next section we add these classes to the CSS.
 
 <div class="note">
 <strong>Note:</strong> If we were using the <code>flex-wrap</code> property of Flexbox, we would need to add a separate Modernizr detector just for this feature. Older versions of some browsers partially support Flexbox, and do not include this feature.
@@ -313,12 +313,12 @@ In the same file, add <code>.flexbox</code> in front of the rest of the rules:
 
 Remember to add <code>.flexbox</code> to the rules for the individual columns if you completed the optional step 5.3.
 
-Save the code and refresh <strong>index.html</strong> in the browser. The page should look the same as before, but now it works well in any browser on any device. If you have a  [browser that doesn't support Flexbox](http://caniuse.com/#search=flexbox), you can test the fallback rules by opening <strong>index.html</strong> in that browser.
+Save the code and refresh <strong>index.html</strong> in the browser. The page should look the same as before, but now it works well in any browser on any device. If you have a <a href="http://caniuse.com/#search=flexbox">browser that doesn't support Flexbox</a>, you can test the fallback rules by opening <strong>index.html</strong> in that browser.
 
 #### For more information
 
-*  [Migrating to Flexbox](https://www.sitepoint.com/migrating-flexbox-cutting-mustard/) - Cutting the Mustard
-*  [Modernizr Documentation](https://modernizr.com/docs)
+* <a href="https://www.sitepoint.com/migrating-flexbox-cutting-mustard/">Migrating to Flexbox</a> - Cutting the Mustard
+* <a href="https://modernizr.com/docs">Modernizr Documentation</a>
 
 <a id="congrats" />
 
@@ -340,24 +340,24 @@ You have learned to style your content to make it responsive. Using media querie
 
 #### Learn more about the basics of responsive design
 
-*  [Responsive Web Design Basics - Set the viewport](https://developers.google.com/web/fundamentals/design-and-ui/responsive/#set-the-viewport) 
-*  [A tale of two viewports](http://www.quirksmode.org/mobile/viewports2.html)
+* <a href="https://developers.google.com/web/fundamentals/design-and-ui/responsive/#set-the-viewport">Responsive Web Design Basics - Set the viewport</a> 
+* <a href="http://www.quirksmode.org/mobile/viewports2.html">A tale of two viewports</a>
 
 #### Learn more about Flexbox as a progressive enhancement
 
-*  [Progressive Enhancement: Start Using CSS Without Breaking Older Browsers](http://blog.formkeep.com/progressive-enhancement-start-using-css-without-breaking-older-browsers/)
-*  [Migrating to Flexbox by Cutting the Mustard](https://www.sitepoint.com/migrating-flexbox-cutting-mustard/)
-*  [Modernizr](https://modernizr.com/)
+* <a href="http://blog.formkeep.com/progressive-enhancement-start-using-css-without-breaking-older-browsers/">Progressive Enhancement: Start Using CSS Without Breaking Older Browsers</a>
+* <a href="https://www.sitepoint.com/migrating-flexbox-cutting-mustard/">Migrating to Flexbox by Cutting the Mustard</a>
+* <a href="https://modernizr.com/">Modernizr</a>
 
 #### Learn about libraries for responsive CSS
 
-*  [Bootstrap](http://getbootstrap.com/)
-*  [Sass](http://sass-lang.com/)
-*  [Less](http://lesscss.org/)
-*  [Material Design](https://material.google.com/)
+* <a href="http://getbootstrap.com/">Bootstrap</a>
+* <a href="http://sass-lang.com/">Sass</a>
+* <a href="http://lesscss.org/">Less</a>
+* <a href="https://material.google.com/">Material Design</a>
 
 #### Learn more about using media queries
 
-*  [Using Media Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) 
+* <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">Using Media Queries</a> 
 
 

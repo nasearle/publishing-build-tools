@@ -8,23 +8,23 @@
 
 
 
-[<strong>Overview</strong>](#overview)<strong>  </strong>
+<a href="#overview"><strong>Overview</strong></a><strong>  </strong>
 
-[<strong>1. Get set up</strong>](#1)<strong>  </strong>
+<a href="#1"><strong>1. Get set up</strong></a><strong>  </strong>
 
-[<strong>2. Install global tools</strong>](#2)<strong>  </strong>
+<a href="#2"><strong>2. Install global tools</strong></a><strong>  </strong>
 
-[<strong>3. Prepare the project</strong>](#3)<strong>  </strong>
+<a href="#3"><strong>3. Prepare the project</strong></a><strong>  </strong>
 
-[<strong>4. Minify JavaScript</strong>](#4)<strong>  </strong>
+<a href="#4"><strong>4. Minify JavaScript</strong></a><strong>  </strong>
 
-[<strong>5. Prefix CSS</strong>](#5)<strong>  </strong>
+<a href="#5"><strong>5. Prefix CSS</strong></a><strong>  </strong>
 
-[<strong>6. Automate development tasks</strong>](#6)<strong>  </strong>
+<a href="#6"><strong>6. Automate development tasks</strong></a><strong>  </strong>
 
-[<strong>7. Congratulations!</strong>](#7)
+<a href="#7"><strong>7. Congratulations!</strong></a>
 
-Concepts:  [Introduction to Gulp](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction-to-gulp.html)
+Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction-to-gulp.html">Introduction to Gulp</a>
 
 <a id="overview" />
 
@@ -34,7 +34,7 @@ Concepts:  [Introduction to Gulp](https://google-developer-training.gitbooks.io/
 
 
 
-This lab shows you how you can automate tasks with  [gulp](https://github.com/gulpjs/gulp/tree/master/docs), a build tool and task runner.
+This lab shows you how you can automate tasks with <a href="https://github.com/gulpjs/gulp/tree/master/docs">gulp</a>, a build tool and task runner.
 
 #### What you will learn
 
@@ -52,7 +52,7 @@ This lab shows you how you can automate tasks with  [gulp](https://github.com/gu
 * Computer with terminal/shell access
 * Connection to the internet 
 * A text editor
-*  [Node](https://nodejs.org/en/) and  [npm](https://www.npmjs.com/)
+* <a href="https://nodejs.org/en/">Node</a> and <a href="https://www.npmjs.com/">npm</a>
 
 <a id="1" />
 
@@ -62,7 +62,7 @@ This lab shows you how you can automate tasks with  [gulp](https://github.com/gu
 
 
 
-If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
+If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in <a href="setting_up_the_labs.md">Setting up the labs</a>.
 
 <div class="note">
 <strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
@@ -84,7 +84,7 @@ This folder contains:
 
 
 
-[Gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) is available as a Node package. In this section we install the gulp command line tool on your system. 
+<a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md">Gulp</a> is available as a Node package. In this section we install the gulp command line tool on your system. 
 
 To install the gulp command line tool, run the following in the command line:
 
@@ -192,7 +192,7 @@ Then we include this package in the <strong>gulpfile.js</strong> file, and add c
 
 In this exercise, you add vendor prefixes to the <strong>main.css</strong> file.  
 
-Read the documentation for  [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer). Using section 4 of this lab as an example, complete the following tasks:
+Read the documentation for <a href="https://www.npmjs.com/package/gulp-autoprefixer">gulp-autoprefixer</a>. Using section 4 of this lab as an example, complete the following tasks:
 
 1. Install the gulp-autoprefixer package
 2. Require the package in <strong>gulpfile.js</strong>
@@ -204,7 +204,7 @@ Test this task by running the following (from <strong>app/</strong>) in the comm
 
 Open <strong>app/styles/main.css</strong> and <strong>app/build/main.css</strong>. Does the <code>box-container</code> class have vendor prefixes for the <code>display: flex</code> property?
 
-<strong>Optional</strong>: Read the  [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) documentation and incorporate  [sourcemap](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/) generation in the <code>processCSS</code> task (not in a new task). 
+<strong>Optional</strong>: Read the <a href="https://www.npmjs.com/package/gulp-sourcemaps">gulp-sourcemaps</a> documentation and incorporate <a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/">sourcemap</a> generation in the <code>processCSS</code> task (not in a new task). 
 
 <div class="note">
 <strong>Hint:</strong> The <a href="https://www.npmjs.com/package/gulp-autoprefixer">gulp-autoprefixer</a> documentation has a useful example. Test by rerunning the <code>processCSS</code> task, and noting the sourcemap comment in the <strong>app/build/main.css</strong> file.
@@ -242,7 +242,7 @@ Default tasks are run anytime the <code>gulp</code> command is executed.
 
 ### 6.2 Set up gulp watch
 
-Even with default tasks, it can become tedious to run tasks each time a file is updated during development.  [gulp.watch](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpwatchglob--opts-tasks-or-gulpwatchglob--opts-cb) watches files and automatically runs tasks when the corresponding files change.
+Even with default tasks, it can become tedious to run tasks each time a file is updated during development. <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpwatchglob--opts-tasks-or-gulpwatchglob--opts-cb">gulp.watch</a> watches files and automatically runs tasks when the corresponding files change.
 
 Replace TODO 6.2 in <strong>gulpfile.js</strong> with the following:
 
@@ -307,7 +307,7 @@ Your browser should open <strong>app/</strong> at <strong>localhost:3000</strong
 
 #### Explanation
 
-The gulp  [browsersync](https://www.browsersync.io/docs/gulp) package starts a local server at the specified directory. In this case we are specifying the target directory as '<strong>.</strong>', which is the current working directory (<strong>app/</strong>). We also specify the port as 3000.
+The gulp <a href="https://www.browsersync.io/docs/gulp">browsersync</a> package starts a local server at the specified directory. In this case we are specifying the target directory as '<strong>.</strong>', which is the current working directory (<strong>app/</strong>). We also specify the port as 3000.
 
 ### 6.4 Put it all together
 
@@ -352,8 +352,8 @@ You have learned how to set up gulp, create tasks using plugins, and automate yo
 
 ### Resources
 
-*  [Gulp's Getting Started guide](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
-*  [List of gulp Recipes](https://github.com/gulpjs/gulp/blob/master/docs/recipes/README.md)
-*  [Gulp Plugin Registry](http://gulpjs.com/plugins/)
+* <a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md">Gulp's Getting Started guide</a>
+* <a href="https://github.com/gulpjs/gulp/blob/master/docs/recipes/README.md">List of gulp Recipes</a>
+* <a href="http://gulpjs.com/plugins/">Gulp Plugin Registry</a>
 
 

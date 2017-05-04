@@ -8,15 +8,15 @@
 
 
 
-[<strong>Overview</strong>](#overview)          
+<a href="#overview"><strong>Overview</strong></a>          
 
-[<strong>1.</strong><strong>Get set up</strong>](#1)<strong>  </strong>
+<a href="#1"><strong>1.</strong><strong>Get set up</strong></a><strong>  </strong>
 
-[<strong>2. Taking the app offline</strong>](#2)<strong>  </strong>
+<a href="#2"><strong>2. Taking the app offline</strong></a><strong>  </strong>
 
-[<strong>Congratulations!</strong>](#3)<strong>  </strong>
+<a href="#3"><strong>Congratulations!</strong></a><strong>  </strong>
 
-Concepts:  [Offline Quickstart](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/offline_quickstart.html)
+Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/offline_quickstart.html">Offline Quickstart</a>
 
 <a id="overview" />
 
@@ -35,13 +35,13 @@ This lab shows you how to add offline capabilities to an application using servi
 #### What you should know
 
 * Basic HTML, CSS, and JavaScript
-* Familiarity with ES2015  [Promises](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
+* Familiarity with ES2015 <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises</a>
 
 #### What you will need
 
 * Computer with terminal/shell access
 * Connection to the internet 
-* A browser that supports  [service workers](https://jakearchibald.github.io/isserviceworkerready/)
+* A browser that supports <a href="https://jakearchibald.github.io/isserviceworkerready/">service workers</a>
 * A text editor
 
 <a id="1" />
@@ -52,7 +52,7 @@ This lab shows you how to add offline capabilities to an application using servi
 
 
 
-If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
+If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in <a href="setting_up_the_labs.md">Setting up the labs</a>.
 
 Open your browser and navigate to <strong>localhost:8080/offline-quickstart-lab/app</strong>.
 
@@ -194,11 +194,11 @@ This code first checks that service worker is supported by the browser. If it is
 
 ### 2.4 Test the app offline
 
-Now our app has offline functionality. Save all files and refresh the <strong>app/</strong> in the browser. You can [check the cache](tools_for_pwa_developers.md#cache) and see that the HTML and CSS are cached from the service worker installation event.
+Now our app has offline functionality. Save all files and refresh the <strong>app/</strong> in the browser. You can <a href="tools_for_pwa_developers.md#cache">check the cache</a> and see that the HTML and CSS are cached from the service worker installation event.
 
 Refresh the page again. This fetches all of the page's assets, and the fetch listener caches any asset that isn't already cached.
 
-Stop the server (use <code>Ctrl+c</code> if your server is running from the command line) or [switch the browser to offline mode](tools_for_pwa_developers.md#offline) to simulate going offline. Then refresh the page. The page should load normally!
+Stop the server (use <code>Ctrl+c</code> if your server is running from the command line) or <a href="tools_for_pwa_developers.md#offline">switch the browser to offline mode</a> to simulate going offline. Then refresh the page. The page should load normally!
 
 <div class="note">
 <strong>Note:</strong> You may see an error when the page tries to fetch the service worker script. This is because the browser attempts to re-fetch the service worker file for every navigation request. If offline, the attempt fails (causing an error log). However, the browser should default to the installed service worker and work as expected.

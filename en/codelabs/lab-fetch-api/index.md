@@ -8,25 +8,25 @@
 
 
 
-[<strong>Overview</strong>](#overview)<strong>          </strong>
+<a href="#overview"><strong>Overview</strong></a><strong>          </strong>
 
-[<strong>1. Get set up</strong>](#1)<strong>          </strong>
+<a href="#1"><strong>1. Get set up</strong></a><strong>          </strong>
 
-[<strong>2. Fetching a resource</strong>](#2)<strong>          </strong>
+<a href="#2"><strong>2. Fetching a resource</strong></a><strong>          </strong>
 
-[<strong>3. Fetch an image</strong>](#3)<strong>          </strong>
+<a href="#3"><strong>3. Fetch an image</strong></a><strong>          </strong>
 
-[<strong>4. Fetch text</strong>](#4)<strong>          </strong>
+<a href="#4"><strong>4. Fetch text</strong></a><strong>          </strong>
 
-[<strong>5. Using HEAD requests</strong>](#5)<strong>          </strong>
+<a href="#5"><strong>5. Using HEAD requests</strong></a><strong>          </strong>
 
-[<strong>6. Using POST requests</strong>](#6)<strong>          </strong>
+<a href="#6"><strong>6. Using POST requests</strong></a><strong>          </strong>
 
-[<strong>7. Optional: CORS and custom headers</strong>](#7)<strong>        </strong>
+<a href="#7"><strong>7. Optional: CORS and custom headers</strong></a><strong>        </strong>
 
-[<strong>Congratulations!</strong>](#8)<strong>        </strong>
+<a href="#8"><strong>Congratulations!</strong></a><strong>        </strong>
 
-Concepts:  [Working with the Fetch API](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_the_fetch_api.html)
+Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_the_fetch_api.html">Working with the Fetch API</a>
 
 <a id="overview" />
 
@@ -36,7 +36,7 @@ Concepts:  [Working with the Fetch API](https://google-developer-training.gitboo
 
 
 
-This lab walks you through using the  [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), a simple interface for fetching resources, as an improvement over the  [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) API.
+This lab walks you through using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a>, a simple interface for fetching resources, as an improvement over the <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XMLHttpRequest</a> API.
 
 #### What you will learn
 
@@ -46,18 +46,18 @@ This lab walks you through using the  [Fetch API](https://developer.mozilla.org/
 #### What you should know
 
 * Basic JavaScript and HTML
-* Familiarity with the concept and basic syntax of ES2015  [Promises](http://www.html5rocks.com/en/tutorials/es6/promises/)
-* The concept of an  [Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) (IIFE)
+* Familiarity with the concept and basic syntax of ES2015 <a href="http://www.html5rocks.com/en/tutorials/es6/promises/">Promises</a>
+* The concept of an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately Invoked Function Expression</a> (IIFE)
 * How to enable the developer console
-* Some familiarity with  [JSON](http://www.json.org/) 
+* Some familiarity with <a href="http://www.json.org/">JSON</a> 
 
 #### What you will need
 
 * Computer with terminal/shell access
 * Connection to the internet 
-* A browser that supports  [Fetch](http://caniuse.com/#feat=fetch)
+* A browser that supports <a href="http://caniuse.com/#feat=fetch">Fetch</a>
 * A text editor
-*  [Node](https://nodejs.org/en/) and  [npm](https://www.npmjs.com/)
+* <a href="https://nodejs.org/en/">Node</a> and <a href="https://www.npmjs.com/">npm</a>
 
 <div class="note">
 <strong>Note: </strong>Although the Fetch API is <a href="http://caniuse.com/#feat=fetch">not currently supported in all browsers</a>, there is a <a href="https://github.com/github/fetch">polyfill</a> (but see the readme for important caveats). 
@@ -71,7 +71,7 @@ This lab walks you through using the  [Fetch API](https://developer.mozilla.org/
 
 
 
-If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
+If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in <a href="setting_up_the_labs.md">Setting up the labs</a>.
 
 Open your browser and navigate to <strong>localhost:8080/fetch-api-lab/app</strong>.
 
@@ -129,13 +129,13 @@ Save the script and refresh the page. Click <strong>Fetch JSON</strong>. The con
 <strong>Note:</strong> We are using the <a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript">JavaScript module pattern</a> in this file. This is just to help keep the code clean and allow for easy testing. It is not related to the Fetch API.
 </div>
 
-<strong>Optional</strong>: Open the site on an  [unsupported browser](http://caniuse.com/#search=fetch) and verify that the support check conditional works. 
+<strong>Optional</strong>: Open the site on an <a href="http://caniuse.com/#search=fetch">unsupported browser</a> and verify that the support check conditional works. 
 
 #### Explanation
 
 The code starts by checking for fetch support. If the browser doesn't support fetch, the script logs a message and fails immediately. 
 
-We pass the path for the resource we want to retrieve as a parameter to fetch, in this case <strong>examples/animals.json</strong>. A promise that resolves to a  [Response object](https://developer.mozilla.org/en-US/docs/Web/API/Response) is returned. If the promise resolves, the response is passed to the <code>logResult</code> function. If the promise rejects, the <code>catch</code> takes over and the error is passed to the <code>logError</code> function. 
+We pass the path for the resource we want to retrieve as a parameter to fetch, in this case <strong>examples/animals.json</strong>. A promise that resolves to a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response">Response object</a> is returned. If the promise resolves, the response is passed to the <code>logResult</code> function. If the promise rejects, the <code>catch</code> takes over and the error is passed to the <code>logError</code> function. 
 
 Response objects represent the response to a request. They contain the response body and also useful properties and methods. 
 
@@ -167,7 +167,7 @@ Why didn't a failed response activate the <code>catch</code> block? This is an i
 
 #### For more information
 
-*  [Response objects](https://developer.mozilla.org/en-US/docs/Web/API/Response)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response">Response objects</a>
 
 ### 2.3 Check response validity
 
@@ -194,7 +194,7 @@ function fetchJSON() {
 }
 ```
 
-This is  [promise chaining](https://developers.google.com/web/fundamentals/getting-started/primers/promises#chaining).
+This is <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises#chaining">promise chaining</a>.
 
 Save the script and refresh the page. Click <strong>Fetch JSON</strong>. Now the response for <strong>examples/non-existent.json</strong> should trigger the <code>catch</code> block, unlike in section 2.2. Check the console to confirm this.
 
@@ -219,7 +219,7 @@ Now that we have added the <code>validateResponse</code> check, bad responses (l
 
 ### 2.4 Read the response
 
-Responses must be read in order to access the body of the response. Response objects have  [methods](https://developer.mozilla.org/en-US/docs/Web/API/Response) for doing this. 
+Responses must be read in order to access the body of the response. Response objects have <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response">methods</a> for doing this. 
 
 To complete TODO 2.4, replace the <code>readResponseAsJSON</code> function with the following code:
 
@@ -257,15 +257,15 @@ Step 1. Fetch is called on a resource, <strong>examples/animals.json</strong>. F
 
 Step 2. <code>validateResponse</code> checks if the response is valid (is it a 200?). If it isn't, an error is thrown, skipping the rest of the <code>then</code> blocks and triggering the <code>catch</code> block. This is particularly important. Without this check bad responses are passed down the chain and could break later code that may rely on receiving a valid response. If the response is valid, it is passed to `readResponseAsJSON`.
 
-Step 3. <code>readResponseAsJSON</code> reads the body of the response using the  [Response.json()](https://developer.mozilla.org/en-US/docs/Web/API/Body/json) method. This method returns a promise that resolves to JSON. Once this promise resolves, the JSON data is passed to <code>logResult`. (Can you think of what would happen if the promise from `response.json()</code> rejects?)
+Step 3. <code>readResponseAsJSON</code> reads the body of the response using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/json">Response.json()</a> method. This method returns a promise that resolves to JSON. Once this promise resolves, the JSON data is passed to <code>logResult`. (Can you think of what would happen if the promise from `response.json()</code> rejects?)
 
 Step 4. Finally, the JSON data from the original request to <strong>examples/animals.json</strong> is logged by `logResult`. 
 
 #### For more information
 
-*  [Response.json()](https://developer.mozilla.org/en-US/docs/Web/API/Body/json)
-*  [Response methods](https://developer.mozilla.org/en-US/docs/Web/API/Response#Methods)
-*  [Promise chaining](https://developers.google.com/web/fundamentals/getting-started/primers/promises#chaining)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/json">Response.json()</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response#Methods">Response methods</a>
+* <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises#chaining">Promise chaining</a>
 
 #### Solution code
 
@@ -321,7 +321,7 @@ Save the script and refresh the page. Click <strong>Fetch image.</strong> You sh
 
 #### Explanation
 
-In this example an image is being fetched, <strong>examples/kitten.jpg</strong>. Just like in the previous exercise, the response is validated with <code>validateResponse`. The response is then read as a  [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) (instead of JSON as in section 2). An image element is created and appended to the page, and the image's `src</code> attribute is set to a data URL representing the Blob.
+In this example an image is being fetched, <strong>examples/kitten.jpg</strong>. Just like in the previous exercise, the response is validated with <code>validateResponse`. The response is then read as a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">Blob</a> (instead of JSON as in section 2). An image element is created and appended to the page, and the image's `src</code> attribute is set to a data URL representing the Blob.
 
 <div class="note">
 <strong>Note:</strong> The <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL">URL object's</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL">createObjectURL() method</a> is used to generate a data URL representing the Blob. This is important to note. You cannot set an image's source directly to a Blob. The Blob must be converted into a data URL.
@@ -329,9 +329,9 @@ In this example an image is being fetched, <strong>examples/kitten.jpg</strong>.
 
 #### For more information
 
-*  [Blobs](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
-*  [Response.blob()](https://developer.mozilla.org/en-US/docs/Web/API/Body/blob)
-*  [URL object](https://developer.mozilla.org/en-US/docs/Web/API/URL)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">Blobs</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/blob">Response.blob()</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL">URL object</a>
 
 #### Solution code
 
@@ -390,7 +390,7 @@ In this example a text file is being fetched, <strong>examples/words.txt</strong
 
 #### For more information
 
-*  [Response.text()](https://developer.mozilla.org/en-US/docs/Web/API/Body/text)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/text">Response.text()</a>
 
 #### Solution code
 
@@ -408,7 +408,7 @@ To get a copy of the working code, navigate to the <strong>04-fetching-text</str
 
 
 
-By default, fetch uses the  [GET method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), which retrieves a specific resource. But fetch can also use other HTTP methods. 
+By default, fetch uses the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">GET method</a>, which retrieves a specific resource. But fetch can also use other HTTP methods. 
 
 ### 5.1 Make a HEAD request
 
@@ -432,15 +432,15 @@ Save the script and refresh the page. Click <strong>HEAD request</strong>. What 
 
 #### Explanation
 
-`fetch()` can receive a second optional parameter, `init`. This enables the creation of custom settings for the fetch request, such as the  [request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), cache mode, credentials,  [and more](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch).
+`fetch()` can receive a second optional parameter, `init`. This enables the creation of custom settings for the fetch request, such as the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">request method</a>, cache mode, credentials, <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch">and more</a>.
 
 In this example we set the fetch request method to HEAD using the <code>init</code> parameter. HEAD requests are just like GET requests, except the body of the response is empty. This kind of request can be used when all you want is metadata about a file but don't need to transport all of the file's data. 
 
 ### 5.2 Optional: Find the size of a resource
 
-Let's look at the  [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers) of the fetch response from section 5.1 to determine the size of <strong>examples/words.txt</strong>.
+Let's look at the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers">Headers</a> of the fetch response from section 5.1 to determine the size of <strong>examples/words.txt</strong>.
 
-Complete the function called <code>logSize</code> in TODO 5.2. The function accepts a response object as input. The function should log the <code>content-length</code> of the response. To do this, you need to access the  [headers](https://developer.mozilla.org/en-US/docs/Web/API/Response/headers) property of the response, and use the headers object's  [get](https://developer.mozilla.org/en-US/docs/Web/API/Headers/get) method. After logging the the <code>content-length</code> header, the function should then return the response.
+Complete the function called <code>logSize</code> in TODO 5.2. The function accepts a response object as input. The function should log the <code>content-length</code> of the response. To do this, you need to access the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/headers">headers</a> property of the response, and use the headers object's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers/get">get</a> method. After logging the the <code>content-length</code> header, the function should then return the response.
 
 Then replace the <code>headRequest</code> function with the following code:
 
@@ -467,9 +467,9 @@ In this example, the HEAD method is used to request the size (in bytes) of a res
 
 #### For more information
 
-*  [HTTP methods](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods)
-*  [Fetch method signature](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch)
-*  [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers)
+* <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">HTTP methods</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch">Fetch method signature</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers">Headers</a>
 
 #### Solution code
 
@@ -538,7 +538,7 @@ In practice, this server would be a 3rd party API.
 
 ### 6.3 Use the FormData interface
 
-You can use the  [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) interface to easily grab data from forms.
+You can use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData">FormData</a> interface to easily grab data from forms.
 
 In the <code>postRequest</code> function, replace TODO 6.3 with the following code:
 
@@ -554,12 +554,12 @@ Save the script and refresh the page. Fill out the form (the <strong>Name</stron
 
 #### Explanation
 
-The  [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData) constructor can take in an HTML  [`form`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form), and create a <code>FormData</code> object. This object is populated with the form's keys and values.
+The <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData">`FormData`</a> constructor can take in an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form">`form`</a>, and create a <code>FormData</code> object. This object is populated with the form's keys and values.
 
 #### For more information
 
-*  [POST requests](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
-*  [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
+* <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">POST requests</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData">FormData</a>
 
 #### Solution code
 
@@ -583,7 +583,7 @@ You can check that you have successfully started the server by navigating to <st
 
 #### Explanation
 
-The application we run in this step sets up another simple echo server, this time at <strong>localhost:5001/</strong>. This server, however, is not configured to accept  [cross origin requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS).
+The application we run in this step sets up another simple echo server, this time at <strong>localhost:5001/</strong>. This server, however, is not configured to accept <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">cross origin requests</a>.
 
 <div class="note">
 <strong>Note: </strong>You can stop the server by pressing <strong>Ctrl+C</strong> from the command line. 
@@ -597,21 +597,21 @@ Update the <code>postRequest</code> function to fetch from <strong>localhost:500
 
 You should get an error indicating that the cross-origin request is blocked due to the CORS <code>Access-Control-Allow-Origin</code> header being missing. 
 
-Update fetch in the <code>postRequest</code> function to use  [no-cors](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch) mode (as the error log suggests). Comment out the <code>validateResponse</code> and <code>readResponseAsText</code> steps in the fetch chain. Save the script and refresh the page. Then click <strong>POST Request</strong>.
+Update fetch in the <code>postRequest</code> function to use <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch">no-cors</a> mode (as the error log suggests). Comment out the <code>validateResponse</code> and <code>readResponseAsText</code> steps in the fetch chain. Save the script and refresh the page. Then click <strong>POST Request</strong>.
 
 You should get a response object logged in the console.
 
 #### Explanation
 
-Fetch (and XMLHttpRequest) follow the  [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). This means that browsers restrict cross-origin HTTP requests from within scripts. A cross-origin request occurs when one domain (for example <strong>http://foo.com/</strong>) requests a resource from a separate domain (for example <strong>http://bar.com/</strong>). 
+Fetch (and XMLHttpRequest) follow the <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">same-origin policy</a>. This means that browsers restrict cross-origin HTTP requests from within scripts. A cross-origin request occurs when one domain (for example <strong>http://foo.com/</strong>) requests a resource from a separate domain (for example <strong>http://bar.com/</strong>). 
 
 <div class="note">
 <strong>Note:</strong> Cross-origin request restrictions are often a point of confusion. Many resources like images, stylesheets, and scripts are fetched across domains (i.e., cross-origin). However, these are exceptions to the same-origin policy. Cross-origin requests are still restricted from  <em>*within scripts*</em> .
 </div>
 
-Since our app's server has a different port number than the two echo servers, requests to either of the echo servers are considered cross-origin. The first echo server, however, running on <strong>localhost:5000/</strong>, is configured to support  [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). The new echo server, running on <strong>localhost:5001/</strong>, is not (which is why we get an error). 
+Since our app's server has a different port number than the two echo servers, requests to either of the echo servers are considered cross-origin. The first echo server, however, running on <strong>localhost:5000/</strong>, is configured to support <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">CORS</a>. The new echo server, running on <strong>localhost:5001/</strong>, is not (which is why we get an error). 
 
-Using <code>mode: no-cors</code> allows fetching an opaque response. This prevents accessing the response with JavaScript (which is why we comment out <code>validateResponse</code> and `readResponseAsText`), but the response can still be  [consumed by other API's](https://jakearchibald.com/2015/thats-so-fetch/#no-cors-and-opaque-responses) or cached by a service worker.
+Using <code>mode: no-cors</code> allows fetching an opaque response. This prevents accessing the response with JavaScript (which is why we comment out <code>validateResponse</code> and `readResponseAsText`), but the response can still be <a href="https://jakearchibald.com/2015/thats-so-fetch/#no-cors-and-opaque-responses">consumed by other API's</a> or cached by a service worker.
 
 ### 7.3 Modify request headers
 
@@ -619,7 +619,7 @@ Fetch also supports modifying request headers. Stop the <strong>localhost:5001</
 
 Update the <code>postRequest</code> function to fetch from <strong>localhost:5000/</strong> again. Remove the <code>no-cors</code> mode setting from the <code>init</code> object or update the mode to <code>cors</code> (these are equivalent, as <code>cors</code> is the default mode). Uncomment the <code>validateResponse</code> and <code>readResponseAsText</code> steps in the fetch chain.
 
-Now use the  [Header interface](https://developer.mozilla.org/en-US/docs/Web/API/Headers/Headers) to create a Headers object inside the <code>postRequest</code> function called <code>customHeaders</code> with the <code>Content-Type</code> header equal to <code>text/plain`. Then add a headers property to the `init</code> object and set the value to be the <code>customHeaders</code> variable. Save the script and refresh the page. Then click <strong>POST Request</strong>.
+Now use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers/Headers">Header interface</a> to create a Headers object inside the <code>postRequest</code> function called <code>customHeaders</code> with the <code>Content-Type</code> header equal to <code>text/plain`. Then add a headers property to the `init</code> object and set the value to be the <code>customHeaders</code> variable. Save the script and refresh the page. Then click <strong>POST Request</strong>.
 
 You should see that the echoed request now has a <code>Content-Type</code> of <code>plain/text</code> (as opposed to <code>multipart/form-data</code> as it had previously).
 
@@ -627,7 +627,7 @@ Now add a custom <code>Content-Length</code> header to the <code>customHeaders</
 
 #### Explanation
 
-The  [Header interface](https://developer.mozilla.org/en-US/docs/Web/API/Headers/Headers) enables the creation and modification of  [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers) objects. Some headers, like <code>Content-Type</code> can be modified by fetch. Others, like `Content-Length`, are  [guarded](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Guard) and can't be modified (for security reasons).
+The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers/Headers">Header interface</a> enables the creation and modification of <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers">Headers</a> objects. Some headers, like <code>Content-Type</code> can be modified by fetch. Others, like `Content-Length`, are <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Guard">guarded</a> and can't be modified (for security reasons).
 
 ### 7.4 Set custom request headers
 
@@ -645,12 +645,12 @@ You should get an error similar to this in the console:
 
 #### Explanation
 
-Like cross-origin requests, custom headers must be supported by the server from which the resource is requested. In this example, our echo server is configured to accept the <code>X-Custom</code> header but not the <code>Y-Custom</code> header (you can open <strong>echo-servers/echo-server-cors.js</strong> and look for <code>Access-Control-Allow-Headers</code> to see for yourself). Anytime a custom header is set, the browser performs a  [preflight](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Preflighted_requests) check. This means that the browser first sends an OPTIONS request to the server, to determine what HTTP methods and headers are allowed by the server. If the server is configured to accept the method and headers of the original request, then it is sent, otherwise an error is thrown. 
+Like cross-origin requests, custom headers must be supported by the server from which the resource is requested. In this example, our echo server is configured to accept the <code>X-Custom</code> header but not the <code>Y-Custom</code> header (you can open <strong>echo-servers/echo-server-cors.js</strong> and look for <code>Access-Control-Allow-Headers</code> to see for yourself). Anytime a custom header is set, the browser performs a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Preflighted_requests">preflight</a> check. This means that the browser first sends an OPTIONS request to the server, to determine what HTTP methods and headers are allowed by the server. If the server is configured to accept the method and headers of the original request, then it is sent, otherwise an error is thrown. 
 
 #### For more information
 
-*  [Cross Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
-*  [That's so fetch!](https://jakearchibald.com/2015/thats-so-fetch/)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">Cross Origin Resource Sharing (CORS)</a>
+* <a href="https://jakearchibald.com/2015/thats-so-fetch/">That's so fetch!</a>
 
 #### Solution code
 
@@ -670,12 +670,12 @@ You now know how to use the Fetch API to request resources and post data to serv
 
 ### Resources
 
-*  [Fetch API Concepts](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_the_fetch_api.html)
-*  [Learn more about the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-*  [Learn more about Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
-*  [Learn more about GlobalFetch.fetch()](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch)
-*  [Get an Introduction to Fetch](https://developers.google.com/web/updates/2015/03/introduction-to-fetch)
-*  [David Walsh's blog on fetch](https://davidwalsh.name/fetch)
-*  [Jake Archibald's blog on fetch](https://jakearchibald.com/2015/thats-so-fetch/)
+* <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_the_fetch_api.html">Fetch API Concepts</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Learn more about the Fetch API</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Learn more about Using Fetch</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch">Learn more about GlobalFetch.fetch()</a>
+* <a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch">Get an Introduction to Fetch</a>
+* <a href="https://davidwalsh.name/fetch">David Walsh's blog on fetch</a>
+* <a href="https://jakearchibald.com/2015/thats-so-fetch/">Jake Archibald's blog on fetch</a>
 
 

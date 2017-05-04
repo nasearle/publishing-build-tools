@@ -8,23 +8,23 @@
 
 
 
-[<strong>Overview</strong>](#overview)          
+<a href="#overview"><strong>Overview</strong></a>          
 
-[<strong>1. Get set up</strong>](#1)          
+<a href="#1"><strong>1. Get set up</strong></a>          
 
-[<strong>2. Installing the global tools</strong>](#2)          
+<a href="#2"><strong>2. Installing the global tools</strong></a>          
 
-[<strong>3. Installing gulp, sw-precache, and sw-toolbox plugins</strong>](#3)          
+<a href="#3"><strong>3. Installing gulp, sw-precache, and sw-toolbox plugins</strong></a>          
 
-[<strong>4. Creating the service worker with sw-precache and gulp</strong>](#4)          
+<a href="#4"><strong>4. Creating the service worker with sw-precache and gulp</strong></a>          
 
-[<strong>5. Creating routes with sw-toolbox</strong>](#5)          
+<a href="#5"><strong>5. Creating routes with sw-toolbox</strong></a>          
 
-[<strong>6. Optional: Creating the service worker in the command line</strong>](#6)          
+<a href="#6"><strong>6. Optional: Creating the service worker in the command line</strong></a>          
 
-[<strong>Congratulations!</strong>](#congrats)
+<a href="#congrats"><strong>Congratulations!</strong></a>
 
-Concepts:  [Using sw-precache and sw-toolbox](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/using-sw-precache-and-sw-toolbox.html)
+Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/using-sw-precache-and-sw-toolbox.html">Using sw-precache and sw-toolbox</a>
 
 <a id="overview">
 
@@ -54,9 +54,9 @@ The sw-precache module and sw-toolbox (Node.js) library make it easy to create p
 
 * Computer with terminal/shell access
 * Connection to the internet 
-* A  [browser that supports service worker](https://jakearchibald.github.io/isserviceworkerready/)
+* A <a href="https://jakearchibald.github.io/isserviceworkerready/">browser that supports service worker</a>
 * A text editor
-*  [Node](https://nodejs.org/en/) and  [npm](https://www.npmjs.com/)
+* <a href="https://nodejs.org/en/">Node</a> and <a href="https://www.npmjs.com/">npm</a>
 
 <a id="1">
 
@@ -66,7 +66,7 @@ The sw-precache module and sw-toolbox (Node.js) library make it easy to create p
 
 
 
-If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
+If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in <a href="setting_up_the_labs.md">Setting up the labs</a>.
 
 Open your browser and navigate to <strong>localhost:8080/sw-precache-lab/app</strong>.
 
@@ -93,7 +93,7 @@ This folder contains:
 
 
 
-[sw-precache](https://github.com/GoogleChrome/sw-precache) and  [sw-toolbox](https://github.com/GoogleChrome/sw-toolbox) are available as Node packages that can be used with gulp. In this section we install the gulp command line tool on your system. 
+<a href="https://github.com/GoogleChrome/sw-precache">sw-precache</a> and <a href="https://github.com/GoogleChrome/sw-toolbox">sw-toolbox</a> are available as Node packages that can be used with gulp. In this section we install the gulp command line tool on your system. 
 
 Install the gulp command line interface by running the following in the command line:
 
@@ -203,7 +203,7 @@ Save the file. To test the code, enter the following command at the project root
 
 A <strong>service-worker.js</strong> script is created in <strong>app/</strong>. Open the <strong>service-worker.js</strong> file in a text editor and look at the code for yourself.
 
-Refresh the app in the browser and then [inspect the cache](tools_for_pwa_developers.md#storage) (you may need to refresh the cache). You should see that all files in the <code>staticFileGlobs</code> array have been added to the cache.
+Refresh the app in the browser and then <a href="tools_for_pwa_developers.md#storage">inspect the cache</a> (you may need to refresh the cache). You should see that all files in the <code>staticFileGlobs</code> array have been added to the cache.
 
 #### Explanation
 
@@ -213,7 +213,7 @@ The call to <code>swPrecache.write()</code> does the following:
 
 1. Uses the <code>path</code> module to join <code>paths.src</code> (the location of our source code) with the string <code>service-worker.js</code> to indicate the name and location of the service worker. 
 2. Writes an <code>install</code> event listener in the service worker that adds all the files in <code>staticFilesGlobs</code> to the cache (in this case, <strong>index.html</strong> and <strong>main.css</strong>).
-3. Writes an  [importScripts](https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts) method in the service worker that imports the scripts under `importScripts`. 
+3. Writes an <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts">importScripts</a> method in the service worker that imports the scripts under `importScripts`. 
 4. Strips the prefixes from the files to make them relative URLs using the <code>stripPrefix</code> method.
 
 <a id="5">
@@ -249,13 +249,13 @@ global.toolbox.router.get(/\.(?:png|gif|jpg)$/, global.toolbox.cacheFirst, {
 });
 ```
 
-Save the code and [unregister the service worker](tools_for_pwa_developers.md#unregister) in the browser. Refresh the page once or twice so that the new service worker installs and begins to intercept the network requests. [Inspect the cache](tools_for_pwa_developers.md#storage) in the browser. You should see the <code>googleapis</code> cache populated with the Google web font, and the <code>images-cache</code> containing all of the fetched images.
+Save the code and <a href="tools_for_pwa_developers.md#unregister">unregister the service worker</a> in the browser. Refresh the page once or twice so that the new service worker installs and begins to intercept the network requests.<a href="tools_for_pwa_developers.md#storage">Inspect the cache</a> in the browser. You should see the <code>googleapis</code> cache populated with the Google web font, and the <code>images-cache</code> containing all of the fetched images.
 
 #### Explanation
 
-This code sets up several  [routes](https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-usage) that serve specific URLs, file types, and origins.
+This code sets up several <a href="https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-usage">routes</a> that serve specific URLs, file types, and origins.
 
-Route #1 creates a new cache called <code>googleapis</code> and stores up to 20 items (the <code>maxEntries</code> value) originating from any domain that matches the origin (any URL that ends with <strong>googleapis.com</strong>). The route uses the  [cache-first](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) strategy to access resources. It first checks if the cache contains the resource. If that fails, it sends the request to the network and caches the response.
+Route #1 creates a new cache called <code>googleapis</code> and stores up to 20 items (the <code>maxEntries</code> value) originating from any domain that matches the origin (any URL that ends with <strong>googleapis.com</strong>). The route uses the <a href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network">cache-first</a> strategy to access resources. It first checks if the cache contains the resource. If that fails, it sends the request to the network and caches the response.
 
 Route #2 also uses the cache-first strategy. It matches all the files ending in <strong>png</strong>, <strong>gif</strong>, or <strong>jpg</strong> (image files) using a regular expression and stores them in the <code>images-cache</code> cache with a limit of 50 items in the cache. If a new item is added to a full cache, then the oldest is deleted to make space. 
 
@@ -265,9 +265,9 @@ Route #2 also uses the cache-first strategy. It matches all the files ending in 
 
 #### For more information
 
-*  [sw-toolbox Usage Tutorial](https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-usage)
-*  [sw-toolbox API tutorial](https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-api.html)
-*  [Express Routing](http://expressjs.com/en/guide/routing.html)
+* <a href="https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-usage">sw-toolbox Usage Tutorial</a>
+* <a href="https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-api.html">sw-toolbox API tutorial</a>
+* <a href="http://expressjs.com/en/guide/routing.html">Express Routing</a>
 
 <a id="6">
 
@@ -318,7 +318,7 @@ The JSON configuration file provides all the information <code>sw-precache</code
 
 #### For more information
 
-*  [sw-precache Command Line Interface](https://github.com/GoogleChrome/sw-precache#command-line-interface)
+* <a href="https://github.com/GoogleChrome/sw-precache#command-line-interface">sw-precache Command Line Interface</a>
 
 ### 6.3 Run sw-precache from the command line
 
@@ -352,12 +352,12 @@ You have learned how to use <code>sw-precache</code> and <code>sw-toolbox</code>
 
 ### Resources
 
-*  [sw-precache - Github](https://github.com/GoogleChrome/sw-precache)
-*  [sw-precache - npm](https://www.npmjs.com/package/sw-precache)
-*  [sw-toolbox - Github](https://github.com/GoogleChrome/sw-toolbox)
-*  [sw-toolbox Usage Tutorial](https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-usage)
-*  [Offline-first, fast, with the sw-precache module](https://developers.google.com/web/updates/2015/02/offline-first-with-sw-precache)
-*  [Instant Loading Web Apps With A Service Worker Application Shell Architecture](https://addyosmani.com/blog/application-shell/)
-*  [Service Worker Toolbox](https://github.com/GoogleChrome/sw-toolbox/blob/master/README.md)
+* <a href="https://github.com/GoogleChrome/sw-precache">sw-precache - Github</a>
+* <a href="https://www.npmjs.com/package/sw-precache">sw-precache - npm</a>
+* <a href="https://github.com/GoogleChrome/sw-toolbox">sw-toolbox - Github</a>
+* <a href="https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-usage">sw-toolbox Usage Tutorial</a>
+* <a href="https://developers.google.com/web/updates/2015/02/offline-first-with-sw-precache">Offline-first, fast, with the sw-precache module</a>
+* <a href="https://addyosmani.com/blog/application-shell/">Instant Loading Web Apps With A Service Worker Application Shell Architecture</a>
+* <a href="https://github.com/GoogleChrome/sw-toolbox/blob/master/README.md">Service Worker Toolbox</a>
 
 

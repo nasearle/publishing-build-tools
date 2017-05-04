@@ -8,19 +8,19 @@
 
 
 
-[<strong>Overview</strong>](#overview)<strong>  </strong>
+<a href="#overview"><strong>Overview</strong></a><strong>  </strong>
 
-[<strong>1. Get set up</strong>](#1)<strong>  </strong>
+<a href="#1"><strong>1. Get set up</strong></a><strong>  </strong>
 
-[<strong>2. </strong><strong>Using promises</strong>](#2)<strong>  </strong>
+<a href="#2"><strong>2. </strong><strong>Using promises</strong></a><strong>  </strong>
 
-[<strong>3. Chaining promises</strong>](#3)<strong>  </strong>
+<a href="#3"><strong>3. Chaining promises</strong></a><strong>  </strong>
 
-[<strong>4. Optional: Using Promise.all and Promise.race</strong>](#4)<strong>  </strong>
+<a href="#4"><strong>4. Optional: Using Promise.all and Promise.race</strong></a><strong>  </strong>
 
-[<strong>Congratulations!</strong>](#congrats)
+<a href="#congrats"><strong>Congratulations!</strong></a>
 
-Concepts:  [Working with Promises](https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_promises.html)
+Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_promises.html">Working with Promises</a>
 
 <a id="overview" />
 
@@ -30,7 +30,7 @@ Concepts:  [Working with Promises](https://google-developer-training.gitbooks.io
 
 
 
-This lab teaches you how to use JavaScript  [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+This lab teaches you how to use JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promises</a>.
 
 #### What you will learn
 
@@ -42,12 +42,12 @@ This lab teaches you how to use JavaScript  [Promises](https://developer.mozilla
 #### What you should know
 
 * Basic JavaScript and HTML
-* The concept of an  [Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) (IIFE)
+* The concept of an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately Invoked Function Expression</a> (IIFE)
 * How to enable the developer console
 
 #### What you will need
 
-* A browser that supports  [Promises](http://caniuse.com/#feat=promises) and  [Fetch](http://caniuse.com/#feat=fetch)
+* A browser that supports <a href="http://caniuse.com/#feat=promises">Promises</a> and <a href="http://caniuse.com/#feat=fetch">Fetch</a>
 * A text editor
 * Computer with terminal/shell access
 * Connection to the internet 
@@ -60,7 +60,7 @@ This lab teaches you how to use JavaScript  [Promises](https://developer.mozilla
 
 
 
-If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md). 
+If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in <a href="setting_up_the_labs.md">Setting up the labs</a>. 
 
 Open your browser and navigate to <strong>localhost:8080/promises-lab/app</strong>.
 
@@ -85,7 +85,7 @@ This folder contains:
 
 
 
-This step uses  [Promises](https://developers.google.com/web/fundamentals/getting-started/primers/promises) to handle asynchronous code in JavaScript.
+This step uses <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises</a> to handle asynchronous code in JavaScript.
 
 ### 2.1 Create a promise
 
@@ -112,7 +112,7 @@ return promiseOfImageName;
 
 Save the script and refresh the page. 
 
-Enter "Spain" into the app's <strong>Country Name</strong> field. Then, click <strong>Get Image Name</strong>. You should see a  [Promise object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) logged in the console.
+Enter "Spain" into the app's <strong>Country Name</strong> field. Then, click <strong>Get Image Name</strong>. You should see a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise object</a> logged in the console.
 
 Now enter "Hello World" into the <strong>Country Name</strong> field and click <strong>Get Image Name</strong>. You should see another Promise object logged in the console, followed by an error.
 
@@ -122,7 +122,7 @@ Now enter "Hello World" into the <strong>Country Name</strong> field and click <
 
 #### Explanation
 
-The <code>getImageName</code> function creates a  [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). A promise represents a value that might be available now, in the future, or never. In effect, a promise lets an asynchronous function such as <code>getImageName</code> (the <code>setTimeout</code> method is used to make <code>getImageName</code> asynchronous) return a value much like a synchronous function. Rather than returning the final value (in this case, "Spain.png"), <code>getImageName</code> returns a promise of a future value (this is what you see in the console log). Promise construction typically looks like  [this example at developers.google.com](https://developers.google.com/web/fundamentals/getting-started/primers/promises#promises_arrive_in_javascript):
+The <code>getImageName</code> function creates a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">promise</a>. A promise represents a value that might be available now, in the future, or never. In effect, a promise lets an asynchronous function such as <code>getImageName</code> (the <code>setTimeout</code> method is used to make <code>getImageName</code> asynchronous) return a value much like a synchronous function. Rather than returning the final value (in this case, "Spain.png"), <code>getImageName</code> returns a promise of a future value (this is what you see in the console log). Promise construction typically looks like <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises#promises_arrive_in_javascript">this example at developers.google.com</a>:
 
 #### main.js
 
@@ -139,7 +139,7 @@ var promise = new Promise(function(resolve, reject) {
 });
 ```
 
-Depending on the outcome of an asynchronous operation, a promise can either  [resolve](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) with a value or  [reject](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject) with an error. In the <code>getImageName</code> function, the <code>promiseOfImageName</code> promise either resolves with an image filename, or rejects with a custom error signifying that the function input was invalid. 
+Depending on the outcome of an asynchronous operation, a promise can either <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve">resolve</a> with a value or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject">reject</a> with an error. In the <code>getImageName</code> function, the <code>promiseOfImageName</code> promise either resolves with an image filename, or rejects with a custom error signifying that the function input was invalid. 
 
 <strong>Optional</strong>: Complete the <code>isSpain</code> function so that it takes a string as input, and returns a new promise that resolves if the function input is "Spain", and rejects otherwise. You can verify that you implemented <code>isSpain</code> correctly by navigating to <strong>app/test/test.html</strong> and checking the <code>isSpain</code> test. Note that this exercise is optional and is not used in the app.
 
@@ -164,7 +164,7 @@ Now enter "Hello World" into the <strong>Country Name</strong> text input and cl
 
 #### Explanation
 
-The <code>flagChain</code> function returns the result of <code>getImageName`, which is a promise. The  [then](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) method lets us implicitly pass the settled (either resolved or rejected) promise to another function. The `then</code> method takes two arguments in the following order: 
+The <code>flagChain</code> function returns the result of <code>getImageName`, which is a promise. The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then">then</a> method lets us implicitly pass the settled (either resolved or rejected) promise to another function. The `then</code> method takes two arguments in the following order: 
 
 1. The function to be called if the promise resolves.
 2. The function to be called if the promise rejects. 
@@ -193,7 +193,7 @@ Save the script and refresh the page. Repeat the experiments from section 2.2 an
 
 #### Explanation
 
-The  [catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) method is similar to <code>then`, but deals only with rejected cases. It behaves like `then(undefined, onRejected)`. With this new pattern, if the promise from `getImageName</code> resolves, then <code>logSuccess</code> is called (and is implicitly passed the resolved promise value). If the promise from <code>getImageName</code> rejects, then <code>logError</code> is called (and implicitly passed the rejection error). 
+The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch">catch</a> method is similar to <code>then`, but deals only with rejected cases. It behaves like `then(undefined, onRejected)`. With this new pattern, if the promise from `getImageName</code> resolves, then <code>logSuccess</code> is called (and is implicitly passed the resolved promise value). If the promise from <code>getImageName</code> rejects, then <code>logError</code> is called (and implicitly passed the rejection error). 
 
 This code is not quite equivalent to the code in section 2.2, however. This new code also triggers <code>catch</code> if <code>logSuccess</code> rejects, because <code>logSuccess</code> occurs before the `catch`. This new code would actually be equivalent to the following:
 
@@ -211,12 +211,12 @@ The difference is subtle, but extremely useful. Promise rejections skip forward 
 
 #### For more information
 
-*  [Promise object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-*  [Promises introduction](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
-*  [Resolve](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve)
-*  [Reject](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject)
-*  [Then](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then)
-*  [Catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) 
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise object</a>
+* <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises introduction</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve">Resolve</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject">Reject</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then">Then</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch">Catch</a> 
 
 #### Solution code
 
@@ -257,9 +257,9 @@ Now enter "Hello World" into the <strong>Country Name</strong> text input and cl
 The updated <code>flagChain</code> function does the following:
 
 1. As before, <code>getImageName</code> returns a promise. The promise either resolves with an image file name, or rejects with an error, depending on the function's input.
-2. If the returned promise resolves, then the image file name is passed to <code>fetchFlag</code> inside the first `then`. This function requests the corresponding image file asynchronously, and returns a promise (see  [fetch](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch) documentation).
-3. If the promise from <code>fetchFlag</code> resolves, then the resolved value (a  [response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object) is passed to <code>processFlag</code> in the next <code>then`. The `processFlag</code> function checks if the response is ok, and throws an error if it is not. Otherwise, it processes the response with the <code>blob</code> method, which also returns a promise.
-4. If the promise from <code>processFlag</code> resolves, the resolved value (a  [blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)), is passed to the <code>appendFlag</code> function. The <code>appendFlag</code> function creates an image from the value and appends it to the DOM. 
+2. If the returned promise resolves, then the image file name is passed to <code>fetchFlag</code> inside the first `then`. This function requests the corresponding image file asynchronously, and returns a promise (see <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch">fetch</a> documentation).
+3. If the promise from <code>fetchFlag</code> resolves, then the resolved value (a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response">response</a> object) is passed to <code>processFlag</code> in the next <code>then`. The `processFlag</code> function checks if the response is ok, and throws an error if it is not. Otherwise, it processes the response with the <code>blob</code> method, which also returns a promise.
+4. If the promise from <code>processFlag</code> resolves, the resolved value (a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">blob</a>), is passed to the <code>appendFlag</code> function. The <code>appendFlag</code> function creates an image from the value and appends it to the DOM. 
 
 If any of the promises reject, then all subsequent <code>then</code> blocks are skipped, and <code>catch</code> executes, calling <code>logError`. Throwing an error in the `processFlag</code> function also triggers the <code>catch</code> block.
 
@@ -281,7 +281,7 @@ Because <code>catch</code> returns a promise, you can use the <code>catch</code>
 
 #### For more information
 
-*  [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch">Fetch API</a>
 
 #### Solution code
 
@@ -299,7 +299,7 @@ To get a copy of the working code, navigate to the <strong>03-chaining-promises<
 
 Often we want to take action only after a collection of asynchronous operations have completed successfully. 
 
-Complete the <code>allFlags</code> function such that it takes a list of promises as input. The function should use  [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) to evaluate the list of promises. If all promises resolve successfully, then <code>allFlags</code> returns the values of the resolved promises as a list. Otherwise, <code>allFlags</code> returns <code>false`. To verify that you have done this correctly, navigate to <strong>app/test/test.html</strong> and check the `allFlags</code> test.
+Complete the <code>allFlags</code> function such that it takes a list of promises as input. The function should use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">Promise.all</a> to evaluate the list of promises. If all promises resolve successfully, then <code>allFlags</code> returns the values of the resolved promises as a list. Otherwise, <code>allFlags</code> returns <code>false`. To verify that you have done this correctly, navigate to <strong>app/test/test.html</strong> and check the `allFlags</code> test.
 
 Test the function by replacing TODO 4.1 in <strong>js/main.js</strong> with the following code:
 
@@ -339,11 +339,11 @@ Change one of the inputs in the <code>getImageName</code> calls inside the <code
 
 #### For more information
 
-*  [Promise.all documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">Promise.all documentation</a>
 
 ### 4.2 Promise.race
 
-Another promise method that you may see referenced is  [Promise.race](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race).
+Another promise method that you may see referenced is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race">Promise.race</a>.
 
 Replace TODO 4.2 in <strong>js/main.js</strong> with the following code:
 
@@ -379,7 +379,7 @@ In this example, if <code>promise2</code> resolves before <code>promise1</code> 
 
 #### For more information
 
-*  [Promise.race documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race">Promise.race documentation</a>
 
 #### Solution code
 
@@ -397,7 +397,7 @@ You have learned the basics of JavaScript Promises!
 
 ### Resources
 
-*  [Promises introduction](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
-*  [Promise - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+* <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises introduction</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise - MDN</a>
 
 
