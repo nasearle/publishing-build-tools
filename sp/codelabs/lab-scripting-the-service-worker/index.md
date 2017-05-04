@@ -36,21 +36,21 @@ This lab walks you through creating a simple service worker.
 
 #### What you will learn
 
-* Create a basic service worker script, install it, and do simple debugging
+<em> Create a basic service worker script, install it, and do simple debugging
 
 #### What you should know
 
-* Basic JavaScript and HTML
-* Concepts and basic syntax of ES2015 <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises</a> 
-* Concept of an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately Invoked Function Expression</a> (IIFE)
-* How to enable the developer console
+</em> Basic JavaScript and HTML
+<em> Concepts and basic syntax of ES2015 <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises</a> 
+</em> Concept of an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately Invoked Function Expression</a> (IIFE)
+<em> How to enable the developer console
 
 #### What you need before you begin
 
-* Computer with terminal/shell access
-* Connection to the internet 
-* A <a href="https://jakearchibald.github.io/isserviceworkerready/">browser that supports service workers</a>
-* A text editor
+</em> Computer with terminal/shell access
+<em> Connection to the internet 
+</em> A <a href="https://jakearchibald.github.io/isserviceworkerready/">browser that supports service workers</a>
+<em> A text editor
 
 <a id="setting-up"/>
 
@@ -72,12 +72,12 @@ If you have a text editor that lets you open a project, open the <strong>service
 
 This folder contains:
 
-* <strong>other.html</strong>, <strong>js/other.js</strong>, <strong>below/another.html</strong>, and <strong>js/another.js</strong> are sample resources that we use to experiment
-* <strong>index.html</strong> is the main HTML page for our sample site/application
-* <strong>index.css</strong> is the cascading stylesheet for <strong>index.html</strong>
-* <strong>service-worker.js</strong> is the JavaScript file that is used to create our service worker
-* <strong>styles</strong> folder contains the cascading stylesheets for this lab
-* <strong>test</strong> folder contains files for testing your progress
+</em> <strong>other.html</strong>, <strong>js/other.js</strong>, <strong>below/another.html</strong>, and <strong>js/another.js</strong> are sample resources that we use to experiment
+<em> <strong>index.html</strong> is the main HTML page for our sample site/application
+</em> <strong>index.css</strong> is the cascading stylesheet for <strong>index.html</strong>
+<em> <strong>service-worker.js</strong> is the JavaScript file that is used to create our service worker
+</em> <strong>styles</strong> folder contains the cascading stylesheets for this lab
+<em> <strong>test</strong> folder contains files for testing your progress
 
 <a id="register-service-worker" />
 
@@ -125,7 +125,7 @@ In your browser, navigate to <strong>test-registered.html</strong> (<strong>app/
 
 #### Explanation
 
-Service workers must be registered. Always begin by checking whether the browser supports service workers. The service worker is exposed on the window's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator">`Navigator`</a> object and can be accessed with `window.navigator.serviceWorker`. 
+Service workers must be registered. Always begin by checking whether the browser supports service workers. The service worker is exposed on the window's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator"><code>Navigator</code></a> object and can be accessed with <code>window.navigator.serviceWorker</code>. 
 
 In our code, if service workers aren't supported, the script logs a message and fails immediately. Calling <code>serviceworker.register(...)</code> registers the service worker, installing the service worker's script. This returns a promise that resolves once the service worker is successfully registered. If the registration fails, the promise will reject.
 
@@ -236,11 +236,11 @@ Save the file and refresh the page. Notice that the new service worker installs 
 
 #### Explanation
 
-The <code>skipWaiting()</code> method allows a service worker to activate as soon as it finishes installation. The install event listener is a common place to put the <code>skipWaiting()</code> call, but it can be called anywhere during or before the waiting phase. See <a href="https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/lifecycle#skip_the_waiting_phase">this documentation</a> for more on when and how to use `skipWaiting()`. For the rest of the lab, we can now test new service worker code without manually unregistering the service worker.
+The <code>skipWaiting()</code> method allows a service worker to activate as soon as it finishes installation. The install event listener is a common place to put the <code>skipWaiting()</code> call, but it can be called anywhere during or before the waiting phase. See <a href="https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/lifecycle#skip_the_waiting_phase">this documentation</a> for more on when and how to use <code>skipWaiting()</code>. For the rest of the lab, we can now test new service worker code without manually unregistering the service worker.
 
 #### For more information
 
-* <a href="https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/lifecycle">Service worker lifecycle</a>
+</em> <a href="https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/lifecycle">Service worker lifecycle</a>
 
 <a id="intercept-requests"/>
 
@@ -282,9 +282,9 @@ Why didn't any fetch events log on the first refresh? By default, fetch events f
 
 #### For more information
 
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent">Fetch Event - MDN</a>
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Using Fetch - MDN</a>
-* <a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch">Introduction to Fetch - Google Developer</a>
+<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent">Fetch Event - MDN</a>
+</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Using Fetch - MDN</a>
+<em> <a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch">Introduction to Fetch - Google Developer</a>
 
 #### Solution code
 
@@ -346,7 +346,7 @@ The service worker's default scope is the path to the service worker file. Since
 
 Move the service worker back out into the project root directory (<strong>app</strong>) and update the service worker URL in the registration code.
 
-Use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register">reference on MDN</a> to set the scope of the service worker to the <strong>app/below/</strong> directory using the optional parameter in `register()`. <a href="tools_for_pwa_developers.md#unregister">Unregister the service worker</a> and refresh the page. Click <strong>Other page</strong>, <strong>Another page</strong> and <strong>Back</strong>.
+Use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register">reference on MDN</a> to set the scope of the service worker to the <strong>app/below/</strong> directory using the optional parameter in <code>register()</code>. <a href="tools_for_pwa_developers.md#unregister">Unregister the service worker</a> and refresh the page. Click <strong>Other page</strong>, <strong>Another page</strong> and <strong>Back</strong>.
 
 Again the console shows that the scope of the service worker is now <strong>localhost:8080/service-worker-lab/app/below</strong>, and logs fetch events only for <strong>another.html</strong>, <strong>another.css</strong>, and <strong>another.js</strong>. 
 
@@ -372,9 +372,9 @@ In the above example the scope of the service worker is set to <strong>/kitten/<
 
 #### For more information
 
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration">Service worker registration object</a>
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register">The register() method</a>
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/scope">Service worker scope</a>
+</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration">Service worker registration object</a>
+<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register">The register() method</a>
+</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/scope">Service worker scope</a>
 
 #### Solution code
 

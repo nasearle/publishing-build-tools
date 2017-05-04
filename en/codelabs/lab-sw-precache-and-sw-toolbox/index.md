@@ -38,25 +38,25 @@ The sw-precache module and sw-toolbox (Node.js) library make it easy to create p
 
 #### What you will learn
 
-* Generate service workers using sw-precache and sw-toolbox
-* Create sw-toolbox routes matching popular caching strategies
-* Integrate sw-precache into your gulp build process
-* Run sw-precache from the command line
+<em> Generate service workers using sw-precache and sw-toolbox
+</em> Create sw-toolbox routes matching popular caching strategies
+<em> Integrate sw-precache into your gulp build process
+</em> Run sw-precache from the command line
 
 #### What you should already know
 
-* Basic HTML, CSS, and JavaScript
-* ES2015 Promises
-* How to run commands from the command line
-* Familiarity with gulp
+<em> Basic HTML, CSS, and JavaScript
+</em> ES2015 Promises
+<em> How to run commands from the command line
+</em> Familiarity with gulp
 
 #### What you will need
 
-* Computer with terminal/shell access
-* Connection to the internet 
-* A <a href="https://jakearchibald.github.io/isserviceworkerready/">browser that supports service worker</a>
-* A text editor
-* <a href="https://nodejs.org/en/">Node</a> and <a href="https://www.npmjs.com/">npm</a>
+<em> Computer with terminal/shell access
+</em> Connection to the internet 
+<em> A <a href="https://jakearchibald.github.io/isserviceworkerready/">browser that supports service worker</a>
+</em> A text editor
+<em> <a href="https://nodejs.org/en/">Node</a> and <a href="https://www.npmjs.com/">npm</a>
 
 <a id="1">
 
@@ -78,12 +78,12 @@ If you have a text editor that lets you open a project, open the <strong>sw-prec
 
 This folder contains:
 
-* <strong>css/main.css</strong> is the cascading stylesheet for the sample page
-* <strong>images</strong> folder contains sample images
-* <strong>js/toolbox-scripts.js</strong> is our custom sw-toolbox script
-* <strong>gulpfile.js</strong> is where we will write the sw-precache gulp task
-* <strong>index.html</strong> is a sample HTML page
-* <strong>sw-precache-config.json</strong> is an optional configuration file for using sw-precache from the command line
+</em> <strong>css/main.css</strong> is the cascading stylesheet for the sample page
+<em> <strong>images</strong> folder contains sample images
+</em> <strong>js/toolbox-scripts.js</strong> is our custom sw-toolbox script
+<em> <strong>gulpfile.js</strong> is where we will write the sw-precache gulp task
+</em> <strong>index.html</strong> is a sample HTML page
+<em> <strong>sw-precache-config.json</strong> is an optional configuration file for using sw-precache from the command line
 
 <a id="2" />
 
@@ -207,13 +207,13 @@ Refresh the app in the browser and then <a href="tools_for_pwa_developers.md#sto
 
 #### Explanation
 
-The code first creates a variable, `paths`, to define the path of the source files.
+The code first creates a variable, <code>paths</code>, to define the path of the source files.
 
 The call to <code>swPrecache.write()</code> does the following:
 
 1. Uses the <code>path</code> module to join <code>paths.src</code> (the location of our source code) with the string <code>service-worker.js</code> to indicate the name and location of the service worker. 
 2. Writes an <code>install</code> event listener in the service worker that adds all the files in <code>staticFilesGlobs</code> to the cache (in this case, <strong>index.html</strong> and <strong>main.css</strong>).
-3. Writes an <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts">importScripts</a> method in the service worker that imports the scripts under `importScripts`. 
+3. Writes an <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts">importScripts</a> method in the service worker that imports the scripts under <code>importScripts</code>. 
 4. Strips the prefixes from the files to make them relative URLs using the <code>stripPrefix</code> method.
 
 <a id="5">
@@ -232,7 +232,7 @@ Replace TODO 5 in <strong>js/toolbox-script.js</strong> with the following code:
 
 ```
 // Route #1
-global.toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
+global.toolbox.router.get('/(.</em>)', global.toolbox.cacheFirst, {
   cache: {
     name: 'googleapis',
     maxEntries: 20,
@@ -265,9 +265,9 @@ Route #2 also uses the cache-first strategy. It matches all the files ending in 
 
 #### For more information
 
-* <a href="https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-usage">sw-toolbox Usage Tutorial</a>
-* <a href="https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-api.html">sw-toolbox API tutorial</a>
-* <a href="http://expressjs.com/en/guide/routing.html">Express Routing</a>
+<em> <a href="https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-usage">sw-toolbox Usage Tutorial</a>
+</em> <a href="https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-api.html">sw-toolbox API tutorial</a>
+<em> <a href="http://expressjs.com/en/guide/routing.html">Express Routing</a>
 
 <a id="6">
 
@@ -318,7 +318,7 @@ The JSON configuration file provides all the information <code>sw-precache</code
 
 #### For more information
 
-* <a href="https://github.com/GoogleChrome/sw-precache#command-line-interface">sw-precache Command Line Interface</a>
+</em> <a href="https://github.com/GoogleChrome/sw-precache#command-line-interface">sw-precache Command Line Interface</a>
 
 ### 6.3 Run sw-precache from the command line
 
@@ -330,7 +330,7 @@ If you test the new service worker in the browser the result should be the same 
 
 #### Explanation
 
-This command generates a service worker file (or overwrites the file if it already exists) using the options provided in <code>sw-precache-config.json`. The `--verbose</code> flag makes the success or error message more detailed.
+This command generates a service worker file (or overwrites the file if it already exists) using the options provided in <code>sw-precache-config.json</code>. The <code>--verbose</code> flag makes the success or error message more detailed.
 
 <a id="congrats">
 
@@ -344,20 +344,20 @@ You have learned how to use <code>sw-precache</code> and <code>sw-toolbox</code>
 
 ### What we've covered
 
-* Installing nvm, Node, and npm
-* Installing gulp, sw-precache, and sw-toolbox plugins
-* Installing gulp-cli and sw-precache globally to use from the command line
-* Using sw-precache in a gulp-workflow to generate a service worker
-* Using sw-precache from the command line to generate a service worker
+<em> Installing nvm, Node, and npm
+</em> Installing gulp, sw-precache, and sw-toolbox plugins
+<em> Installing gulp-cli and sw-precache globally to use from the command line
+</em> Using sw-precache in a gulp-workflow to generate a service worker
+<em> Using sw-precache from the command line to generate a service worker
 
 ### Resources
 
-* <a href="https://github.com/GoogleChrome/sw-precache">sw-precache - Github</a>
-* <a href="https://www.npmjs.com/package/sw-precache">sw-precache - npm</a>
-* <a href="https://github.com/GoogleChrome/sw-toolbox">sw-toolbox - Github</a>
-* <a href="https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-usage">sw-toolbox Usage Tutorial</a>
-* <a href="https://developers.google.com/web/updates/2015/02/offline-first-with-sw-precache">Offline-first, fast, with the sw-precache module</a>
-* <a href="https://addyosmani.com/blog/application-shell/">Instant Loading Web Apps With A Service Worker Application Shell Architecture</a>
-* <a href="https://github.com/GoogleChrome/sw-toolbox/blob/master/README.md">Service Worker Toolbox</a>
+</em> <a href="https://github.com/GoogleChrome/sw-precache">sw-precache - Github</a>
+<em> <a href="https://www.npmjs.com/package/sw-precache">sw-precache - npm</a>
+</em> <a href="https://github.com/GoogleChrome/sw-toolbox">sw-toolbox - Github</a>
+<em> <a href="https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-usage">sw-toolbox Usage Tutorial</a>
+</em> <a href="https://developers.google.com/web/updates/2015/02/offline-first-with-sw-precache">Offline-first, fast, with the sw-precache module</a>
+<em> <a href="https://addyosmani.com/blog/application-shell/">Instant Loading Web Apps With A Service Worker Application Shell Architecture</a>
+</em> <a href="https://github.com/GoogleChrome/sw-toolbox/blob/master/README.md">Service Worker Toolbox</a>
 
 

@@ -40,18 +40,18 @@ This lab shows you how you can use <a href="https://github.com/GoogleChrome/ligh
 
 #### What you will learn
 
-* How to use Lighthouse to audit your progressive web apps
+<em> How to use Lighthouse to audit your progressive web apps
 
 #### What you should know
 
-* Basic JavaScript and HTML
+</em> Basic JavaScript and HTML
 
 #### What you need before you begin
 
-* Connection to the internet 
-* <a href="https://www.google.com/chrome/browser/desktop/">Chrome</a> 52+ browser
-* Node v5+ (or Node v4 with the <code>--harmony</code> <a href="http://stackoverflow.com/questions/13351965/what-does-node-harmony-do">flag</a>)
-* A text editor
+<em> Connection to the internet 
+</em> <a href="https://www.google.com/chrome/browser/desktop/">Chrome</a> 52+ browser
+<em> Node v5+ (or Node v4 with the <code>--harmony</code> <a href="http://stackoverflow.com/questions/13351965/what-does-node-harmony-do">flag</a>)
+</em> A text editor
 
 <a id="1" />
 
@@ -73,9 +73,9 @@ If you have a text editor that lets you open a project, open the <strong>lightho
 
 This folder contains:
 
-* <strong>css/main.css</strong> is the cascading stylesheet for the application
-* <strong>images</strong> folder contains images for the app and home screen icon
-* <strong>index.html</strong> is the main HTML page for our sample site/application
+<em> <strong>css/main.css</strong> is the cascading stylesheet for the application
+</em> <strong>images</strong> folder contains images for the app and home screen icon
+<em> <strong>index.html</strong> is the main HTML page for our sample site/application
 
 <a id="2" />
 
@@ -101,7 +101,7 @@ In the browser (on the <strong>app</strong> page) click the Lighthouse icon and 
 
 Lighthouse runs the report and generates an HTML page with the results. The report page should look similar to this:
 
-!<a href="../img/be57a3905fb6f93f.png">starting-score</a>
+![starting-score](../img/be57a3905fb6f93f.png)
 
 <div class="note">
 <strong>Note:</strong> The UI for Lighthouse is still being updated, so your report may not look exactly like this one.
@@ -213,7 +213,7 @@ This lets us satisfy the manifest related requirements of Lighthouse (and a PWA)
 
 #### For more information
 
-* <a href="https://developer.chrome.com/multidevice/android/installtohomescreen">Add to home screen</a>
+</em> <a href="https://developer.chrome.com/multidevice/android/installtohomescreen">Add to home screen</a>
 * <a href="https://developers.google.com/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android">Web app manifests</a>
 
 <a id="5" />
@@ -297,8 +297,8 @@ Save the file and refresh the page (for the app, not the Lighthouse page). Check
 
 We have created a service worker for our app and registered it. Here is what it does:
 
-1. The first block (`install` event listener) caches the files our app's files, so that they are saved locally. This lets us access them even when offline, which is what the next block does.
-2. The second block (`fetch` event listener) intercepts requests for resources and checks first if they are cached locally. If they are, the browser gets them from the cache without needing to make a network request. This lets us respond with a 200 even when offline. 
+1. The first block (<code>install</code> event listener) caches the files our app's files, so that they are saved locally. This lets us access them even when offline, which is what the next block does.
+2. The second block (<code>fetch</code> event listener) intercepts requests for resources and checks first if they are cached locally. If they are, the browser gets them from the cache without needing to make a network request. This lets us respond with a 200 even when offline. 
 
 Once we have loaded the app initially, all the files needed to run the app are saved in the cache. If the page is loaded again, the browser grabs the files from the cache regardless of network conditions. This also lets us satisfy the requirement of having our starting URL (<strong>index.html</strong>) cached.
 
@@ -324,7 +324,7 @@ Now we should have passed many more tests.
 
  The report should look something like this:
 
-!<a href="../img/76f48671607bf2b2.png">solution-score</a>
+![solution-score](../img/76f48671607bf2b2.png)
 
 Now our score is much better (your score may not match exactly). 
 
