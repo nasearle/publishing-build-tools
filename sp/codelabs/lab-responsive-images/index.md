@@ -62,9 +62,7 @@ If you have not downloaded the repository, installed Node, and started a local s
 Open your browser and navigate to <strong>localhost:8080/responsive-images-lab/app</strong>.
 
 <div class="note">
-
 <strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
-
 </div>
 
 If you have a text editor that lets you open a project, open the <strong>responsive-images-lab/app</strong> folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong> folder is where you will be building the lab. 
@@ -102,9 +100,7 @@ Save the code and refresh the page in your browser. Try resizing the window. The
 The value in `max-width` represents a percentage of the containing element, in this case the <code>&lt;article&gt;</code> element.
 
 <div class="note">
-
 <strong>Note: </strong>You could also specify the <code>max-width</code> in terms of the viewport width using <code>vw</code> units (for example, <code>100vw</code>). In this case we are using a percentage value to keep the images the same width as the text.
-
 </div>
 
 <a id="3" />
@@ -148,15 +144,11 @@ srcset="images/sfo-1600_large.jpg 1600w, images/sfo-1000_large.jpg 1000w, images
 Save the code and refresh the page in the browser. Refresh the page at various window sizes and [check the network requests](tools_for_pwa_developers.md#viewnetwork) to see which version of the image is fetched at each size. On a 1x display, the browser fetches <strong>sfo-500_small.jpg</strong> when the window is narrower than 500px, <strong>sfo-800_medium.jpg</strong> when it is narrower than 800px, and so forth.
 
 <div class="note">
-
 <strong>Note:</strong> If a larger version of an image is available in the browser (HTTP) cache, some browsers might load that image even if it is not the one specified by <code>srcset</code> (because if the browser already has a higher resolution image stored locally, why not use it?). To disable this for the lab, make sure your <a href="tools_for_pwa_developers.md#disablehttpcache">HTTP cache is disabled</a> in developer tools.
-
 </div>
 
 <div class="note">
-
 <strong>Note:</strong> In Chrome, with <strong>DevTools</strong> open, the browser window dimensions appear as it is being resized (see the image below). This feature will be very useful throughout this codelab.
-
 </div>
 
 ![Chrome Window Dimensions](../img/b0b54f95a301d01d.png)
@@ -166,9 +158,7 @@ Save the code and refresh the page in the browser. Refresh the page at various w
 By adding a width descriptor to each file in the `srcset`, we are telling the browser the width of each image in pixels  *before*  it fetches the image. The browser can then use these widths to decide which image to fetch based on its window size. It fetches the image with the smallest width that is still larger than the viewport width.
 
 <div class="note">
-
 <strong>Note:</strong> You can also optionally specify a pixel density instead of a width. However, you cannot specify both pixel densities and widths in the same <code>srcset</code> attribute. We explore using pixel densities in a later section.
-
 </div>
 
 <a id="4" />
@@ -306,9 +296,7 @@ The <code>&lt;picture&gt;</code> element lets us define multiple source files us
 We have included several versions of the sample image, each at different resolutions and cropped to make the focus of the image visible at smaller sizes. In the code above, at larger than 750px, the browser fetches either <strong>horses-1600_large_2x.jpg</strong> (if the device has a 2x display) or <strong>horses-800_large_1x.jpg</strong>. If the window's width is less than 750px but greater than 500px, the browser fetches <strong>horses_medium.jpg</strong>. At less than 500px the browser fetches the fallback image, <strong>horses_small.jpg</strong>.
 
 <div class="note">
-
 <strong>Note:</strong> If the user's browser doesn't support the <code>&lt;picture&gt;</code> element, it fetches whatever is in the <code>&lt;img&gt;</code> element. The <code>&lt;picture&gt;</code> element is just used to specify multiple sources for the <code>&lt;img&gt;</code> element contained in it. The <code>&lt;img&gt;</code> element is what displays the image.
-
 </div>
 
 #### For more information

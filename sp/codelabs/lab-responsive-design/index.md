@@ -63,9 +63,7 @@ If you have not downloaded the repository, installed Node, and started a local s
 Open your browser and navigate to <strong>localhost:8080/responsive-design-lab/app</strong>.
 
 <div class="note">
-
 <strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
-
 </div>
 
 If you have a text editor that lets you open a project, open the <strong>responsive-design-lab/app</strong> folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong> folder is where you will be building the lab. 
@@ -107,9 +105,7 @@ Replace TODO 3 in <strong>index.html</strong> with the following tag:
 Save the file. Refresh the page in the browser and <a href="tools_for_pwa_developers.md#mobile">check the page in device mode</a>. Notice the page is no longer zoomed out and the scale of the content matches the scale on a desktop device. If the content behaves unexpectedly in the device emulator, toggle in and out of device mode to reset it.
 
 <div class="note">
-
-<strong>Warning:</strong> Device emulation gives you a close approximation as to how your site will look on a mobile device, but to get the full picture you should always test your site on real devices. You can learn more about debugging Android devices on <a href="/web/tools/chrome-devtools/remote-debugging/">Chrome</a> and <a href="https://developer.mozilla.org/en-US/docs/Tools/Remote_Debugging">Firefox</a>.
-
+<strong>Warning:</strong> Device emulation gives you a close approximation as to how your site will look on a mobile device, but to get the full picture you should always test your site on real devices. You can learn more about debugging Android devices on <a href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/">Chrome</a> and <a href="https://developer.mozilla.org/en-US/docs/Tools/Remote_Debugging">Firefox</a>.
 </div>
 
 #### Explanation
@@ -120,7 +116,7 @@ The initial-scale property controls the zoom level when the page is first loaded
 
 #### For more information
 
-*  [Set the viewport](/web/fundamentals/design-and-ui/responsive/fundamentals/set-the-viewport) - Responsive Web Design Basics 
+*  [Set the viewport](https://developers.google.com/web/fundamentals/design-and-ui/responsive/fundamentals/set-the-viewport) - Responsive Web Design Basics 
 *  [Using the viewport meta tag to control layout on mobile browsers](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag) - MDN
 
 <a id="4" />
@@ -257,9 +253,7 @@ Replace TODO 6.1 in <strong>index.html</strong> with the code to include the cus
 We include a  [Modernizr build](https://modernizr.com/download) at the top of <strong>index.html</strong>, which tests for Flexbox support. This runs the test on page-load and appends the class `flexbox` to the `<html>` element if the browser supports Flexbox. Otherwise, it appends a `no-flexbox` class to the `<html>` element. In the next section we add these classes to the CSS.
 
 <div class="note">
-
 <strong>Note:</strong> If we were using the <code>flex-wrap</code> property of Flexbox, we would need to add a separate Modernizr detector just for this feature. Older versions of some browsers partially support Flexbox, and do not include this feature.
-
 </div>
 
 ### 6.2 Use Flexbox progressively
@@ -346,7 +340,7 @@ You have learned to style your content to make it responsive. Using media querie
 
 #### Learn more about the basics of responsive design
 
-*  [Responsive Web Design Basics - Set the viewport](/web/fundamentals/design-and-ui/responsive/#set-the-viewport) 
+*  [Responsive Web Design Basics - Set the viewport](https://developers.google.com/web/fundamentals/design-and-ui/responsive/#set-the-viewport) 
 *  [A tale of two viewports](http://www.quirksmode.org/mobile/viewports2.html)
 
 #### Learn more about Flexbox as a progressive enhancement

@@ -66,9 +66,7 @@ If you have not downloaded the repository, installed Node, and started a local s
 Open your browser and navigate to <strong>localhost:8080/indexed-db-lab/app</strong>.
 
 <div class="note">
-
 <strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
-
 </div>
 
 If you have a text editor that lets you open a project, open the <strong>indexed-db-lab/app</strong> folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong> folder is where you will be building the lab. 
@@ -126,9 +124,7 @@ In the browser, [open IndexedDB](tools_for_pwa_developers.md#indexeddb) in the d
 Open the QUnit test page, <strong>app/test/test.html</strong>, in another browser tab. This page contains several tests for testing our app at each stage of the codelab. Passed tests are blue and failed tests are red. Your app should pass the first test that checks whether the `couches-n-things` database exists in the browser.
 
 <div class="note">
-
 <strong>Note:</strong> Be sure to open the test page using the localhost address so that it opens from the server and not directly from the file system.
-
 </div>
 
 #### Explanation
@@ -136,9 +132,7 @@ Open the QUnit test page, <strong>app/test/test.html</strong>, in another browse
 `idb.open` takes a database name, version number, and optional callback function for performing database updates (not included in the above code). The version number determines whether the upgrade callback function is called. If the version number is greater than the version number of the database existing in the browser, then the upgrade callback is executed.
 
 <div class="note">
-
 <strong>Note: </strong>If at any point in the codelab your database gets into a bad state, you can delete it from the console with the following command: <code>indexedDB.deleteDatabase('couches-n-things');</code>. Note that you can't delete the database while the testing page is open.
-
 </div>
 
 ### 3.2 Create an object store
@@ -146,9 +140,7 @@ Open the QUnit test page, <strong>app/test/test.html</strong>, in another browse
 Let's create an object store in the database to hold the furniture objects.
 
 <div class="note">
-
 <strong>Note:</strong> Close the test page. The database version can't be changed while another page is using the database.
-
 </div>
 
 To complete TODO 3.2 in <strong>main.js</strong>, replace <code>var dbPromise = idb.open('couches-n-things', 1);</code> with the following:
@@ -189,9 +181,7 @@ Inside the callback, we include a switch block that executes its cases based on 
 We have specified the `id` property as the `keyPath` for the object store. Objects added to this store must have an `id` property and the value must be unique.
 
 <div class="note">
-
 <strong>Note:</strong> We are deliberately not including `break` statements in the switch block to ensure all of the cases after the starting case will execute.
-
 </div>
 
 #### For more information
@@ -288,9 +278,7 @@ Reload the test page. The app should now pass the third test that checks whether
 All database operations must be carried out within a  [transaction](https://developer.mozilla.org/en-US/docs/Web/API/IDBTransaction). The transaction rolls back any changes to the database if any of the operations fail. This ensures the database is not left in a partially updated state. 
 
 <div class="note">
-
 <strong>Note:</strong> Specify the transaction mode as <code>readwrite</code> when making changes to the database (that is, using the <code>add</code>, <code>put</code>, or <code>delete</code> methods).
-
 </div>
 
 #### For more information
@@ -311,9 +299,7 @@ All database operations must be carried out within a  [transaction](https://deve
 Create some indexes on your object store.
 
 <div class="note">
-
 <strong>Note:</strong> Close the test page. The database version can't be changed while another page is using the database.
-
 </div>
 
 Replace TODO 4.1 in <strong>main.js</strong> with the following code:
@@ -328,9 +314,7 @@ case 2:
 ```
 
 <div class="note">
-
 <strong>Important:</strong> Remember to change the version number to 3 before you test the code in the browser.
-
 </div>
 
 The full `idb.open` method should look like this:
@@ -361,9 +345,7 @@ var dbPromise = idb.open('couches-n-things', 3, function(upgradeDb) {
 ```
 
 <div class="note">
-
 <strong>Note:</strong> We did not include break statements in the switch block so that all of the latest updates to the database will execute even if the user is one or more versions behind.
-
 </div>
 
 Save the file and reload the page in the browser. Confirm that the `name` index displays in the `products` object store in the developer tools.
@@ -384,15 +366,11 @@ In the example, we create an index on the `name` property, allowing us to search
 To complete TODO 4.2 in <strong>main.js</strong>, write a case 3 to add  and `description` indexes to the object store. Do not include the optional <code>{unique: true}</code> argument since these values do not need to be unique.
 
 <div class="note">
-
 <strong>Note: </strong>Remember to change the version number of the database to 4 before testing the code.
-
 </div>
 
 <div class="note">
-
 <strong>Note:</strong> Remember to close the test page. The database version can't be changed while another page is using the database.
-
 </div>
 
 Save the code and refresh the page in the browser. Confirm that the `price` and `description` indexes display in the `products` object store in the developer tools.
@@ -419,9 +397,7 @@ return dbPromise.then(function(db) {
 Save the code and refresh the page in the browser.
 
 <div class="note">
-
 <strong>Note:</strong> Make sure the items we added to the database in the previous step are still in the database. If the database is empty, click <strong>Add Products</strong> to populate it.
-
 </div>
 
 Enter an item name from step 3.3 into the <strong>By Name</strong> field and click <strong>Search</strong> next to the text box. The corresponding furniture item should display on the page.
@@ -429,9 +405,7 @@ Enter an item name from step 3.3 into the <strong>By Name</strong> field and cli
 Refresh the test page. The app should pass the seventh test, which checks if the `getByName` function returns a database object.
 
 <div class="note">
-
 <strong>Note:</strong> The <code>get</code> method is case sensitive.
-
 </div>
 
 #### Explanation
@@ -523,15 +497,11 @@ Create an object store to hold pending orders.
 To complete TODO 5.1 in <strong>main.js</strong>, write a case 4 that adds an `orders` object store to the database. Make the <code>keyPath</code> the `id` property. This is very similar to creating the `products` object store in <code>case 1</code>.
 
 <div class="note">
-
 <strong>Important:</strong> Remember to change the version number of the database to 5 so the callback executes.
-
 </div>
 
 <div class="note">
-
 <strong>Note:</strong> Remember to close the test page. The database version can't be changed while another page is using the database.
-
 </div>
 
 Save the code and refresh the page in the browser. Confirm that the object store displays in the developer tools.
@@ -543,9 +513,7 @@ Open the test page. Your app should pass the eighth test which tests if the `ord
 To complete TODO 5.2 in <strong>main.js</strong>, add the following items to the `orders` object store.
 
 <div class="note">
-
 <strong>Note:</strong> You'll need to write the code to actually add the items.
-
 </div>
 
 #### main.js
@@ -597,9 +565,7 @@ Save the code and refresh the page in the browser. Click <strong>Show Orders</st
 To complete TODO 5.4 in the <code>getOrders</code> function in <strong>main.js</strong>, write the code to get all objects from the `orders` object store. You must use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/getAll">getAll() method</a> on the object store. This returns an array containing all the objects in the store, which is then passed to the <code>processOrders</code> function in <code>.then</code>.
 
 <div class="note">
-
 <strong>Hint:</strong> Return the call to <code>dbPromise</code> otherwise the orders array will not be passed to the <code>processOrders</code> function.
-
 </div>
 
 Refresh the test page. Your app should now pass the tenth test, which checks if the `getOrders` function gets objects from the `orders` object store.

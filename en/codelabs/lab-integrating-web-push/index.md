@@ -78,9 +78,7 @@ Then install web-push globally so we can use it from the command line:
 Open your browser and navigate <strong>localhost:8080/push-notification-lab/app/</strong>.
 
 <div class="note">
-
 <strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
-
 </div>
 
 If you have a text editor that lets you open a project, open the <strong>push-notification-lab/app</strong> folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong> folder is where you will be building the lab. 
@@ -122,9 +120,7 @@ if (!('Notification' in window)) {
 ```
 
 <div class="note">
-
 <strong>Note: </strong>In a practical application we would perform some logic to compensate for lack of support, but for our purposes we can log an error and return.
-
 </div>
 
 ### 2.2 Request permission
@@ -260,9 +256,7 @@ Save the code and [update the service worker](tools_for_pwa_developers.md#update
 This code gets the notification object from the event and then gets the data from it. This data can be anything we like. In this case, we get the value of the `primaryKey` property.
 
 <div class="note">
-
 <strong>Tip:</strong>  The <code>notificationclose</code> event is a great place to add Google analytics to see how often users are closing our notifications. You can learn more about this in the <a href="lab_integrating_analytics.md">Google Analytics codelab</a>.
-
 </div>
 
 ### 2.7 Handle the notificationclick event
@@ -324,9 +318,7 @@ self.addEventListener('notificationclick', function(e) {
 Save the code and [update the service worker](tools_for_pwa_developers.md#update) in the browser. Click <strong>Notify me!</strong> to create a new notification. Try clicking the actions.
 
 <div class="note">
-
 <strong>Note: </strong>Notice we check for the "close" action first and handle the "explore" action in an `else` block. This is a best practice as not every platform supports action buttons, and not every platform displays all your actions. Handling actions in this way provides a default experience that works everywhere.
-
 </div>
 
 #### Solution code
@@ -382,9 +374,7 @@ self.addEventListener('push', function(e) {
 Save the code and [update the service worker](tools_for_pwa_developers.md#update). Try [sending a push message](tools_for_pwa_developers.md#push) from the browser to your service worker. A notification should appear on your screen.
 
 <div class="note">
-
 <strong>Note:</strong> Push notifications are currently only supported in Chrome and Firefox. See the entry for "push" on <a href="http://caniuse.com/#search=push">caniuse.com [</a>](http://caniuse.com/#search=push) for the latest browser support status.
-
 </div>
 
 #### Explanation
@@ -400,15 +390,11 @@ This event handler displays a notification similar to the ones we've seen before
 To subscribe to the push service in Chrome, we need to create a project on Firebase.
 
 <div class="note">
-
 If you are using Firefox, you can skip this step and continue to step 3.3.
-
 </div>
 
 <div class="note">
-
 <strong>Note:</strong> Recent changes to Firebase Cloud Messaging let developers avoid creating a Firebase account if the VAPID protocol is used. See the <a href="#vapid">section on VAPID</a> for more information.
-
 </div>
 
 1. In the  [Firebase console](https://console.firebase.google.com/), select <strong>Create New Project</strong>.
@@ -432,9 +418,7 @@ Replace `YOUR_SENDER_ID`  in the code below with the Sender ID of your project o
 Chrome uses Firebase Cloud Messaging (FCM) to route its push messages. All push messages are sent to FCM, and then FCM passes them to the correct client.
 
 <div class="note">
-
 <strong>Note:</strong> FCM has replaced Google Cloud Messaging (GCM). Some of the code to push messages to Chrome still contains references to GCM. These references are correct and work for both GCM and FCM.
-
 </div>
 
 ### 3.3 Get the subscription object
@@ -525,9 +509,7 @@ Here we subscribe to the `pushManager`.  In production, we would then update the
 The `.catch` handles the case in which the user has denied permission for notifications. We might then update our app with some logic to send messages to the user in some other way.
 
 <div class="note">
-
 <strong>Note:</strong> We are setting the <code>userVisibleOnly</code> option to <code>true</code> in the subscribe method. By setting this to <code>true</code>, we ensure that every incoming message has a matching notification. The default setting is <code>false</code>. Setting this option to <code>true</code> is required in Chrome.
-
 </div>
 
 #### For more information
@@ -575,9 +557,7 @@ Here we unsubscribe from the push service and then "update the server" with a `n
 Let's use cURL to test pushing a message to our app. 
 
 <div class="note">
-
 <strong>Note: </strong>Windows machines do not come with cURL preinstalled. If you are using Windows, you can skip this step.
-
 </div>
 
 In the browser, click <strong>Enable Push Messaging</strong> and copy the endpoint URL. Replace `ENDPOINT_URL` in the cURL command below with this endpoint URL.
@@ -585,9 +565,7 @@ In the browser, click <strong>Enable Push Messaging</strong> and copy the endpoi
 If you are using Chrome, replace `SERVER_KEY` in the Authorization header with the server key you saved earlier.
 
 <div class="note">
-
 <strong>Note: </strong>The Firebase Cloud Messaging server key can be found in your project on <a href="https://console.firebase.google.com/">Firebase</a> by clicking the Settings icon in the Navigation panel, clicking <strong>Project settings</strong> and then opening the <strong>Cloud messaging</strong> tab.
-
 </div>
 
 Paste the following cURL command (with your values substituted into the appropriate places) into a command window and execute:
@@ -603,9 +581,7 @@ curl "https://android.googleapis.com/gcm/send/fYFVeJQJ2CY:APA91bGrFGRmy-sY6NaF8a
 You can send a message to Firefox's push service by opening the app in Firefox, getting the endpoint URL, and executing the same cURL without the <code>Authorization</code> header.
 
 <div class="note">
-
 <strong>Note: </strong>Remember to <a href="tools_for_pwa_developers.md#firefoxunregister">unregister the previous service worker</a> at localhost if it exists.
-
 </div>
 
     curl "ENDPOINT_URL" --request POST --header "TTL: 60" --header "Content-Length: 0"
@@ -687,7 +663,6 @@ If you are working in Chrome, replace `YOUR_SERVER_KEY` in the `options` object 
 <div class='note'>
 
 If you are working in Firefox, you can delete the `gcmAPIKey` option.
-
 </div>
 
 #### node/main.js
@@ -766,9 +741,7 @@ This generates a public/private key pair. The output should look like this:
 Copy your keys and save them somewhere safe. Use these keys for all future messages you send.
 
 <div class="note">
-
 <strong>Note:</strong> The keys are URL Safe Base64 encoded strings.
-
 </div>
 
 ### 4.2 Subscribe with the public key
@@ -829,9 +802,7 @@ var vapidPrivateKey = 'YOUR_VAPID_PRIVATE_KEY';
 Next, replace TODO 4.3b in the <code>options</code> object with the following code containing the required details for the request signing:
 
 <div class="note">
-
 <strong>Note:</strong> You'll need to replace <code>YOUR_EMAIL_ADDRESS</code> in the <code>subject</code> property with your actual email.
-
 </div>
 
 #### node/main.js
@@ -857,9 +828,7 @@ Save the file. Enter the following command in a command window at the working di
 A push notification should pop up on the screen. It may take a few seconds to appear.
 
 <div class="note">
-
 <strong>Note:</strong> The notification may not surface if you're in full screen mode.
-
 </div>
 
 #### Explanation
@@ -870,7 +839,7 @@ The web-push library makes using VAPID relatively simple, but the process is act
 
 #### For more information
 
-*  [Web Push Interoperability Wins](/web/updates/2016/07/web-push-interop-wins)
+*  [Web Push Interoperability Wins](https://developers.google.com/web/updates/2016/07/web-push-interop-wins)
 *  [Using VAPID](https://blog.mozilla.org/services/2016/04/04/using-vapid-with-webpush/)
 
 #### Solution code
@@ -971,15 +940,11 @@ Comment out the `tag` attribute in the `displayNotification` function in <strong
 Save the code, open the app again, and [update the service worker](tools_for_pwa_developers.md#update). Click <strong>Notify me!</strong> a few times to display multiple notifications. If you click "Close the notification" on one notification they should all disappear. 
 
 <div class="note">
-
 <strong>Note: </strong>If you don't want to clear out all of the notifications, you can filter based on the <code>tag</code> attribute by passing the tag into the <code>getNotifications</code> function. See the <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/getNotifications">getNotifications reference on MDN</a> for more information.
-
 </div>
 
 <div class="note">
-
 <strong>Note:</strong> You can also filter out the notifications directly inside the promise returned from <code>getNotifications</code>. For example there might be some custom data attached to the notification that you would use as your filter criteria.
-
 </div>
 
 #### Explanation
@@ -1019,9 +984,7 @@ e.waitUntil(
 Save the code and [update the service worker](tools_for_pwa_developers.md#update) in the browser. Click <strong>Notify me! </strong>to create a new notification. Try clicking on a notification once with your app open and focused, and once with a different tab open.
 
 <div class="note">
-
 <strong>Note:</strong> The <code>clients.openWindow</code> method can only open a window when called as the result of a <code>notificationclick</code> event. Therefore, we need to wrap the method in a <code>waitUntil</code>, so that the event does not complete before <code>openWindow</code> is called. Otherwise, the browser throws an error.
-
 </div>
 
 #### Explanation
@@ -1058,8 +1021,8 @@ In this lab we have learned how to create notifications and configure them so th
 
 #### Introduction to push notifications
 
-*  [Enable Push Notifications for your Web App](/web/fundamentals/getting-started/push-notifications/)
-*  [Web Push Notifications: Timely, Relevant, and Precise](/web/fundamentals/engage-and-retain/push-notifications/)
+*  [Enable Push Notifications for your Web App](https://developers.google.com/web/fundamentals/getting-started/push-notifications/)
+*  [Web Push Notifications: Timely, Relevant, and Precise](https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/)
 
 #### Demos
 
@@ -1072,7 +1035,7 @@ In this lab we have learned how to create notifications and configure them so th
 
 #### Learn about encryption
 
-*  [Web Push Payload Encryption](/web/updates/2016/03/web-push-encryption)
+*  [Web Push Payload Encryption](https://developers.google.com/web/updates/2016/03/web-push-encryption)
 *  [Web Push: Data Encryption Test Page](https://jrconlin.github.io/WebPushDataTestPage/)
 
 #### Learn about Firebase Cloud Messaging

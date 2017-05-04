@@ -65,9 +65,7 @@ If you have not downloaded the repository, installed Node, and started a local s
 Open your browser and navigate to <strong>localhost:8080/promises-lab/app</strong>.
 
 <div class="note">
-
 <strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
-
 </div>
 
 If you have a text editor that lets you open a project, open the <strong>promises-lab/app</strong> folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong> folder is where you will be building the lab.
@@ -87,7 +85,7 @@ This folder contains:
 
 
 
-This step uses  [Promises](/web/fundamentals/getting-started/primers/promises) to handle asynchronous code in JavaScript.
+This step uses  [Promises](https://developers.google.com/web/fundamentals/getting-started/primers/promises) to handle asynchronous code in JavaScript.
 
 ### 2.1 Create a promise
 
@@ -119,14 +117,12 @@ Enter "Spain" into the app's <strong>Country Name</strong> field. Then, click <s
 Now enter "Hello World" into the <strong>Country Name</strong> field and click <strong>Get Image Name</strong>. You should see another Promise object logged in the console, followed by an error.
 
 <div class="note">
-
 <strong>Note: </strong>Navigate to <strong>app/test/test.html</strong> in the browser to check your function implementations. Functions that are incorrectly implemented or unimplemented show red errors. Be sure to open the test page using the localhost address so that it opens from the server and not directly from the file system.
-
 </div>
 
 #### Explanation
 
-The `getImageName` function creates a  [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). A promise represents a value that might be available now, in the future, or never. In effect, a promise lets an asynchronous function such as `getImageName` (the `setTimeout` method is used to make `getImageName` asynchronous) return a value much like a synchronous function. Rather than returning the final value (in this case, "Spain.png"), `getImageName` returns a promise of a future value (this is what you see in the console log). Promise construction typically looks like  [this example at developers.google.com](/web/fundamentals/getting-started/primers/promises#promises_arrive_in_javascript):
+The `getImageName` function creates a  [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). A promise represents a value that might be available now, in the future, or never. In effect, a promise lets an asynchronous function such as `getImageName` (the `setTimeout` method is used to make `getImageName` asynchronous) return a value much like a synchronous function. Rather than returning the final value (in this case, "Spain.png"), `getImageName` returns a promise of a future value (this is what you see in the console log). Promise construction typically looks like  [this example at developers.google.com](https://developers.google.com/web/fundamentals/getting-started/primers/promises#promises_arrive_in_javascript):
 
 #### main.js
 
@@ -176,9 +172,7 @@ The `flagChain` function returns the result of `getImageName`, which is a promis
 If the first function is called, then it is implicitly passed the resolved promise value. If the second function is called, then it is implicitly passed the rejection error.   
 
 <div class="note">
-
 <strong>Note:</strong> We used named functions inside <code>then</code> as good practice, but we could use <a href="https://en.wikibooks.org/wiki/JavaScript/Anonymous_functions">anonymous functions</a> as well.
-
 </div>
 
 ### 2.3 Use catch for error handling
@@ -218,7 +212,7 @@ The difference is subtle, but extremely useful. Promise rejections skip forward 
 #### For more information
 
 *  [Promise object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-*  [Promises introduction](/web/fundamentals/getting-started/primers/promises)
+*  [Promises introduction](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
 *  [Resolve](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve)
 *  [Reject](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject)
 *  [Then](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then)
@@ -276,9 +270,7 @@ The `flagChain` function does not add a flag to the page if an invalid country i
 Add a `catch` to the promise chain that uses the `fallbackName` function to supply a fallback image file name to the `fetchFlag` function if an invalid country is supplied to `flagChain`. To verify this was added correctly, navigate to <strong>app/test/test.html</strong> and check the `flagChain` test.
 
 <div class="note">
-
 <strong>Note:</strong> This test is asynchronous and may take a few moments to complete.
-
 </div>
 
 Save the script and refresh the page. Enter "Hello World" in the <strong>Country Name</strong> field and click <strong>Flag Chain</strong>. Now the Chilean flag should display even though an invalid input was passed to `flagChain`.
@@ -328,9 +320,7 @@ allFlags(promises).then(function(result) {
 Save the script and refresh the page. The console should log each promise object and show `["spain.png", "chile.png", "peru.png"]`. 
 
 <div class="note">
-
 <strong>Note: </strong>In this example we are using an <a href="https://en.wikibooks.org/wiki/JavaScript/Anonymous_functions">anonymous function</a> inside the <code>then</code> call. This is not related to <code>Promise.all</code>.
-
 </div>
 
 Change one of the inputs in the `getImageName` calls inside the `promises` variable to "Hello World". Save the script and refresh the page. Now the console should log `false`.
@@ -340,15 +330,11 @@ Change one of the inputs in the `getImageName` calls inside the `promises` varia
 `Promise.all` returns a promise that resolves if all of the promises passed into it resolve. If any of the passed-in promises reject, then `Promise.all` rejects with the reason of the first promise that was rejected. This is very useful for ensuring that a group of asynchronous actions complete (such as multiple images loading) before proceeding to another step. 
 
 <div class="note">
-
 <strong>Note: </strong><code>Promise.all</code> would not work if the promises passed in were from <code>flagChain</code> calls because <code>flagChain</code> uses <code>catch</code> to ensure that the returned promise always resolves.
-
 </div>
 
 <div class="note">
-
 <strong>Note:</strong> Even if an input promise rejects, causing <code>Promise.all</code> to reject, the remaining input promises still settle. In other words, the remaining promises still execute, they simply are not returned by <code>Promise.all</code>.
-
 </div>
 
 #### For more information
@@ -388,9 +374,7 @@ Change `promise2` to reject instead of resolve. Save the script and refresh the 
 In this example, if `promise2` resolves before `promise1` settles, the `then` block executes and logs the value of the `promise2`. If `promise2` rejects before `promise1` settles, the `catch` block executes and logs the reason for the `promise2` rejection.
 
 <div class="note">
-
 <strong>Note:</strong> Because <code>Promise.race</code> rejects immediately if one of the supplied promises rejects (even if another supplied promise resolves later) <code>Promise.race</code> by itself can't be used to reliably return the first promise that resolves. See the <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_promises.html#race">concepts section</a> for more details. 
-
 </div>
 
 #### For more information
@@ -413,7 +397,7 @@ You have learned the basics of JavaScript Promises!
 
 ### Resources
 
-*  [Promises introduction](/web/fundamentals/getting-started/primers/promises)
+*  [Promises introduction](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
 *  [Promise - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 

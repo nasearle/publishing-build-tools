@@ -65,9 +65,7 @@ This lab shows you how you can automate tasks with  [gulp](https://github.com/gu
 If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in [Setting up the labs](setting_up_the_labs.md).
 
 <div class="note">
-
 <strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
-
 </div>
 
 If you have a text editor that lets you open a project, open the <strong>gulp-lab/app</strong> folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong> folder is where you will be building the lab. 
@@ -119,9 +117,7 @@ From the same directory, run the following in the command line:
 Note that a <strong>node_modules</strong> directory has been added to the project with various packages. Also note that <strong>package.json</strong> now lists "gulp" as a dependency. 
 
 <div class="note">
-
 <strong>Note:</strong> Some text editors hide files and directories that are listed in the <strong>.gitignore</strong> file. Both <strong>node_modules</strong> and <strong>build</strong> are in our <strong>.gitignore</strong>. If you have trouble viewing these during the lab, just delete the <strong>.gitignore</strong> file.
-
 </div>
 
 In <strong>gulpfile.js</strong>, replace the TODO 3 comment with the following:
@@ -211,9 +207,7 @@ Open <strong>app/styles/main.css</strong> and <strong>app/build/main.css</strong
 <strong>Optional</strong>: Read the  [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) documentation and incorporate  [sourcemap](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/) generation in the `processCSS` task (not in a new task). 
 
 <div class="note">
-
 <strong>Hint:</strong> The <a href="https://www.npmjs.com/package/gulp-autoprefixer">gulp-autoprefixer</a> documentation has a useful example. Test by rerunning the <code>processCSS</code> task, and noting the sourcemap comment in the <strong>app/build/main.css</strong> file.
-
 </div>
 
 <a id="6" />
@@ -269,9 +263,7 @@ Add a comment to <strong>app/styles/main.css</strong> and save the file. Open <s
 TODO: Now update the <code>watch</code> task in <strong>gulpfile.js</strong> to watch <strong>app/js/main.js</strong> and run the <code>minify</code> task anytime the file changes. Test by editing the value of the variable <code>future</code> in <strong>app/js/main.js</strong> and noting the real-time change in <strong>app/build/main.js</strong>. Don't forget to save the file and rerun the <code>watch</code> task. 
 
 <div class="note">
-
 <strong>Note:</strong> The watch task continues to execute once initiated. You need to restart the task in the command line whenever you make changes to the task. If there is an error in a file being watched, the watch task terminates, and must be restarted. To stop the task, use <strong>Ctrl+c</strong> in the command line or close the command line window.
-
 </div>
 
 #### Explanation

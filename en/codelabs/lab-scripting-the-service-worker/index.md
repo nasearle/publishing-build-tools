@@ -41,7 +41,7 @@ This lab walks you through creating a simple service worker.
 #### What you should know
 
 * Basic JavaScript and HTML
-* Concepts and basic syntax of ES2015  [Promises](/web/fundamentals/getting-started/primers/promises) 
+* Concepts and basic syntax of ES2015  [Promises](https://developers.google.com/web/fundamentals/getting-started/primers/promises) 
 * Concept of an  [Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) (IIFE)
 * How to enable the developer console
 
@@ -65,9 +65,7 @@ If you have not downloaded the repository, installed Node, and started a local s
 Open your browser and navigate to <strong>localhost:8080/service-worker-lab/app</strong>.
 
 <div class="note">
-
 <strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
-
 </div>
 
 If you have a text editor that lets you open a project, open the <strong>service-worker/app</strong> folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong> folder is where you will be building the lab.
@@ -92,9 +90,7 @@ This folder contains:
 Open <strong>service-worker.js</strong> in your text editor. Note that the file contains only an empty function. We have not added any code to run within the service worker yet. 
 
 <div class="note">
-
 <strong>Note:</strong> We are using an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately Invoked Function Expression</a> inside the service worker. This is just a best practice for avoiding namespace pollution; it is not related to the Service Worker API. 
-
 </div>
 
 Open <strong>index.html</strong> in your text editor. 
@@ -122,9 +118,7 @@ Save the script and refresh the page. The <a href="tools_for_pwa_developers.md#c
 In your browser, navigate to <strong>test-registered.html</strong> (<strong>app/test/test-registered.html</strong>) to confirm that you have registered the service worker. This is a unit test. Passed tests are blue and failed tests are red. If you've done everything correctly so far, this test should be blue. Close the test page when you are done with it.
 
 <div class="note">
-
 <strong>Note:</strong> Be sure to open the test page using the localhost address so that it opens from the server and not directly from the file system.
-
 </div>
 
 <strong>Optional</strong>: Open the site on an  [unsupported browser](https://jakearchibald.github.io/isserviceworkerready/) and verify that the support check conditional works. 
@@ -167,15 +161,11 @@ self.addEventListener('activate', function(event) {
 Save the file. Close <strong>app/test/test-registered.html</strong> page if you have not already. Manually <a href="tools_for_pwa_developers.md#unregister">unregister the service worker</a> and refresh the page to install and activate the updated service worker. The console log should indicate that the new service worker was registered, installed, and activated. 
 
 <div class="note">
-
 <strong>Note:</strong> All pages associated with the service worker must be closed before an updated service worker can take over.
-
 </div>
 
 <div class="note">
-
 <strong>Note: </strong>The registration log may appear out of order with the other logs (installation and activation). The service worker runs concurrently with the page, so we can't guarantee the order of the logs (the registration log comes from the page, while the installation and activation logs come from the service worker). Installation, activation, and other service worker events occur in a defined order inside the service worker, however, and should always appear in the expected order.
-
 </div>
 
 #### Explanation
@@ -189,15 +179,11 @@ The service worker emits an `activate` event when it takes control of the page. 
 Only one service worker can be active at a time for a given scope (see  [Exploring service worker scope](#explore-scope)), so a newly installed service worker isn't activated until the existing service worker is no longer in use. This is why all pages controlled by a service worker must be closed before a new service worker can take over. Since we unregistered the existing service worker, the new service worker was activated immediately.
 
 <div class="note">
-
 <strong>Note: </strong>Simply refreshing the page is not sufficient to transfer control to a new service worker, because the new page will be requested before the the current page is unloaded, and there won't be a time when the old service worker is not in use.
-
 </div>
 
 <div class="note">
-
 <strong>Note:</strong> You can also manually activate a new service worker using some browsers' <a href="tools_for_pwa_developers.md#accesssw">developer tools</a> and programmatically with <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting"><code>skipWaiting()</code></a>, which we discuss in section 3.4. 
-
 </div>
 
 ### 3.2 Re-register the existing service worker
@@ -227,9 +213,7 @@ Navigate to <strong>test-waiting.html</strong> (<strong>app/test/test-waiting.ht
 Close all pages associated with the service worker (including the <strong>app/test/test-waiting.html</strong> page). Reopen the <strong>app/</strong> page. The console log should indicate that the new service worker has now activated. 
 
 <div class="note">
-
 <strong>Note:</strong> If you are getting unexpected results, make sure your <a href="tools_for_pwa_developers.md#disablehttpcache">HTTP cache is disabled</a> in developer tools.
-
 </div>
 
 #### Explanation
@@ -252,11 +236,11 @@ Save the file and refresh the page. Notice that the new service worker installs 
 
 #### Explanation
 
-The `skipWaiting()` method allows a service worker to activate as soon as it finishes installation. The install event listener is a common place to put the `skipWaiting()` call, but it can be called anywhere during or before the waiting phase. See  [this documentation](/web/fundamentals/instant-and-offline/service-worker/lifecycle#skip_the_waiting_phase) for more on when and how to use `skipWaiting()`. For the rest of the lab, we can now test new service worker code without manually unregistering the service worker.
+The `skipWaiting()` method allows a service worker to activate as soon as it finishes installation. The install event listener is a common place to put the `skipWaiting()` call, but it can be called anywhere during or before the waiting phase. See  [this documentation](https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/lifecycle#skip_the_waiting_phase) for more on when and how to use `skipWaiting()`. For the rest of the lab, we can now test new service worker code without manually unregistering the service worker.
 
 #### For more information
 
-*  [Service worker lifecycle](/web/fundamentals/instant-and-offline/service-worker/lifecycle)
+*  [Service worker lifecycle](https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/lifecycle)
 
 <a id="intercept-requests"/>
 
@@ -287,9 +271,7 @@ Click the links to <strong>Other page</strong>, <strong>Another page</strong>, a
 You'll see fetch events in the console for each of the pages and their assets. Do all the logs make sense? 
 
 <div class="note">
-
 <strong>Note:</strong> If you visit a page and do not have the HTTP cache disabled, CSS and JavaScript assets may be cached locally. If this occurs you will not see fetch events for these resources.
-
 </div>
 
 #### Explanation
@@ -302,7 +284,7 @@ Why didn't any fetch events log on the first refresh? By default, fetch events f
 
 *  [Fetch Event - MDN](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent)
 *  [Using Fetch - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
-*  [Introduction to Fetch - Google Developer](/web/updates/2015/03/introduction-to-fetch)
+*  [Introduction to Fetch - Google Developer](https://developers.google.com/web/updates/2015/03/introduction-to-fetch)
 
 #### Solution code
 
@@ -385,9 +367,7 @@ navigator.serviceWorker.register('/service-worker.js', {
 In the above example the scope of the service worker is set to <strong>/kitten/</strong>. The service worker intercepts requests from pages in <strong>/kitten/</strong> and <strong>/kitten/lower/</strong> but not from pages like <strong>/kitten</strong> or <strong>/</strong>. 
 
 <div class="note">
-
 <strong>Note:</strong> You cannot set an arbitrary scope that is above the service worker's actual location.
-
 </div>
 
 #### For more information

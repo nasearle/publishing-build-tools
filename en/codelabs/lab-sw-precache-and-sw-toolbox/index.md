@@ -71,9 +71,7 @@ If you have not downloaded the repository, installed Node, and started a local s
 Open your browser and navigate to <strong>localhost:8080/sw-precache-lab/app</strong>.
 
 <div class="note">
-
 <strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
-
 </div>
 
 If you have a text editor that lets you open a project, open the <strong>sw-precache-lab/app</strong> folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong> folder is where you will be building the lab. 
@@ -257,14 +255,12 @@ Save the code and [unregister the service worker](tools_for_pwa_developers.md#un
 
 This code sets up several  [routes](https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-usage) that serve specific URLs, file types, and origins.
 
-Route #1 creates a new cache called `googleapis` and stores up to 20 items (the `maxEntries` value) originating from any domain that matches the origin (any URL that ends with <strong>googleapis.com</strong>). The route uses the  [cache-first](/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) strategy to access resources. It first checks if the cache contains the resource. If that fails, it sends the request to the network and caches the response.
+Route #1 creates a new cache called `googleapis` and stores up to 20 items (the `maxEntries` value) originating from any domain that matches the origin (any URL that ends with <strong>googleapis.com</strong>). The route uses the  [cache-first](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) strategy to access resources. It first checks if the cache contains the resource. If that fails, it sends the request to the network and caches the response.
 
 Route #2 also uses the cache-first strategy. It matches all the files ending in <strong>png</strong>, <strong>gif</strong>, or <strong>jpg</strong> (image files) using a regular expression and stores them in the `images-cache` cache with a limit of 50 items in the cache. If a new item is added to a full cache, then the oldest is deleted to make space. 
 
 <div class="note">
-
 <strong>Note:</strong> You can add <code>toolbox.options.debug = true;</code> to the script for more verbose console logs.
-
 </div>
 
 #### For more information
@@ -360,7 +356,7 @@ You have learned how to use `sw-precache` and `sw-toolbox` to build a service wo
 *  [sw-precache - npm](https://www.npmjs.com/package/sw-precache)
 *  [sw-toolbox - Github](https://github.com/GoogleChrome/sw-toolbox)
 *  [sw-toolbox Usage Tutorial](https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-usage)
-*  [Offline-first, fast, with the sw-precache module](/web/updates/2015/02/offline-first-with-sw-precache)
+*  [Offline-first, fast, with the sw-precache module](https://developers.google.com/web/updates/2015/02/offline-first-with-sw-precache)
 *  [Instant Loading Web Apps With A Service Worker Application Shell Architecture](https://addyosmani.com/blog/application-shell/)
 *  [Service Worker Toolbox](https://github.com/GoogleChrome/sw-toolbox/blob/master/README.md)
 

@@ -60,9 +60,7 @@ This lab walks you through using the  [Fetch API](https://developer.mozilla.org/
 *  [Node](https://nodejs.org/en/) and  [npm](https://www.npmjs.com/)
 
 <div class="note">
-
 <strong>Note: </strong>Although the Fetch API is <a href="http://caniuse.com/#feat=fetch">not currently supported in all browsers</a>, there is a <a href="https://github.com/github/fetch">polyfill</a> (but see the readme for important caveats). 
-
 </div>
 
 <a id="1" />
@@ -78,9 +76,7 @@ If you have not downloaded the repository, installed Node, and started a local s
 Open your browser and navigate to <strong>localhost:8080/fetch-api-lab/app</strong>.
 
 <div class="note">
-
 <strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
-
 </div>
 
 If you have a text editor that lets you open a project, open the <strong>fetch-api-lab/app</strong> folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong> folder is where you will be building the lab.
@@ -130,9 +126,7 @@ fetch('examples/animals.json')
 Save the script and refresh the page. Click <strong>Fetch JSON</strong>. The console should log the fetch response. 
 
 <div class="note">
-
 <strong>Note:</strong> We are using the <a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript">JavaScript module pattern</a> in this file. This is just to help keep the code clean and allow for easy testing. It is not related to the Fetch API.
-
 </div>
 
 <strong>Optional</strong>: Open the site on an  [unsupported browser](http://caniuse.com/#search=fetch) and verify that the support check conditional works. 
@@ -184,9 +178,7 @@ Complete the function called `validateResponse` in TODO 2.3. The function should
 You can confirm that you have written the function correctly by navigating to <strong>app/test/test.html</strong>. This page runs tests on some of the functions you write. If there are errors with your implementation of a function (or you haven't implemented them yet), the test displays in red. Passed tests display in blue. Refresh the <strong>test.html</strong> page to retest your functions.
 
 <div class="note">
-
 <strong>Note:</strong> Be sure to open the test page using the localhost address so that it opens from the server and not directly from the file system.
-
 </div>
 
 Once you have successfully written the function, replace `fetchJSON` with the following code:
@@ -202,7 +194,7 @@ function fetchJSON() {
 }
 ```
 
-This is  [promise chaining](/web/fundamentals/getting-started/primers/promises#chaining).
+This is  [promise chaining](https://developers.google.com/web/fundamentals/getting-started/primers/promises#chaining).
 
 Save the script and refresh the page. Click <strong>Fetch JSON</strong>. Now the response for <strong>examples/non-existent.json</strong> should trigger the `catch` block, unlike in section 2.2. Check the console to confirm this.
 
@@ -273,7 +265,7 @@ Step 4. Finally, the JSON data from the original request to <strong>examples/ani
 
 *  [Response.json()](https://developer.mozilla.org/en-US/docs/Web/API/Body/json)
 *  [Response methods](https://developer.mozilla.org/en-US/docs/Web/API/Response#Methods)
-*  [Promise chaining](/web/fundamentals/getting-started/primers/promises#chaining)
+*  [Promise chaining](https://developers.google.com/web/fundamentals/getting-started/primers/promises#chaining)
 
 #### Solution code
 
@@ -306,9 +298,7 @@ function showImage(responseAsBlob) {
 To complete TODO 3b, finish writing the `readResponseAsBlob` function. The function should accept a response object as input. The function should return a promise that resolves to a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">Blob</a>. 
 
 <div class="note">
-
 <strong>Note:</strong> This function will be very similar to `readResponseAsJSON`. Check out the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/blob">`blob()`</a> method documentation).
-
 </div>
 
 (You can check that you have done this correctly by navigating to <strong>app/test/test.html</strong>.)
@@ -334,9 +324,7 @@ Save the script and refresh the page. Click <strong>Fetch image.</strong> You sh
 In this example an image is being fetched, <strong>examples/kitten.jpg</strong>. Just like in the previous exercise, the response is validated with `validateResponse`. The response is then read as a  [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) (instead of JSON as in section 2). An image element is created and appended to the page, and the image's `src` attribute is set to a data URL representing the Blob.
 
 <div class="note">
-
 <strong>Note:</strong> The <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL">URL object's</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL">createObjectURL() method</a> is used to generate a data URL representing the Blob. This is important to note. You cannot set an image's source directly to a Blob. The Blob must be converted into a data URL.
-
 </div>
 
 #### For more information
@@ -373,9 +361,7 @@ function showText(responseAsText) {
 To complete TODO 4b, finish writing the `readResponseAsText` function.. This function should accept a response object as input. The function should return a promise that resolves to text. 
 
 <div class="note">
-
 <strong>Note:</strong> This function will be very similar to `readResponseAsJSON` and `readResponseAsBlob`. Check out the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/text">`text()`</a> method documentation).
-
 </div>
 
 (You can check that you have done this correctly by navigating to <strong>app/test/test.html</strong>.)
@@ -399,9 +385,7 @@ Save the script and refresh the page. Click <strong>Fetch text</strong>. You sho
 In this example a text file is being fetched, <strong>examples/words.txt</strong>. Like the previous two exercises, the response is validated with `validateResponse`. Then the response is read as text, and appended to the page.
 
 <div class="note">
-
 <strong>Note: </strong>While it may be tempting to fetch HTML and append it using the `innerHTML` attribute, be careful. This can expose your site to <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">cross-site scripting attacks</a>!
-
 </div>
 
 #### For more information
@@ -413,9 +397,7 @@ In this example a text file is being fetched, <strong>examples/words.txt</strong
 To get a copy of the working code, navigate to the <strong>04-fetching-text</strong> folder.
 
 <div class="note">
-
 <strong>Note: </strong>Note that the methods used in the previous examples are actually methods of <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body">Body</a>, a Fetch API <a href="https://developer.mozilla.org/en-US/docs/Glossary/mixin">mixin</a> that is implemented in the Response object.
-
 </div> 
 
 <a id="5" />
@@ -517,9 +499,7 @@ You can check that you have successfully started the server by navigating to <st
 In this step we install and run a simple server at <strong>localhost:5000/</strong> that echoes back the requests sent to it.
 
 <div class="note">
-
 <strong>Note: </strong>If you need to, you can stop the server by pressing <strong>Ctrl+C</strong> from the command line. 
-
 </div>
 
 ### 6.2 Make a POST request
@@ -549,9 +529,7 @@ Save the script and refresh the page. Click <strong>POST request</strong>. Do yo
 To make a POST request with fetch, we use the `init` parameter to specify the method (similar to how we set the HEAD method in section 5). This is also where we set the <strong>body</strong> of the request. The body is the data we want to send. 
 
 <div class="note">
-
 <strong>Note:</strong> In production, remember to always encrypt any sensitive user data.
-
 </div>
 
 When data is sent as a POST request to <strong>localhost:5000/</strong>, the request is echoed back as the response. The response is then validated with `validateResponse`, read as text, and logged to the console.
@@ -608,9 +586,7 @@ You can check that you have successfully started the server by navigating to <st
 The application we run in this step sets up another simple echo server, this time at <strong>localhost:5001/</strong>. This server, however, is not configured to accept  [cross origin requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS).
 
 <div class="note">
-
 <strong>Note: </strong>You can stop the server by pressing <strong>Ctrl+C</strong> from the command line. 
-
 </div>
 
 ### 7.2 Fetch from the new server
@@ -630,9 +606,7 @@ You should get a response object logged in the console.
 Fetch (and XMLHttpRequest) follow the  [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). This means that browsers restrict cross-origin HTTP requests from within scripts. A cross-origin request occurs when one domain (for example <strong>http://foo.com/</strong>) requests a resource from a separate domain (for example <strong>http://bar.com/</strong>). 
 
 <div class="note">
-
 <strong>Note:</strong> Cross-origin request restrictions are often a point of confusion. Many resources like images, stylesheets, and scripts are fetched across domains (i.e., cross-origin). However, these are exceptions to the same-origin policy. Cross-origin requests are still restricted from  *within scripts* .
-
 </div>
 
 Since our app's server has a different port number than the two echo servers, requests to either of the echo servers are considered cross-origin. The first echo server, however, running on <strong>localhost:5000/</strong>, is configured to support  [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). The new echo server, running on <strong>localhost:5001/</strong>, is not (which is why we get an error). 
@@ -700,7 +674,7 @@ You now know how to use the Fetch API to request resources and post data to serv
 *  [Learn more about the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 *  [Learn more about Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 *  [Learn more about GlobalFetch.fetch()](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch)
-*  [Get an Introduction to Fetch](/web/updates/2015/03/introduction-to-fetch)
+*  [Get an Introduction to Fetch](https://developers.google.com/web/updates/2015/03/introduction-to-fetch)
 *  [David Walsh's blog on fetch](https://davidwalsh.name/fetch)
 *  [Jake Archibald's blog on fetch](https://jakearchibald.com/2015/thats-so-fetch/)
 

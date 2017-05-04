@@ -35,7 +35,7 @@ This lab shows you how to add offline capabilities to an application using servi
 #### What you should know
 
 * Basic HTML, CSS, and JavaScript
-* Familiarity with ES2015  [Promises](/web/fundamentals/getting-started/primers/promises)
+* Familiarity with ES2015  [Promises](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
 
 #### What you will need
 
@@ -57,9 +57,7 @@ If you have not downloaded the repository, installed Node, and started a local s
 Open your browser and navigate to <strong>localhost:8080/offline-quickstart-lab/app</strong>.
 
 <div class="note">
-
 <strong>Note:</strong> <a href="tools_for_pwa_developers.md#unregister">Unregister</a> any service workers and <a href="tools_for_pwa_developers.md#clearcache">clear all service worker caches</a> for localhost so that they do not interfere with the lab.
-
 </div>
 
 If you have a text editor that lets you open a project, open the <strong>offline-quickstart-lab/app</strong> folder. This will make it easier to stay organized. Otherwise, open the folder in your computer's file system. The <strong>app</strong> folder is where you will be building the lab.
@@ -115,9 +113,7 @@ This code starts by defining a cache name, and a list of URLs to be cached. An i
 Note that <strong>.</strong> is also cached. This represents the current directory, in this case, <strong>app/</strong>. We do this because the browser attempts to fetch <strong>app/</strong> first before fetching <strong>index.html</strong>. When the app is offline, this results in a 404 error if we have not cached <strong>app/</strong>. They should both be cached to be safe.  
 
 <div class="note">
-
 <strong>Note:</strong> Don't worry if you don't understand all of this code; this lab is meant as an overview. The <code>event.waitUntil</code> code can be particularly confusing. This operation simply tells the browser not to preemptively terminate the service worker before the asynchronous operations inside of it have completed.
-
 </div>
 
 ### 2.2 Fetch from the cache
@@ -170,7 +166,6 @@ This code adds a fetch event listener to the service worker. When a resource is 
 <div class=`"`note`"`>
 
 <strong>Note:</strong> We <code>clone</code> the response because the request is a stream that can only be consumed once. Because we want to put it in the cache and serve it to the user, we need to clone a copy. See Jake Archibald's <a href="https://jakearchibald.com/2014/reading-responses/">What happens when you read a response</a> article for a more in-depth explanation.
-
 </div>
 
 ### 2.3 Register the service worker
@@ -206,9 +201,7 @@ Refresh the page again. This fetches all of the page's assets, and the fetch lis
 Stop the server (use `Ctrl+c` if your server is running from the command line) or [switch the browser to offline mode](tools_for_pwa_developers.md#offline) to simulate going offline. Then refresh the page. The page should load normally!
 
 <div class="note">
-
 <strong>Note:</strong> You may see an error when the page tries to fetch the service worker script. This is because the browser attempts to re-fetch the service worker file for every navigation request. If offline, the attempt fails (causing an error log). However, the browser should default to the installed service worker and work as expected.
-
 </div>
 
 #### Explanation
@@ -216,9 +209,7 @@ Stop the server (use `Ctrl+c` if your server is running from the command line) o
 When our app opens for the first time, the service worker is registered, installed, and activated. During installation, the app caches the most critical static assets (the main HTML and CSS). On future loads, each time a resource is requested the service worker intercepts the request, and checks the cache for the resource before going to the network. If the resource isn't in the cache, the service worker fetches it from the network and caches a copy of the response. Since we refreshed the page and fetched all of its assets, everything needed for the app is in the cache and it can now open without the network.
 
 <div class="note">
-
-<strong>Note:</strong> You might be thinking, why didn't we just cache everything on install? Or, why did we cache anything on install, if all fetched resources are cached? This lab is intended as an overview of how you can bring offline functionality to an app. In practice, there are a variety of caching strategies and tools that let you customize your app's offline experience. Check out the <a href="/web/fundamentals/instant-and-offline/offline-cookbook/">Offline Cookbook</a> for more info.
-
+<strong>Note:</strong> You might be thinking, why didn't we just cache everything on install? Or, why did we cache anything on install, if all fetched resources are cached? This lab is intended as an overview of how you can bring offline functionality to an app. In practice, there are a variety of caching strategies and tools that let you customize your app's offline experience. Check out the <a href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/">Offline Cookbook</a> for more info.
 </div>
 
 #### Solution code
