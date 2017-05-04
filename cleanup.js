@@ -73,6 +73,9 @@ function cleanup(sourceFile, destFile, bookPath) {
   // Convert markdown style links to <a> tags, ignoring ![alt](url) image links
   markdown = markdown.replace(/([^\!])\[(.*?)\]\((.*?)\)/g, '$1<a href="$3">$2</a>');
 
+  // Remove empty <strong> tags
+  markdown = markdown.replace(/<strong>\s*<\/strong>/g, ' ');
+
   // Convert markdown inside a set of HTML elements to HTML.
   //   This is required because DevSite's MD parser doesn't handle markdown
   //   inside of HTML. :(
