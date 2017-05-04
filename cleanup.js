@@ -70,8 +70,8 @@ function cleanup(sourceFile, destFile, bookPath) {
   // These two command should stay in order:
   // Remove extra spaces that claat adds before markdown style links
   markdown = markdown.replace(/(\W)[^\S\n](\[.*?\]\(.*?\))/g, '$1$2');
-  // Convert markdown style links to <a> tags
-  markdown = markdown.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
+  // Convert markdown style links to <a> tags, ignoring ![alt](url) image links
+  markdown = markdown.replace(/([^\!])\[(.*?)\]\((.*?)\)/g, '$1<a href="$3">$2</a>');
 
   // Convert markdown inside a set of HTML elements to HTML.
   //   This is required because DevSite's MD parser doesn't handle markdown
