@@ -99,7 +99,7 @@ Replace TODO 2 with the following code:
 
 #### index.html
 
-```
+<code></code>`
 if (!('serviceWorker' in navigator)) {
   console.log('Service worker not supported');
   return;
@@ -111,7 +111,7 @@ navigator.serviceWorker.register('service-worker.js')
 .catch(function(error) {
   console.log('Registration failed:', error);
 });
-```
+<code></code>`
 
 Save the script and refresh the page. The <a href="tools_for_pwa_developers.md#console">console</a> should return a message indicating that the service worker was registered. 
 
@@ -125,9 +125,9 @@ In your browser, navigate to <strong>test-registered.html</strong> (<strong>app/
 
 #### Explanation
 
-Service workers must be registered. Always begin by checking whether the browser supports service workers. The service worker is exposed on the window's  [`Navigator`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator) object and can be accessed with `window.navigator.serviceWorker`. 
+Service workers must be registered. Always begin by checking whether the browser supports service workers. The service worker is exposed on the window's  [<code>Navigator</code>](https://developer.mozilla.org/en-US/docs/Web/API/Navigator) object and can be accessed with <code>window.navigator.serviceWorker</code>. 
 
-In our code, if service workers aren't supported, the script logs a message and fails immediately. Calling `serviceworker.register(...)` registers the service worker, installing the service worker's script. This returns a promise that resolves once the service worker is successfully registered. If the registration fails, the promise will reject.
+In our code, if service workers aren't supported, the script logs a message and fails immediately. Calling <code>serviceworker.register(...)</code> registers the service worker, installing the service worker's script. This returns a promise that resolves once the service worker is successfully registered. If the registration fails, the promise will reject.
 
 <a id="listen-events"/>
 
@@ -147,7 +147,7 @@ Replace TODO 3.1 with the following code:
 
 #### service-worker.js
 
-```
+<code></code>`
 self.addEventListener('install', function(event) {
   console.log('Service worker installing...');
   // TODO 3.4: Skip waiting
@@ -156,7 +156,7 @@ self.addEventListener('install', function(event) {
 self.addEventListener('activate', function(event) {
   console.log('Service worker activating...');
 });
-```
+<code></code>`
 
 Save the file. Close <strong>app/test/test-registered.html</strong> page if you have not already. Manually <a href="tools_for_pwa_developers.md#unregister">unregister the service worker</a> and refresh the page to install and activate the updated service worker. The console log should indicate that the new service worker was registered, installed, and activated. 
 
@@ -170,11 +170,11 @@ Save the file. Close <strong>app/test/test-registered.html</strong> page if you 
 
 #### Explanation
 
-The service worker emits an `install` event at the end of registration. In this case we log a message, but this is a good place for caching static assets. 
+The service worker emits an <code>install</code> event at the end of registration. In this case we log a message, but this is a good place for caching static assets. 
 
 When a service worker is registered, the browser detects if the service worker is new (either because it is different from the previously installed service worker or because there is no registered service worker for this site). If the service worker is new (as it is in this case) then the browser installs it. 
 
-The service worker emits an `activate` event when it takes control of the page. We log a message here, but this event is often used to update caches. 
+The service worker emits an <code>activate</code> event when it takes control of the page. We log a message here, but this event is often used to update caches. 
 
 Only one service worker can be active at a time for a given scope (see  [Exploring service worker scope](#explore-scope)), so a newly installed service worker isn't activated until the existing service worker is no longer in use. This is why all pages controlled by a service worker must be closed before a new service worker can take over. Since we unregistered the existing service worker, the new service worker was activated immediately.
 
@@ -202,9 +202,9 @@ Replace TODO 3.3 in <strong>service-worker.js </strong>with the following commen
 
 #### service-worker.js
 
-```
+<code></code>`
 // I'm a new service worker
-```
+<code></code>`
 
 Save the file and refresh the page. Notice that the new service worker installs but does not activate. 
 
@@ -228,15 +228,15 @@ Replace TODO 3.4 in <strong>service-worker.js</strong> with the following code:
 
 #### service-worker.js
 
-```
+<code></code>`
 self.skipWaiting();
-```
+<code></code>`
 
 Save the file and refresh the page. Notice that the new service worker installs and activates immediately, even though a previous service worker was in control. 
 
 #### Explanation
 
-The `skipWaiting()` method allows a service worker to activate as soon as it finishes installation. The install event listener is a common place to put the `skipWaiting()` call, but it can be called anywhere during or before the waiting phase. See  [this documentation](https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/lifecycle#skip_the_waiting_phase) for more on when and how to use `skipWaiting()`. For the rest of the lab, we can now test new service worker code without manually unregistering the service worker.
+The <code>skipWaiting()</code> method allows a service worker to activate as soon as it finishes installation. The install event listener is a common place to put the <code>skipWaiting()</code> call, but it can be called anywhere during or before the waiting phase. See  [this documentation](https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/lifecycle#skip_the_waiting_phase) for more on when and how to use <code>skipWaiting()</code>. For the rest of the lab, we can now test new service worker code without manually unregistering the service worker.
 
 #### For more information
 
@@ -256,11 +256,11 @@ Replace TODO 4 in <strong>service-worker.js</strong> with:
 
 #### service-worker.js
 
-```
+<code></code>`
 self.addEventListener('fetch', function(event) {
   console.log('Fetching:', event.request.url);
 });
-```
+<code></code>`
 
 Save the script and refresh the page to install and activate the updated service worker. 
 
@@ -306,7 +306,7 @@ Update the registration code in <strong>index.html</strong> with:
 
 #### index.html
 
-```
+<code></code>`
 if (!('serviceWorker' in navigator)) {
   console.log('Service worker not supported');
   return;
@@ -318,13 +318,13 @@ navigator.serviceWorker.register('service-worker.js')
 .catch(function(error) {
   console.log('Registration failed:', error);
 });
-```
+<code></code>`
 
 Refresh the browser. Notice that the console shows the scope of the service worker (for example <strong>http://localhost:8080/service-worker-lab/app/</strong>). 
 
 #### Explanation
 
-The promise returned by `register()` resolves to the  [registration object](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration), which contains the service worker's scope.
+The promise returned by <code>register()</code> resolves to the  [registration object](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration), which contains the service worker's scope.
 
 The default scope is the path to the service worker file, and extends to all lower directories. So a service worker in the root directory of an app controls requests from all files in the app.
 
@@ -346,7 +346,7 @@ The service worker's default scope is the path to the service worker file. Since
 
 Move the service worker back out into the project root directory (<strong>app</strong>) and update the service worker URL in the registration code.
 
-Use the  [reference on MDN](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register) to set the scope of the service worker to the <strong>app/below/</strong> directory using the optional parameter in `register()`. <a href="tools_for_pwa_developers.md#unregister">Unregister the service worker</a> and refresh the page. Click <strong>Other page</strong>, <strong>Another page</strong> and <strong>Back</strong>.
+Use the  [reference on MDN](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register) to set the scope of the service worker to the <strong>app/below/</strong> directory using the optional parameter in <code>register()</code>. <a href="tools_for_pwa_developers.md#unregister">Unregister the service worker</a> and refresh the page. Click <strong>Other page</strong>, <strong>Another page</strong> and <strong>Back</strong>.
 
 Again the console shows that the scope of the service worker is now <strong>localhost:8080/service-worker-lab/app/below</strong>, and logs fetch events only for <strong>another.html</strong>, <strong>another.css</strong>, and <strong>another.js</strong>. 
 
@@ -358,11 +358,11 @@ It is possible to set an arbitrary scope by passing in an additional parameter w
 
 #### index.html
 
-```
+<code></code>`
 navigator.serviceWorker.register('/service-worker.js', {
   scope: '/kitten/'
 });
-```
+<code></code>`
 
 In the above example the scope of the service worker is set to <strong>/kitten/</strong>. The service worker intercepts requests from pages in <strong>/kitten/</strong> and <strong>/kitten/lower/</strong> but not from pages like <strong>/kitten</strong> or <strong>/</strong>. 
 

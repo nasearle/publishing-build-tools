@@ -37,8 +37,8 @@ This lab shows you how to make images on your web page look good on all devices.
 #### What you will learn
 
 * How to make your images responsive so that they are sized appropriately for multiple form factors
-* How to use `srcset` and `sizes` to display the right image for the viewport width
-* How to use <code>&lt;picture&gt;</code> and `source` in combination with media queries so that images on the page automatically respond as the window is resized
+* How to use <code>srcset</code> and <code>sizes</code> to display the right image for the viewport width
+* How to use <code>&lt;picture&gt;</code> and <code>source</code> in combination with media queries so that images on the page automatically respond as the window is resized
 
 #### What you should know
 
@@ -87,17 +87,17 @@ Replace TODO 2 in <strong>styles/main.css</strong> with the following code:
 
 #### main.css
 
-```
+<code></code>`
 img {
   max-width: 100%;
 }
-```
+<code></code>`
 
 Save the code and refresh the page in your browser. Try resizing the window. The image widths should stay entirely within the window.
 
 #### Explanation
 
-The value in `max-width` represents a percentage of the containing element, in this case the <code>&lt;article&gt;</code> element.
+The value in <code>max-width</code> represents a percentage of the containing element, in this case the <code>&lt;article&gt;</code> element.
 
 <div class="note">
 <strong>Note: </strong>You could also specify the <code>max-width</code> in terms of the viewport width using <code>vw</code> units (for example, <code>100vw</code>). In this case we are using a percentage value to keep the images the same width as the text.
@@ -111,7 +111,7 @@ The value in `max-width` represents a percentage of the containing element, in t
 
 
 
-The goal is to get the browser to fetch the version of the image with the smallest dimensions that is still bigger than the final display size of the image. `srcset` lets us list a set of images at different resolutions for the browser to choose from when fetching the image. The browser's choice depends on the viewport dimensions, the image size relative to the viewport, the pixel density of the user's device, and the source file's dimensions.
+The goal is to get the browser to fetch the version of the image with the smallest dimensions that is still bigger than the final display size of the image. <code>srcset</code> lets us list a set of images at different resolutions for the browser to choose from when fetching the image. The browser's choice depends on the viewport dimensions, the image size relative to the viewport, the pixel density of the user's device, and the source file's dimensions.
 
 ### 3.1 Add a srcset to an image
 
@@ -119,15 +119,15 @@ To complete TODO 3.1 in <strong>index.html</strong>, add the following <code>src
 
 #### index.html
 
-```
+<code></code>`
 srcset="images/sfo-1600_large.jpg, images/sfo-1000_large.jpg, images/sfo-800_medium.jpg, images/sfo-500_small.jpg"
-```
+<code></code>`
 
 Save the code and refresh the page in the browser. Open your browser's Developer Tools and [look at the network requests](tools_for_pwa_developers.md#viewnetwork). Try refreshing the page at different window sizes. You should see that the browser is fetching <strong>images/sfo-1600_large.jpg</strong> no matter the window size.
 
 #### Explanation
 
-In the <strong>images</strong> folder there are several versions of the SFO image, each at different resolutions. We list these in the `srcset` attribute to give the browser the option to choose which file to use. However, the browser has no way of determining the file sizes before it loads them, so it always chooses the first image in the list. 
+In the <strong>images</strong> folder there are several versions of the SFO image, each at different resolutions. We list these in the <code>srcset</code> attribute to give the browser the option to choose which file to use. However, the browser has no way of determining the file sizes before it loads them, so it always chooses the first image in the list. 
 
 ### 3.2 Add width descriptors to the srcset
 
@@ -137,9 +137,9 @@ To complete TODO 3.2 in <strong>index.html</strong>, add width descriptors to th
 
 #### index.html
 
-```
+<code></code>`
 srcset="images/sfo-1600_large.jpg 1600w, images/sfo-1000_large.jpg 1000w, images/sfo-800_medium.jpg 800w, images/sfo-500_small.jpg 500w"
-```
+<code></code>`
 
 Save the code and refresh the page in the browser. Refresh the page at various window sizes and [check the network requests](tools_for_pwa_developers.md#viewnetwork) to see which version of the image is fetched at each size. On a 1x display, the browser fetches <strong>sfo-500_small.jpg</strong> when the window is narrower than 500px, <strong>sfo-800_medium.jpg</strong> when it is narrower than 800px, and so forth.
 
@@ -155,7 +155,7 @@ Save the code and refresh the page in the browser. Refresh the page at various w
 
 #### Explanation
 
-By adding a width descriptor to each file in the `srcset`, we are telling the browser the width of each image in pixels  *before*  it fetches the image. The browser can then use these widths to decide which image to fetch based on its window size. It fetches the image with the smallest width that is still larger than the viewport width.
+By adding a width descriptor to each file in the <code>srcset</code>, we are telling the browser the width of each image in pixels  *before*  it fetches the image. The browser can then use these widths to decide which image to fetch based on its window size. It fetches the image with the smallest width that is still larger than the viewport width.
 
 <div class="note">
 <strong>Note:</strong> You can also optionally specify a pixel density instead of a width. However, you cannot specify both pixel densities and widths in the same <code>srcset</code> attribute. We explore using pixel densities in a later section.
@@ -175,12 +175,12 @@ Replace TODO 4.1 in <strong>styles/main.css</strong> with the following code:
 
 #### styles/main.css
 
-```
+<code></code>`
 img#sfo {
   transition: width 0.5s;
   max-width: 50vw;
 }
-```
+<code></code>`
 
 Save the code and refresh the page in the browser. Try refreshing the page at various window sizes and [check the network requests](tools_for_pwa_developers.md#viewnetwork) at each size. The browser is fetching the same sized images as before.
 
@@ -190,21 +190,21 @@ Because the CSS is parsed after the HTML at runtime, the browser has no way to k
 
 ### 4.2 Add the sizes attribute to the image
 
-We can give <code>&lt;img&gt;</code> a `sizes` attribute to tell the browser the display size of the image before it is fetched.
+We can give <code>&lt;img&gt;</code> a <code>sizes</code> attribute to tell the browser the display size of the image before it is fetched.
 
 To complete TODO 4.2 in <strong>index.html</strong> add <code>sizes="50vw"</code> to the <code>img</code> element so that it looks like this:
 
 #### index.html
 
-```
+<code></code>`
 <img id="sfo" src="images/sfo-500_small.jpg" srcset="images/sfo-1600_large.jpg 1600w, images/sfo-1000_large.jpg 1000w, images/sfo-800_medium.jpg 800w, images/sfo-500_small.jpg 500w" sizes="50vw" alt="View from aircraft window near San Francisco airport">
-```
+<code></code>`
 
 Save the code and refresh the page in the browser. Refresh the page at various window sizes and [check the network requests](tools_for_pwa_developers.md#viewnetwork) each time. You should see that for the same approximate window sizes you used to test the previous step, the browser is fetching a smaller image.
 
 #### Explanation
 
-The `sizes` value matches the image's `max-width` value in the CSS. The browser now has everything it needs to choose the correct image version. The browser knows its own viewport width and the pixel density of the user's device, and we have given it the source files' dimensions (using the width descriptor) and the image sizes relative to the viewport (using the `sizes` attribute).
+The <code>sizes</code> value matches the image's <code>max-width</code> value in the CSS. The browser now has everything it needs to choose the correct image version. The browser knows its own viewport width and the pixel density of the user's device, and we have given it the source files' dimensions (using the width descriptor) and the image sizes relative to the viewport (using the <code>sizes</code> attribute).
 
 #### For more information
 
@@ -226,14 +226,14 @@ Replace TODO 5.1 in <strong>styles/main.css</strong> with the following code:
 
 #### styles/main.css
 
-```
+<code></code>`
 @media screen and (max-width: 700px) {
   img#sfo {
     max-width: 90vw;
     width: 90vw;
   }
 }
-```
+<code></code>`
 
 Save the code and refresh the page in the browser. Shrink the window to less than 700px (in Chrome, the viewport dimensions are shown on the screen if <strong>DevTools</strong> is open). The image should resize to fill 90% of the window width.
 
@@ -247,15 +247,15 @@ The media query tests the viewport width of the screen, and applies the CSS if t
 
 ### 5.2 Add the media query to the sizes attribute
 
-We can tell the browser about the media query in the `sizes` attribute so that it fetches the correct image when the image changes size.
+We can tell the browser about the media query in the <code>sizes</code> attribute so that it fetches the correct image when the image changes size.
 
 To complete TODO 5.2 in <strong>index.html</strong>, update the <code>sizes</code> attribute in the SFO image:
 
 #### index.html
 
-```
+<code></code>`
 sizes="(max-width: 700px) 90vw, 50vw"
-```
+<code></code>`
 
 Save the code and refresh the page in the browser. Resize the browser window so that it is 600px wide. On a 1x display, the browser should fetch <strong>sfo-800_medium.jpg</strong>. 
 
@@ -273,7 +273,7 @@ Replace TODO 6 in <strong>index.html</strong> with the following code:
 
 #### index.html
 
-```
+<code></code>`
 <figure>
     <picture>
     <source media="(min-width: 750px)"
@@ -285,13 +285,13 @@ Replace TODO 6 in <strong>index.html</strong> with the following code:
     </picture>
     <figcaption>Horses in Hawaii</figcaption>
 </figure>
-```
+<code></code>`
 
 Save the code and refresh the page in the browser. Try resizing the browser window. You should see the image change at 750px and 500px.
 
 #### Explanation
 
-The <code>&lt;picture&gt;</code> element lets us define multiple source files using the <code>&lt;source&gt;</code> tag. This is different than simply using an <code>&lt;img&gt;</code> tag with the `srcset` attribute because the source tag lets us add things like media queries to each set of sources. Instead of giving the browser the image sizes and letting it decide which files to use, we can define the images to use at each window size. 
+The <code>&lt;picture&gt;</code> element lets us define multiple source files using the <code>&lt;source&gt;</code> tag. This is different than simply using an <code>&lt;img&gt;</code> tag with the <code>srcset</code> attribute because the source tag lets us add things like media queries to each set of sources. Instead of giving the browser the image sizes and letting it decide which files to use, we can define the images to use at each window size. 
 
 We have included several versions of the sample image, each at different resolutions and cropped to make the focus of the image visible at smaller sizes. In the code above, at larger than 750px, the browser fetches either <strong>horses-1600_large_2x.jpg</strong> (if the device has a 2x display) or <strong>horses-800_large_1x.jpg</strong>. If the window's width is less than 750px but greater than 500px, the browser fetches <strong>horses_medium.jpg</strong>. At less than 500px the browser fetches the fallback image, <strong>horses_small.jpg</strong>.
 

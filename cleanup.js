@@ -45,6 +45,9 @@ function cleanup(sourceFile, destFile, bookPath) {
   // Change bold underscores to <strong> tags
   markdown = markdown.replace(/__(.*?)__/g, '<strong>$1</strong>');
 
+  // Change italics *'s to <em> tags
+  markdown = markdown.replace(/\s(\*(.*?)\*)\s/g, ' <em>$1</em> ');
+
   // Change code backticks to <code> tags
   markdown = markdown.replace(/`(.*?)`/g, '<code>$1</code>');
 

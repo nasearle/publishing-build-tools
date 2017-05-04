@@ -106,22 +106,22 @@ Replace the TODO 2.1a comment with the following code:
 
 #### main.js
 
-```
+<code></code>`
 if (!('fetch' in window)) {
   console.log('Fetch API not found, try including the polyfill');
   return;
 }
-```
+<code></code>`
 
-In the `fetchJSON` function, replace TODO 2.1b with the following code:
+In the <code>fetchJSON</code> function, replace TODO 2.1b with the following code:
 
 #### main.js
 
-```
+<code></code>`
 fetch('examples/animals.json')
 .then(logResult)
 .catch(logError);
-```
+<code></code>`
 
 Save the script and refresh the page. Click <strong>Fetch JSON</strong>. The console should log the fetch response. 
 
@@ -135,35 +135,35 @@ Save the script and refresh the page. Click <strong>Fetch JSON</strong>. The con
 
 The code starts by checking for fetch support. If the browser doesn't support fetch, the script logs a message and fails immediately. 
 
-We pass the path for the resource we want to retrieve as a parameter to fetch, in this case <strong>examples/animals.json</strong>. A promise that resolves to a  [Response object](https://developer.mozilla.org/en-US/docs/Web/API/Response) is returned. If the promise resolves, the response is passed to the `logResult` function. If the promise rejects, the `catch` takes over and the error is passed to the `logError` function. 
+We pass the path for the resource we want to retrieve as a parameter to fetch, in this case <strong>examples/animals.json</strong>. A promise that resolves to a  [Response object](https://developer.mozilla.org/en-US/docs/Web/API/Response) is returned. If the promise resolves, the response is passed to the <code>logResult</code> function. If the promise rejects, the <code>catch</code> takes over and the error is passed to the <code>logError</code> function. 
 
 Response objects represent the response to a request. They contain the response body and also useful properties and methods. 
 
 ### 2.2 Examine response properties
 
-Find the values of the `status`, `url`, and `ok` properties of the response for the fetch we just made. What are these values? Hint: Look in the console.
+Find the values of the <code>status</code>, <code>url</code>, and <code>ok</code> properties of the response for the fetch we just made. What are these values? Hint: Look in the console.
 
-In the `fetchJSON` function we just wrote in section 2.1, replace the <strong>examples/animals.json</strong> resource with <strong>examples/non-existent.json</strong>. So the `fetchJSON` function should now look like:
+In the <code>fetchJSON</code> function we just wrote in section 2.1, replace the <strong>examples/animals.json</strong> resource with <strong>examples/non-existent.json</strong>. So the <code>fetchJSON</code> function should now look like:
 
 #### main.js
 
-```
+<code></code>`
 function fetchJSON() {
   fetch('examples/non-existent.json')
   .then(logResult)
   .catch(logError);
 }
-```
+<code></code>`
 
 Save the script and refresh the page. Click <strong>Fetch JSON</strong> again to try and fetch this new resource. 
 
-Now find the `status`, `URL`, and `ok` properties of the response for this new fetch we just made. What are these values?
+Now find the <code>status</code>, <code>URL</code>, and <code>ok</code> properties of the response for this new fetch we just made. What are these values?
 
 The values should be different for the two files (do you understand why?). If you got any console errors, do the values match up with the context of the error? 
 
 #### Explanation
 
-Why didn't a failed response activate the `catch` block? This is an important note for fetch and promises—bad responses (like 404s) still resolve! A fetch promise only rejects if the request was unable to complete, so you must always check the validity of the response. 
+Why didn't a failed response activate the <code>catch</code> block? This is an important note for fetch and promises—bad responses (like 404s) still resolve! A fetch promise only rejects if the request was unable to complete, so you must always check the validity of the response. 
 
 #### For more information
 
@@ -173,7 +173,7 @@ Why didn't a failed response activate the `catch` block? This is an important no
 
 We need to update our code to check the validity of responses.
 
-Complete the function called `validateResponse` in TODO 2.3. The function should accept a response object as input. If the response object's <code>ok</code> property is false, the function should throw an error containing <code>response.statusText</code>. If the response object's <code>ok</code> property is true, the function should simply return the response object.
+Complete the function called <code>validateResponse</code> in TODO 2.3. The function should accept a response object as input. If the response object's <code>ok</code> property is false, the function should throw an error containing <code>response.statusText</code>. If the response object's <code>ok</code> property is true, the function should simply return the response object.
 
 You can confirm that you have written the function correctly by navigating to <strong>app/test/test.html</strong>. This page runs tests on some of the functions you write. If there are errors with your implementation of a function (or you haven't implemented them yet), the test displays in red. Passed tests display in blue. Refresh the <strong>test.html</strong> page to retest your functions.
 
@@ -181,63 +181,63 @@ You can confirm that you have written the function correctly by navigating to <s
 <strong>Note:</strong> Be sure to open the test page using the localhost address so that it opens from the server and not directly from the file system.
 </div>
 
-Once you have successfully written the function, replace `fetchJSON` with the following code:
+Once you have successfully written the function, replace <code>fetchJSON</code> with the following code:
 
 #### main.js
 
-```
+<code></code>`
 function fetchJSON() {
   fetch('examples/non-existent.json')
   .then(validateResponse)
   .then(logResult)
   .catch(logError);
 }
-```
+<code></code>`
 
 This is  [promise chaining](https://developers.google.com/web/fundamentals/getting-started/primers/promises#chaining).
 
-Save the script and refresh the page. Click <strong>Fetch JSON</strong>. Now the response for <strong>examples/non-existent.json</strong> should trigger the `catch` block, unlike in section 2.2. Check the console to confirm this.
+Save the script and refresh the page. Click <strong>Fetch JSON</strong>. Now the response for <strong>examples/non-existent.json</strong> should trigger the <code>catch</code> block, unlike in section 2.2. Check the console to confirm this.
 
-Now replace <strong>examples/non-existent.json</strong> resource in the `fetchJSON` function with the original <strong>examples/animals.json</strong> from section 2.1. The function should now look like:
+Now replace <strong>examples/non-existent.json</strong> resource in the <code>fetchJSON</code> function with the original <strong>examples/animals.json</strong> from section 2.1. The function should now look like:
 
 #### main.js
 
-```
+<code></code>`
 function fetchJSON() {
   fetch('examples/animals.json')
   .then(validateResponse)
   .then(logResult)
   .catch(logError);
 }
-```
+<code></code>`
 
 Save the script and refresh the page. Click <strong>Fetch JSON</strong>. You should see that the response is being logged successfully like in section 2.1.
 
 #### Explanation
 
-Now that we have added the `validateResponse` check, bad responses (like 404s) throw an error and the `catch` takes over. This prevents bad responses from propagating down the fetch chain.
+Now that we have added the <code>validateResponse</code> check, bad responses (like 404s) throw an error and the <code>catch</code> takes over. This prevents bad responses from propagating down the fetch chain.
 
 ### 2.4 Read the response
 
 Responses must be read in order to access the body of the response. Response objects have  [methods](https://developer.mozilla.org/en-US/docs/Web/API/Response) for doing this. 
 
-To complete TODO 2.4, replace the `readResponseAsJSON` function with the following code:
+To complete TODO 2.4, replace the <code>readResponseAsJSON</code> function with the following code:
 
 #### main.js
 
-```
+<code></code>`
 function readResponseAsJSON(response) {
   return response.json();
 }
-```
+<code></code>`
 
 (You can check that you have done this correctly by navigating to <strong>app/test/test.html</strong>.)
 
-Then replace the `fetchJSON` function with the following code:
+Then replace the <code>fetchJSON</code> function with the following code:
 
 #### main.js
 
-```
+<code></code>`
 function fetchJSON() {
   fetch('examples/animals.json') // 1
   .then(validateResponse) // 2
@@ -245,7 +245,7 @@ function fetchJSON() {
   .then(logResult) // 4
   .catch(logError);
 }
-```
+<code></code>`
 
 Save the script and refresh the page. Click <strong>Fetch JSON</strong>. Check the console to see that the JSON from <strong>examples/animals.json</strong> is being logged.
 
@@ -253,13 +253,13 @@ Save the script and refresh the page. Click <strong>Fetch JSON</strong>. Check t
 
 Let's review what is happening.
 
-Step 1. Fetch is called on a resource, <strong>examples/animals.json</strong>. Fetch returns a promise that resolves to a Response object. When the promise resolves, the response object is passed to `validateResponse`.
+Step 1. Fetch is called on a resource, <strong>examples/animals.json</strong>. Fetch returns a promise that resolves to a Response object. When the promise resolves, the response object is passed to <code>validateResponse</code>.
 
-Step 2. `validateResponse` checks if the response is valid (is it a 200?). If it isn't, an error is thrown, skipping the rest of the `then` blocks and triggering the `catch` block. This is particularly important. Without this check bad responses are passed down the chain and could break later code that may rely on receiving a valid response. If the response is valid, it is passed to `readResponseAsJSON`.
+Step 2. <code>validateResponse</code> checks if the response is valid (is it a 200?). If it isn't, an error is thrown, skipping the rest of the <code>then</code> blocks and triggering the <code>catch</code> block. This is particularly important. Without this check bad responses are passed down the chain and could break later code that may rely on receiving a valid response. If the response is valid, it is passed to <code>readResponseAsJSON</code>.
 
-Step 3. `readResponseAsJSON` reads the body of the response using the  [Response.json()](https://developer.mozilla.org/en-US/docs/Web/API/Body/json) method. This method returns a promise that resolves to JSON. Once this promise resolves, the JSON data is passed to `logResult`. (Can you think of what would happen if the promise from `response.json()` rejects?)
+Step 3. <code>readResponseAsJSON</code> reads the body of the response using the  [Response.json()](https://developer.mozilla.org/en-US/docs/Web/API/Body/json) method. This method returns a promise that resolves to JSON. Once this promise resolves, the JSON data is passed to <code>logResult</code>. (Can you think of what would happen if the promise from <code>response.json()</code> rejects?)
 
-Step 4. Finally, the JSON data from the original request to <strong>examples/animals.json</strong> is logged by `logResult`. 
+Step 4. Finally, the JSON data from the original request to <strong>examples/animals.json</strong> is logged by <code>logResult</code>. 
 
 #### For more information
 
@@ -281,11 +281,11 @@ To get a copy of the working code, navigate to the <strong>02-fetching-a-resourc
 
 Fetch is not limited to JSON. In this example we will fetch an image and append it to the page.
 
-To complete TODO 3a, replace the `showImage` function with the following code:
+To complete TODO 3a, replace the <code>showImage</code> function with the following code:
 
 #### main.js
 
-```
+<code></code>`
 function showImage(responseAsBlob) {
   var container = document.getElementById('container');
   var imgElem = document.createElement('img');
@@ -293,21 +293,21 @@ function showImage(responseAsBlob) {
   var imgUrl = URL.createObjectURL(responseAsBlob);
   imgElem.src = imgUrl;
 }
-```
+<code></code>`
 
-To complete TODO 3b, finish writing the `readResponseAsBlob` function. The function should accept a response object as input. The function should return a promise that resolves to a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">Blob</a>. 
+To complete TODO 3b, finish writing the <code>readResponseAsBlob</code> function. The function should accept a response object as input. The function should return a promise that resolves to a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">Blob</a>. 
 
 <div class="note">
-<strong>Note:</strong> This function will be very similar to `readResponseAsJSON`. Check out the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/blob">`blob()`</a> method documentation).
+<strong>Note:</strong> This function will be very similar to <code>readResponseAsJSON</code>. Check out the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/blob"><code>blob()</code></a> method documentation).
 </div>
 
 (You can check that you have done this correctly by navigating to <strong>app/test/test.html</strong>.)
 
-To complete TODO 3c, replace the `fetchImage` function with the following code:
+To complete TODO 3c, replace the <code>fetchImage</code> function with the following code:
 
 #### main.js
 
-```
+<code></code>`
 function fetchImage() {
   fetch('examples/kitten.jpg')
   .then(validateResponse)
@@ -315,13 +315,13 @@ function fetchImage() {
   .then(showImage)
   .catch(logError);
 }
-```
+<code></code>`
 
 Save the script and refresh the page. Click <strong>Fetch image.</strong> You should see an adorable kitten on the page.
 
 #### Explanation
 
-In this example an image is being fetched, <strong>examples/kitten.jpg</strong>. Just like in the previous exercise, the response is validated with `validateResponse`. The response is then read as a  [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) (instead of JSON as in section 2). An image element is created and appended to the page, and the image's `src` attribute is set to a data URL representing the Blob.
+In this example an image is being fetched, <strong>examples/kitten.jpg</strong>. Just like in the previous exercise, the response is validated with <code>validateResponse</code>. The response is then read as a  [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) (instead of JSON as in section 2). An image element is created and appended to the page, and the image's <code>src</code> attribute is set to a data URL representing the Blob.
 
 <div class="note">
 <strong>Note:</strong> The <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL">URL object's</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL">createObjectURL() method</a> is used to generate a data URL representing the Blob. This is important to note. You cannot set an image's source directly to a Blob. The Blob must be converted into a data URL.
@@ -347,28 +347,28 @@ To get a copy of the working code, navigate to the <strong>03-fetching-images</s
 
 In this example we will fetch text and add it to the page. 
 
-To complete TODO 4a, replace the `showText` function with the following code:
+To complete TODO 4a, replace the <code>showText</code> function with the following code:
 
 #### main.js
 
-```
+<code></code>`
 function showText(responseAsText) {
   var message = document.getElementById('message');
   message.textContent = responseAsText;
 }
-```
+<code></code>`
 
-To complete TODO 4b, finish writing the `readResponseAsText` function.. This function should accept a response object as input. The function should return a promise that resolves to text. 
+To complete TODO 4b, finish writing the <code>readResponseAsText</code> function.. This function should accept a response object as input. The function should return a promise that resolves to text. 
 
 <div class="note">
-<strong>Note:</strong> This function will be very similar to `readResponseAsJSON` and `readResponseAsBlob`. Check out the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/text">`text()`</a> method documentation).
+<strong>Note:</strong> This function will be very similar to <code>readResponseAsJSON</code> and <code>readResponseAsBlob</code>. Check out the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/text"><code>text()</code></a> method documentation).
 </div>
 
 (You can check that you have done this correctly by navigating to <strong>app/test/test.html</strong>.)
 
-To complete TODO 4c, replace the `fetchText` function with the following code:
+To complete TODO 4c, replace the <code>fetchText</code> function with the following code:
 
-```
+<code></code>`
 function fetchText() {
   fetch('examples/words.txt')
   .then(validateResponse)
@@ -376,16 +376,16 @@ function fetchText() {
   .then(showText)
   .catch(logError);
 }
-```
+<code></code>`
 
 Save the script and refresh the page. Click <strong>Fetch text</strong>. You should see a message on the page.
 
 #### Explanation
 
-In this example a text file is being fetched, <strong>examples/words.txt</strong>. Like the previous two exercises, the response is validated with `validateResponse`. Then the response is read as text, and appended to the page.
+In this example a text file is being fetched, <strong>examples/words.txt</strong>. Like the previous two exercises, the response is validated with <code>validateResponse</code>. Then the response is read as text, and appended to the page.
 
 <div class="note">
-<strong>Note: </strong>While it may be tempting to fetch HTML and append it using the `innerHTML` attribute, be careful. This can expose your site to <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">cross-site scripting attacks</a>!
+<strong>Note: </strong>While it may be tempting to fetch HTML and append it using the <code>innerHTML</code> attribute, be careful. This can expose your site to <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">cross-site scripting attacks</a>!
 </div>
 
 #### For more information
@@ -412,11 +412,11 @@ By default, fetch uses the  [GET method](https://developer.mozilla.org/en-US/doc
 
 ### 5.1 Make a HEAD request
 
-To complete TODO 5.1, replace the `headRequest` function with the following code:
+To complete TODO 5.1, replace the <code>headRequest</code> function with the following code:
 
 #### main.js
 
-```
+<code></code>`
 function headRequest() {
   fetch('examples/words.txt', {
     method: 'HEAD'
@@ -426,25 +426,25 @@ function headRequest() {
   .then(logResult)
   .catch(logError);
 }
-```
+<code></code>`
 
 Save the script and refresh the page. Click <strong>HEAD request</strong>. What do you notice about the console log? Is it showing you the text in <strong>examples/words.txt</strong>, or is it empty?
 
 #### Explanation
 
-`fetch()` can receive a second optional parameter, `init`. This enables the creation of custom settings for the fetch request, such as the  [request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), cache mode, credentials,  [and more](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch).
+<code>fetch()</code> can receive a second optional parameter, <code>init</code>. This enables the creation of custom settings for the fetch request, such as the  [request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), cache mode, credentials,  [and more](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch).
 
-In this example we set the fetch request method to HEAD using the `init` parameter. HEAD requests are just like GET requests, except the body of the response is empty. This kind of request can be used when all you want is metadata about a file but don't need to transport all of the file's data. 
+In this example we set the fetch request method to HEAD using the <code>init</code> parameter. HEAD requests are just like GET requests, except the body of the response is empty. This kind of request can be used when all you want is metadata about a file but don't need to transport all of the file's data. 
 
 ### 5.2 Optional: Find the size of a resource
 
 Let's look at the  [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers) of the fetch response from section 5.1 to determine the size of <strong>examples/words.txt</strong>.
 
-Complete the function called `logSize` in TODO 5.2. The function accepts a response object as input. The function should log the `content-length` of the response. To do this, you need to access the  [headers](https://developer.mozilla.org/en-US/docs/Web/API/Response/headers) property of the response, and use the headers object's  [get](https://developer.mozilla.org/en-US/docs/Web/API/Headers/get) method. After logging the the `content-length` header, the function should then return the response.
+Complete the function called <code>logSize</code> in TODO 5.2. The function accepts a response object as input. The function should log the <code>content-length</code> of the response. To do this, you need to access the  [headers](https://developer.mozilla.org/en-US/docs/Web/API/Response/headers) property of the response, and use the headers object's  [get](https://developer.mozilla.org/en-US/docs/Web/API/Headers/get) method. After logging the the <code>content-length</code> header, the function should then return the response.
 
-Then replace the `headRequest` function with the following code:
+Then replace the <code>headRequest</code> function with the following code:
 
-```
+<code></code>`
 function headRequest() {
   fetch('examples/words.txt', {
     method: 'HEAD'
@@ -455,13 +455,13 @@ function headRequest() {
   .then(logResult)
   .catch(logError);
 }
-```
+<code></code>`
 
 Save the script and refresh the page. Click <strong>HEAD request</strong>. The console should log the size (in bytes) of <strong>examples/words.txt</strong> (it should be 74 bytes).
 
 #### Explanation
 
-In this example, the HEAD method is used to request the size (in bytes) of a resource (represented in the `content-length` header) without actually loading the resource itself. In practice this could be used to determine if the full resource should be requested (or even how to request it).
+In this example, the HEAD method is used to request the size (in bytes) of a resource (represented in the <code>content-length</code> header) without actually loading the resource itself. In practice this could be used to determine if the full resource should be requested (or even how to request it).
 
 <strong>Optional</strong>: Find out the size of <strong>examples/words.txt</strong> using another method and confirm that it matches the value from the response header (you can look up how to do this for your specific operating system—bonus points for using the command line!).
 
@@ -504,11 +504,11 @@ In this step we install and run a simple server at <strong>localhost:5000/</stro
 
 ### 6.2 Make a POST request
 
-To complete TODO 6.2, replace the `postRequest` function with the following code:
+To complete TODO 6.2, replace the <code>postRequest</code> function with the following code:
 
 #### main.js
 
-```
+<code></code>`
 function postRequest() {
   // TODO 6.3
   fetch('http://localhost:5000/', {
@@ -520,19 +520,19 @@ function postRequest() {
   .then(logResult)
   .catch(logError);
 }
-```
+<code></code>`
 
 Save the script and refresh the page. Click <strong>POST request</strong>. Do you see the sent request echoed in the console? Does it contain the name and message?
 
 #### Explanation
 
-To make a POST request with fetch, we use the `init` parameter to specify the method (similar to how we set the HEAD method in section 5). This is also where we set the <strong>body</strong> of the request. The body is the data we want to send. 
+To make a POST request with fetch, we use the <code>init</code> parameter to specify the method (similar to how we set the HEAD method in section 5). This is also where we set the <strong>body</strong> of the request. The body is the data we want to send. 
 
 <div class="note">
 <strong>Note:</strong> In production, remember to always encrypt any sensitive user data.
 </div>
 
-When data is sent as a POST request to <strong>localhost:5000/</strong>, the request is echoed back as the response. The response is then validated with `validateResponse`, read as text, and logged to the console.
+When data is sent as a POST request to <strong>localhost:5000/</strong>, the request is echoed back as the response. The response is then validated with <code>validateResponse</code>, read as text, and logged to the console.
 
 In practice, this server would be a 3rd party API. 
 
@@ -540,21 +540,21 @@ In practice, this server would be a 3rd party API.
 
 You can use the  [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) interface to easily grab data from forms.
 
-In the `postRequest` function, replace TODO 6.3 with the following code:
+In the <code>postRequest</code> function, replace TODO 6.3 with the following code:
 
 #### main.js
 
-```
+<code></code>`
 var formData = new FormData(document.getElementById('myForm'));
-```
+<code></code>`
 
-Then replace the value of the `body` parameter with the `formData` variable. 
+Then replace the value of the <code>body</code> parameter with the <code>formData</code> variable. 
 
 Save the script and refresh the page. Fill out the form (the <strong>Name</strong> and <strong>Message</strong> fields) on the page, and then click <strong>POST</strong> request. Do you see the form content logged in the console?
 
 #### Explanation
 
-The  [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData) constructor can take in an HTML  [`form`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form), and create a `FormData` object. This object is populated with the form's keys and values.
+The  [<code>FormData</code>](https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData) constructor can take in an HTML  [<code>form</code>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form), and create a <code>FormData</code> object. This object is populated with the form's keys and values.
 
 #### For more information
 
@@ -593,11 +593,11 @@ The application we run in this step sets up another simple echo server, this tim
 
 Now that the new server is running at <strong>localhost:5001/</strong>, we can send a fetch request to it.
 
-Update the `postRequest` function to fetch from <strong>localhost:5001/</strong> instead of <strong>localhost:5000/</strong>. Save the script, refresh the page, and then click <strong>POST Request</strong>.
+Update the <code>postRequest</code> function to fetch from <strong>localhost:5001/</strong> instead of <strong>localhost:5000/</strong>. Save the script, refresh the page, and then click <strong>POST Request</strong>.
 
-You should get an error indicating that the cross-origin request is blocked due to the CORS `Access-Control-Allow-Origin` header being missing. 
+You should get an error indicating that the cross-origin request is blocked due to the CORS <code>Access-Control-Allow-Origin</code> header being missing. 
 
-Update fetch in the `postRequest` function to use  [no-cors](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch) mode (as the error log suggests). Comment out the `validateResponse` and `readResponseAsText` steps in the fetch chain. Save the script and refresh the page. Then click <strong>POST Request</strong>.
+Update fetch in the <code>postRequest</code> function to use  [no-cors](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch) mode (as the error log suggests). Comment out the <code>validateResponse</code> and <code>readResponseAsText</code> steps in the fetch chain. Save the script and refresh the page. Then click <strong>POST Request</strong>.
 
 You should get a response object logged in the console.
 
@@ -611,41 +611,41 @@ Fetch (and XMLHttpRequest) follow the  [same-origin policy](https://developer.mo
 
 Since our app's server has a different port number than the two echo servers, requests to either of the echo servers are considered cross-origin. The first echo server, however, running on <strong>localhost:5000/</strong>, is configured to support  [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). The new echo server, running on <strong>localhost:5001/</strong>, is not (which is why we get an error). 
 
-Using `mode: no-cors` allows fetching an opaque response. This prevents accessing the response with JavaScript (which is why we comment out `validateResponse` and `readResponseAsText`), but the response can still be  [consumed by other API's](https://jakearchibald.com/2015/thats-so-fetch/#no-cors-and-opaque-responses) or cached by a service worker.
+Using <code>mode: no-cors</code> allows fetching an opaque response. This prevents accessing the response with JavaScript (which is why we comment out <code>validateResponse</code> and <code>readResponseAsText</code>), but the response can still be  [consumed by other API's](https://jakearchibald.com/2015/thats-so-fetch/#no-cors-and-opaque-responses) or cached by a service worker.
 
 ### 7.3 Modify request headers
 
-Fetch also supports modifying request headers. Stop the <strong>localhost:5001</strong> (no CORS) echo server and restart the <strong>localhost:5000</strong> (CORS) echo server from section 6  (`node echo-servers/echo-server-cors.js`).
+Fetch also supports modifying request headers. Stop the <strong>localhost:5001</strong> (no CORS) echo server and restart the <strong>localhost:5000</strong> (CORS) echo server from section 6  (<code>node echo-servers/echo-server-cors.js</code>).
 
-Update the `postRequest` function to fetch from <strong>localhost:5000/</strong> again. Remove the `no-cors` mode setting from the `init` object or update the mode to `cors` (these are equivalent, as `cors` is the default mode). Uncomment the `validateResponse` and `readResponseAsText` steps in the fetch chain.
+Update the <code>postRequest</code> function to fetch from <strong>localhost:5000/</strong> again. Remove the <code>no-cors</code> mode setting from the <code>init</code> object or update the mode to <code>cors</code> (these are equivalent, as <code>cors</code> is the default mode). Uncomment the <code>validateResponse</code> and <code>readResponseAsText</code> steps in the fetch chain.
 
-Now use the  [Header interface](https://developer.mozilla.org/en-US/docs/Web/API/Headers/Headers) to create a Headers object inside the `postRequest` function called `customHeaders` with the `Content-Type` header equal to `text/plain`. Then add a headers property to the `init` object and set the value to be the `customHeaders` variable. Save the script and refresh the page. Then click <strong>POST Request</strong>.
+Now use the  [Header interface](https://developer.mozilla.org/en-US/docs/Web/API/Headers/Headers) to create a Headers object inside the <code>postRequest</code> function called <code>customHeaders</code> with the <code>Content-Type</code> header equal to <code>text/plain</code>. Then add a headers property to the <code>init</code> object and set the value to be the <code>customHeaders</code> variable. Save the script and refresh the page. Then click <strong>POST Request</strong>.
 
-You should see that the echoed request now has a `Content-Type` of `plain/text` (as opposed to `multipart/form-data` as it had previously).
+You should see that the echoed request now has a <code>Content-Type</code> of <code>plain/text</code> (as opposed to <code>multipart/form-data</code> as it had previously).
 
-Now add a custom `Content-Length` header to the `customHeaders` object and give the request an arbitrary size. Save the script, refresh the page, and click <strong>POST Request</strong>. Observe that this header is not modified in the echoed request.
+Now add a custom <code>Content-Length</code> header to the <code>customHeaders</code> object and give the request an arbitrary size. Save the script, refresh the page, and click <strong>POST Request</strong>. Observe that this header is not modified in the echoed request.
 
 #### Explanation
 
-The  [Header interface](https://developer.mozilla.org/en-US/docs/Web/API/Headers/Headers) enables the creation and modification of  [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers) objects. Some headers, like `Content-Type` can be modified by fetch. Others, like `Content-Length`, are  [guarded](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Guard) and can't be modified (for security reasons).
+The  [Header interface](https://developer.mozilla.org/en-US/docs/Web/API/Headers/Headers) enables the creation and modification of  [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers) objects. Some headers, like <code>Content-Type</code> can be modified by fetch. Others, like <code>Content-Length</code>, are  [guarded](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Guard) and can't be modified (for security reasons).
 
 ### 7.4 Set custom request headers
 
 Fetch supports setting custom headers.
 
-Remove the `Content-Length` header from the `customHeaders` object in the `postRequest` function. Add the custom header `X-Custom` with an arbitrary value (for example '`X-CUSTOM': 'hello world'`). Save the script, refresh the page, and then click <strong>POST Request</strong>.
+Remove the <code>Content-Length</code> header from the <code>customHeaders</code> object in the <code>postRequest</code> function. Add the custom header <code>X-Custom</code> with an arbitrary value (for example '<code>X-CUSTOM': 'hello world'</code>). Save the script, refresh the page, and then click <strong>POST Request</strong>.
 
-You should see that the echoed request has the `X-Custom` that you added. 
+You should see that the echoed request has the <code>X-Custom</code> that you added. 
 
-Now add a `Y-Custom` header to the Headers object. Save the script, refresh the page, and click <strong>POST Request</strong>. 
+Now add a <code>Y-Custom</code> header to the Headers object. Save the script, refresh the page, and click <strong>POST Request</strong>. 
 
 You should get an error similar to this in the console:
 
-`Fetch API cannot load http://localhost:5000/. Request header field y-custom is not allowed by Access-Control-Allow-Headers in preflight response.`
+<code>Fetch API cannot load http://localhost:5000/. Request header field y-custom is not allowed by Access-Control-Allow-Headers in preflight response.</code>
 
 #### Explanation
 
-Like cross-origin requests, custom headers must be supported by the server from which the resource is requested. In this example, our echo server is configured to accept the `X-Custom` header but not the `Y-Custom` header (you can open <strong>echo-servers/echo-server-cors.js</strong> and look for `Access-Control-Allow-Headers` to see for yourself). Anytime a custom header is set, the browser performs a  [preflight](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Preflighted_requests) check. This means that the browser first sends an OPTIONS request to the server, to determine what HTTP methods and headers are allowed by the server. If the server is configured to accept the method and headers of the original request, then it is sent, otherwise an error is thrown. 
+Like cross-origin requests, custom headers must be supported by the server from which the resource is requested. In this example, our echo server is configured to accept the <code>X-Custom</code> header but not the <code>Y-Custom</code> header (you can open <strong>echo-servers/echo-server-cors.js</strong> and look for <code>Access-Control-Allow-Headers</code> to see for yourself). Anytime a custom header is set, the browser performs a  [preflight](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Preflighted_requests) check. This means that the browser first sends an OPTIONS request to the server, to determine what HTTP methods and headers are allowed by the server. If the server is configured to accept the method and headers of the original request, then it is sent, otherwise an error is thrown. 
 
 #### For more information
 

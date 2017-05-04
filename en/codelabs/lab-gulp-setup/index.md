@@ -124,15 +124,15 @@ In <strong>gulpfile.js</strong>, replace the TODO 3 comment with the following:
 
 #### gulpfile.js
 
-```
+<code></code>`
 var gulp = require('gulp');
-```
+<code></code>`
 
 #### Explanation 
 
-We start by generating <strong>package.json</strong> with `npm init` (the `-y` flag uses default configuration values for simplicity). This file is used to keep track of the packages that your project uses, including gulp and its dependencies.
+We start by generating <strong>package.json</strong> with <code>npm init</code> (the <code>-y</code> flag uses default configuration values for simplicity). This file is used to keep track of the packages that your project uses, including gulp and its dependencies.
 
-The next command installs the gulp package and its dependencies in the project. These are put in a <strong>node_modules</strong> folder. The `--save-dev` flag adds the corresponding package (in this case gulp) to <strong>package.json</strong>. Tracking packages like this allows quick re-installation of all the packages and their dependencies on future builds (the `npm install` command will read <strong>package.json</strong> and automatically install everything listed).
+The next command installs the gulp package and its dependencies in the project. These are put in a <strong>node_modules</strong> folder. The <code>--save-dev</code> flag adds the corresponding package (in this case gulp) to <strong>package.json</strong>. Tracking packages like this allows quick re-installation of all the packages and their dependencies on future builds (the <code>npm install</code> command will read <strong>package.json</strong> and automatically install everything listed).
 
 Finally we add code to <strong>gulpfile.js</strong> to include the gulp package. The <strong>gulpfile.js</strong> file is where all of the gulp code should go.
 
@@ -154,21 +154,21 @@ Now replace TODO 4.1 in <strong>gulpfile.js</strong> with the following code:
 
 #### gulpfile.js
 
-```
+<code></code>`
 var uglify = require('gulp-uglify');
-```
+<code></code>`
 
 Replace TODO 4.2 with the following code:
 
 #### gulpfile.js
 
-```
+<code></code>`
 gulp.task('minify', function() {
   gulp.src('js/main.js')
   .pipe(uglify())
   .pipe(gulp.dest('build'));
 });
-```
+<code></code>`
 
 Save the file. From <strong>app/</strong>, run the following in the command line:
 
@@ -180,7 +180,7 @@ Open <strong>app/js/main.js</strong> and <strong>app/build/main.js</strong>. Not
 
 We start by installing the <strong>gulp-uglify</strong> package (this also updates the <strong>package.json</strong> dependencies). This enables minification functionality in our gulp process. 
 
-Then we include this package in the <strong>gulpfile.js</strong> file, and add code to create a `minify` task. This task gets the <strong>app/js/main.js</strong> file, and pipes it to the `uglify` function (which is defined in the <strong>gulp-uglify</strong> package). The `uglify` function minifies the file, pipes it to the `gulp.dest` function, and creates a <strong>build</strong> folder containing the minified JavaScript.
+Then we include this package in the <strong>gulpfile.js</strong> file, and add code to create a <code>minify</code> task. This task gets the <strong>app/js/main.js</strong> file, and pipes it to the <code>uglify</code> function (which is defined in the <strong>gulp-uglify</strong> package). The <code>uglify</code> function minifies the file, pipes it to the <code>gulp.dest</code> function, and creates a <strong>build</strong> folder containing the minified JavaScript.
 
 <a id="5" />
 
@@ -196,15 +196,15 @@ Read the documentation for  [gulp-autoprefixer](https://www.npmjs.com/package/gu
 
 1. Install the gulp-autoprefixer package
 2. Require the package in <strong>gulpfile.js</strong>
-3. Write a task in <strong>gulpfile.js</strong> called `processCSS`, that adds vendor prefixes to the <strong>app/styles/main.css</strong> and puts the new file in <strong>app/build/main.css</strong>
+3. Write a task in <strong>gulpfile.js</strong> called <code>processCSS</code>, that adds vendor prefixes to the <strong>app/styles/main.css</strong> and puts the new file in <strong>app/build/main.css</strong>
 
 Test this task by running the following (from <strong>app/</strong>) in the command line:
 
     gulp processCSS
 
-Open <strong>app/styles/main.css</strong> and <strong>app/build/main.css</strong>. Does the `box-container` class have vendor prefixes for the `display: flex` property?
+Open <strong>app/styles/main.css</strong> and <strong>app/build/main.css</strong>. Does the <code>box-container</code> class have vendor prefixes for the <code>display: flex</code> property?
 
-<strong>Optional</strong>: Read the  [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) documentation and incorporate  [sourcemap](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/) generation in the `processCSS` task (not in a new task). 
+<strong>Optional</strong>: Read the  [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) documentation and incorporate  [sourcemap](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/) generation in the <code>processCSS</code> task (not in a new task). 
 
 <div class="note">
 <strong>Hint:</strong> The <a href="https://www.npmjs.com/package/gulp-autoprefixer">gulp-autoprefixer</a> documentation has a useful example. Test by rerunning the <code>processCSS</code> task, and noting the sourcemap comment in the <strong>app/build/main.css</strong> file.
@@ -226,19 +226,19 @@ Replace TODO 6.1 in <strong>gulpfile.js</strong> with the following:
 
 #### gulpfile.js
 
-```
+<code></code>`
 gulp.task('default', ['minify', 'processCSS']);
-```
+<code></code>`
 
 Now delete the <strong>app/build</strong> folder and run the following in the command line (from <strong>app/</strong>):
 
     gulp
 
-Note that both the `minify` and `processCSS` tasks were run with that single command (check that the <strong>app/build</strong> directory has been created and that <strong>app/build/main.js</strong> and <strong>app/build/main.css</strong> are there).
+Note that both the <code>minify</code> and <code>processCSS</code> tasks were run with that single command (check that the <strong>app/build</strong> directory has been created and that <strong>app/build/main.js</strong> and <strong>app/build/main.css</strong> are there).
 
 #### Explanation
 
-Default tasks are run anytime the `gulp` command is executed. 
+Default tasks are run anytime the <code>gulp</code> command is executed. 
 
 ### 6.2 Set up gulp watch
 
@@ -248,11 +248,11 @@ Replace TODO 6.2 in <strong>gulpfile.js</strong> with the following:
 
 #### gulpfile.js
 
-```
+<code></code>`
 gulp.task('watch', function() {
   gulp.watch('styles/*.css', ['processCSS']);
 });
-```
+<code></code>`
 
 Save the file. From <strong>app/</strong>, run the following in the command line:
 
@@ -268,7 +268,7 @@ TODO: Now update the <code>watch</code> task in <strong>gulpfile.js</strong> to 
 
 #### Explanation
 
-We created a task called `watch` that watches all CSS files in the <strong>styles</strong> directory, and all the JS files in the <strong>js</strong> directory. Any time any of these files changes (and is saved), the corresponding task (`processCSS` or `minify)` executes.
+We created a task called <code>watch</code> that watches all CSS files in the <strong>styles</strong> directory, and all the JS files in the <strong>js</strong> directory. Any time any of these files changes (and is saved), the corresponding task (<code>processCSS</code> or <code>minify)</code> executes.
 
 ### 6.3 Set up BrowserSync
 
@@ -282,22 +282,22 @@ Replace TODO 6.3a in <strong>gulpfile.js</strong> with the following:
 
 #### gulpfile.js
 
-```
+<code></code>`
 var browserSync = require('browser-sync');
-```
+<code></code>`
 
 Now replace TODO 6.3b in <strong>gulpfile.js</strong> with the following: 
 
 #### gulpfile.js
 
-```
+<code></code>`
 gulp.task('serve', function() {
   browserSync.init({
     server: '.',
     port: 3000
   });
 });
-```
+<code></code>`
 
 Save the file. Now run the following in the command line (from <strong>app/</strong>):
 
@@ -317,7 +317,7 @@ TODO: Change the default tasks from <code>minify</code> and <code>processCSS</co
 
 TODO: Update the <code>serve</code> task to the following code:
 
-```
+<code></code>`
 gulp.task('serve', ['processCSS'], function() {
   browserSync.init({
     server: '.',
@@ -326,7 +326,7 @@ gulp.task('serve', ['processCSS'], function() {
   gulp.watch('styles/*.css', ['processCSS']).on('change', browserSync.reload);
   gulp.watch('*.html').on('change', browserSync.reload);
 });
-```
+<code></code>`
 
 Close the app from the browser and delete <strong>app/build/main.css</strong>. From <strong>app/</strong>, run the following in the command line: 
 
@@ -336,9 +336,9 @@ Your browser should open <strong>app/</strong> at <strong>localhost:3000</strong
 
 #### Explanation
 
-In this example we changed the default task to `serve` so that it runs when we execute the `gulp` command. The `serve` task has `processCSS` as a  *dependent task* . This means that the `serve` task will execute the `processCSS` task before executing itself. Additionally, this task sets a watch on CSS and HTML files. When CSS files are updated, the `processCSS` task is run again and the server reloads. Likewise, when HTML files are updated (like <strong>index.html</strong>), the browser page reloads automatically. 
+In this example we changed the default task to <code>serve</code> so that it runs when we execute the <code>gulp</code> command. The <code>serve</code> task has <code>processCSS</code> as a  *dependent task* . This means that the <code>serve</code> task will execute the <code>processCSS</code> task before executing itself. Additionally, this task sets a watch on CSS and HTML files. When CSS files are updated, the <code>processCSS</code> task is run again and the server reloads. Likewise, when HTML files are updated (like <strong>index.html</strong>), the browser page reloads automatically. 
 
-<strong>Optional</strong>: In the `serve` task, add `minify` as a dependent task. Also in `serve`, add a watcher for <strong>app/js/main.js</strong> that executes the `minify` task and reloads the page whenever the <strong>app/js/main.js</strong> file changes. Test by deleting <strong>app/build/main.js</strong> and re-executing the `gulp` command. Now <strong>app/js/main.js</strong> should be minified into <strong>app/build/main.js</strong> and it should update in real time. Confirm this by changing the console log message in <strong>app/js/main.js</strong> and saving the file - the console should log your new message in the app.
+<strong>Optional</strong>: In the <code>serve</code> task, add <code>minify</code> as a dependent task. Also in <code>serve</code>, add a watcher for <strong>app/js/main.js</strong> that executes the <code>minify</code> task and reloads the page whenever the <strong>app/js/main.js</strong> file changes. Test by deleting <strong>app/build/main.js</strong> and re-executing the <code>gulp</code> command. Now <strong>app/js/main.js</strong> should be minified into <strong>app/build/main.js</strong> and it should update in real time. Confirm this by changing the console log message in <strong>app/js/main.js</strong> and saving the file - the console should log your new message in the app.
 
 <a id="7">
 

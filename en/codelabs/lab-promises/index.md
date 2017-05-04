@@ -95,7 +95,7 @@ Complete the <code>getImageName</code> function by replacing TODO 2.1 in <strong
 
 #### main.js
 
-```
+<code></code>`
 country = country.toLowerCase();
 var promiseOfImageName = new Promise(function(resolve, reject) {
   setTimeout(function() {
@@ -108,7 +108,7 @@ var promiseOfImageName = new Promise(function(resolve, reject) {
 });
 console.log(promiseOfImageName);
 return promiseOfImageName;
-```
+<code></code>`
 
 Save the script and refresh the page. 
 
@@ -122,11 +122,11 @@ Now enter "Hello World" into the <strong>Country Name</strong> field and click <
 
 #### Explanation
 
-The `getImageName` function creates a  [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). A promise represents a value that might be available now, in the future, or never. In effect, a promise lets an asynchronous function such as `getImageName` (the `setTimeout` method is used to make `getImageName` asynchronous) return a value much like a synchronous function. Rather than returning the final value (in this case, "Spain.png"), `getImageName` returns a promise of a future value (this is what you see in the console log). Promise construction typically looks like  [this example at developers.google.com](https://developers.google.com/web/fundamentals/getting-started/primers/promises#promises_arrive_in_javascript):
+The <code>getImageName</code> function creates a  [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). A promise represents a value that might be available now, in the future, or never. In effect, a promise lets an asynchronous function such as <code>getImageName</code> (the <code>setTimeout</code> method is used to make <code>getImageName</code> asynchronous) return a value much like a synchronous function. Rather than returning the final value (in this case, "Spain.png"), <code>getImageName</code> returns a promise of a future value (this is what you see in the console log). Promise construction typically looks like  [this example at developers.google.com](https://developers.google.com/web/fundamentals/getting-started/primers/promises#promises_arrive_in_javascript):
 
 #### main.js
 
-```
+<code></code>`
 var promise = new Promise(function(resolve, reject) {
   // do a thing, possibly async, then...
 
@@ -137,11 +137,11 @@ var promise = new Promise(function(resolve, reject) {
     reject(Error("It broke"));
   }
 });
-```
+<code></code>`
 
-Depending on the outcome of an asynchronous operation, a promise can either  [resolve](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) with a value or  [reject](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject) with an error. In the `getImageName` function, the `promiseOfImageName` promise either resolves with an image filename, or rejects with a custom error signifying that the function input was invalid. 
+Depending on the outcome of an asynchronous operation, a promise can either  [resolve](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) with a value or  [reject](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject) with an error. In the <code>getImageName</code> function, the <code>promiseOfImageName</code> promise either resolves with an image filename, or rejects with a custom error signifying that the function input was invalid. 
 
-<strong>Optional</strong>: Complete the `isSpain` function so that it takes a string as input, and returns a new promise that resolves if the function input is "Spain", and rejects otherwise. You can verify that you implemented `isSpain` correctly by navigating to <strong>app/test/test.html</strong> and checking the `isSpain` test. Note that this exercise is optional and is not used in the app.
+<strong>Optional</strong>: Complete the <code>isSpain</code> function so that it takes a string as input, and returns a new promise that resolves if the function input is "Spain", and rejects otherwise. You can verify that you implemented <code>isSpain</code> correctly by navigating to <strong>app/test/test.html</strong> and checking the <code>isSpain</code> test. Note that this exercise is optional and is not used in the app.
 
 ### 2.2. Use the promise
 
@@ -151,10 +151,10 @@ Replace TODO 2.2 inside the <code>flagChain</code> function in <strong>js/main.j
 
 #### main.js
 
-```
+<code></code>`
 return getImageName(country)
 .then(logSuccess, logError);
-```
+<code></code>`
 
 Save the script and refresh the page. 
 
@@ -164,7 +164,7 @@ Now enter "Hello World" into the <strong>Country Name</strong> text input and cl
 
 #### Explanation
 
-The `flagChain` function returns the result of `getImageName`, which is a promise. The  [then](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) method lets us implicitly pass the settled (either resolved or rejected) promise to another function. The `then` method takes two arguments in the following order: 
+The <code>flagChain</code> function returns the result of <code>getImageName</code>, which is a promise. The  [then](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) method lets us implicitly pass the settled (either resolved or rejected) promise to another function. The <code>then</code> method takes two arguments in the following order: 
 
 1. The function to be called if the promise resolves.
 2. The function to be called if the promise rejects. 
@@ -177,37 +177,37 @@ If the first function is called, then it is implicitly passed the resolved promi
 
 ### 2.3 Use catch for error handling
 
-Let's look at the `catch` method, which is a clearer alternative for error handling.
+Let's look at the <code>catch</code> method, which is a clearer alternative for error handling.
 
-Replace the code inside the `flagChain` function with the following:
+Replace the code inside the <code>flagChain</code> function with the following:
 
 #### main.js
 
-```
+<code></code>`
 return getImageName(country)
 .then(logSuccess)
 .catch(logError);
-```
+<code></code>`
 
 Save the script and refresh the page. Repeat the experiments from section 2.2 and note that the results are identical. 
 
 #### Explanation
 
-The  [catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) method is similar to `then`, but deals only with rejected cases. It behaves like `then(undefined, onRejected)`. With this new pattern, if the promise from `getImageName` resolves, then `logSuccess` is called (and is implicitly passed the resolved promise value). If the promise from `getImageName` rejects, then `logError` is called (and implicitly passed the rejection error). 
+The  [catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) method is similar to <code>then</code>, but deals only with rejected cases. It behaves like <code>then(undefined, onRejected)</code>. With this new pattern, if the promise from <code>getImageName</code> resolves, then <code>logSuccess</code> is called (and is implicitly passed the resolved promise value). If the promise from <code>getImageName</code> rejects, then <code>logError</code> is called (and implicitly passed the rejection error). 
 
-This code is not quite equivalent to the code in section 2.2, however. This new code also triggers `catch` if `logSuccess` rejects, because `logSuccess` occurs before the `catch`. This new code would actually be equivalent to the following:
+This code is not quite equivalent to the code in section 2.2, however. This new code also triggers <code>catch</code> if <code>logSuccess</code> rejects, because <code>logSuccess</code> occurs before the <code>catch</code>. This new code would actually be equivalent to the following:
 
 #### main.js
 
-```
+<code></code>`
 return getImageName(country)
 .then(logSuccess)
 .then(undefined, logError);
-```
+<code></code>`
 
-The difference is subtle, but extremely useful. Promise rejections skip forward to the next `then` with a rejection callback (or `catch`, since they're equivalent). With `then(func1, func2)`, `func1` or `func2` will be called, never both. But with `then(func1).catch(func2)`, both will be called if `func1` rejects, as they're separate steps in the chain. 
+The difference is subtle, but extremely useful. Promise rejections skip forward to the next <code>then</code> with a rejection callback (or <code>catch</code>, since they're equivalent). With <code>then(func1, func2)</code>, <code>func1</code> or <code>func2</code> will be called, never both. But with <code>then(func1).catch(func2)</code>, both will be called if <code>func1</code> rejects, as they're separate steps in the chain. 
 
-<strong>Optional</strong>: If you wrote the optional `isSpain` function in section 2.1, complete the `spainTest` function so that it takes a string as input and returns a promise using an `isSpain` call with the input string. Use `then` and `catch` such that `spainTest` returns a value of true if the `isSpain` promise resolves and false if the `isSpain` promise rejects (you can use the `returnTrue` and `returnFalse` helper functions). You can verify that you have implemented `spainTest` correctly by navigating to <strong>app/test/test.html</strong> and checking the `spainTest` test.
+<strong>Optional</strong>: If you wrote the optional <code>isSpain</code> function in section 2.1, complete the <code>spainTest</code> function so that it takes a string as input and returns a promise using an <code>isSpain</code> call with the input string. Use <code>then</code> and <code>catch</code> such that <code>spainTest</code> returns a value of true if the <code>isSpain</code> promise resolves and false if the <code>isSpain</code> promise rejects (you can use the <code>returnTrue</code> and <code>returnFalse</code> helper functions). You can verify that you have implemented <code>spainTest</code> correctly by navigating to <strong>app/test/test.html</strong> and checking the <code>spainTest</code> test.
 
 #### For more information
 
@@ -230,54 +230,54 @@ To get a copy of the working code, navigate to the <strong>02-basic-promises</st
 
 
 
-The `then` and `catch` methods also return promises, making it possible to chain promises together.
+The <code>then</code> and <code>catch</code> methods also return promises, making it possible to chain promises together.
 
 ### 3.1 Add asynchronous steps
 
-Replace the code in the `flagChain` function with the following:
+Replace the code in the <code>flagChain</code> function with the following:
 
 #### main.js
 
-```
+<code></code>`
 return getImageName(country)
 .then(fetchFlag)
 .then(processFlag)
 .then(appendFlag)
 .catch(logError);
-```
+<code></code>`
 
 Save the script and refresh the page.
 
 Enter "Spain" into the app's <strong>Country Name</strong> text input. Now click <strong>Flag Chain</strong>. You should see the Spanish flag display on the page.
 
-Now enter "Hello World" into the <strong>Country Name</strong> text input and click <strong>Flag Chain</strong>. The console should show that the error is triggering `catch`.
+Now enter "Hello World" into the <strong>Country Name</strong> text input and click <strong>Flag Chain</strong>. The console should show that the error is triggering <code>catch</code>.
 
 #### Explanation
 
-The updated `flagChain` function does the following:
+The updated <code>flagChain</code> function does the following:
 
-1. As before, `getImageName` returns a promise. The promise either resolves with an image file name, or rejects with an error, depending on the function's input.
-2. If the returned promise resolves, then the image file name is passed to `fetchFlag` inside the first `then`. This function requests the corresponding image file asynchronously, and returns a promise (see  [fetch](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch) documentation).
-3. If the promise from `fetchFlag` resolves, then the resolved value (a  [response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object) is passed to `processFlag` in the next `then`. The `processFlag` function checks if the response is ok, and throws an error if it is not. Otherwise, it processes the response with the `blob` method, which also returns a promise.
-4. If the promise from `processFlag` resolves, the resolved value (a  [blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)), is passed to the `appendFlag` function. The `appendFlag` function creates an image from the value and appends it to the DOM. 
+1. As before, <code>getImageName</code> returns a promise. The promise either resolves with an image file name, or rejects with an error, depending on the function's input.
+2. If the returned promise resolves, then the image file name is passed to <code>fetchFlag</code> inside the first <code>then</code>. This function requests the corresponding image file asynchronously, and returns a promise (see  [fetch](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch) documentation).
+3. If the promise from <code>fetchFlag</code> resolves, then the resolved value (a  [response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object) is passed to <code>processFlag</code> in the next <code>then</code>. The <code>processFlag</code> function checks if the response is ok, and throws an error if it is not. Otherwise, it processes the response with the <code>blob</code> method, which also returns a promise.
+4. If the promise from <code>processFlag</code> resolves, the resolved value (a  [blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)), is passed to the <code>appendFlag</code> function. The <code>appendFlag</code> function creates an image from the value and appends it to the DOM. 
 
-If any of the promises reject, then all subsequent `then` blocks are skipped, and `catch` executes, calling `logError`. Throwing an error in the `processFlag` function also triggers the `catch` block.
+If any of the promises reject, then all subsequent <code>then</code> blocks are skipped, and <code>catch</code> executes, calling <code>logError</code>. Throwing an error in the <code>processFlag</code> function also triggers the <code>catch</code> block.
 
 ### 3.2 Add a recovery catch
 
-The `flagChain` function does not add a flag to the page if an invalid country is used as input (`getImageName` rejects and execution skips to the `catch` block). 
+The <code>flagChain</code> function does not add a flag to the page if an invalid country is used as input (<code>getImageName</code> rejects and execution skips to the <code>catch</code> block). 
 
-Add a `catch` to the promise chain that uses the `fallbackName` function to supply a fallback image file name to the `fetchFlag` function if an invalid country is supplied to `flagChain`. To verify this was added correctly, navigate to <strong>app/test/test.html</strong> and check the `flagChain` test.
+Add a <code>catch</code> to the promise chain that uses the <code>fallbackName</code> function to supply a fallback image file name to the <code>fetchFlag</code> function if an invalid country is supplied to <code>flagChain</code>. To verify this was added correctly, navigate to <strong>app/test/test.html</strong> and check the <code>flagChain</code> test.
 
 <div class="note">
 <strong>Note:</strong> This test is asynchronous and may take a few moments to complete.
 </div>
 
-Save the script and refresh the page. Enter "Hello World" in the <strong>Country Name</strong> field and click <strong>Flag Chain</strong>. Now the Chilean flag should display even though an invalid input was passed to `flagChain`.
+Save the script and refresh the page. Enter "Hello World" in the <strong>Country Name</strong> field and click <strong>Flag Chain</strong>. Now the Chilean flag should display even though an invalid input was passed to <code>flagChain</code>.
 
 #### Explanation
 
-Because `catch` returns a promise, you can use the `catch` method inside a promise chain to  *recover*  from earlier failed operations.
+Because <code>catch</code> returns a promise, you can use the <code>catch</code> method inside a promise chain to  *recover*  from earlier failed operations.
 
 #### For more information
 
@@ -299,13 +299,13 @@ To get a copy of the working code, navigate to the <strong>03-chaining-promises<
 
 Often we want to take action only after a collection of asynchronous operations have completed successfully. 
 
-Complete the `allFlags` function such that it takes a list of promises as input. The function should use  [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) to evaluate the list of promises. If all promises resolve successfully, then `allFlags` returns the values of the resolved promises as a list. Otherwise, `allFlags` returns `false`. To verify that you have done this correctly, navigate to <strong>app/test/test.html</strong> and check the `allFlags` test.
+Complete the <code>allFlags</code> function such that it takes a list of promises as input. The function should use  [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) to evaluate the list of promises. If all promises resolve successfully, then <code>allFlags</code> returns the values of the resolved promises as a list. Otherwise, <code>allFlags</code> returns <code>false</code>. To verify that you have done this correctly, navigate to <strong>app/test/test.html</strong> and check the <code>allFlags</code> test.
 
 Test the function by replacing TODO 4.1 in <strong>js/main.js</strong> with the following code:
 
 #### main.js
 
-```
+<code></code>`
 var promises = [
   getImageName('Spain'),
   getImageName('Chile'),
@@ -315,19 +315,19 @@ var promises = [
 allFlags(promises).then(function(result) {
   console.log(result);
 });
-```
+<code></code>`
 
-Save the script and refresh the page. The console should log each promise object and show `["spain.png", "chile.png", "peru.png"]`. 
+Save the script and refresh the page. The console should log each promise object and show <code>["spain.png", "chile.png", "peru.png"]</code>. 
 
 <div class="note">
 <strong>Note: </strong>In this example we are using an <a href="https://en.wikibooks.org/wiki/JavaScript/Anonymous_functions">anonymous function</a> inside the <code>then</code> call. This is not related to <code>Promise.all</code>.
 </div>
 
-Change one of the inputs in the `getImageName` calls inside the `promises` variable to "Hello World". Save the script and refresh the page. Now the console should log `false`.
+Change one of the inputs in the <code>getImageName</code> calls inside the <code>promises</code> variable to "Hello World". Save the script and refresh the page. Now the console should log <code>false</code>.
 
 #### Explanation
 
-`Promise.all` returns a promise that resolves if all of the promises passed into it resolve. If any of the passed-in promises reject, then `Promise.all` rejects with the reason of the first promise that was rejected. This is very useful for ensuring that a group of asynchronous actions complete (such as multiple images loading) before proceeding to another step. 
+<code>Promise.all</code> returns a promise that resolves if all of the promises passed into it resolve. If any of the passed-in promises reject, then <code>Promise.all</code> rejects with the reason of the first promise that was rejected. This is very useful for ensuring that a group of asynchronous actions complete (such as multiple images loading) before proceeding to another step. 
 
 <div class="note">
 <strong>Note: </strong><code>Promise.all</code> would not work if the promises passed in were from <code>flagChain</code> calls because <code>flagChain</code> uses <code>catch</code> to ensure that the returned promise always resolves.
@@ -349,7 +349,7 @@ Replace TODO 4.2 in <strong>js/main.js</strong> with the following code:
 
 #### main.js
 
-```
+<code></code>`
 var promise1 = new Promise(function(resolve, reject) {
   setTimeout(resolve, 500, 'one');
 });
@@ -361,17 +361,17 @@ var promise2 = new Promise(function(resolve, reject) {
 Promise.race([promise1, promise2])
 .then(logSuccess)
 .catch(logError);
-```
+<code></code>`
 
-Save the script and refresh the page. The console should show "two" logged by `logSuccess`.
+Save the script and refresh the page. The console should show "two" logged by <code>logSuccess</code>.
 
-Change `promise2` to reject instead of resolve. Save the script and refresh the page. Observe that "two" is logged again, but this time by `logError`. 
+Change <code>promise2</code> to reject instead of resolve. Save the script and refresh the page. Observe that "two" is logged again, but this time by <code>logError</code>. 
 
 #### Explanation
 
-`Promise.race` takes a list of promises and settles as soon as the first promise in the list settles. If the first promise resolves, `Promise.race` resolves with the corresponding value, if the first promise rejects, `Promise.race` rejects with the corresponding reason.
+<code>Promise.race</code> takes a list of promises and settles as soon as the first promise in the list settles. If the first promise resolves, <code>Promise.race</code> resolves with the corresponding value, if the first promise rejects, <code>Promise.race</code> rejects with the corresponding reason.
 
-In this example, if `promise2` resolves before `promise1` settles, the `then` block executes and logs the value of the `promise2`. If `promise2` rejects before `promise1` settles, the `catch` block executes and logs the reason for the `promise2` rejection.
+In this example, if <code>promise2</code> resolves before <code>promise1</code> settles, the <code>then</code> block executes and logs the value of the <code>promise2</code>. If <code>promise2</code> rejects before <code>promise1</code> settles, the <code>catch</code> block executes and logs the reason for the <code>promise2</code> rejection.
 
 <div class="note">
 <strong>Note:</strong> Because <code>Promise.race</code> rejects immediately if one of the supplied promises rejects (even if another supplied promise resolves later) <code>Promise.race</code> by itself can't be used to reliably return the first promise that resolves. See the <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_promises.html#race">concepts section</a> for more details. 

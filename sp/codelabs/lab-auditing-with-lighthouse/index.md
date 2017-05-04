@@ -50,7 +50,7 @@ This lab shows you how you can use  [Lighthouse](https://github.com/GoogleChrome
 
 * Connection to the internet 
 *  [Chrome](https://www.google.com/chrome/browser/desktop/) 52+ browser
-* Node v5+ (or Node v4 with the `--harmony`  [flag](http://stackoverflow.com/questions/13351965/what-does-node-harmony-do))
+* Node v5+ (or Node v4 with the <code>--harmony</code>  [flag](http://stackoverflow.com/questions/13351965/what-does-node-harmony-do))
 * A text editor
 
 <a id="1" />
@@ -127,10 +127,10 @@ Replace TODO 4.1 in <strong>index.html</strong> with the following:
 
 #### index.html
 
-```
+<code></code>`
 <!-- Web Application Manifest -->
 <link rel="manifest" href="manifest.json">
-```
+<code></code>`
 
 ### 4.2 Add manifest code
 
@@ -138,7 +138,7 @@ Add the following to the <strong>manifest.json</strong> file:
 
 #### manifest.json
 
-```
+<code></code>`
 {
   "name": "Demo Blog Application",
   "short_name": "Blog",
@@ -172,7 +172,7 @@ Add the following to the <strong>manifest.json</strong> file:
   "display": "standalone",
   "theme_color": "#2E3AA1"
 }
-```
+<code></code>`
 
 ### 4.3 Add tags for other browsers
 
@@ -180,7 +180,7 @@ Replace TODO 4.3 in <strong>index.html</strong> with the following:
 
 #### index.html
 
-```
+<code></code>`
 <!-- Chrome for Android theme color -->
 <meta name="theme-color" content="#2E3AA1">
 
@@ -200,7 +200,7 @@ Replace TODO 4.3 in <strong>index.html</strong> with the following:
 
 <!-- Tile icon for Win8 (144x144) -->
 <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-```
+<code></code>`
 
 #### Explanation
 
@@ -234,7 +234,7 @@ Now replace TODO 5.1 in <strong>index.html</strong> with the following and save 
 
 #### index.html
 
-```
+<code></code>`
 <script>
   (function() {
     if (!('serviceWorker' in navigator)) {
@@ -250,7 +250,7 @@ Now replace TODO 5.1 in <strong>index.html</strong> with the following and save 
     });
   })();
 </script>
-```
+<code></code>`
 
 ### 5.2 Caching offline & start pages
 
@@ -260,7 +260,7 @@ Add the following code to the empty <strong>service-worker.js</strong> file (whi
 
 #### service-worker.js
 
-```
+<code></code>`
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('static-cache-v1')
@@ -289,7 +289,7 @@ self.addEventListener('fetch', function(event) {
     })
   );
 });
-```
+<code></code>`
 
 Save the file and refresh the page (for the app, not the Lighthouse page). Check the console and confirm that the service worker has registered successfully.
 
@@ -297,8 +297,8 @@ Save the file and refresh the page (for the app, not the Lighthouse page). Check
 
 We have created a service worker for our app and registered it. Here is what it does:
 
-1. The first block (`install` event listener) caches the files our app's files, so that they are saved locally. This lets us access them even when offline, which is what the next block does.
-2. The second block (`fetch` event listener) intercepts requests for resources and checks first if they are cached locally. If they are, the browser gets them from the cache without needing to make a network request. This lets us respond with a 200 even when offline. 
+1. The first block (<code>install</code> event listener) caches the files our app's files, so that they are saved locally. This lets us access them even when offline, which is what the next block does.
+2. The second block (<code>fetch</code> event listener) intercepts requests for resources and checks first if they are cached locally. If they are, the browser gets them from the cache without needing to make a network request. This lets us respond with a 200 even when offline. 
 
 Once we have loaded the app initially, all the files needed to run the app are saved in the cache. If the page is loaded again, the browser grabs the files from the cache regardless of network conditions. This also lets us satisfy the requirement of having our starting URL (<strong>index.html</strong>) cached.
 
@@ -340,7 +340,7 @@ You can see that we are still missing the HTTPS requirements, since we are using
 
 If you want to run Lighthouse from the command line (for example, to integrate it with a build process) it is available as a Node module that you can install from the terminal. 
 
-If you haven't already,  [download Node](https://nodejs.org/en/) and select the version that best suits your environment and operating system. (Remember that you need Node v5+ or Node v4 with the `--harmony`  [flag](http://stackoverflow.com/questions/13351965/what-does-node-harmony-do).)
+If you haven't already,  [download Node](https://nodejs.org/en/) and select the version that best suits your environment and operating system. (Remember that you need Node v5+ or Node v4 with the <code>--harmony</code>  [flag](http://stackoverflow.com/questions/13351965/what-does-node-harmony-do).)
 
 Install Lighthouse's Node module from the command line:
 
