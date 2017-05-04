@@ -85,7 +85,7 @@ When it receives a message, the service worker wakes up just long enough to disp
 
 The  [Notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API) lets us display notifications to the user. It is incredibly powerful and simple to use. Where possible, it uses the same mechanisms a native app would use, giving a completely native look and feel. 
 
-We can split the Notifications API into two core areas (these are non-technical and are not part of the spec). The  *Invocation API * controls how to make your notification appear, including styling and vibration. We create (or invoke) the notification from the page (or from the server, in the case of push notifications). The  *Interaction API*  controls what happens when the user engages with the notification. User interaction is handled in the service worker.
+We can split the Notifications API into two core areas (these are non-technical and are not part of the spec). The  <em>*Invocation API *</em> controls how to make your notification appear, including styling and vibration. We create (or invoke) the notification from the page (or from the server, in the case of push notifications). The  <em>*Interaction API*</em>  controls what happens when the user engages with the notification. User interaction is handled in the service worker.
 
 ### Request permission
 
@@ -194,7 +194,7 @@ Actions can have an identifier string, a title containing text to be shown to th
 
 ### Listen for events
 
-Displaying a notification was the first step. Now we need to handle user interactions in the service worker (using the "Interaction API"). Once the user has seen your notification they can either  *dismiss*  it or  *act on*  it.
+Displaying a notification was the first step. Now we need to handle user interactions in the service worker (using the "Interaction API"). Once the user has seen your notification they can either  <em>*dismiss*</em>  it or  <em>*act on*</em>  it.
 
 #### The notificationclose event
 
@@ -645,11 +645,7 @@ The Web Push Protocol has been designed to respect the user's privacy by keeping
 The solution is to have the publisher optionally identify themselves using the  [Voluntary Application Server Identification for Web Push (VAPID) protocol](https://tools.ietf.org/html/draft-ietf-webpush-vapid-01). At a minimum, this provides a stable identity for the application server, though this could also include contact information, such as an email address.
 
 The spec lists several benefits of using VAPID:
-
-*  *A consistent identity can be used by a push service to establish behavioral expectations for an application server. Significant deviations from an established norm can then be used to trigger exception handling procedures.* 
-*  *Voluntarily-provided contact information can be used to contact an application server operator in the case of exceptional situations.* 
-*  *Experience with push service deployment has shown that software errors or unusual circumstances can cause large increases in push message volume.  Contacting the operator of the application server has proven to be valuable.* 
-*  *Even in the absence of usable contact information, an application server that has a well-established reputation might be given preference over an unidentified application server when choosing whether to discard a push message.* 
+ <em>*  *A consistent identity can be used by a push service to establish behavioral expectations for an application server. Significant deviations from an established norm can then be used to trigger exception handling procedures.*</em>  <em>*  *Voluntarily-provided contact information can be used to contact an application server operator in the case of exceptional situations.*</em>  <em>*  *Experience with push service deployment has shown that software errors or unusual circumstances can cause large increases in push message volume.  Contacting the operator of the application server has proven to be valuable.*</em>  <em>*  *Even in the absence of usable contact information, an application server that has a well-established reputation might be given preference over an unidentified application server when choosing whether to discard a push message.*</em> 
 
 Using VAPID also lets you avoid the FCM-specific steps for sending a push message. You no longer need a Firebase project, a <code>gcm_sender_id</code>, or an <code>Authorization</code> header.
 
@@ -671,7 +667,7 @@ Let's look at these steps in detail.
 
 Here's the relevant section from the spec regarding the format of the VAPID public/private keys:
 
- *Application servers SHOULD generate and maintain a signing key pair usable with elliptic curve digital signature (ECDSA) over the P-256 curve.* 
+ <em>*Application servers SHOULD generate and maintain a signing key pair usable with elliptic curve digital signature (ECDSA) over the P-256 curve.*</em> 
 
 You can see how to do this in the  [web-push node library](https://github.com/web-push-libs/web-push):
 
@@ -751,7 +747,7 @@ An example payload could look like the following:
 <code></code>`
 {  
     "aud": "http://push-service.example.com",  
-    "exp": Math.floor((Date.now() / 1000) + (12 * 60 * 60)),  
+    "exp": Math.floor((Date.now() / 1000) + (12 <em>* 60 *</em> 60)),  
     "sub": "mailto: my-email@some-url.com"  
 }
 <code></code>`
@@ -940,7 +936,7 @@ The <code>clients</code> global in the service worker lists all of the active pu
 
 If there are no clients active, the user must be in another app. We should show a notification in this case. 
 
-If there  *are*  active clients it means that the user has your site open in one or more windows. The best practice is to relay the message to each of those windows.
+If there  <em>*are*</em>  active clients it means that the user has your site open in one or more windows. The best practice is to relay the message to each of those windows.
 
 ### Hiding Notifications on Page Focus
 
@@ -1056,7 +1052,7 @@ We don't want to display redundant notifications that have been removed elsewher
 There are a number of options available to solve this:
 
 1. <strong>Show the old notification</strong>, even if it's no longer relevant. This looks like a small glitch of the clients being out of sync.
-2. <strong>Handle the push message without triggering a notification</strong>. Chrome allows sites to  *very occasionally*  handle a push message without triggering a notification. If this case occurs extremely rarely it may be OK to do nothing.
+2. <strong>Handle the push message without triggering a notification</strong>. Chrome allows sites to  <em>*very occasionally*</em>  handle a push message without triggering a notification. If this case occurs extremely rarely it may be OK to do nothing.
 3. Ignore the message from the server and <strong>replace the notification with a fallback</strong> to be displayed if no other is available. For example, rather than display the information from an email the user has already read you could say "We've updated your inbox".
 
 <a id="resources"/>

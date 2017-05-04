@@ -137,7 +137,7 @@ A promise is in one of these states:
 * Fulfilled - The operation resolved and the promise has a value.
 * Rejected - The operation failed and the promise will never be fulfilled. A failed promise has a reason indicating why it failed.
 
-You may also hear the term  *settled* : it represents a promise that has been acted upon, and is either fulfilled or rejected.
+You may also hear the term  <em>*settled*</em> : it represents a promise that has been acted upon, and is either fulfilled or rejected.
 
 <a id="howto" />
 

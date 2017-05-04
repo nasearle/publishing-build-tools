@@ -34,7 +34,7 @@ Concepts:  [Working with IndexedDB](https://google-developer-training.gitbooks.i
 
 This lab guides you through the basics of the  [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) using Jake Archibald's  [IndexedDB Promised](https://github.com/jakearchibald/indexeddb-promised) library. The IndexedDB Promised library is very similar to the IndexedDB API, but uses promises rather than events. This simplifies the API while maintaining its structure, so anything you learn using this library can be applied to the IndexedDB API directly.
 
-This lab builds a furniture store app,  *Couches-n-Things* , to demonstrate the basics of IndexedDB.
+This lab builds a furniture store app,  <em>*Couches-n-Things*</em> , to demonstrate the basics of IndexedDB.
 
 #### What you will learn
 

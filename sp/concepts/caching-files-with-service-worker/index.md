@@ -32,7 +32,7 @@ You are responsible for implementing how your script (service worker) handles up
 
 ### Storing resources
 
-In this section, we outline a few common patterns for caching resources:  *on service worker install* ,  *on user interaction* , and  *on network response* . There are a few patterns we don't cover here. See the  [Offline Cookbook](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/) for a more complete list.
+In this section, we outline a few common patterns for caching resources:  <em>*on service worker install*</em> ,  <em>*on user interaction*</em> , and  <em>*on network response*</em> . There are a few patterns we don't cover here. See the  [Offline Cookbook](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/) for a more complete list.
 
 #### On install - caching the application shell
 

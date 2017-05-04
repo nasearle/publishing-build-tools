@@ -49,7 +49,7 @@ function cleanup(sourceFile, destFile, bookPath) {
   markdown = markdown.replace(/\s(\*(.*?)\*)\s/g, ' <em>$1</em> ');
 
   // Change code backticks to <code> tags
-  markdown = markdown.replace(/`(.*?)`/g, '<code>$1</code>');
+  markdown = markdown.replace(/\s`(.*?)`\s/g, ' <code>$1</code> ');
 
   // Remove empty lines in note divs
   markdown = markdown.replace(/<div class="note">\s*\n\n/g, '<div class="note">\n');

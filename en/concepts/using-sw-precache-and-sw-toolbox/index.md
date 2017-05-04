@@ -40,7 +40,7 @@ In this text we'll cover <code>sw-precache</code> and <code>sw-toolbox</code>, t
 
 <code>sw-toolbox</code> simplifies the process of intercepting network requests in the service worker and performing some caching strategy with the request/response.
 
-To use <code>sw-toolbox</code> you define  *routes*  and include them in your service worker. Routes behave like <code>fetch</code> event listeners, but are a more convenient way of creating custom handlers for specific requests.
+To use <code>sw-toolbox</code> you define  <em>*routes*</em>  and include them in your service worker. Routes behave like <code>fetch</code> event listeners, but are a more convenient way of creating custom handlers for specific requests.
 
 Routes look like this:
 

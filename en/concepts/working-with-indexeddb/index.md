@@ -66,7 +66,7 @@ Each IndexedDB database is unique to an origin (typically, this is the site doma
 
 [Database](https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase) - This is the highest level of IndexedDB. It contains the object stores, which in turn contain the data you would like to persist. You can create multiple databases with whatever names you choose, but generally there is one database per app.
 
-[Object store](https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore) - An object store is an individual bucket to store data. You can think of object stores as being similar to tables in traditional relational databases. Typically, there is one object store for each 'type' (not JavaScript data type) of data you are storing. For example, given an app that persists blog posts and user profiles, you could imagine two object stores. Unlike tables in traditional databases, the actual JavaScript data types of data within the store do not need to be consistent (for example, if there are three people in the 'people' object store, their age properties could be 53, 'twenty-five', and  *unknown* ).
+[Object store](https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore) - An object store is an individual bucket to store data. You can think of object stores as being similar to tables in traditional relational databases. Typically, there is one object store for each 'type' (not JavaScript data type) of data you are storing. For example, given an app that persists blog posts and user profiles, you could imagine two object stores. Unlike tables in traditional databases, the actual JavaScript data types of data within the store do not need to be consistent (for example, if there are three people in the 'people' object store, their age properties could be 53, 'twenty-five', and  <em>*unknown*</em> ).
 
 [Index](https://developer.mozilla.org/en-US/docs/Web/API/IDBIndex) - An Index is a kind of object store for organizing data in another object store (called the reference object store) by an individual property of the data. The index is used to retrieve records in the object store by this property. For example, if you're storing people, you may want to fetch them later by their name, age, or favorite animal.
 
@@ -178,7 +178,7 @@ Again, we first check the browser for IndexedDB support. This time we include th
 
 When you define object stores, you can define how data is uniquely identified in the store using the primary key. You can define a primary key by either defining a key path, or by using a key generator. 
 
-A  *key path*  is a property that always exists and contains a unique value. For example, in the case of a "people" object store we could choose the email address as the key path. 
+A  <em>*key path*</em>  is a property that always exists and contains a unique value. For example, in the case of a "people" object store we could choose the email address as the key path. 
 
 <code></code>`
 upgradeDb.createObjectStore('people', {keyPath: 'email'});
@@ -240,7 +240,7 @@ To create an index, call the  [createIndex](https://developer.mozilla.org/en-US/
 objectStore.createIndex('indexName', 'property', options);
 <code></code>`
 
-This method creates and returns an index object. <code>createIndex</code> takes the name of the new index as the first argument, and the second argument refers to the property on the data you want to index. The final argument lets you define two options that determine how the index operates:  *unique*  and  *multiEntry* . If  *unique*  is set to true, the index does not allow duplicate values for a single key.  *multiEntry*  determines how <code>createIndex</code> behaves when the indexed property is an array. If it's set to true, <code>createIndex</code> adds an entry in the index for each array element. Otherwise, it adds a single entry containing the array.
+This method creates and returns an index object. <code>createIndex</code> takes the name of the new index as the first argument, and the second argument refers to the property on the data you want to index. The final argument lets you define two options that determine how the index operates:  <em>*unique*</em>  and  <em>*multiEntry*</em> . If  <em>*unique*</em>  is set to true, the index does not allow duplicate values for a single key.  <em>*multiEntry*</em>  determines how <code>createIndex</code> behaves when the indexed property is an array. If it's set to true, <code>createIndex</code> adds an entry in the index for each array element. Otherwise, it adds a single entry containing the array.
 
 Here is an example:
 

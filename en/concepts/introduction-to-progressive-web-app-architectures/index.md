@@ -58,7 +58,7 @@ Service workers provide services such as:
 
     Think of a service worker as being a butler for your application, waking when needed and carrying out tasks for the app. Effectively, the service worker is an efficient background event handler in the browser. A service worker has an intentionally short lifetime. It wakes up when it gets an event and runs only as long as necessary to process it.
 
-The concept of caching is exciting because it allows you to support offline experiences and it gives developers complete control over what exactly that experience is. But, to take full advantage of the service worker and progressively incorporate more and more PWA capabilities also invites a new way of thinking about building web sites by using the  *application shell architecture* . 
+The concept of caching is exciting because it allows you to support offline experiences and it gives developers complete control over what exactly that experience is. But, to take full advantage of the service worker and progressively incorporate more and more PWA capabilities also invites a new way of thinking about building web sites by using the  <em>*application shell architecture*</em> . 
 
 <strong>Application Shell (app shell):</strong> PWAs tend to be architected around an application shell. This contains the local resources that your web app needs to load the skeleton of your user interface so it works offline and populates its content using JavaScript. If the application shell has been cached by service worker, then on repeat visits the app shell allows you to get meaningful pixels on the screen really fast without the network. Making use of an app shell is not a hard requirement for building PWAs, but it can result in significant performance gains when cached and served correctly.
 
@@ -74,7 +74,7 @@ Service worker caching should be considered a progressive enhancement. If your w
 
 ### Key Concepts
 
-The app shell approach relies on caching the "shell" of your web application using a service worker. Using the <strong> *app shell + dynamic content model* </strong> greatly improves app performance and works really well with service worker caching as a progressive enhancement. Progressively enhancing your web app means you can gradually add in features like offline caching, push notifications, and add-to-home-screen. 
+The app shell approach relies on caching the "shell" of your web application using a service worker. Using the <strong> <em>*app shell + dynamic content model*</em> </strong> greatly improves app performance and works really well with service worker caching as a progressive enhancement. Progressively enhancing your web app means you can gradually add in features like offline caching, push notifications, and add-to-home-screen. 
 
 Here is a high-level description of how it works:
 
@@ -155,7 +155,7 @@ The app shell model is great but how does it work in browsers that do not suppor
 <tr><td colspan="1" rowspan="1">
 <p>server-side rendering (SSR)</p>
 </td><td colspan="1" rowspan="1">
-<p>SSR means when the browser navigates to a URL and fetches the page, it immediately gets back HTML describing the page. SSR is nice because the page loads faster (this can be a server-rendered version of the full page, just the app shell or the content). There's no  <em>white page</em>  displayed while the browser downloads the rendering code and data and runs the code.  If rendering content on the server-side, users can get meaningful text on their screens even if a spotty network connection prevents assets like JavaScript from being fully fetched and parsed. SSR also maintains the idea that pages are documents, and if you ask a server for a document by its URL, then the text of the document is returned, rather than a program that generates that text using a complicated API.</p>
+<p>SSR means when the browser navigates to a URL and fetches the page, it immediately gets back HTML describing the page. SSR is nice because the page loads faster (this can be a server-rendered version of the full page, just the app shell or the content). There's no  <em><em>white page</em></em>  displayed while the browser downloads the rendering code and data and runs the code.  If rendering content on the server-side, users can get meaningful text on their screens even if a spotty network connection prevents assets like JavaScript from being fully fetched and parsed. SSR also maintains the idea that pages are documents, and if you ask a server for a document by its URL, then the text of the document is returned, rather than a program that generates that text using a complicated API.</p>
 </td>
 </tr>
 <tr><td colspan="1" rowspan="1">
@@ -186,7 +186,7 @@ The app shell model is great but how does it work in browsers that do not suppor
 <p>web app manifest</p>
 </td><td colspan="1" rowspan="1">
 <p>The app shell is deployed alongside a  <a href="https://www.w3.org/TR/appmanifest/"><strong>web app manifest</strong></a>, which is a simple JSON file that controls how the application appears to the user and how it can be launched. (This is typically named <code>manifest.json</code>.) When connecting to a network for the first time, a web browser reads the manifest file, downloads the resources given and stores them locally. Then, if there is no network connection, the browser uses the local cache to render the web app while offline.</p>
-<p><strong> <em>Note:</em> </strong> <em> Do not confuse this with the older </em>  <em><code>.manifest</code></em>  <em> file used by AppCache. PWAs should use the service worker to implement caching and the web app manifest to enable "add to homescreen" and push messaging. </em> </p>
+<p><strong> <em><em>Note:</em></em> </strong> <em><em> Do not confuse this with the older </em></em>  <em><em><code>.manifest</code></em></em>  <em><em> file used by AppCache. PWAs should use the service worker to implement caching and the web app manifest to enable "add to homescreen" and push messaging. </em></em> </p>
 </td>
 </tr></table>
 
@@ -221,7 +221,7 @@ Sites where you mostly navigate and view static content (such as news outlets) c
 
 Practically every website does some CSR, especially now with the strong trend toward mobile web usage. Any portion of a page that is animated or highly interactive (a draggable slider, a sortable table, a dropdown menu) likely uses client-side rendering.
 
-It is typical to render a page on the server and then  *update it dynamically on the client using JavaScript*  — or, alternatively, to implement the same features entirely on the client side. Some sites use the same rendering code on the server and client, an approach known as  [Universal (or Isomorphic) JavaScript](https://medium.com/@mjackson/universal-javascript-4761051b7ae9#.36085girb). 
+It is typical to render a page on the server and then  <em>*update it dynamically on the client using JavaScript*</em>  — or, alternatively, to implement the same features entirely on the client side. Some sites use the same rendering code on the server and client, an approach known as  [Universal (or Isomorphic) JavaScript](https://medium.com/@mjackson/universal-javascript-4761051b7ae9#.36085girb). 
 
 However, the fact is that you do not have to make an "either SSR or CSR" decision. The server is always responsible for getting the data (e.g. from a database) and including it in the initial navigation response, or providing it when the client asks for it after the page has loaded. There is no reason why it cannot do both! Likewise, modern tools such as NodeJS have made it easier than ever to migrate CSR code to the server and use it for SSR, and vice versa.
 
@@ -384,7 +384,7 @@ Server-rendered pages can vary in complexity, either being (primarily) static HT
 <strong>Note:</strong> If your website is a templated site (i.e. built using multiple templates combined with the actual text, images, and other resources that make up the site's content), then read Jake Archibald's  [Offline-first for Your Templated Site](https://jeffy.info/2016/11/02/offline-first-for-your-templated-site-part-1.html) to learn different strategies for caching and serving templated sites.
 </div>
 
-Once you decide on a strategy for caching then you must implement it. A SPA architecture is often recommended when using an app shell. When we refer to SPA (single-page apps), we're talking about apps that are loaded once and are then  *lived in*  for a long period of time. SPAs rely heavily on script and have entirely separate "server rendered" versions. Google's headline web apps (GMail, Inbox, Maps, Docs, Sheets, and so on) have been pioneers in this realm. These web apps are distinguished by managing a larger share of the state of the application on the client and then doing some form of synchronization on data sets. 
+Once you decide on a strategy for caching then you must implement it. A SPA architecture is often recommended when using an app shell. When we refer to SPA (single-page apps), we're talking about apps that are loaded once and are then  <em>*lived in*</em>  for a long period of time. SPAs rely heavily on script and have entirely separate "server rendered" versions. Google's headline web apps (GMail, Inbox, Maps, Docs, Sheets, and so on) have been pioneers in this realm. These web apps are distinguished by managing a larger share of the state of the application on the client and then doing some form of synchronization on data sets. 
 
 However, it can take some time to refactor an existing site/app over to the SPA architecture. If refactoring is a daunting task or if using an exclusively SSR approach is your only option for now, then you can still take advantage of service worker caching. But, you might end up treating your UI app shell the same way you would dynamic content. 
 
@@ -454,7 +454,7 @@ The benefits of an app shell architecture with a service worker include:
 
 * Application-like interactions
 
-    By adopting the  *app shell-plus-content*  application model, you can create experiences  with application-like navigation and interactions, complete with offline support.
+    By adopting the  <em>*app shell-plus-content*</em>  application model, you can create experiences  with application-like navigation and interactions, complete with offline support.
 
 * Economical use of data
 
@@ -551,7 +551,7 @@ toolbox.router.get(
 
     But, if you keep adding to dynamic caches indefinitely then your app consumes an ever increasing amount of storage. So <code>sw-toolbox</code> actually manages cache expiration for you, saving you the trouble of implementing it yourself. 
 
-    The following example configures <code>sw-toolbox</code> to use a dedicated cache for images with a maximum cache size of 6. Once the cache is full (as it is now) new images cause the least recently used images to be evicted. in addition to the  *least recently used*  expiration option, <code>sw-toolbox</code> also gives you a time-based expiration option where you can automatically expire everything once it reaches a certain age. 
+    The following example configures <code>sw-toolbox</code> to use a dedicated cache for images with a maximum cache size of 6. Once the cache is full (as it is now) new images cause the least recently used images to be evicted. in addition to the  <em>*least recently used*</em>  expiration option, <code>sw-toolbox</code> also gives you a time-based expiration option where you can automatically expire everything once it reaches a certain age. 
 
 <code></code>`
 toolbox.router.get(
@@ -1062,7 +1062,7 @@ Once the first interaction with a user is complete, re-engaging on the web can b
 
 ### How Do Push Notifications Work?
 
-Push notifications enable an app that is not running in the foreground to alert users that it has information for them. For example, the notification could be a meeting reminder, information from a website, a message from an app, or new data on a remote server. A push notification originates on a remote server that you manage, and is  *pushed*  to your app on a user's device.
+Push notifications enable an app that is not running in the foreground to alert users that it has information for them. For example, the notification could be a meeting reminder, information from a website, a message from an app, or new data on a remote server. A push notification originates on a remote server that you manage, and is  <em>*pushed*</em>  to your app on a user's device.
 
 Even if the user is not actively using your app, upon receiving a push notification the user can tap it to launch the associated app and see the details. Users can also ignore the notification, in which case the app is not activated.
 
@@ -1093,7 +1093,7 @@ Once the user sees the notification they can ignore it until later, dismiss it, 
 
 
 
-Using the architectures and technologies in this document means you now have a key to unlock faster performance, push notifications, and offline operation. The  *app shell + service worker*  model is the one of the best ways to structure your web apps if you want reliable and instant load times. This model also allows you to progressively enhance your web app to support additional offline experiences, background synchronization, and push notifications.
+Using the architectures and technologies in this document means you now have a key to unlock faster performance, push notifications, and offline operation. The  <em>*app shell + service worker*</em>  model is the one of the best ways to structure your web apps if you want reliable and instant load times. This model also allows you to progressively enhance your web app to support additional offline experiences, background synchronization, and push notifications.
 
 Where does all of this leave you as a developer who wants to use PWA architectures? 
 

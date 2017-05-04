@@ -606,7 +606,7 @@ You should get a response object logged in the console.
 Fetch (and XMLHttpRequest) follow the  [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). This means that browsers restrict cross-origin HTTP requests from within scripts. A cross-origin request occurs when one domain (for example <strong>http://foo.com/</strong>) requests a resource from a separate domain (for example <strong>http://bar.com/</strong>). 
 
 <div class="note">
-<strong>Note:</strong> Cross-origin request restrictions are often a point of confusion. Many resources like images, stylesheets, and scripts are fetched across domains (i.e., cross-origin). However, these are exceptions to the same-origin policy. Cross-origin requests are still restricted from  *within scripts* .
+<strong>Note:</strong> Cross-origin request restrictions are often a point of confusion. Many resources like images, stylesheets, and scripts are fetched across domains (i.e., cross-origin). However, these are exceptions to the same-origin policy. Cross-origin requests are still restricted from  <em>*within scripts*</em> .
 </div>
 
 Since our app's server has a different port number than the two echo servers, requests to either of the echo servers are considered cross-origin. The first echo server, however, running on <strong>localhost:5000/</strong>, is configured to support  [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). The new echo server, running on <strong>localhost:5001/</strong>, is not (which is why we get an error). 

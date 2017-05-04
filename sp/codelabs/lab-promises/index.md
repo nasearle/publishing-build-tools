@@ -277,7 +277,7 @@ Save the script and refresh the page. Enter "Hello World" in the <strong>Country
 
 #### Explanation
 
-Because <code>catch</code> returns a promise, you can use the <code>catch</code> method inside a promise chain to  *recover*  from earlier failed operations.
+Because <code>catch</code> returns a promise, you can use the <code>catch</code> method inside a promise chain to  <em>*recover*</em>  from earlier failed operations.
 
 #### For more information
 

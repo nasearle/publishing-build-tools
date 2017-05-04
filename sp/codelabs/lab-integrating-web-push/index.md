@@ -905,7 +905,7 @@ Send the message once with the app open, and once without. With the app open, th
 
 The <code>clients</code> global in the service worker lists all of the active clients of the service worker on this machine. If there are no clients active, we create a notification.
 
-If there  *are*  active clients it means that the user has your site open in one or more windows. The best practice is usually to relay the message to each of those windows. 
+If there  <em>*are*</em>  active clients it means that the user has your site open in one or more windows. The best practice is usually to relay the message to each of those windows. 
 
 #### Solution code
 

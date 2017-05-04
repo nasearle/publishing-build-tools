@@ -155,7 +155,7 @@ Save the code and refresh the page in the browser. Refresh the page at various w
 
 #### Explanation
 
-By adding a width descriptor to each file in the <code>srcset</code>, we are telling the browser the width of each image in pixels  *before*  it fetches the image. The browser can then use these widths to decide which image to fetch based on its window size. It fetches the image with the smallest width that is still larger than the viewport width.
+By adding a width descriptor to each file in the <code>srcset</code>, we are telling the browser the width of each image in pixels  <em>*before*</em>  it fetches the image. The browser can then use these widths to decide which image to fetch based on its window size. It fetches the image with the smallest width that is still larger than the viewport width.
 
 <div class="note">
 <strong>Note:</strong> You can also optionally specify a pixel density instead of a width. However, you cannot specify both pixel densities and widths in the same <code>srcset</code> attribute. We explore using pixel densities in a later section.
