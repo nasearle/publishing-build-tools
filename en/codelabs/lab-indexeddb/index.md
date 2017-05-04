@@ -34,24 +34,24 @@ Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web
 
 This lab guides you through the basics of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB API</a> using Jake Archibald's <a href="https://github.com/jakearchibald/indexeddb-promised">IndexedDB Promised</a> library. The IndexedDB Promised library is very similar to the IndexedDB API, but uses promises rather than events. This simplifies the API while maintaining its structure, so anything you learn using this library can be applied to the IndexedDB API directly.
 
-This lab builds a furniture store app,  <em>*Couches-n-Things*</em> , to demonstrate the basics of IndexedDB.
+This lab builds a furniture store app,  <em>Couches-n-Things</em> , to demonstrate the basics of IndexedDB.
 
 #### What you will learn
 
-* How to create object stores and indexes
-* How to create, retrieve, update, and delete values (or CRUD)
-* How to use cursors
-* (Optional) How to use the <code>getAll()</code> method
+<em> How to create object stores and indexes
+</em> How to create, retrieve, update, and delete values (or CRUD)
+<em> How to use cursors
+</em> (Optional) How to use the <code>getAll()</code> method
 
 #### What you should know
 
-* Basic JavaScript and HTML
-* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">JavaScript Promises</a>
+<em> Basic JavaScript and HTML
+</em> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">JavaScript Promises</a>
 
 #### What you will need
 
-* Computer with terminal/shell access
-* <a href="https://www.google.com/chrome/browser/desktop/">Chrome</a> (the unit tests have a Chrome dependency)
+<em> Computer with terminal/shell access
+</em> <a href="https://www.google.com/chrome/browser/desktop/">Chrome</a> (the unit tests have a Chrome dependency)
 
 <a id="1" />
 
@@ -73,10 +73,10 @@ If you have a text editor that lets you open a project, open the <strong>indexed
 
 This folder contains:
 
-* <strong>js/main.js</strong> is where we will write the scripts to interact with the database
-* <strong>js/idb.js</strong> is the IndexedDB Promised library
-* <strong>test/test.html</strong> is a QUnit test page
-* <strong>index.html</strong> is the main HTML page for our sample site/application, and which contains some forms for interacting with our IndexedDB database
+<em> <strong>js/main.js</strong> is where we will write the scripts to interact with the database
+</em> <strong>js/idb.js</strong> is the IndexedDB Promised library
+<em> <strong>test/test.html</strong> is a QUnit test page
+</em> <strong>index.html</strong> is the main HTML page for our sample site/application, and which contains some forms for interacting with our IndexedDB database
 
 <a id="2" />
 
@@ -129,7 +129,7 @@ Open the QUnit test page, <strong>app/test/test.html</strong>, in another browse
 
 #### Explanation
 
-`idb.open` takes a database name, version number, and optional callback function for performing database updates (not included in the above code). The version number determines whether the upgrade callback function is called. If the version number is greater than the version number of the database existing in the browser, then the upgrade callback is executed.
+<code>idb.open</code> takes a database name, version number, and optional callback function for performing database updates (not included in the above code). The version number determines whether the upgrade callback function is called. If the version number is greater than the version number of the database existing in the browser, then the upgrade callback is executed.
 
 <div class="note">
 <strong>Note: </strong>If at any point in the codelab your database gets into a bad state, you can delete it from the console with the following command: <code>indexedDB.deleteDatabase('couches-n-things');</code>. Note that you can't delete the database while the testing page is open.
@@ -174,7 +174,7 @@ Open the QUnit test page. Your app should now pass the second test that checks w
 
 #### Explanation
 
-To ensure database integrity, object stores and indexes can only be created during database upgrades. This means they are created inside the upgrade callback function in <code>idb.open`, which executes only if the version number (in this case it's `2`) is greater than the existing version in the browser or if the database doesn't exist. The callback is passed the `UpgradeDB</code> object (see the <a href="https://github.com/jakearchibald/idb#idbopenname-version-upgradecallback">documentation</a> for details), which is used to create the object stores.
+To ensure database integrity, object stores and indexes can only be created during database upgrades. This means they are created inside the upgrade callback function in <code>idb.open</code>, which executes only if the version number (in this case it's <code>2</code>) is greater than the existing version in the browser or if the database doesn't exist. The callback is passed the <code>UpgradeDB</code> object (see the <a href="https://github.com/jakearchibald/idb#idbopenname-version-upgradecallback">documentation</a> for details), which is used to create the object stores.
 
 Inside the callback, we include a switch block that executes its cases based on the version of the database already existing in the browser. <code>case 0</code> executes if the database doesn't yet exist. The database already exists for us, but we need a <code>case 0</code> in case we delete the database, or in case someone else uses our app on their own machine.
 
@@ -186,8 +186,8 @@ We have specified the <code>id</code> property as the <code>keyPath</code> for t
 
 #### For more information
 
-* <a href="https://github.com/jakearchibald/idb">`idb` - Github</a>
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/createObjectStore">`createObjectStore` method</a>
+<em> <a href="https://github.com/jakearchibald/idb"><code>idb</code> - Github</a>
+</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/createObjectStore"><code>createObjectStore</code> method</a>
 
 ### 3.3 Add objects to the object store
 
@@ -283,8 +283,8 @@ All database operations must be carried out within a <a href="https://developer.
 
 #### For more information
 
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBTransaction">Transactions - MDN</a>
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/add">Add method - MDN</a>
+<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBTransaction">Transactions - MDN</a>
+</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/add">Add method - MDN</a>
 
 <a id="4" />
 
@@ -358,8 +358,8 @@ In the example, we create an index on the <code>name</code> property, allowing u
 
 #### For more information
 
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBIndex">`IDBIndex` - MDN</a>
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/createIndex">`createIndex` method - MDN</a>
+<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBIndex"><code>IDBIndex</code> - MDN</a>
+</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/createIndex"><code>createIndex</code> method - MDN</a>
 
 ### 4.2 Create <code>price</code> and <code>description</code> indexes
 
@@ -414,7 +414,7 @@ This code calls the <code>get</code> method on the 'name' index to retrieve an i
 
 #### For more information
 
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/get">`Get` method - MDN</a>
+<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/get"><code>Get</code> method - MDN</a>
 
 ### 4.4 Use a cursor object
 
@@ -468,13 +468,13 @@ Save the code and refresh the page in the browser. Enter a description (must mat
 
 #### Explanation
 
-After getting the price values from the page, we determine which method to call on <code>IDBKeyRange</code> to limit the cursor. We open the cursor on the <code>price</code> index and pass the cursor object to the <code>showRange</code> function in <code>.then`. This function adds the current object to the html string, moves on to the next object with `cursor.continue()`, and calls itself, passing in the cursor object. `showRange</code> loops through each object in the object store until it reaches the end of the range. Then the cursor object is <code>undefined</code> and <code>if (!cursor) {return;}</code> breaks the loop.
+After getting the price values from the page, we determine which method to call on <code>IDBKeyRange</code> to limit the cursor. We open the cursor on the <code>price</code> index and pass the cursor object to the <code>showRange</code> function in <code>.then</code>. This function adds the current object to the html string, moves on to the next object with <code>cursor.continue()</code>, and calls itself, passing in the cursor object. <code>showRange</code> loops through each object in the object store until it reaches the end of the range. Then the cursor object is <code>undefined</code> and <code>if (!cursor) {return;}</code> breaks the loop.
 
 #### For more information
 
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor">`IDBCursor` - MDN</a>
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBKeyRange">`IDBKeyRange` - MDN</a>
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor/continue">`cursor.continue()` - MDN</a>
+</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor"><code>IDBCursor</code> - MDN</a>
+<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBKeyRange"><code>IDBKeyRange</code> - MDN</a>
+</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor/continue"><code>cursor.continue()</code> - MDN</a>
 
 #### Solution code
 
@@ -598,8 +598,8 @@ This code gets each object from the <code>products</code> object store with an i
 
 #### For more information
 
-* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">Promise.all() - MDN</a>
-* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.map() - MDN</a>
+<em> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">Promise.all() - MDN</a>
+</em> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.map() - MDN</a>
 
 ### 5.6 Decrement quantity
 
@@ -632,7 +632,7 @@ Here we are subtracting the quantity ordered from the quantity left in the <code
 
 #### For more information
 
-* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">new <code>Promise</code> - MDN</a>
+<em> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">new <code>Promise</code> - MDN</a>
 
 ### 5.7 Update the <code>products</code> object store
 
@@ -640,8 +640,8 @@ Finally, we must update the <code>products</code> object store with the new quan
 
 Replace TODO 5.7 in <strong>main.js</strong> with the code to update the items in the <code>products</code> objects store with their new quantities. We already updated the values in the <code>decrementQuantity</code> function and passed the array of updated objects into the <code>updateProductsStore</code> function. All that's left to do is use <a id="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/put">ObjectStore.put</a> to update each item in the store. A few hints:
 
-* Remember to make the transaction mode <code>'readwrite'</code>
-* Remember to return <code>transaction.complete</code> (<code>tx.complete</code>) after putting the items into the store
+</em> Remember to make the transaction mode <code>'readwrite'</code>
+<em> Remember to return <code>transaction.complete</code> (<code>tx.complete</code>) after putting the items into the store
 
 Save the code and refresh the page in the browser. Check the quantity property of the cabinet, armchair, and couch items in the products object store. Click <strong>Fulfill</strong> in the page, refresh, and check the quantities again. They should be reduced by the amount of each product that was ordered.
 
@@ -663,8 +663,8 @@ You have learned the basics of working with IndexedDB.
 
 #### What we've covered
 
-* How to create, read, update and delete data in the database
-* The <code>getAll</code> method
-* How to use cursors to iterate over the data
+</em> How to create, read, update and delete data in the database
+<em> The <code>getAll</code> method
+</em> How to use cursors to iterate over the data
 
 
