@@ -45,6 +45,9 @@ function cleanup(sourceFile, destFile, bookPath) {
   // Change bold underscores to <strong> tags
   markdown = markdown.replace(/__(.*?)__/g, '<strong>$1</strong>');
 
+  // Change code backticks to <code> tags
+  markdown = markdown.replace(/`(.*?)`/g, '<code>$1</code>');
+
   // Remove empty lines in note divs
   markdown = markdown.replace(/<div class="note">\s*\n\n/g, '<div class="note">\n');
   markdown = markdown.replace(/\n\n+<\/div>/g, '\n</div>');
