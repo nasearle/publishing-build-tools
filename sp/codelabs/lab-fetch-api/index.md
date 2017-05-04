@@ -8,23 +8,23 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a><strong>          </strong>
+<a href="#overview"><strong>Overview</strong></a> 
 
-<a href="#1"><strong>1. Get set up</strong></a><strong>          </strong>
+<a href="#1"><strong>1. Get set up</strong></a> 
 
-<a href="#2"><strong>2. Fetching a resource</strong></a><strong>          </strong>
+<a href="#2"><strong>2. Fetching a resource</strong></a> 
 
-<a href="#3"><strong>3. Fetch an image</strong></a><strong>          </strong>
+<a href="#3"><strong>3. Fetch an image</strong></a> 
 
-<a href="#4"><strong>4. Fetch text</strong></a><strong>          </strong>
+<a href="#4"><strong>4. Fetch text</strong></a> 
 
-<a href="#5"><strong>5. Using HEAD requests</strong></a><strong>          </strong>
+<a href="#5"><strong>5. Using HEAD requests</strong></a> 
 
-<a href="#6"><strong>6. Using POST requests</strong></a><strong>          </strong>
+<a href="#6"><strong>6. Using POST requests</strong></a> 
 
-<a href="#7"><strong>7. Optional: CORS and custom headers</strong></a><strong>        </strong>
+<a href="#7"><strong>7. Optional: CORS and custom headers</strong></a> 
 
-<a href="#8"><strong>Congratulations!</strong></a><strong>        </strong>
+<a href="#8"><strong>Congratulations!</strong></a> 
 
 Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_the_fetch_api.html">Working with the Fetch API</a>
 
@@ -40,24 +40,24 @@ This lab walks you through using the <a href="https://developer.mozilla.org/en-U
 
 #### What you will learn
 
-<em> How to use the Fetch API to request resources 
-</em> How to make GET, HEAD, and POST requests with fetch
+* How to use the Fetch API to request resources 
+* How to make GET, HEAD, and POST requests with fetch
 
 #### What you should know
 
-<em> Basic JavaScript and HTML
-</em> Familiarity with the concept and basic syntax of ES2015 <a href="http://www.html5rocks.com/en/tutorials/es6/promises/">Promises</a>
-<em> The concept of an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately Invoked Function Expression</a> (IIFE)
-</em> How to enable the developer console
-<em> Some familiarity with <a href="http://www.json.org/">JSON</a> 
+* Basic JavaScript and HTML
+* Familiarity with the concept and basic syntax of ES2015 <a href="http://www.html5rocks.com/en/tutorials/es6/promises/">Promises</a>
+* The concept of an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately Invoked Function Expression</a> (IIFE)
+* How to enable the developer console
+* Some familiarity with <a href="http://www.json.org/">JSON</a> 
 
 #### What you will need
 
-</em> Computer with terminal/shell access
-<em> Connection to the internet 
-</em> A browser that supports <a href="http://caniuse.com/#feat=fetch">Fetch</a>
-<em> A text editor
-</em> <a href="https://nodejs.org/en/">Node</a> and <a href="https://www.npmjs.com/">npm</a>
+* Computer with terminal/shell access
+* Connection to the internet 
+* A browser that supports <a href="http://caniuse.com/#feat=fetch">Fetch</a>
+* A text editor
+* <a href="https://nodejs.org/en/">Node</a> and <a href="https://www.npmjs.com/">npm</a>
 
 <div class="note">
 <strong>Note: </strong>Although the Fetch API is <a href="http://caniuse.com/#feat=fetch">not currently supported in all browsers</a>, there is a <a href="https://github.com/github/fetch">polyfill</a> (but see the readme for important caveats). 
@@ -83,12 +83,12 @@ If you have a text editor that lets you open a project, open the <strong>fetch-a
 
 This folder contains:
 
-<em> <strong>echo-servers</strong> contains files that are used for running echo servers
-</em> <strong>examples</strong> contains sample resources that we use in experimenting with fetch
-<em> <strong>index.html</strong> is the main HTML page for our sample site/application
-</em> <strong>js/main.js</strong> is the main JavaScript for the app, and where you will write all your code
-<em> <strong>test/test.html</strong> is a file for testing your progress
-</em> <strong>package.json</strong> is a configuration file for node dependencies 
+* <strong>echo-servers</strong> contains files that are used for running echo servers
+* <strong>examples</strong> contains sample resources that we use in experimenting with fetch
+* <strong>index.html</strong> is the main HTML page for our sample site/application
+* <strong>js/main.js</strong> is the main JavaScript for the app, and where you will write all your code
+* <strong>test/test.html</strong> is a file for testing your progress
+* <strong>package.json</strong> is a configuration file for node dependencies 
 
 <a id="2" />
 
@@ -167,7 +167,7 @@ Why didn't a failed response activate the <code>catch</code> block? This is an i
 
 #### For more information
 
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response">Response objects</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response">Response objects</a>
 
 ### 2.3 Check response validity
 
@@ -263,9 +263,9 @@ Step 4. Finally, the JSON data from the original request to <strong>examples/ani
 
 #### For more information
 
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/json">Response.json()</a>
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response#Methods">Response methods</a>
-</em> <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises#chaining">Promise chaining</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/json">Response.json()</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response#Methods">Response methods</a>
+* <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises#chaining">Promise chaining</a>
 
 #### Solution code
 
@@ -329,9 +329,9 @@ In this example an image is being fetched, <strong>examples/kitten.jpg</strong>.
 
 #### For more information
 
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">Blobs</a>
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/blob">Response.blob()</a>
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL">URL object</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">Blobs</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/blob">Response.blob()</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL">URL object</a>
 
 #### Solution code
 
@@ -390,7 +390,7 @@ In this example a text file is being fetched, <strong>examples/words.txt</strong
 
 #### For more information
 
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/text">Response.text()</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/text">Response.text()</a>
 
 #### Solution code
 
@@ -467,9 +467,9 @@ In this example, the HEAD method is used to request the size (in bytes) of a res
 
 #### For more information
 
-<em> <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">HTTP methods</a>
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch">Fetch method signature</a>
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers">Headers</a>
+* <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">HTTP methods</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch">Fetch method signature</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers">Headers</a>
 
 #### Solution code
 
@@ -558,8 +558,8 @@ The <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData"
 
 #### For more information
 
-</em> <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">POST requests</a>
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData">FormData</a>
+* <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">POST requests</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData">FormData</a>
 
 #### Solution code
 
@@ -606,7 +606,7 @@ You should get a response object logged in the console.
 Fetch (and XMLHttpRequest) follow the <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">same-origin policy</a>. This means that browsers restrict cross-origin HTTP requests from within scripts. A cross-origin request occurs when one domain (for example <strong>http://foo.com/</strong>) requests a resource from a separate domain (for example <strong>http://bar.com/</strong>). 
 
 <div class="note">
-<strong>Note:</strong> Cross-origin request restrictions are often a point of confusion. Many resources like images, stylesheets, and scripts are fetched across domains (i.e., cross-origin). However, these are exceptions to the same-origin policy. Cross-origin requests are still restricted from  </em>within scripts<em> .
+<strong>Note:</strong> Cross-origin request restrictions are often a point of confusion. Many resources like images, stylesheets, and scripts are fetched across domains (i.e., cross-origin). However, these are exceptions to the same-origin policy. Cross-origin requests are still restricted from  <em>within scripts</em> .
 </div>
 
 Since our app's server has a different port number than the two echo servers, requests to either of the echo servers are considered cross-origin. The first echo server, however, running on <strong>localhost:5000/</strong>, is configured to support <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">CORS</a>. The new echo server, running on <strong>localhost:5001/</strong>, is not (which is why we get an error). 
@@ -649,8 +649,8 @@ Like cross-origin requests, custom headers must be supported by the server from 
 
 #### For more information
 
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">Cross Origin Resource Sharing (CORS)</a>
-<em> <a href="https://jakearchibald.com/2015/thats-so-fetch/">That's so fetch!</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">Cross Origin Resource Sharing (CORS)</a>
+* <a href="https://jakearchibald.com/2015/thats-so-fetch/">That's so fetch!</a>
 
 #### Solution code
 
@@ -670,12 +670,12 @@ You now know how to use the Fetch API to request resources and post data to serv
 
 ### Resources
 
-</em> <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_the_fetch_api.html">Fetch API Concepts</a>
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Learn more about the Fetch API</a>
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Learn more about Using Fetch</a>
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch">Learn more about GlobalFetch.fetch()</a>
-</em> <a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch">Get an Introduction to Fetch</a>
-<em> <a href="https://davidwalsh.name/fetch">David Walsh's blog on fetch</a>
-</em> <a href="https://jakearchibald.com/2015/thats-so-fetch/">Jake Archibald's blog on fetch</a>
+* <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_the_fetch_api.html">Fetch API Concepts</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Learn more about the Fetch API</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Learn more about Using Fetch</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch">Learn more about GlobalFetch.fetch()</a>
+* <a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch">Get an Introduction to Fetch</a>
+* <a href="https://davidwalsh.name/fetch">David Walsh's blog on fetch</a>
+* <a href="https://jakearchibald.com/2015/thats-so-fetch/">Jake Archibald's blog on fetch</a>
 
 

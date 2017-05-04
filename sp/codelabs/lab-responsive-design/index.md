@@ -8,19 +8,19 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a><strong>        </strong>
+<a href="#overview"><strong>Overview</strong></a> 
 
-<a href="#1"><strong>1. Get set up</strong></a><strong>        </strong>
+<a href="#1"><strong>1. Get set up</strong></a> 
 
-<a href="#2"><strong>2. Test the page</strong></a><strong>        </strong>
+<a href="#2"><strong>2. Test the page</strong></a> 
 
-<a href="#3"><strong>3. Set the visual viewport</strong></a><strong>        </strong>
+<a href="#3"><strong>3. Set the visual viewport</strong></a> 
 
-<a href="#4"><strong>4. Use media queries</strong></a><strong>        </strong>
+<a href="#4"><strong>4. Use media queries</strong></a> 
 
-<a href="#5"><strong>5. Using Flexbox</strong></a><strong>        </strong>
+<a href="#5"><strong>5. Using Flexbox</strong></a> 
 
-<a href="#6"><strong>6. Using Flexbox as a progressive enhancement</strong></a><strong>        </strong>
+<a href="#6"><strong>6. Using Flexbox as a progressive enhancement</strong></a> 
 
 <a href="#congrats"><strong>Congratulations!</strong></a>
 
@@ -36,19 +36,19 @@ This lab shows you how to style your content to make it responsive.
 
 #### What you will learn
 
-<em> How to style your app so that it works well in multiple form factors
-</em> How to use Flexbox to easily organize your content into columns
-<em> How to use media queries to reorganize your content based on screen size
+* How to style your app so that it works well in multiple form factors
+* How to use Flexbox to easily organize your content into columns
+* How to use media queries to reorganize your content based on screen size
 
 #### What you should know
 
-</em> Basic HTML and CSS
+* Basic HTML and CSS
 
 #### What you will need
 
-<em> Computer with terminal/shell access
-</em> Connection to the internet
-<em> Text editor
+* Computer with terminal/shell access
+* Connection to the internet
+* Text editor
 
 <a id="1" />
 
@@ -70,9 +70,9 @@ If you have a text editor that lets you open a project, open the <strong>respons
 
 This folder contains:
 
-</em> <strong>index.html</strong> is the main HTML page for our sample site/application
-<em> <strong>modernizr-custom.js</strong> is a feature detection tool that simplifies testing for Flexbox support
-</em> <strong>styles/main.css</strong> is the cascading style sheet for the sample site
+* <strong>index.html</strong> is the main HTML page for our sample site/application
+* <strong>modernizr-custom.js</strong> is a feature detection tool that simplifies testing for Flexbox support
+* <strong>styles/main.css</strong> is the cascading style sheet for the sample site
 
 <a id="2" />
 
@@ -116,8 +116,8 @@ The initial-scale property controls the zoom level when the page is first loaded
 
 #### For more information
 
-<em> <a href="https://developers.google.com/web/fundamentals/design-and-ui/responsive/fundamentals/set-the-viewport">Set the viewport</a> - Responsive Web Design Basics 
-</em> <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag">Using the viewport meta tag to control layout on mobile browsers</a> - MDN
+* <a href="https://developers.google.com/web/fundamentals/design-and-ui/responsive/fundamentals/set-the-viewport">Set the viewport</a> - Responsive Web Design Basics 
+* <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag">Using the viewport meta tag to control layout on mobile browsers</a> - MDN
 
 <a id="4" />
 
@@ -190,10 +190,10 @@ The second rule uses the <code>.col</code> class to create our equal width flex 
 
 #### For more information
 
-<em> <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a> - CSS Tricks
-</em> <a href="https://www.w3.org/TR/css-flexbox-1/">CSS Flexible Box Layout Module Level 1</a> - W3C
-<em> <a href="http://shouldiprefix.com/#flexbox">What CSS to prefix?</a>
-</em> <a href="https://css-tricks.com/using-flexbox/">Using Flexbox</a> - CSS Tricks
+* <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a> - CSS Tricks
+* <a href="https://www.w3.org/TR/css-flexbox-1/">CSS Flexible Box Layout Module Level 1</a> - W3C
+* <a href="http://shouldiprefix.com/#flexbox">What CSS to prefix?</a>
+* <a href="https://css-tricks.com/using-flexbox/">Using Flexbox</a> - CSS Tricks
 
 ### 5.3 Optional: Set different relative widths
 
@@ -317,8 +317,8 @@ Save the code and refresh <strong>index.html</strong> in the browser. The page s
 
 #### For more information
 
-<em> <a href="https://www.sitepoint.com/migrating-flexbox-cutting-mustard/">Migrating to Flexbox</a> - Cutting the Mustard
-</em> <a href="https://modernizr.com/docs">Modernizr Documentation</a>
+* <a href="https://www.sitepoint.com/migrating-flexbox-cutting-mustard/">Migrating to Flexbox</a> - Cutting the Mustard
+* <a href="https://modernizr.com/docs">Modernizr Documentation</a>
 
 <a id="congrats" />
 
@@ -332,29 +332,29 @@ You have learned to style your content to make it responsive. Using media querie
 
 ### What we've covered
 
-<em> Setting the visual viewport
-</em> Flexbox
-<em> Media queries
+* Setting the visual viewport
+* Flexbox
+* Media queries
 
 ### Resources
 
 #### Learn more about the basics of responsive design
 
-</em> <a href="https://developers.google.com/web/fundamentals/design-and-ui/responsive/#set-the-viewport">Responsive Web Design Basics - Set the viewport</a> 
-<em> <a href="http://www.quirksmode.org/mobile/viewports2.html">A tale of two viewports</a>
+* <a href="https://developers.google.com/web/fundamentals/design-and-ui/responsive/#set-the-viewport">Responsive Web Design Basics - Set the viewport</a> 
+* <a href="http://www.quirksmode.org/mobile/viewports2.html">A tale of two viewports</a>
 
 #### Learn more about Flexbox as a progressive enhancement
 
-</em> <a href="http://blog.formkeep.com/progressive-enhancement-start-using-css-without-breaking-older-browsers/">Progressive Enhancement: Start Using CSS Without Breaking Older Browsers</a>
-<em> <a href="https://www.sitepoint.com/migrating-flexbox-cutting-mustard/">Migrating to Flexbox by Cutting the Mustard</a>
-</em> <a href="https://modernizr.com/">Modernizr</a>
+* <a href="http://blog.formkeep.com/progressive-enhancement-start-using-css-without-breaking-older-browsers/">Progressive Enhancement: Start Using CSS Without Breaking Older Browsers</a>
+* <a href="https://www.sitepoint.com/migrating-flexbox-cutting-mustard/">Migrating to Flexbox by Cutting the Mustard</a>
+* <a href="https://modernizr.com/">Modernizr</a>
 
 #### Learn about libraries for responsive CSS
 
-<em> <a href="http://getbootstrap.com/">Bootstrap</a>
-</em> <a href="http://sass-lang.com/">Sass</a>
-<em> <a href="http://lesscss.org/">Less</a>
-</em> <a href="https://material.google.com/">Material Design</a>
+* <a href="http://getbootstrap.com/">Bootstrap</a>
+* <a href="http://sass-lang.com/">Sass</a>
+* <a href="http://lesscss.org/">Less</a>
+* <a href="https://material.google.com/">Material Design</a>
 
 #### Learn more about using media queries
 

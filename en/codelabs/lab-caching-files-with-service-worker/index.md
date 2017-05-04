@@ -16,7 +16,7 @@
 
 <a href="#3"><strong>3. Serve files from the cache</strong></a>          
 
-<a href="#4"><strong>4. Add network responses to the cache</strong></a><strong>  </strong>
+<a href="#4"><strong>4. Add network responses to the cache</strong></a> 
 
 <a href="#5"><strong>5. Respond with custom 404 page</strong></a>          
 
@@ -24,7 +24,7 @@
 
 <a href="#7"><strong>7. Delete outdated caches</strong></a>          
 
-<a href="#8"><strong>Congratulations!</strong></a><strong>  </strong>
+<a href="#8"><strong>Congratulations!</strong></a> 
 
 Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/caching-files-with-service-worker.html">Caching Files with Service Worker</a>
 
@@ -40,22 +40,22 @@ This lab covers the basics of caching files with the service worker. The technol
 
 #### What you will learn
 
-<em> How to use the Cache API to access and manipulate data in the cache
-</em> How to cache the application shell and offline pages  
-<em> How to intercept network requests and respond with resources in the cache
-</em> How to remove unused caches on service worker activation
+* How to use the Cache API to access and manipulate data in the cache
+* How to cache the application shell and offline pages  
+* How to intercept network requests and respond with resources in the cache
+* How to remove unused caches on service worker activation
 
 #### What you should know
 
-<em> Basic JavaScript and HTML
-</em> Familiarity with the concept and basic syntax of ES2015 <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises</a>
+* Basic JavaScript and HTML
+* Familiarity with the concept and basic syntax of ES2015 <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises</a>
 
 #### What you will need
 
-<em> Computer with terminal/shell access
-</em> Connection to the internet
-<em> A <a href="https://jakearchibald.github.io/isserviceworkerready/">browser that supports <code>caches</code></a>
-</em> A text editor
+* Computer with terminal/shell access
+* Connection to the internet
+* A <a href="https://jakearchibald.github.io/isserviceworkerready/">browser that supports <code>caches</code></a>
+* A text editor
 
 <a id="1" />
 
@@ -77,12 +77,12 @@ If you have a text editor that lets you open a project, open the <strong>cache-a
 
 This folder contains:
 
-<em> <strong>images</strong> folder contains sample images, each with several versions at different resolutions
-</em> <strong>pages</strong> folder contains sample pages and a custom offline page
-<em> <strong>style</strong> folder contains the app's cascading stylesheet
-</em> <strong>test</strong> folder contains QUnit tests
-<em> <strong>index.html</strong> is the main HTML page for our sample site/application
-</em> <strong>service-worker.js</strong> is the service worker file where we set up the interactions with the cache
+* <strong>images</strong> folder contains sample images, each with several versions at different resolutions
+* <strong>pages</strong> folder contains sample pages and a custom offline page
+* <strong>style</strong> folder contains the app's cascading stylesheet
+* <strong>test</strong> folder contains QUnit tests
+* <strong>index.html</strong> is the main HTML page for our sample site/application
+* <strong>service-worker.js</strong> is the service worker file where we set up the interactions with the cache
 
 <a id="2" />
 
@@ -152,8 +152,8 @@ In the install event handler we create the cache with <a href="https://developer
 
 #### For more information
 
-<em> <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction-to-progressive-web-app-architectures.html">The Application Shell</a>
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/InstallEvent">The install event - MDN</a>
+* <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction-to-progressive-web-app-architectures.html">The Application Shell</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/InstallEvent">The install event - MDN</a>
 
 <a id="3" />
 
@@ -200,9 +200,9 @@ The <code>fetch</code> event listener intercepts all requests. We use <a href="h
 
 #### For more information
 
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/match">caches.match - MDN</a>
-</em> <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_the_fetch_api.html">The Fetch API</a>
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent">The fetch event - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/match">caches.match - MDN</a>
+* <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_the_fetch_api.html">The Fetch API</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent">The fetch event - MDN</a>
 
 <a id="4" />
 
@@ -246,7 +246,7 @@ We have wrapped the code to cache the response in an <code>if</code> statement t
 
 #### For more information
 
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/put">Cache.put - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/put">Cache.put - MDN</a>
 
 <a id="5" />
 
@@ -270,9 +270,9 @@ Network response errors do not throw an error in the <code>fetch</code> promise.
 
 #### For more information
 
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/status">Response.status - MDN</a>
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">Response status codes - MDN</a>
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/ok">Response.ok - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/status">Response.status - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">Response status codes - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/ok">Response.ok - MDN</a>
 
 #### Solution code
 
@@ -350,8 +350,8 @@ We delete old caches in the <code>activate</code> event to make sure that we are
 
 #### For more information
 
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">Promise.all - MDN</a>
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.map - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">Promise.all - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.map - MDN</a>
 
 #### Solution code
 
@@ -375,11 +375,11 @@ You have learned the basics of using the Cache API in the service worker. We hav
 
 #### Learn more about caching and the Cache API
 
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache">Cache - MDN</a>
-<em> <a href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/">The Offline Cookbook</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache">Cache - MDN</a>
+* <a href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/">The Offline Cookbook</a>
 
 #### Learn more about using service workers
 
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers">Using Service Workers - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers">Using Service Workers - MDN</a>
 
 

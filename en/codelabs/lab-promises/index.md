@@ -8,15 +8,15 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a><strong>  </strong>
+<a href="#overview"><strong>Overview</strong></a> 
 
-<a href="#1"><strong>1. Get set up</strong></a><strong>  </strong>
+<a href="#1"><strong>1. Get set up</strong></a> 
 
-<a href="#2"><strong>2. </strong><strong>Using promises</strong></a><strong>  </strong>
+<a href="#2"><strong>2. </strong><strong>Using promises</strong></a> 
 
-<a href="#3"><strong>3. Chaining promises</strong></a><strong>  </strong>
+<a href="#3"><strong>3. Chaining promises</strong></a> 
 
-<a href="#4"><strong>4. Optional: Using Promise.all and Promise.race</strong></a><strong>  </strong>
+<a href="#4"><strong>4. Optional: Using Promise.all and Promise.race</strong></a> 
 
 <a href="#congrats"><strong>Congratulations!</strong></a>
 
@@ -34,23 +34,23 @@ This lab teaches you how to use JavaScript <a href="https://developer.mozilla.or
 
 #### What you will learn
 
-<em> How to create promises
-</em> How to chain promises together
-<em> How to handle errors in promises
-</em> How to use Promise.all and Promise.race
+* How to create promises
+* How to chain promises together
+* How to handle errors in promises
+* How to use Promise.all and Promise.race
 
 #### What you should know
 
-<em> Basic JavaScript and HTML
-</em> The concept of an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately Invoked Function Expression</a> (IIFE)
-<em> How to enable the developer console
+* Basic JavaScript and HTML
+* The concept of an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately Invoked Function Expression</a> (IIFE)
+* How to enable the developer console
 
 #### What you will need
 
-</em> A browser that supports <a href="http://caniuse.com/#feat=promises">Promises</a> and <a href="http://caniuse.com/#feat=fetch">Fetch</a>
-<em> A text editor
-</em> Computer with terminal/shell access
-<em> Connection to the internet 
+* A browser that supports <a href="http://caniuse.com/#feat=promises">Promises</a> and <a href="http://caniuse.com/#feat=fetch">Fetch</a>
+* A text editor
+* Computer with terminal/shell access
+* Connection to the internet 
 
 <a id="1">
 
@@ -72,10 +72,10 @@ If you have a text editor that lets you open a project, open the <strong>promise
 
 This folder contains:
 
-</em> <strong>flags/chile.png</strong>, <strong>flags/peru.png</strong>, <strong>flags/spain.png</strong> - sample resources that we use to experiment
-<em> <strong>js/main.js</strong> is the main JavaScript file for the app
-</em> <strong>test/test.html</strong> is a file for testing your progress
-<em> <strong>index.html</strong> is the main HTML page for our sample site/application
+* <strong>flags/chile.png</strong>, <strong>flags/peru.png</strong>, <strong>flags/spain.png</strong> - sample resources that we use to experiment
+* <strong>js/main.js</strong> is the main JavaScript file for the app
+* <strong>test/test.html</strong> is a file for testing your progress
+* <strong>index.html</strong> is the main HTML page for our sample site/application
 
 <a id="2">
 
@@ -130,7 +130,7 @@ The <code>getImageName</code> function creates a <a href="https://developer.mozi
 var promise = new Promise(function(resolve, reject) {
   // do a thing, possibly async, then...
 
-  if (/</em> everything turned out fine <em>/) {
+  if (/<em> everything turned out fine </em>/) {
     resolve("Stuff worked!");
   }
   else {
@@ -211,12 +211,12 @@ The difference is subtle, but extremely useful. Promise rejections skip forward 
 
 #### For more information
 
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise object</a>
-<em> <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises introduction</a>
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve">Resolve</a>
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject">Reject</a>
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then">Then</a>
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch">Catch</a> 
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise object</a>
+* <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises introduction</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve">Resolve</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject">Reject</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then">Then</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch">Catch</a> 
 
 #### Solution code
 
@@ -277,11 +277,11 @@ Save the script and refresh the page. Enter "Hello World" in the <strong>Country
 
 #### Explanation
 
-Because <code>catch</code> returns a promise, you can use the <code>catch</code> method inside a promise chain to  </em>recover<em>  from earlier failed operations.
+Because <code>catch</code> returns a promise, you can use the <code>catch</code> method inside a promise chain to  <em>recover</em>  from earlier failed operations.
 
 #### For more information
 
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch">Fetch API</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch">Fetch API</a>
 
 #### Solution code
 
@@ -339,7 +339,7 @@ Change one of the inputs in the <code>getImageName</code> calls inside the <code
 
 #### For more information
 
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">Promise.all documentation</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">Promise.all documentation</a>
 
 ### 4.2 Promise.race
 
@@ -379,7 +379,7 @@ In this example, if <code>promise2</code> resolves before <code>promise1</code> 
 
 #### For more information
 
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race">Promise.race documentation</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race">Promise.race documentation</a>
 
 #### Solution code
 
@@ -397,7 +397,7 @@ You have learned the basics of JavaScript Promises!
 
 ### Resources
 
-<em> <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises introduction</a>
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise - MDN</a>
+* <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises introduction</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise - MDN</a>
 
 

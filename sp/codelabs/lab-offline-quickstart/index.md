@@ -10,11 +10,11 @@
 
 <a href="#overview"><strong>Overview</strong></a>          
 
-<a href="#1"><strong>1.</strong><strong>Get set up</strong></a><strong>  </strong>
+<a href="#1"><strong>1.</strong><strong>Get set up</strong></a> 
 
-<a href="#2"><strong>2. Taking the app offline</strong></a><strong>  </strong>
+<a href="#2"><strong>2. Taking the app offline</strong></a> 
 
-<a href="#3"><strong>Congratulations!</strong></a><strong>  </strong>
+<a href="#3"><strong>Congratulations!</strong></a> 
 
 Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/offline_quickstart.html">Offline Quickstart</a>
 
@@ -30,19 +30,19 @@ This lab shows you how to add offline capabilities to an application using servi
 
 #### What you will learn
 
-<em> How to add offline capabilities to an application
+* How to add offline capabilities to an application
 
 #### What you should know
 
-</em> Basic HTML, CSS, and JavaScript
-<em> Familiarity with ES2015 <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises</a>
+* Basic HTML, CSS, and JavaScript
+* Familiarity with ES2015 <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises</a>
 
 #### What you will need
 
-</em> Computer with terminal/shell access
-<em> Connection to the internet 
-</em> A browser that supports <a href="https://jakearchibald.github.io/isserviceworkerready/">service workers</a>
-<em> A text editor
+* Computer with terminal/shell access
+* Connection to the internet 
+* A browser that supports <a href="https://jakearchibald.github.io/isserviceworkerready/">service workers</a>
+* A text editor
 
 <a id="1" />
 
@@ -64,10 +64,10 @@ If you have a text editor that lets you open a project, open the <strong>offline
 
 This folder contains:
 
-</em> <strong>images</strong> folder contains sample images
-<em> <strong>styles/main.css</strong> is the main cascading stylesheet for the app
-</em> <strong>index.html</strong> is the main HTML page for our sample site/application
-<em> <strong>service-worker.js</strong> is the service worker file (currently empty)
+* <strong>images</strong> folder contains sample images
+* <strong>styles/main.css</strong> is the main cascading stylesheet for the app
+* <strong>index.html</strong> is the main HTML page for our sample site/application
+* <strong>service-worker.js</strong> is the service worker file (currently empty)
 
 <a id="2" />
 
@@ -158,9 +158,9 @@ Save the script.
 
 This code adds a fetch event listener to the service worker. When a resource is requested, the service worker intercepts the request and a fetch event is fired. The code then does the following:
 
-</em> Tries to match the request with the content of the cache, and if the resource is in the cache, then returns it.
-<em> If the resource is not in the cache, attempts to get the resource from the network using fetch.
-</em> If the response is invalid, throws an error and logs a message to the console (<code>catch</code>).
+* Tries to match the request with the content of the cache, and if the resource is in the cache, then returns it.
+* If the resource is not in the cache, attempts to get the resource from the network using fetch.
+* If the response is invalid, throws an error and logs a message to the console (<code>catch</code>).
 * If the response is valid, creates a copy of the response (<code>clone</code>), stores it in the cache, and then returns the original response.
 
 <div class=<code>"</code>note<code>"</code>>

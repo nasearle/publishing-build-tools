@@ -40,18 +40,18 @@ This lab shows you how you can use <a href="https://github.com/GoogleChrome/ligh
 
 #### What you will learn
 
-<em> How to use Lighthouse to audit your progressive web apps
+* How to use Lighthouse to audit your progressive web apps
 
 #### What you should know
 
-</em> Basic JavaScript and HTML
+* Basic JavaScript and HTML
 
 #### What you need before you begin
 
-<em> Connection to the internet 
-</em> <a href="https://www.google.com/chrome/browser/desktop/">Chrome</a> 52+ browser
-<em> Node v5+ (or Node v4 with the <code>--harmony</code> <a href="http://stackoverflow.com/questions/13351965/what-does-node-harmony-do">flag</a>)
-</em> A text editor
+* Connection to the internet 
+* <a href="https://www.google.com/chrome/browser/desktop/">Chrome</a> 52+ browser
+* Node v5+ (or Node v4 with the <code>--harmony</code> <a href="http://stackoverflow.com/questions/13351965/what-does-node-harmony-do">flag</a>)
+* A text editor
 
 <a id="1" />
 
@@ -73,9 +73,9 @@ If you have a text editor that lets you open a project, open the <strong>lightho
 
 This folder contains:
 
-<em> <strong>css/main.css</strong> is the cascading stylesheet for the application
-</em> <strong>images</strong> folder contains images for the app and home screen icon
-<em> <strong>index.html</strong> is the main HTML page for our sample site/application
+* <strong>css/main.css</strong> is the cascading stylesheet for the application
+* <strong>images</strong> folder contains images for the app and home screen icon
+* <strong>index.html</strong> is the main HTML page for our sample site/application
 
 <a id="2" />
 
@@ -213,7 +213,7 @@ This lets us satisfy the manifest related requirements of Lighthouse (and a PWA)
 
 #### For more information
 
-</em> <a href="https://developer.chrome.com/multidevice/android/installtohomescreen">Add to home screen</a>
+* <a href="https://developer.chrome.com/multidevice/android/installtohomescreen">Add to home screen</a>
 * <a href="https://developers.google.com/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android">Web app manifests</a>
 
 <a id="5" />

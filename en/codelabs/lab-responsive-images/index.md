@@ -22,7 +22,7 @@
 
 <a href="#6"><strong>6. Optional: Use the picture and source elements</strong></a>          
 
-<a href="#7"><strong>Congratulations!</strong></a><strong>        </strong>
+<a href="#7"><strong>Congratulations!</strong></a> 
 
 <a id="overview" />
 
@@ -36,18 +36,18 @@ This lab shows you how to make images on your web page look good on all devices.
 
 #### What you will learn
 
-<em> How to make your images responsive so that they are sized appropriately for multiple form factors
-</em> How to use <code>srcset</code> and <code>sizes</code> to display the right image for the viewport width
-<em> How to use <code>&lt;picture&gt;</code> and <code>source</code> in combination with media queries so that images on the page automatically respond as the window is resized
+* How to make your images responsive so that they are sized appropriately for multiple form factors
+* How to use <code>srcset</code> and <code>sizes</code> to display the right image for the viewport width
+* How to use <code>&lt;picture&gt;</code> and <code>source</code> in combination with media queries so that images on the page automatically respond as the window is resized
 
 #### What you should know
 
-</em> Basic HTML and CSS
+* Basic HTML and CSS
 
 #### What you will need
 
-<em> Text editor
-</em> Computer with terminal/shell access
+* Text editor
+* Computer with terminal/shell access
 
 <a id="1" />
 
@@ -69,9 +69,9 @@ If you have a text editor that lets you open a project, open the <strong>respons
 
 This folder contains:
 
-<em> <strong>images</strong> folder contains sample images, each with several versions at different resolutions
-</em> <strong>index.html</strong> is the main HTML page for our sample site/application
-<em> <strong>styles/main.css</strong> is the cascading style sheet for the sample site
+* <strong>images</strong> folder contains sample images, each with several versions at different resolutions
+* <strong>index.html</strong> is the main HTML page for our sample site/application
+* <strong>styles/main.css</strong> is the cascading style sheet for the sample site
 
 <a id="2" />
 
@@ -155,7 +155,7 @@ Save the code and refresh the page in the browser. Refresh the page at various w
 
 #### Explanation
 
-By adding a width descriptor to each file in the <code>srcset</code>, we are telling the browser the width of each image in pixels  </em>before<em>  it fetches the image. The browser can then use these widths to decide which image to fetch based on its window size. It fetches the image with the smallest width that is still larger than the viewport width.
+By adding a width descriptor to each file in the <code>srcset</code>, we are telling the browser the width of each image in pixels  <em>before</em>  it fetches the image. The browser can then use these widths to decide which image to fetch based on its window size. It fetches the image with the smallest width that is still larger than the viewport width.
 
 <div class="note">
 <strong>Note:</strong> You can also optionally specify a pixel density instead of a width. However, you cannot specify both pixel densities and widths in the same <code>srcset</code> attribute. We explore using pixel densities in a later section.
@@ -208,7 +208,7 @@ The <code>sizes</code> value matches the image's <code>max-width</code> value in
 
 #### For more information
 
-</em> <a href="https://ericportis.com/posts/2014/srcset-sizes/">Srcset and sizes</a>
+* <a href="https://ericportis.com/posts/2014/srcset-sizes/">Srcset and sizes</a>
 
 <a id="5" />
 
@@ -243,7 +243,7 @@ The media query tests the viewport width of the screen, and applies the CSS if t
 
 #### For more information
 
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">@media</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">@media</a>
 
 ### 5.2 Add the media query to the sizes attribute
 
@@ -301,8 +301,8 @@ We have included several versions of the sample image, each at different resolut
 
 #### For more information
 
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture">picture element - MDN</a>
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source">source element - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture">picture element - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source">source element - MDN</a>
 
 <a id="7" />
 
@@ -320,14 +320,14 @@ You have learned how to make images on your web page look good on all devices!
 
 #### Learn about automating the process
 
-</em> <a href="https://www.npmjs.com/package/gulp-responsive">Gulp responsive images (NPM)</a> - requires libvips on Mac
-<em> <a href="https://github.com/dcgauld/gulp-responsive-images">Gulp responsive images (GitHub)</a> - requires graphicsmagick on all platforms
-</em> <a href="http://www.responsivebreakpoints.com/">Responsive Image Breakpoints Generator v2.0</a>
+* <a href="https://www.npmjs.com/package/gulp-responsive">Gulp responsive images (NPM)</a> - requires libvips on Mac
+* <a href="https://github.com/dcgauld/gulp-responsive-images">Gulp responsive images (GitHub)</a> - requires graphicsmagick on all platforms
+* <a href="http://www.responsivebreakpoints.com/">Responsive Image Breakpoints Generator v2.0</a>
 
 #### Learn more about srcset and sizes
 
-<em> <a href="https://ericportis.com/posts/2014/srcset-sizes/">Srcset and sizes</a>
-</em> <a href="https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/">Responsive Images: If you're just changing resolutions, use srcset</a>
+* <a href="https://ericportis.com/posts/2014/srcset-sizes/">Srcset and sizes</a>
+* <a href="https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/">Responsive Images: If you're just changing resolutions, use srcset</a>
 
 #### Learn more about art direction
 

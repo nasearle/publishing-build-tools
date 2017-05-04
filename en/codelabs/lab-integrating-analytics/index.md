@@ -48,28 +48,28 @@ This lab shows you how to integrate Google Analytics into your web apps.
 
 #### What you will learn
 
-<em> How to create a Google Analytics account
-</em> How to create a Google Firebase account
-<em> How to integrate Google Analytics into a web app
-</em> How to add and track custom events (including push notifications)
-<em> How to use Google Analytics with service workers
-</em> How to use analytics even when offline
+* How to create a Google Analytics account
+* How to create a Google Firebase account
+* How to integrate Google Analytics into a web app
+* How to add and track custom events (including push notifications)
+* How to use Google Analytics with service workers
+* How to use analytics even when offline
 
 #### What you should know
 
-<em> Basic JavaScript and HTML
-</em> Familiarity with <a href="https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/">Push Notifications</a>
-<em> Some familiarity with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a>
-</em> The concept of an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately Invoked Function Expression</a> (IIFE)
-<em> How to enable the developer console
+* Basic JavaScript and HTML
+* Familiarity with <a href="https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/">Push Notifications</a>
+* Some familiarity with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a>
+* The concept of an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately Invoked Function Expression</a> (IIFE)
+* How to enable the developer console
 
 #### What you will need
 
-</em> Computer with terminal/shell access
-<em> Connection to the internet 
-</em> A <a href="http://caniuse.com/#search=push">browser that supports push</a>
-<em> A text editor
-</em> <a href="https://nodejs.org/en/">Node</a> installed
+* Computer with terminal/shell access
+* Connection to the internet 
+* A <a href="http://caniuse.com/#search=push">browser that supports push</a>
+* A text editor
+* <a href="https://nodejs.org/en/">Node</a> installed
 
 <a id="1"  />
 
@@ -91,15 +91,15 @@ If you have a text editor that lets you open a project, open the <strong>google-
 
 This folder contains:
 
-<em> <strong>pages</strong> folder contains sample resources that we use in experimenting:
-</em> <strong>page-push-notification.html</strong>
-<em> <strong>other.html</strong>
-</em> <strong>images</strong> folder contains images to style our notifications
-<em> <strong>index.html</strong> is the main HTML page for our sample site/application
-</em> <strong>main.js</strong> is the main JavaScript for the app
-<em> <strong>analytics-helper.js</strong> is an empty helper file
-</em> <strong>sw.js</strong> is the service worker file
-<em> <strong>manifest.json</strong> is the manifest for push notifications
+* <strong>pages</strong> folder contains sample resources that we use in experimenting:
+* <strong>page-push-notification.html</strong>
+* <strong>other.html</strong>
+* <strong>images</strong> folder contains images to style our notifications
+* <strong>index.html</strong> is the main HTML page for our sample site/application
+* <strong>main.js</strong> is the main JavaScript for the app
+* <strong>analytics-helper.js</strong> is an empty helper file
+* <strong>sw.js</strong> is the service worker file
+* <strong>manifest.json</strong> is the manifest for push notifications
 
 In the browser, you should be prompted to allow notifications. If the prompt does not appear, then <a href="tools_for_pwa_developers.md#permissions">manually allow notifications</a>. You should see a permission status of "granted" in the console.
 
@@ -193,11 +193,11 @@ Your account is the top most level of organization. For example, an account migh
 
 #### For more information
 
-</em> <a href="https://support.google.com/analytics/answer/2587086?ref_topic=2587085&rd=1">Analytics for mobile applications</a>
-<em> <a href="https://github.com/">GitHub</a> and <a href="https://pages.github.com/">GitHub Pages</a>
-</em> <a href="https://support.google.com/analytics/answer/2649554">Properties</a>
-<em> <a href="https://accounts.google.com/signup">Google/Gmail accounts</a>
-</em> <a href="https://analytics.google.com/">Google Analytics</a>
+* <a href="https://support.google.com/analytics/answer/2587086?ref_topic=2587085&rd=1">Analytics for mobile applications</a>
+* <a href="https://github.com/">GitHub</a> and <a href="https://pages.github.com/">GitHub Pages</a>
+* <a href="https://support.google.com/analytics/answer/2649554">Properties</a>
+* <a href="https://accounts.google.com/signup">Google/Gmail accounts</a>
+* <a href="https://analytics.google.com/">Google Analytics</a>
 
 <a id="3" />
 
@@ -225,7 +225,7 @@ Your tracking ID looks like <code>UA-XXXXXXXX-Y</code> and your tracking code sn
 ```
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]) \ 
-.push(arguments)},i[r].l=1<em>new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0]; \
+.push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0]; \
 a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script', \
 'https://www.google-analytics.com/analytics.js','ga');
 
@@ -264,11 +264,11 @@ When a page loads, the tracking snippet script is executed. The <a href="https:/
 
 The next lines add two commands to the queue. The first creates a new <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/tracker-object-reference">tracker object</a>. Tracker objects track and store data. When the new tracker is created, the analytics library gets the user's IP address, user agent, and other page information, and stores it in the tracker. From this info Google Analytics can extract:
 
-</em> User's geographic location
-<em> User's browser and operating system (OS)
-</em> Screen size
-<em> If Flash or Java is installed
-</em> The referring site
+* User's geographic location
+* User's browser and operating system (OS)
+* Screen size
+* If Flash or Java is installed
+* The referring site
 
 The second command sends a "<a href="https://support.google.com/analytics/answer/6086082">hit</a>." This sends the tracker's data to Google Analytics. Sending a hit is also used to note a user interaction with your app. The user interaction is specified by the hit type, in this case a "pageview." Because the tracker was created with your tracking ID, this data is sent to your account and property.
 
@@ -278,20 +278,20 @@ You can read this <a href="https://developers.google.com/analytics/devguides/col
 
 The code so far provides the basic functionality of Google Analytics. A tracker is created and a  pageview hit is sent every time the page is visited. In addition to the data gathered by tracker creation, the pageview event allows Google Analytics to infer:
 
-<em> The total time the user spends on the site 
-</em> The time spent on each page and the order in which the pages are visited
-<em> Which internal links are clicked (based on the URL of the next pageview)
+* The total time the user spends on the site 
+* The time spent on each page and the order in which the pages are visited
+* Which internal links are clicked (based on the URL of the next pageview)
 
 #### For more information
 
-</em> <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/">The tracking snippet</a>
-<em> <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/tracker-object-reference">Tracker objects</a>
-</em> <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/creating-trackers">Creating trackers</a>
-<em> <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference#create">The create command</a>
-</em> <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference#send">The send command</a>
-<em> <a href="https://support.google.com/analytics/answer/6086082">Hits</a>
-</em> <a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters">The data sent in a hit</a>
-<em> <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/how-analyticsjs-works">How analytics.js works</a>
+* <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/">The tracking snippet</a>
+* <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/tracker-object-reference">Tracker objects</a>
+* <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/creating-trackers">Creating trackers</a>
+* <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference#create">The create command</a>
+* <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference#send">The send command</a>
+* <a href="https://support.google.com/analytics/answer/6086082">Hits</a>
+* <a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters">The data sent in a hit</a>
+* <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/how-analyticsjs-works">How analytics.js works</a>
 
 <a id="4" />
 
@@ -317,7 +317,7 @@ You can also see specific information like visitors' language, country, city, br
 
 #### For more information
 
-</em> <a href="https://analyticsacademy.withgoogle.com/">Learn about Google Analytics for business</a>
+* <a href="https://analyticsacademy.withgoogle.com/">Learn about Google Analytics for business</a>
 
 <a id="5" />
 
@@ -345,8 +345,8 @@ Navigate back to <strong>app/index.html</strong> using the <strong>Back</strong>
 
 #### For more information
 
-<em> <a href="https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna">Chrome debugger extension</a>
-</em> <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/debugging">Debugging Google Analytics</a>
+* <a href="https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna">Chrome debugger extension</a>
+* <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/debugging">Debugging Google Analytics</a>
 
 <a id="6" />
 
@@ -395,9 +395,9 @@ You can view past events in the Google Analytics dashboard from the <strong>Repo
 
 #### For more information
 
-<em> <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/events">Event tracking</a>
-</em> <a href="https://support.google.com/analytics/answer/1033068">About events</a>
-<em> <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference">Command queue reference</a>
+* <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/events">Event tracking</a>
+* <a href="https://support.google.com/analytics/answer/1033068">About events</a>
+* <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference">Command queue reference</a>
 
 <a id="7" />
 
@@ -640,8 +640,8 @@ The hit is sent with the <a href="https://developer.mozilla.org/en-US/docs/Web/A
 
 #### For more information
 
-</em> <a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/">Measurement Protocol</a>
-<em> <a href="https://github.com/gauntface/simple-push-demo">Push demo</a>
+* <a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/">Measurement Protocol</a>
+* <a href="https://github.com/gauntface/simple-push-demo">Push demo</a>
 
 ### 8.2 Send hits from the service worker
 
@@ -705,8 +705,8 @@ We start by using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Work
 
 #### For more information
 
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts">ImportScripts</a>
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil">event.waitUntil</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts">ImportScripts</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil">event.waitUntil</a>
 
 <a id="9" />
 
@@ -767,10 +767,10 @@ This strategy won't work for hits sent from our service worker because the servi
 
 #### For more information
 
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts">ImportScripts</a>
-<em> <a href="https://developers.google.com/web/updates/2016/07/offline-google-analytics">Offline Google Analytics</a>
-</em> <a href="https://developers.google.com/web/showcase/2015/service-workers-iowa#offline_google_analytics">Google I/O offline example</a>
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts">ImportScripts</a>
+* <a href="https://developers.google.com/web/updates/2016/07/offline-google-analytics">Offline Google Analytics</a>
+* <a href="https://developers.google.com/web/showcase/2015/service-workers-iowa#offline_google_analytics">Google I/O offline example</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB</a>
 
 <a id="10" />
 
@@ -804,7 +804,7 @@ Research the <a href="https://developers.google.com/analytics/devguides/collecti
 
 #### For more information
 
-</em> <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits">Sending hits</a>
+* <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits">Sending hits</a>
 
 #### Solution code
 
@@ -824,9 +824,9 @@ You now know how to integrate Google Analytics into your apps, and how to use an
 
 ### Resources
 
-<em> <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/">Adding analytics.js to Your Site</a>
-</em> <a href="https://analyticsacademy.withgoogle.com/">Google Analytics Academy</a> (non-technical)
-<em> <a href="https://codelabs.developers.google.com/codelabs/performance-analytics/index.html?index=..%2F..%2Findex#0">Measuring Critical Performance Metrics with Google Analytics</a> code lab
-</em> <a href="https://github.com/googleanalytics/autotrack/blob/master/docs/plugins/page-visibility-tracker.md#improving-session-duration-calculations">pageVisibilityTracker plugin</a> (improves pageview and session duration accuracy)
+* <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/">Adding analytics.js to Your Site</a>
+* <a href="https://analyticsacademy.withgoogle.com/">Google Analytics Academy</a> (non-technical)
+* <a href="https://codelabs.developers.google.com/codelabs/performance-analytics/index.html?index=..%2F..%2Findex#0">Measuring Critical Performance Metrics with Google Analytics</a> code lab
+* <a href="https://github.com/googleanalytics/autotrack/blob/master/docs/plugins/page-visibility-tracker.md#improving-session-duration-calculations">pageVisibilityTracker plugin</a> (improves pageview and session duration accuracy)
 
 

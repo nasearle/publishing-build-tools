@@ -36,21 +36,21 @@ This lab walks you through creating a simple service worker.
 
 #### What you will learn
 
-<em> Create a basic service worker script, install it, and do simple debugging
+* Create a basic service worker script, install it, and do simple debugging
 
 #### What you should know
 
-</em> Basic JavaScript and HTML
-<em> Concepts and basic syntax of ES2015 <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises</a> 
-</em> Concept of an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately Invoked Function Expression</a> (IIFE)
-<em> How to enable the developer console
+* Basic JavaScript and HTML
+* Concepts and basic syntax of ES2015 <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises</a> 
+* Concept of an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately Invoked Function Expression</a> (IIFE)
+* How to enable the developer console
 
 #### What you need before you begin
 
-</em> Computer with terminal/shell access
-<em> Connection to the internet 
-</em> A <a href="https://jakearchibald.github.io/isserviceworkerready/">browser that supports service workers</a>
-<em> A text editor
+* Computer with terminal/shell access
+* Connection to the internet 
+* A <a href="https://jakearchibald.github.io/isserviceworkerready/">browser that supports service workers</a>
+* A text editor
 
 <a id="setting-up"/>
 
@@ -72,12 +72,12 @@ If you have a text editor that lets you open a project, open the <strong>service
 
 This folder contains:
 
-</em> <strong>other.html</strong>, <strong>js/other.js</strong>, <strong>below/another.html</strong>, and <strong>js/another.js</strong> are sample resources that we use to experiment
-<em> <strong>index.html</strong> is the main HTML page for our sample site/application
-</em> <strong>index.css</strong> is the cascading stylesheet for <strong>index.html</strong>
-<em> <strong>service-worker.js</strong> is the JavaScript file that is used to create our service worker
-</em> <strong>styles</strong> folder contains the cascading stylesheets for this lab
-<em> <strong>test</strong> folder contains files for testing your progress
+* <strong>other.html</strong>, <strong>js/other.js</strong>, <strong>below/another.html</strong>, and <strong>js/another.js</strong> are sample resources that we use to experiment
+* <strong>index.html</strong> is the main HTML page for our sample site/application
+* <strong>index.css</strong> is the cascading stylesheet for <strong>index.html</strong>
+* <strong>service-worker.js</strong> is the JavaScript file that is used to create our service worker
+* <strong>styles</strong> folder contains the cascading stylesheets for this lab
+* <strong>test</strong> folder contains files for testing your progress
 
 <a id="register-service-worker" />
 
@@ -240,7 +240,7 @@ The <code>skipWaiting()</code> method allows a service worker to activate as soo
 
 #### For more information
 
-</em> <a href="https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/lifecycle">Service worker lifecycle</a>
+* <a href="https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/lifecycle">Service worker lifecycle</a>
 
 <a id="intercept-requests"/>
 
@@ -282,9 +282,9 @@ Why didn't any fetch events log on the first refresh? By default, fetch events f
 
 #### For more information
 
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent">Fetch Event - MDN</a>
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Using Fetch - MDN</a>
-<em> <a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch">Introduction to Fetch - Google Developer</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent">Fetch Event - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Using Fetch - MDN</a>
+* <a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch">Introduction to Fetch - Google Developer</a>
 
 #### Solution code
 
@@ -372,9 +372,9 @@ In the above example the scope of the service worker is set to <strong>/kitten/<
 
 #### For more information
 
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration">Service worker registration object</a>
-<em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register">The register() method</a>
-</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/scope">Service worker scope</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration">Service worker registration object</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register">The register() method</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/scope">Service worker scope</a>
 
 #### Solution code
 

@@ -8,19 +8,19 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a><strong>  </strong>
+<a href="#overview"><strong>Overview</strong></a> 
 
-<a href="#1"><strong>1. Get set up</strong></a><strong>  </strong>
+<a href="#1"><strong>1. Get set up</strong></a> 
 
-<a href="#2"><strong>2. Install global tools</strong></a><strong>  </strong>
+<a href="#2"><strong>2. Install global tools</strong></a> 
 
-<a href="#3"><strong>3. Prepare the project</strong></a><strong>  </strong>
+<a href="#3"><strong>3. Prepare the project</strong></a> 
 
-<a href="#4"><strong>4. Minify JavaScript</strong></a><strong>  </strong>
+<a href="#4"><strong>4. Minify JavaScript</strong></a> 
 
-<a href="#5"><strong>5. Prefix CSS</strong></a><strong>  </strong>
+<a href="#5"><strong>5. Prefix CSS</strong></a> 
 
-<a href="#6"><strong>6. Automate development tasks</strong></a><strong>  </strong>
+<a href="#6"><strong>6. Automate development tasks</strong></a> 
 
 <a href="#7"><strong>7. Congratulations!</strong></a>
 
@@ -38,21 +38,21 @@ This lab shows you how you can automate tasks with <a href="https://github.com/g
 
 #### What you will learn
 
-<em> How to set up gulp
-</em> How to create tasks using gulp plugins
-<em> Ways to automate your development
+* How to set up gulp
+* How to create tasks using gulp plugins
+* Ways to automate your development
 
 #### What you should know
 
-</em> Basic JavaScript, HTML, and CSS
-<em> Some experience using a command line interface
+* Basic JavaScript, HTML, and CSS
+* Some experience using a command line interface
 
 #### What you will need
 
-</em> Computer with terminal/shell access
-<em> Connection to the internet 
-</em> A text editor
-<em> <a href="https://nodejs.org/en/">Node</a> and <a href="https://www.npmjs.com/">npm</a>
+* Computer with terminal/shell access
+* Connection to the internet 
+* A text editor
+* <a href="https://nodejs.org/en/">Node</a> and <a href="https://www.npmjs.com/">npm</a>
 
 <a id="1" />
 
@@ -72,9 +72,9 @@ If you have a text editor that lets you open a project, open the <strong>gulp-la
 
 This folder contains:
 
-</em> <strong>js/main.js</strong> and <strong>styles/main.css</strong> are sample resources that we use to experiment
-<em> <strong>index.html</strong> is the main HTML page for the sample site/application
-</em> <strong>gulpfile.js</strong> is the file that gulp uses to execute tasks, and where you will write your code
+* <strong>js/main.js</strong> and <strong>styles/main.css</strong> are sample resources that we use to experiment
+* <strong>index.html</strong> is the main HTML page for the sample site/application
+* <strong>gulpfile.js</strong> is the file that gulp uses to execute tasks, and where you will write your code
 
 <a id="2">
 
@@ -250,7 +250,7 @@ Replace TODO 6.2 in <strong>gulpfile.js</strong> with the following:
 
 ```
 gulp.task('watch', function() {
-  gulp.watch('styles/<em>.css', ['processCSS']);
+  gulp.watch('styles/*.css', ['processCSS']);
 });
 ```
 
@@ -323,8 +323,8 @@ gulp.task('serve', ['processCSS'], function() {
     server: '.',
     port: 3000
   });
-  gulp.watch('styles/</em>.css', ['processCSS']).on('change', browserSync.reload);
-  gulp.watch('<em>.html').on('change', browserSync.reload);
+  gulp.watch('styles/*.css', ['processCSS']).on('change', browserSync.reload);
+  gulp.watch('*.html').on('change', browserSync.reload);
 });
 ```
 
@@ -336,7 +336,7 @@ Your browser should open <strong>app/</strong> at <strong>localhost:3000</strong
 
 #### Explanation
 
-In this example we changed the default task to <code>serve</code> so that it runs when we execute the <code>gulp</code> command. The <code>serve</code> task has <code>processCSS</code> as a  </em>dependent task<em> . This means that the <code>serve</code> task will execute the <code>processCSS</code> task before executing itself. Additionally, this task sets a watch on CSS and HTML files. When CSS files are updated, the <code>processCSS</code> task is run again and the server reloads. Likewise, when HTML files are updated (like <strong>index.html</strong>), the browser page reloads automatically. 
+In this example we changed the default task to <code>serve</code> so that it runs when we execute the <code>gulp</code> command. The <code>serve</code> task has <code>processCSS</code> as a  <em>dependent task</em> . This means that the <code>serve</code> task will execute the <code>processCSS</code> task before executing itself. Additionally, this task sets a watch on CSS and HTML files. When CSS files are updated, the <code>processCSS</code> task is run again and the server reloads. Likewise, when HTML files are updated (like <strong>index.html</strong>), the browser page reloads automatically. 
 
 <strong>Optional</strong>: In the <code>serve</code> task, add <code>minify</code> as a dependent task. Also in <code>serve</code>, add a watcher for <strong>app/js/main.js</strong> that executes the <code>minify</code> task and reloads the page whenever the <strong>app/js/main.js</strong> file changes. Test by deleting <strong>app/build/main.js</strong> and re-executing the <code>gulp</code> command. Now <strong>app/js/main.js</strong> should be minified into <strong>app/build/main.js</strong> and it should update in real time. Confirm this by changing the console log message in <strong>app/js/main.js</strong> and saving the file - the console should log your new message in the app.
 
@@ -352,8 +352,8 @@ You have learned how to set up gulp, create tasks using plugins, and automate yo
 
 ### Resources
 
-</em> <a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md">Gulp's Getting Started guide</a>
-<em> <a href="https://github.com/gulpjs/gulp/blob/master/docs/recipes/README.md">List of gulp Recipes</a>
-</em> <a href="http://gulpjs.com/plugins/">Gulp Plugin Registry</a>
+* <a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md">Gulp's Getting Started guide</a>
+* <a href="https://github.com/gulpjs/gulp/blob/master/docs/recipes/README.md">List of gulp Recipes</a>
+* <a href="http://gulpjs.com/plugins/">Gulp Plugin Registry</a>
 
 
