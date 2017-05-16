@@ -86,7 +86,6 @@ Before making the images responsive, let's make sure they won't overflow the scr
 Replace TODO 2 in <strong>styles/main.css</strong> with the following code:
 
 #### main.css
-
 ```
 img {
   max-width: 100%;
@@ -118,7 +117,6 @@ The goal is to get the browser to fetch the version of the image with the smalle
 To complete TODO 3.1 in <strong>index.html</strong>, add the following <code>srcset</code> attribute to the <code>&lt;img&gt;</code> element containing the SFO image:
 
 #### index.html
-
 ```
 srcset="images/sfo-1600_large.jpg, images/sfo-1000_large.jpg, images/sfo-800_medium.jpg, images/sfo-500_small.jpg"
 ```
@@ -136,7 +134,6 @@ To load the correct image size based on the viewport width we need to tell the b
 To complete TODO 3.2 in <strong>index.html</strong>, add width descriptors to the SFO <code>&lt;img&gt;</code> element:
 
 #### index.html
-
 ```
 srcset="images/sfo-1600_large.jpg 1600w, images/sfo-1000_large.jpg 1000w, images/sfo-800_medium.jpg 800w, images/sfo-500_small.jpg 500w"
 ```
@@ -174,7 +171,6 @@ By adding a width descriptor to each file in the <code>srcset</code>, we are tel
 Replace TODO 4.1 in <strong>styles/main.css</strong> with the following code:
 
 #### styles/main.css
-
 ```
 img#sfo {
   transition: width 0.5s;
@@ -195,7 +191,6 @@ We can give <code>&lt;img&gt;</code> a <code>sizes</code> attribute to tell the 
 To complete TODO 4.2 in <strong>index.html</strong> add <code>sizes="50vw"</code> to the <code>img</code> element so that it looks like this:
 
 #### index.html
-
 ```
 <img id="sfo" src="images/sfo-500_small.jpg" srcset="images/sfo-1600_large.jpg 1600w, images/sfo-1000_large.jpg 1000w, images/sfo-800_medium.jpg 800w, images/sfo-500_small.jpg 500w" sizes="50vw" alt="View from aircraft window near San Francisco airport">
 ```
@@ -225,7 +220,6 @@ We can use media queries to resize images in real time based on the viewport wid
 Replace TODO 5.1 in <strong>styles/main.css</strong> with the following code:
 
 #### styles/main.css
-
 ```
 @media screen and (max-width: 700px) {
   img#sfo {
@@ -252,7 +246,6 @@ We can tell the browser about the media query in the <code>sizes</code> attribut
 To complete TODO 5.2 in <strong>index.html</strong>, update the <code>sizes</code> attribute in the SFO image:
 
 #### index.html
-
 ```
 sizes="(max-width: 700px) 90vw, 50vw"
 ```
@@ -272,7 +265,6 @@ We can use the <code>&lt;picture&gt;</code> element and the <code>&lt;source&gt;
 Replace TODO 6 in <strong>index.html</strong> with the following code:
 
 #### index.html
-
 ```
 <figure>
     <picture>

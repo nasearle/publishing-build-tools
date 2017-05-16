@@ -94,7 +94,6 @@ Let's start by creating a simple promise.
 Complete the <code>getImageName</code> function by replacing TODO 2.1 in <strong>js/main.js</strong> with the following code:
 
 #### main.js
-
 ```
 country = country.toLowerCase();
 var promiseOfImageName = new Promise(function(resolve, reject) {
@@ -125,7 +124,6 @@ Now enter "Hello World" into the <strong>Country Name</strong> field and click <
 The <code>getImageName</code> function creates a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">promise</a>. A promise represents a value that might be available now, in the future, or never. In effect, a promise lets an asynchronous function such as <code>getImageName</code> (the <code>setTimeout</code> method is used to make <code>getImageName</code> asynchronous) return a value much like a synchronous function. Rather than returning the final value (in this case, "Spain.png"), <code>getImageName</code> returns a promise of a future value (this is what you see in the console log). Promise construction typically looks like <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises#promises_arrive_in_javascript">this example at developers.google.com</a>:
 
 #### main.js
-
 ```
 var promise = new Promise(function(resolve, reject) {
   // do a thing, possibly async, then...
@@ -150,7 +148,6 @@ This section uses the promise we just created.
 Replace TODO 2.2 inside the <code>flagChain</code> function in <strong>js/main.js</strong> with the following code:
 
 #### main.js
-
 ```
 return getImageName(country)
 .then(logSuccess, logError);
@@ -182,7 +179,6 @@ Let's look at the <code>catch</code> method, which is a clearer alternative for 
 Replace the code inside the <code>flagChain</code> function with the following:
 
 #### main.js
-
 ```
 return getImageName(country)
 .then(logSuccess)
@@ -198,7 +194,6 @@ The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/G
 This code is not quite equivalent to the code in section 2.2, however. This new code also triggers <code>catch</code> if <code>logSuccess</code> rejects, because <code>logSuccess</code> occurs before the <code>catch</code>. This new code would actually be equivalent to the following:
 
 #### main.js
-
 ```
 return getImageName(country)
 .then(logSuccess)
@@ -237,7 +232,6 @@ The <code>then</code> and <code>catch</code> methods also return promises, makin
 Replace the code in the <code>flagChain</code> function with the following:
 
 #### main.js
-
 ```
 return getImageName(country)
 .then(fetchFlag)
@@ -304,7 +298,6 @@ Complete the <code>allFlags</code> function such that it takes a list of promise
 Test the function by replacing TODO 4.1 in <strong>js/main.js</strong> with the following code:
 
 #### main.js
-
 ```
 var promises = [
   getImageName('Spain'),
@@ -348,7 +341,6 @@ Another promise method that you may see referenced is <a href="https://developer
 Replace TODO 4.2 in <strong>js/main.js</strong> with the following code:
 
 #### main.js
-
 ```
 var promise1 = new Promise(function(resolve, reject) {
   setTimeout(resolve, 500, 'one');

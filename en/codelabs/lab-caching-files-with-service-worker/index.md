@@ -97,7 +97,6 @@ Cache the application shell in the "install" event handler in the service worker
 Replace TODO 2 in <strong>serviceworker.js</strong> with the following code:
 
 #### service-worker.js
-
 ```
 var filesToCache = [
   '.',
@@ -168,7 +167,6 @@ Now that we have the files cached, we can intercept requests for those files fro
 Replace TODO 3 in <strong>service-worker.js</strong> with the following:
 
 #### service-worker.js
-
 ```
 self.addEventListener('fetch', function(event) {
   console.log('Fetch event for ', event.request.url);
@@ -217,7 +215,6 @@ We can add files to the cache as they are requested.
 Replace TODO 4 in the <code>fetch</code> event handler with the code to add the files returned from the fetch to the cache:
 
 #### service-worker.js
-
 ```
 .then(function(response) {
 
@@ -311,7 +308,6 @@ We can get rid of unused caches in the service worker "activate" event.
 Replace TODO 7 in <strong>service-worker.js</strong> with the following code:
 
 #### service-worker.js
-
 ```
 self.addEventListener('activate', function(event) {
   console.log('Activating new service worker...');
@@ -335,7 +331,6 @@ self.addEventListener('activate', function(event) {
 Try changing the name of the cache to "pages-cache-v2": 
 
 #### service-worker.js
-
 ```
 var staticCacheName = 'pages-cache-v2';
 ```

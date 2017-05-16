@@ -158,7 +158,6 @@ Sw-precache allows you generate service workers that precache static assets.
 In <strong>gulpfile.js</strong> replace TODO 4.1 with the following code:
 
 #### gulpfile.js
-
 ```
 var gulp = require('gulp');
 var path = require('path');
@@ -176,7 +175,6 @@ Use <code>sw-precache</code> to generate a service worker as part of a gulp buil
 In <strong>gulpfile.js</strong> replace TODO 4.2 with the following code:
 
 #### gulpfile.js
-
 ```
 var paths = {
   src: './'
@@ -229,7 +227,6 @@ The <code>sw-toolbox</code> library lets you add service worker routes to enable
 Replace TODO 5 in <strong>js/toolbox-script.js</strong> with the following code:
 
 #### toolbox-script.js
-
 ```
 // Route #1
 global.toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
@@ -296,7 +293,6 @@ The <code>sw-precache</code> command line tool can be passed a configuration fil
 Copy and paste the following code into the <strong>sw-precache-config.json</strong> file:
 
 #### sw-precache-config.json
-
 ```
 {
   "staticFileGlobs": [

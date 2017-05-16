@@ -91,7 +91,6 @@ Because IndexedDB isn't supported by all browsers, we need to check that the use
 Replace TODO 2 in <strong>app/js/main.js</strong> with the following code:
 
 #### main.js
-
 ```
 if (!('indexedDB' in window)) {
   console.log('This browser doesn\'t support IndexedDB');
@@ -114,7 +113,6 @@ Create the database for your app.
 In <strong>js/main.js</strong>, replace <code>var dbPromise;</code> with the following code:
 
 #### main.js
-
 ```
 var dbPromise = idb.open('couches-n-things', 1);
 ```
@@ -146,7 +144,6 @@ Let's create an object store in the database to hold the furniture objects.
 To complete TODO 3.2 in <strong>main.js</strong>, replace <code>var dbPromise = idb.open('couches-n-things', 1);</code> with the following:
 
 #### main.js
-
 ```
 var dbPromise = idb.open('couches-n-things', 2, function(upgradeDb) {
   switch (upgradeDb.oldVersion) {
@@ -196,7 +193,6 @@ Add some sample furniture items to the object store.
 Replace TODO 3.3 in <strong>main.js</strong> with the following code:
 
 #### main.js
-
 ```
 dbPromise.then(function(db) {
   var tx = db.transaction('products', 'readwrite');
@@ -305,7 +301,6 @@ Create some indexes on your object store.
 Replace TODO 4.1 in <strong>main.js</strong> with the following code:
 
 #### main.js
-
 ```
 case 2:
   console.log('Creating a name index');
@@ -320,7 +315,6 @@ case 2:
 The full <code>idb.open</code> method should look like this:
 
 #### main.js
-
 ```
 var dbPromise = idb.open('couches-n-things', 3, function(upgradeDb) {
   switch (upgradeDb.oldVersion) {
@@ -384,7 +378,6 @@ Use the indexes you created in the previous sections to retrieve items from the 
 Replace TODO 4.3 in <strong>main.js</strong> with the following code:
 
 #### main.js
-
 ```
 return dbPromise.then(function(db) {
   var tx = db.transaction('products', 'readonly');
@@ -423,7 +416,6 @@ Use a cursor object to get items from your store within a price range.
 Replace TODO 4.4a in <strong>main.js</strong> with the following code:
 
 #### main.js
-
 ```
 var lower = document.getElementById('priceLower').value;
 var upper = document.getElementById('priceUpper').value;
@@ -517,7 +509,6 @@ To complete TODO 5.2 in <strong>main.js</strong>, add the following items to the
 </div>
 
 #### main.js
-
 ```
 var items = [
   {
@@ -577,7 +568,6 @@ This step processes the array of orders passed to the <code>processOrders</code>
 Replace TODO 5.5 in <strong>main.js</strong> with the following code:
 
 #### main.js
-
 ```
 return dbPromise.then(function(db) {
   var tx = db.transaction('products');
@@ -608,7 +598,6 @@ Now we need to check if there are enough items left in the <code>products</code>
 Replace TODO 5.6 in <strong>main.js</strong> with the following code:
 
 #### main.js
-
 ```
 return new Promise(function(resolve, reject) {
   var item = product;

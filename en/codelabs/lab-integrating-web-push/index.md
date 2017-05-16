@@ -111,7 +111,6 @@ Because notifications are not yet fully supported by all browsers, we must check
 Replace TODO 2.1 in <strong>main.js</strong> with the following code:
 
 #### main.js
-
 ```
 if (!('Notification' in window)) {
   console.log('This browser does not support notifications!');
@@ -130,7 +129,6 @@ Before we can show notifications, we must get permission from the user.
 Replace TODO 2.2 in <strong>main.js</strong> with the following code:
 
 #### main.js
-
 ```
 Notification.requestPermission(function(status) {
   console.log('Notification permission status:', status);
@@ -150,7 +148,6 @@ This opens a popup when the user first lands on the page prompting them to allow
 Replace TODO 2.3 in <strong>main.js</strong> in the <code>displayNotification()</code> function with the following code:
 
 #### main.js
-
 ```
 if (Notification.permission == 'granted') {
   navigator.serviceWorker.getRegistration().then(function(reg) {
@@ -175,7 +172,6 @@ The notification can do much more than just display a title.
 Replace TODO 2.4 in <strong>main.js</strong> with an options object:
 
 #### main.js
-
 ```
 var options = {
   body: 'First notification!',
@@ -196,7 +192,6 @@ var options = {
 Be sure to add the options object to the second parameter of <code>showNotification</code>:
 
 #### main.js
-
 ```
 reg.showNotification('Hello world!', options);
 ```
@@ -216,7 +211,6 @@ To create a notification with a set of custom actions, we can add an actions arr
 Replace TODO 2.5 in the options object in <strong>main.js</strong> with the following code: 
 
 #### main.js
-
 ```
 actions: [
   {action: 'explore', title: 'Go to the site',
@@ -239,7 +233,6 @@ When the user closes a notification, a <code>notificationclose</code> event is t
 Replace TODO 2.6 in <strong>sw.js</strong> with an event listener for the <code>notificationclose</code> event:
 
 #### sw.js
-
 ```
 self.addEventListener('notificationclose', function(e) {
   var notification = e.notification;
@@ -266,7 +259,6 @@ When the user clicks on a notification or notification action, a <code>notificat
 Replace the TODO 2.7 in <strong>sw.js</strong> with the following code:
 
 #### sw.js
-
 ```
 self.addEventListener('notificationclick', function(e) {
 
@@ -296,7 +288,6 @@ Let's add some code to the service worker to handle the actions.
 Replace the entire <code>notificationclick</code> event listener in <strong>sw.js</strong> with the following code:
 
 #### sw.js
-
 ```
 self.addEventListener('notificationclick', function(e) {
   var notification = e.notification;
@@ -347,7 +338,6 @@ If a browser that supports push messages receives one, it registers a <code>push
 Inside <strong>sw.js</strong> replace TODO 3.1 with the code to handle push events:
 
 #### sw.js
-
 ```
 self.addEventListener('push', function(e) {
   var options = {
@@ -405,7 +395,6 @@ If you are using Firefox, you can skip this step and continue to step 3.3.
 Replace <code>YOUR_SENDER_ID</code>  in the code below with the Sender ID of your project on Firebase and paste it into <strong>manifest.json</strong> (replace any code already there):
 
 #### manifest.json
-
 ```
 {
   "name": "Push Notifications codelab",
@@ -428,7 +417,6 @@ Whenever the user opens the app, check for the subscription object and update th
 Replace TODO 3.3a in the service worker registration code at the bottom of  <strong>main.js</strong> with the following function call:
 
 #### main.js
-
 ```
 initializeUI();
 ```
@@ -436,7 +424,6 @@ initializeUI();
 Replace TODO 3.3b in the <code>initializeUI()</code> function in <strong>main.js</strong> with the following code:
 
 #### main.js
-
 ```
 pushButton.addEventListener('click', function() {
   pushButton.disabled = true;
@@ -476,7 +463,6 @@ We then get the latest subscription object from the <code>pushManager</code>. In
 Before sending any data via a push message, you must first subscribe to the browser's push service.
 
 Replace TODO 3.4 in <strong>main.js</strong> with the following code:
-
 ```
 swRegistration.pushManager.subscribe({
   userVisibleOnly: true
@@ -521,7 +507,6 @@ The <code>.catch</code> handles the case in which the user has denied permission
 ### 3.5 Unsubscribe from the push service
 
 Replace TODO 3.5 in <strong>main.js</strong> with the following code:
-
 ```
 swRegistration.pushManager.getSubscription()
 .then(function(subscription) {
@@ -573,7 +558,6 @@ Paste the following cURL command (with your values substituted into the appropri
     curl "ENDPOINT_URL" --request POST --header "TTL: 60" --header "Content-Length: 0" --header "Authorization: key=SERVER_KEY"
 
 Here is an example of what the cURL should look like:
-
 ```
 curl "https://android.googleapis.com/gcm/send/fYFVeJQJ2CY:APA91bGrFGRmy-sY6NaF8atX11K0bKUUNXLVzkomGJFcP-lvne78UzYeE91IvWMxU2hBAUJkFlBVdYDkcwLG8vO8cYV0X3Wgvv6MbVodUfc0gls7HZcwJL4LFxjg0y0-ksEhKjpeFC5P" --request POST --header "TTL: 60" --header "Content-Length: 0" --header "Authorization: key=AAAANVIuLLA:APA91bFVym0UAy836uQh-__S8sFDX0_MN38aZaxGR2TsdbVgPeFxhZH0vXw_-E99y9UIczxPGHE1XC1CHXen5KPJlEASJ5bAnTUNMOzvrxsGuZFAX1_ZB-ejqBwaIo24RUU5QQkLQb9IBUFwLKCvaUH9tzOl9mPhFw"
 ```
@@ -605,7 +589,6 @@ Chrome and Firefox support the ability to deliver data directly to your service 
 Replace the <code>push</code> event listener in <strong>sw.js</strong> with the following code to get the data from the message:
 
 #### sw.js
-
 ```
 self.addEventListener('push', function(e) {
   var body;
@@ -666,7 +649,6 @@ If you are working in Firefox, you can delete the <code>gcmAPIKey</code> option.
 </div>
 
 #### node/main.js
-
 ```
 var webPush = require('web-push');
 
@@ -751,7 +733,6 @@ In order for VAPID to work we must pass the public key to the <code>subscribe</c
 Replace TODO 4.2a in <strong>js/main.js</strong>, with the following code with your VAPID public key substituted in:
 
 #### js/main.js
-
 ```
 var applicationServerPublicKey = 'YOUR_VAPID_PUBLIC_KEY';
 ```
@@ -759,7 +740,6 @@ var applicationServerPublicKey = 'YOUR_VAPID_PUBLIC_KEY';
 Replace the <code>subscribeUser()</code> function in <strong>js/main.js</strong> with the code below:
 
 #### js/main.js
-
 ```
 function subscribeUser() {
   var applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
@@ -793,7 +773,6 @@ Copy the new subscription object and overwrite the old subscription object assig
 Replace TODO 4.3a in <strong>node/main.js</strong> with the following code, with your values for the public and private keys substituted in:
 
 #### node/main.js
-
 ```
 var vapidPublicKey = 'YOUR_VAPID_PUBLIC_KEY';
 var vapidPrivateKey = 'YOUR_VAPID_PRIVATE_KEY';
@@ -806,7 +785,6 @@ Next, replace TODO 4.3b in the <code>options</code> object with the following co
 </div>
 
 #### node/main.js
-
 ```
 vapidDetails: {
   subject: 'mailto: YOUR_EMAIL_ADDRESS',
@@ -816,7 +794,6 @@ vapidDetails: {
 ```
 
 Comment out the <code>gcmAPIKey</code> in the options object (it's no longer necessary):
-
 ```
 // gcmAPIKey: 'YOUR_SERVER_KEY',
 ```
@@ -877,7 +854,6 @@ Depending on the use case, if the user is already using our application we may w
 In the <code>push</code> event handler in <strong>sw.js</strong>, replace the <code>e.waitUntil()</code> function below the TODO with the following code:
 
 #### sw.js
-
 ```
 e.waitUntil(
   clients.matchAll().then(function(c) {
@@ -918,7 +894,6 @@ If there are several open notifications originating from our app, we can close t
 In <strong>sw.js</strong>, in the <code>notificationclick</code> event handler, replace the TODO 5.3 with the following code:
 
 #### sw.js
-
 ```
 self.registration.getNotifications().then(function(notifications) {
   notifications.forEach(function(notification) {
@@ -932,7 +907,6 @@ Save the code.
 Comment out the <code>tag</code> attribute in the <code>displayNotification</code> function in <strong>main.js</strong> so that multiple notifications will display at once:
 
 #### main.js
-
 ```
 // tag: 'id1',
 ```
@@ -962,7 +936,6 @@ We can re-use existing pages rather than opening a new tab when the notification
 Replace the code inside the <code>else</code> block in the <code>notificationclick</code> handler in <strong>sw.js</strong> with the following code:
 
 #### sw.js
-
 ```
 e.waitUntil(
   clients.matchAll().then(function(clis) {

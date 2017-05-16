@@ -123,7 +123,6 @@ Note that a <strong>node_modules</strong> directory has been added to the projec
 In <strong>gulpfile.js</strong>, replace the TODO 3 comment with the following:
 
 #### gulpfile.js
-
 ```
 var gulp = require('gulp');
 ```
@@ -153,7 +152,6 @@ From <strong>app/</strong>, run the following in the command line:
 Now replace TODO 4.1 in <strong>gulpfile.js</strong> with the following code:
 
 #### gulpfile.js
-
 ```
 var uglify = require('gulp-uglify');
 ```
@@ -161,7 +159,6 @@ var uglify = require('gulp-uglify');
 Replace TODO 4.2 with the following code:
 
 #### gulpfile.js
-
 ```
 gulp.task('minify', function() {
   gulp.src('js/main.js')
@@ -225,7 +222,6 @@ Usually we want to run multiple tasks each time we rebuild an application. Rathe
 Replace TODO 6.1 in <strong>gulpfile.js</strong> with the following:
 
 #### gulpfile.js
-
 ```
 gulp.task('default', ['minify', 'processCSS']);
 ```
@@ -247,7 +243,6 @@ Even with default tasks, it can become tedious to run tasks each time a file is 
 Replace TODO 6.2 in <strong>gulpfile.js</strong> with the following:
 
 #### gulpfile.js
-
 ```
 gulp.task('watch', function() {
   gulp.watch('styles/*.css', ['processCSS']);
@@ -281,7 +276,6 @@ From <strong>app/</strong>, run the following in the command line:
 Replace TODO 6.3a in <strong>gulpfile.js</strong> with the following:
 
 #### gulpfile.js
-
 ```
 var browserSync = require('browser-sync');
 ```
@@ -289,7 +283,6 @@ var browserSync = require('browser-sync');
 Now replace TODO 6.3b in <strong>gulpfile.js</strong> with the following: 
 
 #### gulpfile.js
-
 ```
 gulp.task('serve', function() {
   browserSync.init({
@@ -316,7 +309,6 @@ Let's combine everything learned so far.
 TODO: Change the default tasks from <code>minify</code> and <code>processCSS</code> to <code>serve</code>.
 
 TODO: Update the <code>serve</code> task to the following code:
-
 ```
 gulp.task('serve', ['processCSS'], function() {
   browserSync.init({

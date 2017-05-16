@@ -51,6 +51,10 @@ function cleanup(sourceFile, destFile, bookPath) {
   // Change inline backticks to <code> tags
   markdown = markdown.replace(/`([^`\n]+?)`/g, '<code>$1</code>');
 
+  // Remove new line break between codeblocks and previous line so that
+  // code in numbered lists doesn't reset the numbers
+  markdown = markdown.replace(/\n*```/g, '\n```');
+
   // Remove empty lines in note divs
   markdown = markdown.replace(/<div class="note">\s*\n\n/g, '<div class="note">\n');
   markdown = markdown.replace(/\n\n+<\/div>/g, '\n</div>');

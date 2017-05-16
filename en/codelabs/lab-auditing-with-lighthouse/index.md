@@ -126,7 +126,6 @@ Create an empty file called <strong>manifest.json</strong> in the <strong>app</s
 Replace TODO 4.1 in <strong>index.html</strong> with the following:
 
 #### index.html
-
 ```
 <!-- Web Application Manifest -->
 <link rel="manifest" href="manifest.json">
@@ -137,7 +136,6 @@ Replace TODO 4.1 in <strong>index.html</strong> with the following:
 Add the following to the <strong>manifest.json</strong> file:
 
 #### manifest.json
-
 ```
 {
   "name": "Demo Blog Application",
@@ -179,7 +177,6 @@ Add the following to the <strong>manifest.json</strong> file:
 Replace TODO 4.3 in <strong>index.html</strong> with the following:
 
 #### index.html
-
 ```
 <!-- Chrome for Android theme color -->
 <meta name="theme-color" content="#2E3AA1">
@@ -233,7 +230,6 @@ Create an empty JavaScript file in the root directory (<strong>app</strong>) and
 Now replace TODO 5.1 in <strong>index.html</strong> with the following and save the file:
 
 #### index.html
-
 ```
 <script>
   (function() {
@@ -259,7 +255,6 @@ The report also indicates that our app must respond with a 200 when offline and 
 Add the following code to the empty <strong>service-worker.js</strong> file (which should be at <strong>app/service-worker.js</strong>):
 
 #### service-worker.js
-
 ```
 self.addEventListener('install', function(event) {
   event.waitUntil(
@@ -340,7 +335,7 @@ You can see that we are still missing the HTTPS requirements, since we are using
 
 If you want to run Lighthouse from the command line (for example, to integrate it with a build process) it is available as a Node module that you can install from the terminal. 
 
-If you haven't already, <a href="https://nodejs.org/en/">download Node</a> and select the version that best suits your environment and operating system. (Remember that you need Node v5+ or Node v4 with the <code>--harmony</code> <a href="http://stackoverflow.com/questions/13351965/what-does-node-harmony-do">flag</a>.)
+If you haven't already, <a href="https://nodejs.org/en/">download Node</a> and select the Long Term Support (LTS) version that best suits your environment and operating system (Lighthouse requires Node v6 or greater).
 
 Install Lighthouse's Node module from the command line:
 

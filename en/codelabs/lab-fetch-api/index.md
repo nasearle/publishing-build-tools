@@ -105,7 +105,6 @@ Open <strong>js/main.js</strong> in your text editor.
 Replace the TODO 2.1a comment with the following code:
 
 #### main.js
-
 ```
 if (!('fetch' in window)) {
   console.log('Fetch API not found, try including the polyfill');
@@ -116,7 +115,6 @@ if (!('fetch' in window)) {
 In the <code>fetchJSON</code> function, replace TODO 2.1b with the following code:
 
 #### main.js
-
 ```
 fetch('examples/animals.json')
 .then(logResult)
@@ -146,7 +144,6 @@ Find the values of the <code>status</code>, <code>url</code>, and <code>ok</code
 In the <code>fetchJSON</code> function we just wrote in section 2.1, replace the <strong>examples/animals.json</strong> resource with <strong>examples/non-existent.json</strong>. So the <code>fetchJSON</code> function should now look like:
 
 #### main.js
-
 ```
 function fetchJSON() {
   fetch('examples/non-existent.json')
@@ -184,7 +181,6 @@ You can confirm that you have written the function correctly by navigating to <s
 Once you have successfully written the function, replace <code>fetchJSON</code> with the following code:
 
 #### main.js
-
 ```
 function fetchJSON() {
   fetch('examples/non-existent.json')
@@ -201,7 +197,6 @@ Save the script and refresh the page. Click <strong>Fetch JSON</strong>. Now the
 Now replace <strong>examples/non-existent.json</strong> resource in the <code>fetchJSON</code> function with the original <strong>examples/animals.json</strong> from section 2.1. The function should now look like:
 
 #### main.js
-
 ```
 function fetchJSON() {
   fetch('examples/animals.json')
@@ -224,7 +219,6 @@ Responses must be read in order to access the body of the response. Response obj
 To complete TODO 2.4, replace the <code>readResponseAsJSON</code> function with the following code:
 
 #### main.js
-
 ```
 function readResponseAsJSON(response) {
   return response.json();
@@ -236,7 +230,6 @@ function readResponseAsJSON(response) {
 Then replace the <code>fetchJSON</code> function with the following code:
 
 #### main.js
-
 ```
 function fetchJSON() {
   fetch('examples/animals.json') // 1
@@ -284,7 +277,6 @@ Fetch is not limited to JSON. In this example we will fetch an image and append 
 To complete TODO 3a, replace the <code>showImage</code> function with the following code:
 
 #### main.js
-
 ```
 function showImage(responseAsBlob) {
   var container = document.getElementById('container');
@@ -306,7 +298,6 @@ To complete TODO 3b, finish writing the <code>readResponseAsBlob</code> function
 To complete TODO 3c, replace the <code>fetchImage</code> function with the following code:
 
 #### main.js
-
 ```
 function fetchImage() {
   fetch('examples/kitten.jpg')
@@ -350,7 +341,6 @@ In this example we will fetch text and add it to the page.
 To complete TODO 4a, replace the <code>showText</code> function with the following code:
 
 #### main.js
-
 ```
 function showText(responseAsText) {
   var message = document.getElementById('message');
@@ -367,7 +357,6 @@ To complete TODO 4b, finish writing the <code>readResponseAsText</code> function
 (You can check that you have done this correctly by navigating to <strong>app/test/test.html</strong>.)
 
 To complete TODO 4c, replace the <code>fetchText</code> function with the following code:
-
 ```
 function fetchText() {
   fetch('examples/words.txt')
@@ -415,7 +404,6 @@ By default, fetch uses the <a href="https://developer.mozilla.org/en-US/docs/Web
 To complete TODO 5.1, replace the <code>headRequest</code> function with the following code:
 
 #### main.js
-
 ```
 function headRequest() {
   fetch('examples/words.txt', {
@@ -443,7 +431,6 @@ Let's look at the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Head
 Complete the function called <code>logSize</code> in TODO 5.2. The function accepts a response object as input. The function should log the <code>content-length</code> of the response. To do this, you need to access the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/headers">headers</a> property of the response, and use the headers object's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers/get">get</a> method. After logging the the <code>content-length</code> header, the function should then return the response.
 
 Then replace the <code>headRequest</code> function with the following code:
-
 ```
 function headRequest() {
   fetch('examples/words.txt', {
@@ -507,7 +494,6 @@ In this step we install and run a simple server at <strong>localhost:5000/</stro
 To complete TODO 6.2, replace the <code>postRequest</code> function with the following code:
 
 #### main.js
-
 ```
 function postRequest() {
   // TODO 6.3
@@ -543,7 +529,6 @@ You can use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormDa
 In the <code>postRequest</code> function, replace TODO 6.3 with the following code:
 
 #### main.js
-
 ```
 var formData = new FormData(document.getElementById('myForm'));
 ```

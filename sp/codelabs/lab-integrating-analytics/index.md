@@ -221,7 +221,6 @@ If you lost your place:
 Your tracking ID looks like <code>UA-XXXXXXXX-Y</code> and your tracking code snippet looks like:
 
 #### index.html
-
 ```
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]) \ 
@@ -361,7 +360,6 @@ Google Analytics supports custom events that allow fine grain analysis of user b
 In <strong>main.js</strong>, replace TODO 6 with the following:
 
 #### main.js
-
 ```
 ga('send', {
   hitType: 'event',
@@ -421,7 +419,6 @@ First we need to add push subscribing to our app. To subscribe to the push servi
 Replace <code>YOUR_SENDER_ID</code>  in the <strong>manifest.json</strong> file with the Sender ID of your Firebase project. The <strong>manifest.json</strong> file should look like this:
 
 #### manifest.json
-
 ```
 {
   "name": "Google Analytics codelab",
@@ -446,7 +443,6 @@ Now we can add custom analytics events for push subscriptions.
 Replace TODO 7.2a with the following code
 
 #### main.js
-
 ```
 ga('send', 'event', 'push', 'subscribe', 'success');
 ```
@@ -454,7 +450,6 @@ ga('send', 'event', 'push', 'subscribe', 'success');
 Replace TODO 7.2b with the following code
 
 #### main.js
-
 ```
 ga('send', 'event', 'push', 'unsubscribe', 'success');
 ```
@@ -484,7 +479,6 @@ The service worker does not have access to the analytics command queue, <code>ga
 In <strong>analytics-helper.js</strong>, replace TODO 8.1a with the following code, but use your analytics tracking ID instead of <code>UA-XXXXXXXX-Y</code>:
 
 #### analytics-helper.js
-
 ```
 // Set this to your tracking ID
 var trackingId = 'UA-XXXXXXXX-Y';
@@ -493,7 +487,6 @@ var trackingId = 'UA-XXXXXXXX-Y';
 Replace TODO 8.1b in the same file with the following code:
 
 #### analytics-helper.js
-
 ```
 function sendAnalyticsEvent(eventAction, eventCategory) {
   'use strict';
@@ -584,7 +577,6 @@ We start by creating a variable with your tracking ID. This will be used to ensu
 The <code>sendAnalyticsEvent</code> helper function starts by checking that the tracking ID is set and that the function is being called with the correct parameters. After checking that the client is subscribed to push, the hit data is created in the <code>payloadData</code> variable:
 
 #### analytics-helper.js
-
 ```
 var payloadData = {
   // Version Number
@@ -609,7 +601,6 @@ The <strong>version number</strong>, <strong>client ID</strong>, <strong>trackin
 Next, the hit data is <a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/reference">formatted into a URI</a> with the following code:
 
 #### analytics-helper.js
-
 ```
 var payloadString = Object.keys(payloadData)
 .filter(function(analyticsKey) {
@@ -624,7 +615,6 @@ var payloadString = Object.keys(payloadData)
 Finally the data is sent to the <a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/reference">API endpoint</a> (<strong>https://www.google-analytics.com/collect</strong>) with the following code:
 
 #### analytics-helper.js
-
 ```
 return fetch('https://www.google-analytics.com/collect', {
   method: 'post',
@@ -650,7 +640,6 @@ Now that we can use the Measurement Protocol interface to send hits, let's add c
 Replace TODO 8.2a in <strong>sw.js</strong> with the following code:
 
 #### sw.js
-
 ```
 self.importScripts('js/analytics-helper.js');
 ```
@@ -658,7 +647,6 @@ self.importScripts('js/analytics-helper.js');
 Replace TODO 8.2b in <strong>sw.js</strong> with the following code:
 
 #### sw.js
-
 ```
 e.waitUntil(
   sendAnalyticsEvent('close', 'notification')
@@ -668,7 +656,6 @@ e.waitUntil(
 Replace TODO 8.2c in <strong>sw.js</strong> with the following code:
 
 #### sw.js
-
 ```
 sendAnalyticsEvent('click', 'notification')
 ```
@@ -676,7 +663,6 @@ sendAnalyticsEvent('click', 'notification')
 Replace TODO 8.2d in <strong>sw.js</strong> with the following code:
 
 #### sw.js
-
 ```
 sendAnalyticsEvent('received', 'push')
 ```
@@ -727,7 +713,6 @@ This will import the <a href="https://nodejs.org/en/">node</a> module.
 In <strong>sw.js</strong> replace TODO 9 with:
 
 #### sw.js
-
 ```
 importScripts('path/to/offline-google-analytics-import.js');
 goog.offlineGoogleAnalytics.initialize();

@@ -98,7 +98,6 @@ Open <strong>index.html</strong> in your text editor.
 Replace TODO 2 with the following code:
 
 #### index.html
-
 ```
 if (!('serviceWorker' in navigator)) {
   console.log('Service worker not supported');
@@ -146,7 +145,6 @@ Open <strong>service-worker.js</strong> in your text editor.
 Replace TODO 3.1 with the following code:
 
 #### service-worker.js
-
 ```
 self.addEventListener('install', function(event) {
   console.log('Service worker installing...');
@@ -201,7 +199,6 @@ After initial installation and activation, re-registering an existing worker doe
 Replace TODO 3.3 in <strong>service-worker.js </strong>with the following comment:
 
 #### service-worker.js
-
 ```
 // I'm a new service worker
 ```
@@ -227,7 +224,6 @@ It is possible for a new service worker to activate immediately, even if an exis
 Replace TODO 3.4 in <strong>service-worker.js</strong> with the following code:
 
 #### service-worker.js
-
 ```
 self.skipWaiting();
 ```
@@ -255,7 +251,6 @@ Service Workers can act as a proxy between your web app and the network.
 Replace TODO 4 in <strong>service-worker.js</strong> with:
 
 #### service-worker.js
-
 ```
 self.addEventListener('fetch', function(event) {
   console.log('Fetching:', event.request.url);
@@ -305,7 +300,6 @@ Service workers have scope. The scope of the service worker determines from whic
 Update the registration code in <strong>index.html</strong> with:
 
 #### index.html
-
 ```
 if (!('serviceWorker' in navigator)) {
   console.log('Service worker not supported');
@@ -357,7 +351,6 @@ Navigate to <strong>test-scoped.html</strong> again to confirm that the service 
 It is possible to set an arbitrary scope by passing in an additional parameter when registering, for example:
 
 #### index.html
-
 ```
 navigator.serviceWorker.register('/service-worker.js', {
   scope: '/kitten/'

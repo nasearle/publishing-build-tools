@@ -84,7 +84,6 @@ Let's create a service worker to add offline functionality to the app.
 Replace the TODO 2.1 comment in <strong>service-worker.js</strong> with the following code:
 
 #### service-worker.js
-
 ```
 var CACHE_NAME = 'static-cache';
 
@@ -121,7 +120,6 @@ Note that <strong>.</strong> is also cached. This represents the current directo
 Replace TODO 2.2 in <strong>service-worker.js</strong> with the following code:
 
 #### service-worker.js
-
 ```
 self.addEventListener('fetch', function(event) {
   event.respondWith(
@@ -173,7 +171,6 @@ This code adds a fetch event listener to the service worker. When a resource is 
 Replace TODO 2.3 in <strong>index.html</strong> with the following code:
 
 #### index.html
-
 ```
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js')

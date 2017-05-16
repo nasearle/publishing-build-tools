@@ -97,7 +97,6 @@ Open developer tools and <a href="tools_for_pwa_developers.md#mobile">enable res
 Replace TODO 3 in <strong>index.html</strong> with the following tag: 
 
 #### index.html
-
 ```
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
@@ -130,7 +129,6 @@ The initial-scale property controls the zoom level when the page is first loaded
 Replace TODO 4 in <strong>styles/main.css</strong> with the following code:
 
 #### main.css
-
 ```
 @media screen and (max-width: 48rem) {
   .container .col {
@@ -164,7 +162,6 @@ Comment out all of the rules in <strong>styles/main.css</strong> by wrapping the
 Replace TODO 5.2 in <strong>styles/main.css</strong> with the following code:
 
 #### main.css
-
 ```
 .container {
   display: -webkit-box;  /<em> OLD - iOS 6-, Safari 3.1-6 </em>/
@@ -198,7 +195,6 @@ The second rule uses the <code>.col</code> class to create our equal width flex 
 ### 5.3 Optional: Set different relative widths
 
 Use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child">nth-child pseudo-class</a> to set the relative widths of the first two columns to 1 and the third to 1.5. You must use the <code>flex</code> property to set the relative widths for each column. For example, the selector for the first column would look like this:
-
 ```
 .container .col:nth-child(1)
 ```
@@ -208,7 +204,6 @@ Use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child">nt
 Replace TODO 5.4 in <strong>styles/main.css</strong> with the code below:
 
 #### main.css
-
 ```
 @media screen and (max-width: 48rem) {
   .container {
@@ -243,7 +238,6 @@ As Flexbox is a relatively new technology, we should include fallbacks in our CS
 Replace TODO 6.1 in <strong>index.html</strong> with the code to include the custom Modernizr build:
 
 #### index.html
-
 ```
 <script src="modernizr-custom.js"></script>
 ```
@@ -263,7 +257,6 @@ Let's use the <code>flexbox</code> and <code>no-flexbox</code> classes in the CS
 Now in <strong>styles/main.css</strong>, add <code>.no-flexbox</code> in front of each rule that we commented out:
 
 #### main.css
-
 ```
 .no-flexbox .container {
   background: #eee;
@@ -286,7 +279,6 @@ Now in <strong>styles/main.css</strong>, add <code>.no-flexbox</code> in front o
 In the same file, add <code>.flexbox</code> in front of the rest of the rules:
 
 #### main.css
-
 ```
 .flexbox .container {
   display: -webkit-box;
