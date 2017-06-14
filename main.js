@@ -1,84 +1,146 @@
-var cleanup = require('./cleanup');
-var glob = require('globule');
-var shell = require('shelljs');
-var groupings = require('./groupings.json');
-var fs = require('fs');
+const fs = require('fs');
+const glob = require('globule');
+const shell = require('shelljs');
+const emptyDir = require('empty-dir');
+const courses = require('./config.json');
+const codelabHelper = require('./codelabHelper');
 
 if (!shell.which('git')) {
   shell.echo('Sorry, this script requires git');
   shell.exit(1);
 }
 
-shell.exec('git pull');
+const languages = ['en', 'sp'];
+//
+// console.log('Updating codelabs & concepts markdown files from Gdocs...');
+// shell.exec('./claat update');
+//
+// console.log('Cleaning codelabs & concepts markdown files...');
+// const filesToProcess = glob.find('**/index.md');
+// filesToProcess.forEach(function(filename) {
+//   codelabHelper.cleanup(filename, filename, '');
+// });
 
-var languages = ['en', 'sp'];
+/*
+The 'courses' object is used to map courses to their respective repository and
+track which units/topics belong in which course.
 
-console.log('\nUpdating codelabs & concepts markdown files from GDocs...\n');
-shell.exec('./claat update');
+The courses object is imported from config.json, which already has the
+repository information. The "sources" property is what specifies which
+units/topics belong in each course.
 
-console.log('\nCleaning codelabs & concepts markdown files...\n');
-var filesToProcess = glob.find('**/index.md');
-filesToProcess.forEach(function(filename) {
-  cleanup.cleanup(filename, filename, '');
+Currently sources have to be specified manually for code resources, but will
+be built automatically for codelab and concept resources using the codelab.json
+metadata files.
+*/
+
+console.log('Organizing resources into courses...');
+
+// Find all the metadata files for codelab & concepts docs
+// (use English files as source of truth to prevent duplicates / mismatches)
+const codelabsMetaDataFiles = glob.find('en/codelabs/**/codelab.json');
+const conceptsMetaDataFiles = glob.find('en/concepts/**/codelab.json');
+
+// Convert these files into actual data
+const codelabMetaData = codelabsMetaDataFiles.map(file => {
+  return jsonFileToObject(file);
+});
+const conceptsMetaData = conceptsMetaDataFiles.map(file => {
+  return jsonFileToObject(file);
 });
 
-for (var groupingName in groupings) {
-  console.log('\n');
-  shell.exec('git clone https://github.com/nasearle/' + groupingName + '.git');
-  // console.log('cd ' + groupingName);
-  shell.cd(groupingName);
-  var grouping = groupings[groupingName];
-  if (grouping.type == 'code') {
-    console.log('\nUpdating course: ' + groupingName + '...\n');
-    grouping.modules.forEach(function(module) {
-      // console.log('rm -rf ' + module);
-      shell.exec('rm -rf ' + module);
-      // console.log('cp -R ../en/code/' + module, './' + module);
-      shell.cp('-R', '../en/code/' + module, './' + module);
-    });
-  } else {
-    console.log('\nUpdating GitBook repo: ' + groupingName + '...\n');
-    // console.log('rm -rf', 'img');
-    shell.rm('-rf', 'img');
-    // console.log('mkdir img');
-    shell.mkdir('img');
-    if (!fs.existsSync('./README.md')) {
-      // console.log('echo "readme" > README.md');
-      console.log('No README.md exists (required for GitBook), writing...\n');
-      shell.exec('echo "readme" > README.md');
-    }
-    languages.forEach(function(lang) {
-      console.log('Processing ' + lang + '...');
-      var files = shell.ls('./' + lang);
-      // console.log('rm -rf ' + lang + '/*');
-      shell.exec('rm -rf ' + lang + '/*');
-      files.forEach(function(fileName) {
-        var folderName = fileName.slice(0, -3); // remove file's .md extension
-        //  console.log('cp ../' + lang + '/' + grouping.type + '/' + folderName +
-        //    '/index.md', './' + lang + '/' + fileName);
-        shell.cp('../' + lang + '/' + grouping.type + '/' + folderName +
-          '/index.md', './' + lang + '/' + fileName);
-        // console.log('cp -R', '../' + lang + '/' + grouping.type + '/' +
-        //   folderName + '/img', './img');
-        shell.cp('-R', '../' + lang + '/' + grouping.type + '/' +
-          folderName + '/img', './');
+// Look through this data, and add appropriate sources to each course in
+// 'courses' object
+addSources('codelabs', codelabMetaData);
+addSources('concepts', conceptsMetaData);
+
+// Now the 'courses' object has sources for all resources (code, concepts, codelabs)
+console.log('Courses organized as:');
+console.log(JSON.stringify(courses, null, 1));
+
+// Now build each course
+for (let courseKey in courses) {
+  console.log(`Building ${courseKey} course...`);
+  let course = courses[courseKey];
+  shell.mkdir(courseKey);
+
+  // Build linked README first, will get added to each repo
+  let tempReadme = `${courseKey}/temp-README.md`;
+  shell.exec(`touch ${tempReadme}`);
+  shell.exec(`echo "#${courseKey}" >> ${tempReadme}`);
+  for (let resourceKey in course) {
+    let repo = course[resourceKey].repo;
+    shell.exec(`echo ${resourceKey}: ${repo} >> ${tempReadme}`);
+    // gitbook TODO
+  }
+
+  // Build each courses resources
+  for (let resourceKey in course) {
+    console.log(`Building ${resourceKey} for ${courseKey}`);
+    let resource = course[resourceKey];
+    let repo = resource.repo;
+    let sources = resource.sources;
+    let path = `${courseKey}/${resourceKey}`;
+    shell.exec(`git clone ${repo} ${path}`);
+    shell.rm('-rf', `$(ls -q ${path})`); // remove all files except .git in the repo
+
+    if (resourceKey === 'code') {
+      sources.forEach(source => {
+        let srcPath = `${languages[0]}/${resourceKey}/${source}`;
+        let destPath = `${path}/${source}`;
+        shell.cp('-R', srcPath, destPath);
       });
-    });
+    } else if (resourceKey === 'concepts' || resourceKey === 'codelabs') {
+      shell.mkdir(`${path}/img`);
+      languages.forEach(lang => {
+        sources.forEach(source => {
+          let srcPath = `${lang}/${resourceKey}/${source}/index.md`;
+          let destPath = `${path}/${source}`;
+          shell.cp('-R', srcPath, destPath);
+          let imgPath = `${lang}/${resourceKey}/${source}/img`;
+          let hasImages = !emptyDir.sync(imgPath);
+          if (hasImages) {
+            let imgSrc = `${imgPath}/*`;
+            let imgDest = `${path}/img`;
+            shell.cp('-R', imgSrc, imgDest);
+          }
+        });
+      });
+    }
+    // Add linked README
+    shell.cp(tempReadme, `${path}/README.md`);
+    // Add a .gitignore if it doesn't exist
+    if (!fs.existsSync(`${path}/.gitignore`)) {
+      shell.exec('echo "node_modules\n.DS_Store" > .gitignore');
+    }
+    console.log(`Pushing ${courseKey} ${resourceKey} to:\n ${repo}`);
+    shell.exec('git add . && git commit -m "autoupdate-' + Date.now() +
+               '" && git push');
   }
-  if (!fs.existsSync('./.gitignore')) {
-    // console.log('echo "node_modules\n.DS_Store" > .gitignore');
-    console.log('No .gitignore exists, writing...\n');
-    shell.exec('echo "node_modules\n.DS_Store" > .gitignore');
-  }
-  // console.log('git add . && git commit -m "autoupdate' + Date.now() +
-  //   '" && git push');
-  console.log('\nPushing changes to repo: ' + groupingName + '...\n');
-  shell.exec('git add . && git commit -m "autoupdate' + Date.now() +
-    '" && git push');
-  // console.log('cd ..');
-  shell.cd('..');
-  // console.log('rm -rf ' + groupingName);
-  shell.rm('-rf', groupingName);
+  shell.rm('-rf', `${courseKey}`);
 }
 
-console.log('Complete.\nRemember to commit & push!');
+console.log('Publishing complete.');
+
+function addSources(resource, metadata) {
+  metadata.forEach(data => {
+    let courseTags = data.tags;
+    if (!courseTags || courseTags.length === 0) {
+      console.log(`ERR: ${data.url} in ${resource} has no tags`);
+      return;
+    }
+    courseTags.forEach(tag => {
+      if (!courses[tag]) {
+        console.log(`ERR: ${data.url} in ${resource} has unsupported tag: ${tag}`);
+        return;
+      }
+      courses[tag][resource].sources.push(data.url);
+    });
+  });
+}
+
+function jsonFileToObject(file) {
+  let fileString = fs.readFileSync(file, 'utf8');
+  let data = JSON.parse(fileString);
+  return data;
+}

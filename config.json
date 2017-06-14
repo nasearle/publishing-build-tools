@@ -1,0 +1,41 @@
+{
+	"2-day": {
+		"concepts": {
+			"repo": "https://github.com/DavidScales/pwa-ilt-2-day-concepts.git",
+			"sources": []
+		},
+		"codelabs": {
+			"repo": "https://github.com/DavidScales/pwa-ilt-2-day-labs.git",
+			"sources": []
+		},
+		"code": {
+			"repo": "https://github.com/DavidScales/pwa-ilt-2-day-code.git",
+			"sources": [
+				"responsive-design-lab", "responsive-images-lab",
+				"offline-quickstart-lab", "lighthouse-lab", "promises-lab",
+				"fetch-api-lab", "cache-api-lab", "gulp-lab", "sw-precache-lab",
+				"indexed-db-lab"
+			]
+		}
+	},
+	"3-day": {
+		"concepts": {
+			"repo": "https://github.com/DavidScales/pwa-ilt-3-day-concepts.git",
+			"sources": []
+		},
+		"codelabs": {
+			"repo": "https://github.com/DavidScales/pwa-ilt-3-day-labs.git",
+			"sources": []
+		},
+		"code": {
+			"repo": "https://github.com/DavidScales/pwa-ilt-3-day-code.git",
+			"sources": [
+				"responsive-design-lab", "responsive-images-lab",
+				"offline-quickstart-lab", "lighthouse-lab", "promises-lab",
+				"fetch-api-lab", "cache-api-lab", "gulp-lab", "sw-precache-lab",
+				"indexed-db-lab", "google-analytics-lab", "push-notification-lab",
+				"service-worker-lab"
+			]
+		}
+	}
+}

@@ -36,7 +36,7 @@ Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web
 
 
 
-This lab shows you how you can use <a href="https://github.com/GoogleChrome/lighthouse">Lighthouse</a>, an open-source tool from Google, to audit a web app for PWA features. Lighthouse provides a set of metrics to help guide you in building a PWA with a full application-like experience for your users. 
+This lab shows you how you can use <a href="https://developers.google.com/web/tools/lighthouse/">Lighthouse</a>, an <a href="https://github.com/GoogleChrome/lighthouse">open-source</a> tool from Google, to audit a web app for PWA features. Lighthouse provides a set of metrics to help guide you in building a PWA with a full application-like experience for your users. 
 
 #### What you will learn
 
@@ -50,7 +50,7 @@ This lab shows you how you can use <a href="https://github.com/GoogleChrome/ligh
 
 * Connection to the internet 
 * <a href="https://www.google.com/chrome/browser/desktop/">Chrome</a> 52+ browser
-* Node v5+ (or Node v4 with the <code>--harmony</code> <a href="http://stackoverflow.com/questions/13351965/what-does-node-harmony-do">flag</a>)
+* Node v6+
 * A text editor
 
 <a id="1" />
@@ -97,11 +97,11 @@ Download the Lighthouse Chrome extension from the <a href="http://chrome.google.
 
 
 
-In the browser (on the <strong>app</strong> page) click the Lighthouse icon and choose <strong>Generate report</strong>.
+In the browser (on the <strong>app</strong> page) click the Lighthouse icon and choose <strong>Generate report</strong> (you may be prompted to close Developer Tools if they are open).
 
 Lighthouse runs the report and generates an HTML page with the results. The report page should look similar to this:
 
-![starting-score](../img/be57a3905fb6f93f.png)
+![starting-score](../img/3048ecdad076a837.png)
 
 <div class="note">
 <strong>Note:</strong> The UI for Lighthouse is still being updated, so your report may not look exactly like this one.
@@ -142,28 +142,24 @@ Add the following to the <strong>manifest.json</strong> file:
   "short_name": "Blog",
   "start_url": "index.html",
   "icons": [{
-        "src": "images/touch/icon-72x72.png",
-        "sizes": "72x72",
-        "type": "image/png"
-      }, {
-        "src": "images/touch/icon-96x96.png",
-        "sizes": "96x96",
-        "type": "image/png"
-      }, {
         "src": "images/touch/icon-128x128.png",
         "sizes": "128x128",
         "type": "image/png"
       }, {
-        "src": "images/touch/ms-touch-icon-144x144-precomposed.png",
-        "sizes": "144x144",
-        "type": "image/png"
-      }, {
-        "src": "images/touch/apple-touch-icon.png",
-        "sizes": "152x152",
-        "type": "image/png"
-      }, {
-        "src": "images/touch/chrome-touch-icon-192x192.png",
+        "src": "images/touch/icon-192x192.png",
         "sizes": "192x192",
+        "type": "image/png"
+      }, {
+        "src": "images/touch/icon-256x256.png",
+        "sizes": "256x256",
+        "type": "image/png"
+      }, {
+        "src": "images/touch/icon-384x384.png",
+        "sizes": "384x384",
+        "type": "image/png"
+      }, {
+        "src": "images/touch/icon-512x512.png",
+        "sizes": "512x512",
         "type": "image/png"
       }],
   "background_color": "#3E4EB8",
@@ -181,22 +177,20 @@ Replace TODO 4.3 in <strong>index.html</strong> with the following:
 <!-- Chrome for Android theme color -->
 <meta name="theme-color" content="#2E3AA1">
 
-<!-- Tile color for Win8 -->
-<meta name="msapplication-TileColor" content="#3372DF">
-
 <!-- Add to homescreen for Chrome on Android -->
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="PSK">
-<link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+<meta name="application-name" content="Blog">
+<link rel="icon" sizes="192x192" href="images/touch/icon-192x192.png">
 
 <!-- Add to homescreen for Safari on iOS -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Polymer Starter Kit">
-<link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Blog">
+<link rel="apple-touch-icon" href="images/touch/icon-192x192.png">
 
-<!-- Tile icon for Win8 (144x144) -->
-<meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+<!-- Tile for Win8 -->
+<meta name="msapplication-TileColor" content="#3372DF">
+<meta name="msapplication-TileImage" content="images/touch/icon-192x192.png">
 ```
 
 #### Explanation
@@ -319,7 +313,7 @@ Now we should have passed many more tests.
 
  The report should look something like this:
 
-![solution-score](../img/76f48671607bf2b2.png)
+![solution-score](../img/73be590f426d2ad4.png)
 
 Now our score is much better (your score may not match exactly). 
 
@@ -354,6 +348,12 @@ Or on the app that you just made (note that your localhost port may be different
 You can check Lighthouse flags and options with:
 
     lighthouse --help
+
+
+## The lighthouse command line tool will generate an HTML (the same as the Chrome extension) in the working directory. You can then open the file with your browser.
+
+
+
 
 
 ## <a id="8" />

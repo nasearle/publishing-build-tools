@@ -65,7 +65,7 @@ This lab shows you the basics of sending, receiving, and displaying push notific
 
 If you have not downloaded the repository, installed Node, and started a local server, follow the instructions in <a href="setting_up_the_labs.md">Setting up the labs</a>.
 
-In the command window, change to the <strong>app</strong> directory in the <strong>push-notification-lab</strong> and run <code>npm install</code>:
+In the command window, change to the <strong>app</strong> directory in the <strong>push-notification-lab</strong> and run the following:
 
     npm install
 

@@ -206,7 +206,7 @@ You can also see specific information like visitors' language, country, city, br
 
 ### Real time analytics
 
-It's also possible to view analytics information in real time. From the same <strong>Reporting</strong> tab, select <strong>Real-Time</strong> and <strong>Overview</strong>:
+It's also possible to view analytics information in real time. From the same <strong>Reporting</strong> tab, select <strong>Real-Time </strong>and <strong>Overview</strong>:
 
 ![Real-time navigation](../img/b2dba5f011013e99.png)
 
@@ -248,7 +248,7 @@ Here the hit type is set to 'event' and values associated with the event are add
 <strong>Note:</strong> Many of the <code>ga</code> commands are flexible and can use multiple signatures. You can see all method signatures in the <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference">command queue reference</a>.
 </div>
 
-Event data can be viewed in the <strong>Reporting</strong> tab of the Google Analytics dashboard. Real-time events are found in the <strong>Events</strong> subsection, as shown below:
+Event data can be viewed in the <strong>Reporting</strong> tab of the Google Analytics dashboard. Real-time events are found in the <strong>Events </strong>subsection, as shown below:
 
 ![Real-time events](../img/3107f35a9adc1fb3.png)
 

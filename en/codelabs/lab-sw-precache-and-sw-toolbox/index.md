@@ -26,7 +26,7 @@
 
 Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/using-sw-precache-and-sw-toolbox.html">Using sw-precache and sw-toolbox</a>
 
-<a id="overview">
+<a id="overview" />
 
 
 ## Overview
@@ -58,7 +58,7 @@ The sw-precache module and sw-toolbox (Node.js) library make it easy to create p
 * A text editor
 * <a href="https://nodejs.org/en/">Node</a> and <a href="https://www.npmjs.com/">npm</a>
 
-<a id="1">
+<a id="1" />
 
 
 ## 1. Get set up
@@ -103,7 +103,7 @@ Install the gulp command line interface by running the following in the command 
 
 This installs the gulp command line interface globally so you can use it from the command line without having to type the full path to the version of gulp. 
 
-<a id="3">
+<a id="3" />
 
 
 ## 3. Installing gulp, sw-precache, and sw-toolbox plugins
@@ -143,7 +143,7 @@ From the same directory (<strong>app/</strong>), run the following from the comm
 
 Here we install the <code>sw-precache</code> and <code>sw-toolbox</code> packages. We also install the <code>path</code> package, which will simplify the process of building the correct file paths in the code.
 
-<a id="4">
+<a id="4" />
 
 
 ## 4. Creating the service worker with sw-precache and gulp
@@ -214,7 +214,7 @@ The call to <code>swPrecache.write()</code> does the following:
 3. Writes an <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts">importScripts</a> method in the service worker that imports the scripts under <code>importScripts</code>. 
 4. Strips the prefixes from the files to make them relative URLs using the <code>stripPrefix</code> method.
 
-<a id="5">
+<a id="5" />
 
 
 ## 5. Creating routes with sw-toolbox
@@ -266,7 +266,7 @@ Route #2 also uses the cache-first strategy. It matches all the files ending in 
 * <a href="https://googlechrome.github.io/sw-toolbox/docs/master/tutorial-api.html">sw-toolbox API tutorial</a>
 * <a href="http://expressjs.com/en/guide/routing.html">Express Routing</a>
 
-<a id="6">
+<a id="6" />
 
 
 ## 6. Optional: Creating the service worker in the command line
@@ -328,7 +328,7 @@ If you test the new service worker in the browser the result should be the same 
 
 This command generates a service worker file (or overwrites the file if it already exists) using the options provided in <code>sw-precache-config.json</code>. The <code>--verbose</code> flag makes the success or error message more detailed.
 
-<a id="congrats">
+<a id="congrats" />
 
 
 ## Congratulations!

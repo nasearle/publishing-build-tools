@@ -24,7 +24,7 @@ Codelab: <a href="https://google-developer-training.gitbooks.io/progressive-web-
 
 
 
-How do I tell if all of my Progressive Web App (PWA) features are in order? <a href="https://github.com/GoogleChrome/lighthouse">Lighthouse</a> is an open-source tool from Google that audits a web app for PWA features. It provides a set of metrics to help guide you in building a PWA with a full application-like experience for your users. 
+How do I tell if all of my Progressive Web App (PWA) features are in order? <a href="https://developers.google.com/web/tools/lighthouse/">Lighthouse</a> is an <a href="https://github.com/GoogleChrome/lighthouse">open-source</a> tool from Google that audits a web app for PWA features. It provides a set of metrics to help guide you in building a PWA with a full application-like experience for your users. 
 
 Lighthouse tests if your app:
 
@@ -33,7 +33,7 @@ Lighthouse tests if your app:
 * Is served from a secure origin
 * Uses certain accessibility best practices
 
-Lighthouse is available as a Chrome extension for Chrome 52 (and later) and a command line tool. 
+Lighthouse is available as a Chrome extension for Chrome 52 (and later) and a command line tool.
 
 <a id="extension" />
 
@@ -53,7 +53,7 @@ Run Lighthouse on your application by selecting the icon and choosing <strong>Ge
 
 Lighthouse generates an HTML page with the results. An example page is shown below. 
 
-![Lighthouse report](../img/76f48671607bf2b2.png)
+![Lighthouse report](../img/73be590f426d2ad4.png)
 
 <div class="note">
 <strong>Note: </strong>You can test it out on an example PWA, <a href="https://www.airhorner.com/">airhorner.com</a>.
@@ -72,7 +72,7 @@ If you want to run Lighthouse from the command line (for example, to integrate i
 You can download Node from <a href="https://nodejs.org/en/">nodejs.org</a> (select the version that best suits your environment and operating system). 
 
 <div class="note">
-<strong>Note:</strong> You need the --harmony <a href="http://stackoverflow.com/questions/13351965/what-does-node-harmony-do">flag</a> with Node v5+ or Node v4.
+<strong>Note:</strong> You need Node v6 or greater to run Lighthouse.
 </div>
 
 To install Lighthouse's Node module from the command line, use the following command:
