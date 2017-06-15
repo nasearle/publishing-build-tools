@@ -2,10 +2,12 @@
 	"2-day": {
 		"concepts": {
 			"repo": "https://github.com/DavidScales/pwa-ilt-2-day-concepts.git",
+			"gitbook": "https://www.gitbook.com/book/davidscales/concepts-2day/details",
 			"sources": []
 		},
 		"codelabs": {
 			"repo": "https://github.com/DavidScales/pwa-ilt-2-day-labs.git",
+			"gitbook": "https://www.gitbook.com/book/davidscales/codelabs-2day/details",
 			"sources": []
 		},
 		"code": {
@@ -21,10 +23,12 @@
 	"3-day": {
 		"concepts": {
 			"repo": "https://github.com/DavidScales/pwa-ilt-3-day-concepts.git",
+			"gitbook": "https://www.gitbook.com/book/davidscales/concepts-3day/details",
 			"sources": []
 		},
 		"codelabs": {
 			"repo": "https://github.com/DavidScales/pwa-ilt-3-day-labs.git",
+			"gitbook": "https://www.gitbook.com/book/davidscales/codelabs-3day/details",
 			"sources": []
 		},
 		"code": {

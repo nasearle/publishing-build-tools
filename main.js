@@ -11,7 +11,7 @@ if (!shell.which('git')) {
 }
 
 const languages = ['en', 'sp'];
-//
+
 // console.log('Updating codelabs & concepts markdown files from Gdocs...');
 // shell.exec('./claat update');
 //
@@ -67,11 +67,14 @@ for (let courseKey in courses) {
   // Build linked README first, will get added to each repo
   let tempReadme = `${courseKey}/temp-README.md`;
   shell.exec(`touch ${tempReadme}`);
-  shell.exec(`echo "#${courseKey}" >> ${tempReadme}`);
+  shell.exec(`echo "# ${courseKey}\n" >> ${tempReadme}`);
   for (let resourceKey in course) {
     let repo = course[resourceKey].repo;
-    shell.exec(`echo ${resourceKey}: ${repo} >> ${tempReadme}`);
-    // gitbook TODO
+    let gitbook = course[resourceKey].gitbook;
+    shell.exec(`echo "${resourceKey} repo: ${repo}\n" >> ${tempReadme}`);
+    if (gitbook) {
+      shell.exec(`echo "${resourceKey} GitBook: ${gitbook}\n" >> ${tempReadme}`);
+    }
   }
 
   // Build each courses resources
@@ -82,7 +85,7 @@ for (let courseKey in courses) {
     let sources = resource.sources;
     let path = `${courseKey}/${resourceKey}`;
     shell.exec(`git clone ${repo} ${path}`);
-    shell.rm('-rf', `$(ls -q ${path})`); // remove all files except .git in the repo
+    shell.rm('-rf', `${path}/*`); // remove all files except .git
 
     if (resourceKey === 'code') {
       sources.forEach(source => {
@@ -91,11 +94,12 @@ for (let courseKey in courses) {
         shell.cp('-R', srcPath, destPath);
       });
     } else if (resourceKey === 'concepts' || resourceKey === 'codelabs') {
-      shell.mkdir(`${path}/img`);
+      mkdirIfNotExist(`${path}/img`);
       languages.forEach(lang => {
+        mkdirIfNotExist(`${path}/${lang}`);
         sources.forEach(source => {
           let srcPath = `${lang}/${resourceKey}/${source}/index.md`;
-          let destPath = `${path}/${source}`;
+          let destPath = `${path}/${lang}/${source}.md`;
           shell.cp('-R', srcPath, destPath);
           let imgPath = `${lang}/${resourceKey}/${source}/img`;
           let hasImages = !emptyDir.sync(imgPath);
@@ -111,16 +115,24 @@ for (let courseKey in courses) {
     shell.cp(tempReadme, `${path}/README.md`);
     // Add a .gitignore if it doesn't exist
     if (!fs.existsSync(`${path}/.gitignore`)) {
-      shell.exec('echo "node_modules\n.DS_Store" > .gitignore');
+      shell.exec(`echo "node_modules\n.DS_Store" > ${path}/.gitignore`);
     }
     console.log(`Pushing ${courseKey} ${resourceKey} to:\n ${repo}`);
+    shell.cd(`${path}`);
     shell.exec('git add . && git commit -m "autoupdate-' + Date.now() +
                '" && git push');
+    shell.cd('-');
   }
   shell.rm('-rf', `${courseKey}`);
 }
 
 console.log('Publishing complete.');
+
+function mkdirIfNotExist(path) {
+  if (!fs.existsSync(path)) {
+    shell.mkdir(path);
+  }
+}
 
 function addSources(resource, metadata) {
   metadata.forEach(data => {
