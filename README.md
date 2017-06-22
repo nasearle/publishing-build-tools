@@ -96,3 +96,11 @@ Run `npm run build` and you're done. This will
 * push each resource to the appropriate repository
 
 **Note:** Since the build process updates the source materials with `./claat update`, its probably a good idea to commit and push this repo after publishing as well.
+
+TODO wrap new doc adding process with cleanup so that all docs come down clean. Or isolate cleaning process for each publishing platform and use only raw markdown as source.
+
+TODO actually write config object to config file.
+
+TODO add summary.md for GitBook, and langs.md
+
+TODO remove repo links, dont link to itself

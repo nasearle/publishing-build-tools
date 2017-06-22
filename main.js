@@ -12,14 +12,14 @@ if (!shell.which('git')) {
 
 const languages = ['en', 'sp'];
 
-// console.log('Updating codelabs & concepts markdown files from Gdocs...');
-// shell.exec('./claat update');
-//
-// console.log('Cleaning codelabs & concepts markdown files...');
-// const filesToProcess = glob.find('**/index.md');
-// filesToProcess.forEach(function(filename) {
-//   codelabHelper.cleanup(filename, filename, '');
-// });
+console.log('Updating codelabs & concepts markdown files from Gdocs...');
+shell.exec('./claat update');
+
+console.log('Cleaning codelabs & concepts markdown files...');
+const filesToProcess = glob.find('**/index.md');
+filesToProcess.forEach(function(filename) {
+  codelabHelper.cleanup(filename, filename, '');
+});
 
 /*
 The 'courses' object is used to map courses to their respective repository and
@@ -53,6 +53,7 @@ const conceptsMetaData = conceptsMetaDataFiles.map(file => {
 // 'courses' object
 addSources('codelabs', codelabMetaData);
 addSources('concepts', conceptsMetaData);
+// TODO write to config.json
 
 // Now the 'courses' object has sources for all resources (code, concepts, codelabs)
 console.log('Courses organized as:');
