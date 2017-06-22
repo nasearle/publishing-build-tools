@@ -66,7 +66,12 @@ This makes it so the student only has to pull the code for their exact course. I
 
 #### How is this done?
 
-The `config.json` file specifies the repos, gitbook links, and units for each course. The units must (currently) be manually created for `code` resources, but are generated automatically for `concepts` and `codelabs`. This is done by adding tags in a table at the top of the Gdoc that specifies which courses the unit belongs in. Those tags then end up as metadata in the `codelab.json` files. The build script looks at that data to determine how to group resources.
+The `config.json` file specifies the repos, gitbook links, and units for each course. The units must (currently) be manually created for `code` resources, but are generated automatically for `concepts` and `codelabs`. This is done by adding tags in a table at the top of the Gdoc that specifies which courses the unit belongs in. For example,
+
+Environment | 3-day, 2-day
+--- | ---
+
+Those tags then end up as metadata in the `codelab.json` files. The build script looks at that data to determine how to group resources.
 
 Once all the resources are grouped, they are pushed to the repos specified in `config.json`. In addition, a README is added to each repo that links resources from each course together. So for example, the README's in a 3-day course's `code` repo will have links to the appropriate GitBook for the corresponding `concepts` and `codelabs`.
 
