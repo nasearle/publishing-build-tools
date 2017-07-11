@@ -45,8 +45,8 @@ function cleanup(sourceFile, destFile, bookPath) {
   // Change bold underscores to <strong> tags
   markdown = markdown.replace(/__(.*?)__/g, '<strong>$1</strong>');
 
-  // Change italics *'s to <em> tags
-  markdown = markdown.replace(/([^*])\*([^*\n]+?)\*([^*])/g, '$1<em>$2</em>$3');
+  // Change italics *'s to <em> tags. Doesn't replace HTML comments (/* ... */)
+  markdown = markdown.replace(/([^*/])\*([^*/\n]+?)\*([^*/])/g, '$1<em>$2</em>$3');
 
   // Change inline backticks to <code> tags
   markdown = markdown.replace(/`([^`\n]+?)`/g, '<code>$1</code>');
