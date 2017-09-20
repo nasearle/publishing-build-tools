@@ -8,19 +8,19 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a>
+<strong>Overview</strong>
 
-<a href="#setting-up"><strong>1. Get set up</strong></a>
+<strong>1. Get set up</strong>
 
-<a href="#register-service-worker"><strong>2. Register the service worker</strong></a>
+<strong>2. Register the service worker</strong>
 
-<a href="#listen-events"><strong>3. Listening for life cycle events</strong></a>
+<strong>3. Listening for life cycle events</strong>
 
-<a href="#intercept-requests"><strong>4. Intercept network requests</strong></a>
+<strong>4. Intercept network requests</strong>
 
-<a href="#explore-scope"><strong>5. Optional: Exploring service worker scope</strong></a>
+<strong>5. Optional: Exploring service worker scope</strong>
 
-<a href="#congratulations"><strong>Congratulations!</strong></a>
+<strong>Congratulations!</strong>
 
 Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction_to_service_worker.html">Introduction to Service Worker</a>
 
@@ -124,7 +124,7 @@ In your browser, navigate to <strong>test-registered.html</strong> (<strong>app/
 
 #### Explanation
 
-Service workers must be registered. Always begin by checking whether the browser supports service workers. The service worker is exposed on the window's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator"><code>Navigator</code></a> object and can be accessed with <code>window.navigator.serviceWorker</code>. 
+Service workers must be registered. Always begin by checking whether the browser supports service workers. The service worker is exposed on the window's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator">Navigator</a> object and can be accessed with <code>window.navigator.serviceWorker</code>. 
 
 In our code, if service workers aren't supported, the script logs a message and fails immediately. Calling <code>serviceworker.register(...)</code> registers the service worker, installing the service worker's script. This returns a promise that resolves once the service worker is successfully registered. If the registration fails, the promise will reject.
 
@@ -174,7 +174,7 @@ When a service worker is registered, the browser detects if the service worker i
 
 The service worker emits an <code>activate</code> event when it takes control of the page. We log a message here, but this event is often used to update caches. 
 
-Only one service worker can be active at a time for a given scope (see <a href="#explore-scope">Exploring service worker scope</a>), so a newly installed service worker isn't activated until the existing service worker is no longer in use. This is why all pages controlled by a service worker must be closed before a new service worker can take over. Since we unregistered the existing service worker, the new service worker was activated immediately.
+Only one service worker can be active at a time for a given scope (see Exploring service worker scope), so a newly installed service worker isn't activated until the existing service worker is no longer in use. This is why all pages controlled by a service worker must be closed before a new service worker can take over. Since we unregistered the existing service worker, the new service worker was activated immediately.
 
 <div class="note">
 <strong>Note: </strong>Simply refreshing the page is not sufficient to transfer control to a new service worker, because the new page will be requested before the the current page is unloaded, and there won't be a time when the old service worker is not in use.

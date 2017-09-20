@@ -8,31 +8,31 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a>
+<strong>Overview</strong>
 
-<a href="#1"><strong>1. Get set up</strong></a>
+<strong>1. Get set up</strong>
 
-<a href="#2"><strong>2. Create a Google Analytics account</strong></a>
+<strong>2. Create a Google Analytics account</strong>
 
-<a href="#3"><strong>3. Get your tracking ID and snippet</strong></a>
+<strong>3. Get your tracking ID and snippet</strong>
 
-<a href="#4"><strong>4. View user data</strong></a>
+<strong>4. View user data</strong>
 
-<a href="#5"><strong>5. Use debug mode</strong></a>
+<strong>5. Use debug mode</strong>
 
-<a href="#6"><strong>6. Add custom events</strong></a>
+<strong>6. Add custom events</strong>
 
-<a href="#7"><strong>7. Showing push notifications</strong></a>
+<strong>7. Showing push notifications</strong>
 
-<a href="#8"><strong>8. Using analytics in the service worker</strong></a>
+<strong>8. Using analytics in the service worker</strong>
 
-<a href="#9"><strong>9. Use analytics offline</strong></a>
+<strong>9. Use analytics offline</strong>
 
-<a href="#10"><strong>10. Optional: Add hits for notification actions</strong></a>
+<strong>10. Optional: Add hits for notification actions</strong>
 
-<a href="#11"><strong>11. Optional: Use hitCallback</strong></a>
+<strong>11. Optional: Use hitCallback</strong>
 
-<a href="#12"><strong>Congratulations!</strong></a>
+<strong>Congratulations!</strong>
 
 Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/integrating-analytics.html">Integrating Analytics</a>
 
@@ -100,6 +100,7 @@ This folder contains:
 * <strong>analytics-helper.js</strong> is an empty helper file
 * <strong>sw.js</strong> is the service worker file
 * <strong>manifest.json</strong> is the manifest for push notifications
+* <strong>package.json</strong> is used for tracking Node packages (optional)
 
 In the browser, you should be prompted to allow notifications. If the prompt does not appear, then <a href="tools_for_pwa_developers.md#permissions">manually allow notifications</a>. You should see a permission status of "granted" in the console.
 
@@ -145,7 +146,7 @@ In a separate tab or window, navigate to <a href="https://analytics.google.com/"
 
 Create another one. Select the <strong>Admin</strong> tab. Under <strong>account</strong>, select your current Google Analytics account and choose <strong>create new account</strong>. A single Gmail account can have multiple (currently 100) Google Analytics accounts. 
 
-![Adding an account](../img/67167bdc1b3d25ee.png)
+![Adding an account](../img/76e8d691850a2b7c.png)
 
 #### If you don't have a Google Analytics account:
 
@@ -153,7 +154,7 @@ Select <strong>Sign up</strong> to begin creating your account.
 
 The account creation screen should look like this:
 
-![Creating an account](../img/77f0da1cc8479fea.png)
+![Creating an account](../img/e5475081784bd614.png)
 
 #### What would you like to track? 
 
@@ -216,7 +217,7 @@ If you lost your place:
 3. Then under <strong>property</strong>, select your property (for example "GA Code Lab Site") from the down list. 
 4. Now choose <strong>Tracking Info</strong>, followed by <strong>Tracking Code</strong>. 
 
-![Finding the snippet](../img/e6c84f2ccde27125.png)
+![Finding the snippet](../img/dc1b90e9a8dd54c9.png)
 
 Your tracking ID looks like <code>UA-XXXXXXXX-Y</code> and your tracking code snippet looks like:
 
@@ -236,17 +237,13 @@ a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script', \
 
 Copy this script (from the Google Analytics page) and paste it in TODO 3 in <strong>index.html</strong> and <strong>pages/other.html</strong>. Save the scripts and refresh the <strong>app</strong> page (you can close the <strong>page-push-notification.html</strong> page that was opened from the notification click). 
 
-Now return to the Google Analytics site. Examine the real time data:
+Now return to the Google Analytics site. Examine the real time data by selecting <strong>Real-Time</strong> and then <strong>Overview</strong>:
 
-1. Select the <strong>Reporting</strong> tab.
-2. Select <strong>Real-Time.</strong>
-3. Select <strong>Overview.</strong>
+![Real-time navigation](../img/7939d0762e616983.png)
 
-![Real-time navigation](../img/b2dba5f011013e99.png)
+You should see yourself being tracked. The screen should look similar to this:
 
-You should see yourself being tracked. The screen should look similar to this (note that the full path may be shown):
-
-![Real-time screen](../img/83ce80dc15443148.png)
+![Real-time screen](../img/6293fe6be6811ccd.png)
 
 <div class="note">
 <strong>Note: </strong>If you don't see this, refresh the <strong>app</strong> page and check again.
@@ -300,7 +297,7 @@ The code so far provides the basic functionality of Google Analytics. A tracker 
 
 
 
-We are using the real-time viewing mode because we have just created the app. Normally, records of past data would also be available. You can view this from the reporting tab by selecting <strong>Audience</strong> and then <strong>Overview</strong>. 
+We are using the real-time viewing mode because we have just created the app. Normally, records of past data would also be available. You can view this by selecting <strong>Audience</strong> and then <strong>Overview</strong>. 
 
 <div class="note">
 <strong>Note:</strong> Data for our app is not available yet. It takes some time to process the data, typically <a href="https://support.google.com/analytics/answer/1070983#DataProcessingLatency">24-48 hours</a>.
@@ -308,11 +305,11 @@ We are using the real-time viewing mode because we have just created the app. No
 
 Here you can see general information such as pageview records, bounce rate, ratio of new and returning visitors, and other statistics.
 
-![Records overview](../img/1b6463f39646e4e1.png)
+![Records overview](../img/74d4a769d29dacc2.png)
 
 You can also see specific information like visitors' language, country, city, browser, operating system, service provider, screen resolution, and device.
 
-![Records details](../img/66759e07d712dd12.png)
+![Records details](../img/6f1ff51dd71cedfe.png)
 
 #### For more information
 
@@ -371,9 +368,9 @@ ga('send', {
 
 Save the script and refresh the page. Click <strong>BUY NOW!!!</strong>. Check the console log, do you see the custom event? 
 
-Now return to the real-time reporting section of the Google Analytics dashboard (from the <strong>Reporting</strong> tab, select <strong>Real-Time</strong>). Instead of selecting <strong>Overview</strong>, select <strong>Events</strong>. Do you see the custom event? (If not, try clicking <strong>BUY NOW!!!</strong> again.)
+Now return to the <strong>Real-Time</strong> reporting section of the Google Analytics dashboard. Instead of selecting <strong>Overview</strong>, select <strong>Events</strong>. Do you see the custom event? (If not, try clicking <strong>BUY NOW!!!</strong> again.)
 
-![Real-time events](../img/1f21b1938268723a.png)
+![Real-time events](../img/83a15cc1df334a9.png)
 
 #### Explanation
 
@@ -387,9 +384,9 @@ You can see all method signatures in the <a href="https://developers.google.com/
 
 <strong>Optional</strong>: Update the custom event that you just added to use the alternative signature described in the <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference">command queue reference</a>. Hint: Look for the "send" command examples.
 
-You can view past events in the Google Analytics dashboard from the <strong>Reporting</strong> tab by selecting <strong>Behavior</strong>, followed by <strong>Events</strong> and then <strong>Overview</strong>. However your account won't yet have any past events to view (because you just created it).
+You can view past events in the Google Analytics dashboard by selecting <strong>Behavior</strong>, followed by <strong>Events</strong> and then <strong>Overview</strong>. However your account won't yet have any past events to view (because you just created it).
 
-![Recorded events](../img/3107f35a9adc1fb3.png)
+![Recorded events](../img/90b6a60013803441.png)
 
 #### For more information
 

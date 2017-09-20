@@ -8,23 +8,23 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a>        
+<strong>Overview        </strong>
 
-<a href="#1"><strong>1. Get set up</strong></a>        
+<strong>1. Get set up        </strong>
 
-<a href="#2"><strong>2. Install Lighthouse</strong></a>        
+<strong>2. Install Lighthouse        </strong>
 
-<a href="#3"><strong>3. Test the app</strong></a>        
+<strong>3. Test the app        </strong>
 
-<a href="#4"><strong>4. Adding a manifest file</strong></a>        
+<strong>4. Adding a manifest file        </strong>
 
-<a href="#5"><strong>5. Adding a service worker</strong></a>        
+<strong>5. Adding a service worker        </strong>
 
-<a href="#6"><strong>6. Test the updated app</strong></a>        
+<strong>6. Test the updated app        </strong>
 
-<a href="#7"><strong>7. Optional: Run Lighthouse from the command line</strong></a>        
+<strong>7. Optional: Run Lighthouse from the command line        </strong>
 
-<a href="#8"><strong>Congratulations!</strong></a>
+<strong>Congratulations!</strong>
 
 Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/lighthouse-pwa-analysis-tool.html">Lighthouse PWA Analysis Tool</a>
 
@@ -349,17 +349,9 @@ You can check Lighthouse flags and options with:
 
     lighthouse --help
 
+The lighthouse command line tool will generate an HTML (the same as the Chrome extension) in the working directory. You can then open the file with your browser.
 
-## The lighthouse command line tool will generate an HTML (the same as the Chrome extension) in the working directory. You can then open the file with your browser.
-
-
-
-
-
-## <a id="8" />
-
-
-
+<a id="8" />
 
 
 ## Congratulations!
@@ -367,6 +359,6 @@ You can check Lighthouse flags and options with:
 
 
 
-You now know how to use the Lighthouse tool to audit your progressive web apps. 
+You have learned how to use the Lighthouse tool to audit your progressive web apps. 
 
 

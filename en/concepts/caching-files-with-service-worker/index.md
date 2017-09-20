@@ -8,11 +8,11 @@
 
 
 
-<a href="#cacheinsw"><strong>Using the Cache API in the service worker</strong></a>        
+<strong>Using the Cache API in the service worker        </strong>
 
-<a href="#cacheapi"><strong>Using the Cache API</strong></a>        
+<strong>Using the Cache API        </strong>
 
-<a href="#moreresources"><strong>Further reading</strong></a> 
+<strong>Further reading        </strong>
 
 Codelab: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_caching_files_with_service_worker.html">Caching Files with Service Worker</a>
 
@@ -26,7 +26,7 @@ Codelab: <a href="https://google-developer-training.gitbooks.io/progressive-web-
 
 The Service Worker API comes with a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache">Cache interface</a>, that lets you create stores of responses keyed by request. While this interface was intended for service workers it is actually exposed on the window, and can be accessed from anywhere in your scripts. The entry point is <code>caches</code>.
 
-You are responsible for implementing how your script (service worker) handles updates to the cache. All updates to items in the cache must be explicitly requested; items will not expire and must be deleted. 
+You are responsible for implementing how your script (service worker) handles updates to the cache. All updates to items in the cache must be explicitly requested; items will not expire and must be deleted. However, if the amount of cached data exceeds the browser's storage limit, the browser will begin evicting all data associated with an origin, one origin at a time, until the storage amount goes under the limit again. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Browser_storage_limits_and_eviction_criteria">Browser storage limits and eviction criteria</a> for more information.
 
 <a id="whentostore" />
 
@@ -61,7 +61,7 @@ This event listener triggers when the service worker is first installed.
 <strong>Note: </strong>It is important to note that while this event is happening, any previous version of your service worker is still running and serving pages, so the things you do here must not disrupt that. For instance, this is not a good place to delete old caches, because the previous service worker may still be using them at this point.
 </div>
 
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil"><code>event.waitUntil</code></a> extends the lifetime of the <code>install</code> event until the passed promise resolves successfully. If the promise rejects, the installation is considered a failure and this service worker is abandoned (if an older version is running, it stays active). 
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil">event.waitUntil</a> extends the lifetime of the <code>install</code> event until the passed promise resolves successfully. If the promise rejects, the installation is considered a failure and this service worker is abandoned (if an older version is running, it stays active). 
 
 <code>cache.addAll</code> will reject if any of the resources fail to cache. This means the service worker will only install if all of the resources in <code>cache.addAll</code> have been cached.
 
@@ -132,7 +132,7 @@ There are a few approaches we don't cover here. See Jake Archibald's <a href="ht
 
 #### Cache only
 
-You don't often need to handle this case specifically. <a href="#cachefallback">Cache falling back to network</a> is more often the appropriate approach.
+You don't often need to handle this case specifically. Cache falling back to network is more often the appropriate approach.
 
 This approach is good for any static assets that are part of your app's main code (part of that "version" of your app). You should have cached these in the install event, so you can depend on them being there.
 ```
@@ -145,7 +145,7 @@ If a match isn't found in the cache, the response will look like a connection er
 
 #### Network only
 
-This is the correct approach for things that can't be performed offline, such as analytics pings and non-GET requests. Again, you don't often need to handle this case specifically and the <a href="#cachefallback">cache falling back to network</a> approach will often be more appropriate.
+This is the correct approach for things that can't be performed offline, such as analytics pings and non-GET requests. Again, you don't often need to handle this case specifically and the cache falling back to network approach will often be more appropriate.
 ```
 self.addEventListener('fetch', function(event) {
   event.respondWith(fetch(event.request));
@@ -175,7 +175,7 @@ This gives you the "Cache only" behavior for things in the cache and the "Networ
 
 This is a good approach for resources that update frequently, and are not part of the "version" of the site (for example, articles, avatars, social media timelines, game leader boards). Handling network requests this way means the online users get the most up-to-date content, and offline users get an older cached version.
 
-However, this method has flaws. If the user has an intermittent or slow connection they'll have to wait for the network to fail before they get content from the cache. This can take an extremely long time and is a frustrating user experience. See the next approach, <a href="#cachethen">Cache then network</a>, for a better solution.
+However, this method has flaws. If the user has an intermittent or slow connection they'll have to wait for the network to fail before they get content from the cache. This can take an extremely long time and is a frustrating user experience. See the next approach, Cache then network, for a better solution.
 ```
 self.addEventListener('fetch', function(event) {
   event.respondWith(
@@ -345,7 +345,7 @@ if ('caches' in window) {
 
 ### Creating the cache
 
-An origin can have multiple named Cache objects. To create a cache or open a connection to an existing cache we use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/open"><code>caches.open</code></a> method. 
+An origin can have multiple named Cache objects. To create a cache or open a connection to an existing cache we use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/open">caches.open</a> method. 
 ```
 caches.open(cacheName)
 ```
@@ -360,7 +360,7 @@ The Cache API comes with several methods that let us create and manipulate data 
 
 #### Create data
 
-There are three methods we can use to add data to the cache. These are <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/add"><code>add</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/addAll"><code>addAll</code></a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/put"><code>put</code></a>. In practice, we will call these methods on the cache object returned from <code>caches.open()</code>. For example:
+There are three methods we can use to add data to the cache. These are <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/add">add</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/addAll">addAll</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/put">put</a>. In practice, we will call these methods on the cache object returned from <code>caches.open()</code>. For example:
 ```
 caches.open('example-cache').then(function(cache) {
         cache.add('/example-file.html');
@@ -382,7 +382,7 @@ fetch(url).then(function (response) {
 
 #### Match data
 
-There are a couple of methods to search for specific content in the cache: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/match"><code>match</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/matchAll"><code>matchAll</code></a>. These can be called on the <code>caches</code> object to search through all of the existing caches, or on a specific cache returned from <code>caches.open()</code>.
+There are a couple of methods to search for specific content in the cache: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/match">match</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/matchAll">matchAll</a>. These can be called on the <code>caches</code> object to search through all of the existing caches, or on a specific cache returned from <code>caches.open()</code>.
 
 <code>caches.match(request, options)</code> -  This method returns a Promise that resolves to the response object associated with the first matching request in the cache or caches. It returns <code>undefined</code> if no match is found. The first parameter is the request, and the second is an optional list of options to refine the search. Here are the options as defined by MDN:
 

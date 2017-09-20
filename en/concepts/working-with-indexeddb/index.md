@@ -8,27 +8,27 @@
 
 
 
-<a href="#introduction"><strong>Introduction</strong></a>
+<strong>Introduction</strong>
 
-<a href="#what"><strong>What is IndexedDB?</strong></a> 
+<strong>What is IndexedDB?        </strong>
 
-<a href="#terms"><strong>IndexedDB terms</strong></a> 
+<strong>IndexedDB terms        </strong>
 
-<a href="#support"><strong>Check for IndexedDB support</strong></a> 
+<strong>Check for IndexedDB support        </strong>
 
-<a href="#open"><strong>Opening a database</strong></a> 
+<strong>Opening a database        </strong>
 
-<a href="#stores"><strong>Working with object stores</strong></a> 
+<strong>Working with object stores        </strong>
 
-<a href="#data"><strong>Working with data</strong></a> 
+<strong>Working with data        </strong>
 
-<a href="#get"><strong>Getting all the data</strong></a> 
+<strong>Getting all the data        </strong>
 
-<a href="#versioning"><strong>Using database versioning</strong></a> 
+<strong>Using database versioning        </strong>
 
-<a href="#resources"><strong>Further reading</strong></a> 
+<strong>Further reading        </strong>
 
-<a href="#appendix"><strong>Appendix</strong></a>
+<strong>Appendix</strong>
 
 Codelab: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_indexeddb.html">IndexedDB</a>
 
@@ -54,7 +54,7 @@ IndexedDB is a large-scale, noSQL storage system. It lets you store just about a
 
 "IndexedDB is a low-level API for client-side storage of significant amounts of structured data, including files/blobs. This API uses indexes to enable high performance searches of this data. While DOM Storage is useful for storing smaller amounts of data, it is less useful for storing larger amounts of structured data. IndexedDB provides a solution."
 
-Each IndexedDB database is unique to an origin (typically, this is the site domain or subdomain), meaning it cannot access or be accessed by any other origin. <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Browser_storage_limits_and_eviction_criteria">Data storage limits</a> are usually quite large, if they exist at all, but different browsers handle limits and data eviction differently. See the <a href="#resources">Further reading</a> section for more information.
+Each IndexedDB database is unique to an origin (typically, this is the site domain or subdomain), meaning it cannot access or be accessed by any other origin. <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Browser_storage_limits_and_eviction_criteria">Data storage limits</a> are usually quite large, if they exist at all, but different browsers handle limits and data eviction differently. See the Further reading section for more information.
 
 <a id="terms" />
 
@@ -323,7 +323,7 @@ We can then open the "store" object store on this transaction and assign it to t
 
 ### Reading data
 
-To read data, call the <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/get"><code>get</code></a> method on the object store. The <code>get</code> method takes the primary key of the object you want to retrieve from the store. Here is a basic example:
+To read data, call the <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/get">get</a> method on the object store. The <code>get</code> method takes the primary key of the object you want to retrieve from the store. Here is a basic example:
 ```
 someObjectStore.get(primaryKey);
 ```
@@ -349,7 +349,7 @@ Once again, we start the operation by getting the database object and creating a
 
 ### Updating data
 
-To update data, call the <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/put"><code>put</code></a> method on the object store. The <code>put</code> method is very similar to the <code>add</code> method and can be used instead of <code>add</code> to create data in the object store. Like <code>add</code>, <code>put</code> takes the data and an optional primary key:
+To update data, call the <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/put">put</a> method on the object store. The <code>put</code> method is very similar to the <code>add</code> method and can be used instead of <code>add</code> to create data in the object store. Like <code>add</code>, <code>put</code> takes the data and an optional primary key:
 ```
 someObjectStore.put(data, optionalKey);
 ```
@@ -378,7 +378,7 @@ To update an existing item in the object store, use the <code>put</code> method 
 
 ### Deleting data
 
-To delete data, call the <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/delete"><code>delete</code></a> method on the object store.
+To delete data, call the <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/delete">delete</a> method on the object store.
 ```
 someObjectStore.delete(primaryKey);
 ```
@@ -414,7 +414,7 @@ The simplest way to retrieve all of the data is to call the <code>getAll</code> 
 someObjectStore.getAll(optionalConstraint);
 ```
 
-This method returns all the objects in the object store matching the specified key or key range (see <a href="#ranges">Working with ranges and indexes</a>), or all objects in the store if no parameter is given. As with all other database operations, this operation happens inside a transaction. Here is a short example:
+This method returns all the objects in the object store matching the specified key or key range (see Working with ranges and indexes), or all objects in the store if no parameter is given. As with all other database operations, this operation happens inside a transaction. Here is a short example:
 ```
 dbPromise.then(function(db) {
   var tx = db.transaction('store', 'readonly');
@@ -647,48 +647,5 @@ function addItem() {
 This code does something very similar to previous examples in this tutorial except that it doesn't use the Promised library. We can see that the structure of the database interaction hasn't changed. Object stores are created on the database object in the upgrade event handler, and items are added to the object store in the same transaction sequence we've seen before. The difference is that this is done with requests and event handlers rather than promises and promise chains.
 
 Here is a short reference of the differences between the IndexedDB API and the IndexedDB Promised library.
-
-<table markdown="1">
-<tr><td colspan="1" rowspan="1">
-<p> </p>
-</td><td colspan="1" rowspan="1">
-<p>IndexedDB Promised</p>
-</td><td colspan="1" rowspan="1">
-<p>IndexedDB API</p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>Open database</p>
-</td><td colspan="1" rowspan="1">
-<p><code>idb.open(name, version, upgradeCallback)</code></p>
-</td><td colspan="1" rowspan="1">
-<p><code>indexedDB.open(name, version)</code></p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>Upgrade database</p>
-</td><td colspan="1" rowspan="1">
-<p>Inside upgradeCallback</p>
-</td><td colspan="1" rowspan="1">
-<p><code>request.onupgradeneeded</code></p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>Success</p>
-</td><td colspan="1" rowspan="1">
-<p><code>.then</code></p>
-</td><td colspan="1" rowspan="1">
-<p><code>request.onsuccess</code></p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>Error</p>
-</td><td colspan="1" rowspan="1">
-<p><code>.catch</code></p>
-</td><td colspan="1" rowspan="1">
-<p><code>request.onerror</code></p>
-</td>
-</tr></table>
-
 
 

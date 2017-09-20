@@ -8,15 +8,15 @@
 
 
 
-<a href="#intro"><strong>Introduction</strong></a> 
+<strong>Introduction        </strong>
 
-<a href="#why"><strong>Why use promises?</strong></a> 
+<strong>Why use promises?        </strong>
 
-<a href="#terms"><strong>Promise terminology</strong></a> 
+<strong>Promise terminology        </strong>
 
-<a href="#howto"><strong>How to use promises</strong></a> 
+<strong>How to use promises        </strong>
 
-<a href="#further"><strong>Further reading</strong></a>
+<strong>Further reading</strong>
 
 Codelab: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_promises.html">Promises</a>
 
@@ -151,7 +151,7 @@ Here's a typical pattern for creating a promise:
 var promise = new Promise(function(resolve, reject) {
   // do a thing, possibly async, then...
 
-  if (/<em> everything turned out fine </em>/) {
+  if (/* everything turned out fine */) {
     resolve("Stuff worked!");
   }
   else {
@@ -300,7 +300,7 @@ However, this function does need to return the image passed into it so that it c
 
 ### Promise.all
 
-Often we want to take action only after a collection of asynchronous operations have completed successfully. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all"><strong>Promise.all</strong></a> returns a promise that resolves if all of the promises passed into it resolve. If any of the passed-in promises reject, then <code>Promise.all</code> rejects with the reason of the first promise that rejected. This is very useful for ensuring that a group of asynchronous actions complete before proceeding to another step. 
+Often we want to take action only after a collection of asynchronous operations have completed successfully. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">Promise.all</a> returns a promise that resolves if all of the promises passed into it resolve. If any of the passed-in promises reject, then <code>Promise.all</code> rejects with the reason of the first promise that rejected. This is very useful for ensuring that a group of asynchronous actions complete before proceeding to another step. 
 
 In the example below, <code>promise1</code> and <code>promise2</code> return promises. We want both of them to load before proceeding. Both promises are passing into <code>Promise.all</code>. If either request rejects, then <code>Promise.all</code> rejects with the value of the rejected promise. If both requests fulfill, <code>Promise.all</code> resolves with the values of both promises (as a list).
 ```
@@ -356,7 +356,7 @@ Promise.race([promise1, promise2])
 });
 ```
 
-At first glance it looks like this code races two promises—one that rejects, and another that resolves—and uses the first one to return. However, <code>Promise.race</code> rejects immediately if one of the supplied promises rejects, even if another supplied promise resolves later. So if <code>promise1</code> rejects before <code>promise2</code> resolves, <code>promise.All</code> will reject even though <code>promise2</code> supplies a valid value. <code>Promise.race</code> by itself can't be used to reliably return the first promise that resolves.
+At first glance it looks like this code races two promises—one that rejects, and another that resolves—and uses the first one to return. However, <code>Promise.race</code> rejects immediately if one of the supplied promises rejects, even if another supplied promise resolves later. So if <code>promise1</code> rejects before <code>promise2</code> resolves, <code>Promise.race</code> will reject even though <code>promise2</code> supplies a valid value. <code>Promise.race</code> by itself can't be used to reliably return the first promise that resolves.
 
 Another pattern that may be appealing is the following:
 ```

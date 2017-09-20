@@ -8,19 +8,19 @@
 
 
 
-<a href="#about"><strong>About Web Payments</strong></a>
+<strong>About Web Payments</strong>
 
-<a href="#introduction"><strong>Introduction to the Payment Request API</strong></a>
+<strong>Introduction to the Payment Request API</strong>
 
-<a href="#howitworks"><strong>How Payment Request Processing Works</strong></a>
+<strong>How Payment Request Processing Works</strong>
 
-<a href="#using"><strong>Using the Payment Request API</strong></a>
+<strong>Using the Payment Request API</strong>
 
-<a href="#resources"><strong>Resources</strong></a>
+<strong>Resources</strong>
 
 The Payment Request API improves mobile web checkout (shopping cart) and accepts credit cards electronically (and eventually a number of other payment services and solutions in the wild). 
 
-The Payment Request API allows merchants to easily collect payment information with minimal integration. 
+The Payment Request API allows merchants to easily collect payment information with minimal integration. The API is an open and cross-browser standard that replaces traditional checkout flows by allowing merchants to request and accept any payment in a single API call. The API eliminates manual and tedious entry by storing the user's information securely in the browser. The browser passes addresses and credit card (or other payment) details directly to the website. And, because the browser is collecting payment information from the user, making a payment goes from " <em>n</em> " taps to one tap.
 
 <div class="note">
 <strong>Note:</strong> The <a href="https://github.com/w3c/browser-payment-api">Payment Request API</a> is very new and still subject to developmental changes, especially while it is under development in the <a href="https://www.w3.org/TR/payment-request/">W3C Web Payments Working Group</a>. Google tracks updates on <a class="https://developers.google.com/web/fundamentals/primers/payment-request/">this page</a>. Please keep checking back. Also on this page is <a class="https://storage.googleapis.com/prshim/v1/payment-shim.js">a shim</a> that you can embed on your site to paper over API differences for two major Chrome versions.
@@ -49,6 +49,15 @@ Any system that improves or solves one or more of those problems is a welcome ch
 
 
 
+
+The Payment Request API is a system that is meant  <em>to eliminate checkout forms</em> . It vastly improves user workflow during the purchase process, providing a more convenient and consistent user experience and enabling web merchants to easily leverage disparate payment methods. The Payment Request API is not a new payment method, nor does it integrate directly with payment processors. Rather, it is a process layer whose goals are:
+
+* To let the browser act as intermediary among merchants, users, and payment methods
+* To standardize the payment communication flow as much as possible
+* To seamlessly support different secure payment methods
+* To work on any browser, device, or platform—mobile or otherwise
+
+The Payment Request API is currently under development by the <a href="https://www.w3.org/TR/payment-request/">W3C Web Payments Working Group</a>. The group's goal is to create a universal cross-browser standard for any website to accept any form of payment. See the <a href="http://caniuse.com/#feat=payment-request">Can I use</a> website for up-to-date browser support.
 
 The Payment Request API's open-web approach is designed:
 

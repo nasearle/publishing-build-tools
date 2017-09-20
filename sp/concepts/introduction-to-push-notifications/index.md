@@ -8,21 +8,21 @@
 
 
 
-<a href="#what"><strong>What Are Push Notifications?</strong></a> 
+<strong>What Are Push Notifications?        </strong>
 
-<a href="#terms"><strong>Push Notification Terms</strong></a> 
+<strong>Push Notification Terms        </strong>
 
-<a href="#understanding"><strong>Understanding Push Notifications on the Web</strong></a> 
+<strong>Understanding Push Notifications on the Web        </strong>
 
-<a href="#notificationapi"><strong>Notifications API</strong></a> 
+<strong>Notifications API        </strong>
 
-<a href="#future"><strong>Designing with the Future in Mind</strong></a> 
+<strong>Designing with the Future in Mind        </strong>
 
-<a href="#pushapi"><strong>Push API</strong></a> 
+<strong>Push API        </strong>
 
-<a href="#bestpractices"><strong>Best Practices</strong></a> 
+<strong>Best Practices        </strong>
 
-<a href="#resources"><strong>More Resources</strong></a>
+<strong>More Resources</strong>
 
 Codelab: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_integrating_web_push.html">Integrating Web Push</a>
 
@@ -71,7 +71,7 @@ The Notification and Push API's are built on top of the <a href="https://develop
 
 Push notifications let your app extend beyond the browser, and are an incredibly powerful way to engage with the user. They can do simple things, such as alert the user to an important event, display an icon and a small piece of text that the user can then click to open up your site. You can also integrate action buttons in the notification so that the user can interact with your site or application without needing to go back to your web page.
 
-There are several pieces that come together to make push notifications work. Browsers that support web push each implement their own push service, which is a system for processing messages and routing them to the correct clients. Push messages destined to become notifications are sent from a server directly to the push service, and contain the information necessary for the push service to send it to the right client and wake up the correct service worker. The section on the <a href="#pushapi">Push API</a> describes this process in detail.
+There are several pieces that come together to make push notifications work. Browsers that support web push each implement their own push service, which is a system for processing messages and routing them to the correct clients. Push messages destined to become notifications are sent from a server directly to the push service, and contain the information necessary for the push service to send it to the right client and wake up the correct service worker. The section on the Push API describes this process in detail.
 
 When it receives a message, the service worker wakes up just long enough to display the notification and then goes back to sleep. Because notifications are paired with a service worker, the service worker can listen for notification interactions in the background without using resources. When the user interacts with the notification, by clicking or closing it, the service worker wakes up for a brief time to handle the interaction before going back to sleep.
 
@@ -98,13 +98,13 @@ Notification.requestPermission(function(status) {
 });
 ```
 
-We call the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notification/requestPermission"><code>requestPermission</code></a> method on the global Notification object. This displays a pop-up message from the browser requesting permission to allow notifications. The user's response is stored along with your app, so calling this again returns the user's last choice. Once the user grants permission, the app can display notifications. 
+We call the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notification/requestPermission">requestPermission</a> method on the global Notification object. This displays a pop-up message from the browser requesting permission to allow notifications. The user's response is stored along with your app, so calling this again returns the user's last choice. Once the user grants permission, the app can display notifications. 
 
 <a id="shownotification" />
 
 ### Display a notification
 
-We can show a notification from the app's main script with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification"><code>showNotification</code></a> method (the "Invocation API"). Here is an example:
+We can show a notification from the app's main script with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification">showNotification</a> method (the "Invocation API"). Here is an example:
 
 #### main.js
 ```
@@ -284,11 +284,11 @@ Always check for permission to use the Notifications API. It is important to kee
 #### main.js
 ```
 if (Notification.permission === "granted") { 
-  /<em> do our magic </em>/
+  /* do our magic */
 } else if (Notification.permission === "blocked") {
- /<em> the user has previously denied push. Can't reprompt. </em>/ 
+ /* the user has previously denied push. Can't reprompt. */ 
 } else {
-  /<em> show a prompt to the user </em>/
+  /* show a prompt to the user */
 }
 ```
 
@@ -306,7 +306,7 @@ Finally, treat every attribute of the notification other than <code>title</code>
 
 Button labels should be clear and concise. Although action buttons can have images, not every system can display them. 
 
-Also, don't rely on vibrations to notify the user. Many systems can't vibrate, or won't vibrate if the user has their device volume muted..
+Also, don't rely on vibrations to notify the user. Many systems can't vibrate, or won't vibrate if the user has their device volume muted.
 
 <a id="pushapi" />
 
@@ -332,7 +332,15 @@ There are many moving parts to web push that involve client-side management and 
 
 Let's walk through an overview of how web push works.
 
-Each browser manages push notifications through their own system, called a "push service". When the user grants permission for Push on your site, you subscribe the app to the browser's push service. This creates a special subscription object that contains the "endpoint URL" of the push service, which is different for each browser, and a public key. You send your push messages to this URL, encrypted with the public key, and the push service sends it to the right client.
+Each browser manages push notifications through their own system, called a "push service". When the user grants permission for Push on your site, you can then subscribe the app to the browser's push service. This creates a special subscription object that contains the "endpoint URL" of the push service, which is different for each browser, and a public key (see the example below). You send your push messages to this URL, encrypted with the public key, and the push service sends it to the right client. A typical subscription object looks like this:
+```
+{"endpoint":"https://fcm.googleapis.com/fcm/send/dpH5lCsTSSM:APA91bHqjZxM0VImWWqDRN7U0a3AycjUf4O-byuxb_wJsKRaKvV_iKw56s16ekq6FUqoCF7k2nICUpd8fHPxVTgqLunFeVeB9lLCQZyohyAztTH8ZQL9WCxKpA6dvTG_TUIhQUFq_n",
+"keys": {
+    "p256dh":"BLQELIDm-6b9Bl07YrEuXJ4BL_YBVQ0dvt9NQGGJxIQidJWHPNa9YrouvcQ9d7_MqzvGS9Alz60SZNCG3qfpk=",
+    "auth":"4vQK-SvRAN5eo-8ASlrwA=="
+    }
+}
+```
 
 How does the push service know which client to send the message to? The endpoint URL contains a unique identifier. This identifier is used to route the message that you send to the correct device, and when processed by the browser, identifies which service worker should handle the request.
 
@@ -395,7 +403,7 @@ self.addEventListener('push', function(e) {
 
 This code is very similar to what we have covered before in this tutorial, the difference being that this is happening inside the service worker in response to a <code>push</code> event, instead of in the app's main script. 
 
-Another important difference is that the <code>showNotification</code> method is wrapped in an <a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil"><code>e.waitUntil</code> method</a>. This extends the lifetime of the push event until the <code>showNotification</code> promise resolves. In general, we use the <code>waitUntil</code> method to ensure the service worker doesn't terminate before an asynchronous operation has completed.
+Another important difference is that the <code>showNotification</code> method is wrapped in an <a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil">e.waitUntil method</a>. This extends the lifetime of the push event until the <code>showNotification</code> promise resolves. In general, we use the <code>waitUntil</code> method to ensure the service worker doesn't terminate before an asynchronous operation has completed.
 
 ### Subscribing to Push Notifications
 
@@ -455,7 +463,7 @@ function subscribeUser() {
 
 It's best practice to call the <code>subscribeUser()</code> function in response to a user action signalling they would like to subscribe to push messages from our app.
 
-In the above example we call the <a href="https://developer.mozilla.org/en-US/docs/Web/API/PushManager/subscribe"><code>subscribe</code> method</a> on the <a href="https://developer.mozilla.org/en-US/docs/Web/API/PushManager"><code>pushManager</code></a> and log the subscription object to the console.
+In the above example we call the <a href="https://developer.mozilla.org/en-US/docs/Web/API/PushManager/subscribe">subscribe method</a> on the <a href="https://developer.mozilla.org/en-US/docs/Web/API/PushManager">pushManager</a> and log the subscription object to the console.
 
 Notice we are passing a flag named <code>userVisibleOnly</code> to the subscribe method. By setting this to <code>true</code>, the browser ensures that every incoming message has a matching (and visible) notification. 
 
@@ -479,7 +487,7 @@ The Web Push protocol is complex, but we don't need to understand all of the det
 
 Chrome currently uses <a href="https://firebase.google.com/docs/cloud-messaging/">Firebase Cloud Messaging</a> (FCM) as its push service. <a href="https://developers.google.com/web/updates/2016/07/web-push-interop-wins">FCM recently adopted the Web Push protocol</a>. FCM is the successor to Google Cloud Messaging (GCM) and supports the same functionality and more. 
 
-To use Firebase Cloud Messaging, you need to set up a project on <a href="https://firebase.google.com/">Firebase</a> (see the <a href="#vapid">section on VAPID</a> to get around this step). Here's how:
+To use Firebase Cloud Messaging, you need to set up a project on <a href="https://firebase.google.com/">Firebase</a> (see the section on VAPID to get around this step). Here's how:
 
 1. In the <a href="https://console.firebase.google.com/">Firebase console</a>, select <strong>Create New Project</strong>.
 2. Supply a project name and click <strong>Create Project</strong>.
@@ -495,7 +503,7 @@ For Chrome to route FCM messages to the correct service worker, it needs to know
 ```
 
 <div class="note">
-<strong>Note: </strong>The <code>gcm_sender_id</code> is required for Chrome prior to version 52, Opera Android, and Samsung Browser.
+<strong>Note: </strong>The <code>gcm_sender_id</code> is required for Chrome prior to version 52, Opera Android, and Samsung Internet.
 </div>
 
 To get FCM to push a notification without a payload to your web client, the request must include the following:
@@ -631,10 +639,10 @@ The solution is to have the publisher optionally identify themselves using the <
 
 The spec lists several benefits of using VAPID:
 
-<em>  </em>A consistent identity can be used by a push service to establish behavioral expectations for an application server. Significant deviations from an established norm can then be used to trigger exception handling procedures.* 
-<em>  </em>Voluntarily-provided contact information can be used to contact an application server operator in the case of exceptional situations.* 
-<em>  </em>Experience with push service deployment has shown that software errors or unusual circumstances can cause large increases in push message volume.  Contacting the operator of the application server has proven to be valuable.* 
-<em>  </em>Even in the absence of usable contact information, an application server that has a well-established reputation might be given preference over an unidentified application server when choosing whether to discard a push message.* 
+* A consistent identity can be used by a push service to establish behavioral expectations for an application server. Significant deviations from an established norm can then be used to trigger exception handling procedures.
+* Voluntarily-provided contact information can be used to contact an application server operator in the case of exceptional situations.
+* Experience with push service deployment has shown that software errors or unusual circumstances can cause large increases in push message volume.  Contacting the operator of the application server has proven to be valuable.
+* Even in the absence of usable contact information, an application server that has a well-established reputation might be given preference over an unidentified application server when choosing whether to discard a push message.
 
 Using VAPID also lets you avoid the FCM-specific steps for sending a push message. You no longer need a Firebase project, a <code>gcm_sender_id</code>, or an <code>Authorization</code> header.
 
@@ -703,7 +711,7 @@ The <code>Authorization</code> header is a signed <a href="https://jwt.io/">JSON
 
 A JWT is a way of sharing a JSON object with a second party in such a way that the sending party can sign it and the receiving party can verify the signature is from the expected sender. The structure of a JWT is three encrypted strings, joined with a single dot between them.
 
-<code><JWTHeader>.<Payload>.<Signature> </code>
+<code><JWTHeader>.<Payload>.<Signature></code> 
 
 ##### JWT header
 
@@ -721,11 +729,11 @@ This is then base64 url encoded and forms the first part of the JWT.
 
 The Payload is another JSON object containing the following:
 
-* Audience ("<code>aud</code>")
+* Audience (<code>aud</code>)
 * This is the origin of the push service (NOT the origin of your site). In JavaScript, you could do the following to get the audience: <code>const audience = new URL(subscription.endpoint).origin</code>
-* Expiration Time ("<code>exp</code>")
+* Expiration Time (<code>exp</code>)
 * This is the number of seconds until the request should be regarded as expired. This MUST be within 24 hours of the request being made, in UTC.
-* Subject ("<code>sub</code>")
+* Subject (<code>sub</code>)
 * The subject needs to be a URL or a mailto: URL. This provides a point of contact in case the push service needs to contact the message sender.
 
 An example payload could look like the following:

@@ -8,23 +8,23 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a>          
+<strong>Overview          </strong>
 
-<a href="#1"><strong>1. Get set up</strong></a>          
+<strong>1. Get set up          </strong>
 
-<a href="#2"><strong>2. Cache the application shell</strong></a>          
+<strong>2. Cache the application shell          </strong>
 
-<a href="#3"><strong>3. Serve files from the cache</strong></a>          
+<strong>3. Serve files from the cache          </strong>
 
-<a href="#4"><strong>4. Add network responses to the cache</strong></a> 
+<strong>4. Add network responses to the cache  </strong>
 
-<a href="#5"><strong>5. Respond with custom 404 page</strong></a>          
+<strong>5. Respond with custom 404 page          </strong>
 
-<a href="#6"><strong>6. Respond with custom offline page</strong></a>          
+<strong>6. Respond with custom offline page          </strong>
 
-<a href="#7"><strong>7. Delete outdated caches</strong></a>          
+<strong>7. Delete outdated caches          </strong>
 
-<a href="#8"><strong>Congratulations!</strong></a> 
+<strong>Congratulations!  </strong>
 
 Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/caching-files-with-service-worker.html">Caching Files with Service Worker</a>
 
@@ -54,7 +54,7 @@ This lab covers the basics of caching files with the service worker. The technol
 
 * Computer with terminal/shell access
 * Connection to the internet
-* A <a href="https://jakearchibald.github.io/isserviceworkerready/">browser that supports <code>caches</code></a>
+* A <a href="https://jakearchibald.github.io/isserviceworkerready/">browser that supports caches</a>
 * A text editor
 
 <a id="1" />
@@ -147,7 +147,7 @@ This page contains several tests for testing our app at each stage of the codela
 
 We first define the files to cache and assign them the to the <code>filesToCache</code> variable. These files make up the "application shell" (the static HTML,CSS, and image files that give your app a unified look and feel). We also assign a cache name to a variable so that updating the cache name (and by extension the cache version) happens in one place.
 
-In the install event handler we create the cache with <a href="https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/open"><code>caches.open</code></a> and use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/addAll"><code>addAll</code> method</a> to add the files to the cache. We wrap this in <a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil"><code>event.waitUntil</code></a> to extend the lifetime of the event until all of the files are added to the cache and <code>addAll</code> resolves successfully.
+In the install event handler we create the cache with <a href="https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/open">caches.open</a> and use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/addAll">addAll method</a> to add the files to the cache. We wrap this in <a href="https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil">event.waitUntil</a> to extend the lifetime of the event until all of the files are added to the cache and <code>addAll</code> resolves successfully.
 
 #### For more information
 
@@ -194,7 +194,7 @@ Save the code and <a href="tools_for_pwa_developers.md#update">update the servic
 
 #### Explanation
 
-The <code>fetch</code> event listener intercepts all requests. We use <a href="https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/respondWith"><code>event.respondWith</code></a> to create a custom response to the request. Here we are using the <a href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network">Cache falling back to network</a> strategy: we first check the cache for the requested resource (with <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/match"><code>caches.match</code></a>) and then, if that fails, we send the request to the network.
+The <code>fetch</code> event listener intercepts all requests. We use <a href="https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/respondWith">event.respondWith</a> to create a custom response to the request. Here we are using the <a href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network">Cache falling back to network</a> strategy: we first check the cache for the requested resource (with <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache/match">caches.match</a>) and then, if that fails, we send the request to the network.
 
 #### For more information
 

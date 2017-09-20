@@ -8,21 +8,21 @@
 
 
 
-<a href="#introduction"><strong>Introduction</strong></a>
+<strong>Introduction</strong>
 
-<a href="#what"><strong>What is gulp?</strong></a>
+<strong>What is gulp?</strong>
 
-<a href="#how"><strong>How to set up gulp</strong></a> 
+<strong>How to set up gulp        </strong>
 
-<a href="#tasks"><strong>Creating tasks</strong></a> 
+<strong>Creating tasks        </strong>
 
-<a href="#examples"><strong>Examples</strong></a>
+<strong>Examples</strong>
 
-<a href="#automation"><strong>More automation</strong></a>
+<strong>More automation</strong>
 
-<a href="#review"><strong>Review</strong></a>
+<strong>Review</strong>
 
-<a href="#resources"><strong>Further reading</strong></a>
+<strong>Further reading</strong>
 
 Codelab: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_gulp_setup.html">Gulp Setup</a>
 
@@ -168,7 +168,7 @@ var gulp = require('gulp');
 
 
 
-Gulp tasks are defined in the <strong>gulpfile.js</strong> file using <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulptaskname--deps--fn"><code>gulp.task</code></a>. A simple task looks like this: 
+Gulp tasks are defined in the <strong>gulpfile.js</strong> file using <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulptaskname--deps--fn">gulp.task</a>. A simple task looks like this: 
 
 #### gulpfile.js
 ```
@@ -183,9 +183,9 @@ This code defines a <code>hello</code> task that can be executed by running the 
 
 A common pattern for gulp tasks is the following:
 
-1. Read some source files using <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpsrcglobs-options"><code>gulp.src</code></a>
+1. Read some source files using <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpsrcglobs-options">gulp.src</a>
 2. Process these files with one or more functions using Node's <code>pipe</code> functionality
-3. Write the modified files to a destination directory (creating the directory if doesn't exist) with <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpdestpath-options"><code>gulp.dest</code></a>
+3. Write the modified files to a destination directory (creating the directory if doesn't exist) with <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpdestpath-options">gulp.dest</a>
 
         gulp.task('task-name', function() {
           gulp.src('source-files') // 1
@@ -337,7 +337,7 @@ Running <code>gulp</code> in the command line executes both <code>task1</code> a
 
 ### Gulp.watch
 
-Even with default tasks, running tasks each time a file is updated during development can become tedious. <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpwatchglob--opts-tasks-or-gulpwatchglob--opts-cb"><code>gulp.watch</code></a> watches files and automatically runs tasks when the corresponding files change. For example, the following code in <strong>gulpfile.js</strong> watches CSS files and executes the <code>processCSS</code> task any time the files are updated:
+Even with default tasks, running tasks each time a file is updated during development can become tedious. <a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpwatchglob--opts-tasks-or-gulpwatchglob--opts-cb">gulp.watch</a> watches files and automatically runs tasks when the corresponding files change. For example, the following code in <strong>gulpfile.js</strong> watches CSS files and executes the <code>processCSS</code> task any time the files are updated:
 
 #### gulpfile.js
 ```

@@ -8,17 +8,17 @@
 
 
 
-<a href="#whatisfetch"><strong>What is fetch?</strong></a> 
+<strong>What is fetch?        </strong>
 
-<a href="#makerequest"><strong>Making a request</strong></a> 
+<strong>Making a request        </strong>
 
-<a href="#readresponse"><strong>Reading the response object</strong></a> 
+<strong>Reading the response object        </strong>
 
-<a href="#makecustomrequest"><strong>Making custom requests</strong></a>
+<strong>Making custom requests</strong>
 
-<a href="#cors"><strong>Cross-origin requests</strong></a> 
+<strong>Cross-origin requests        </strong>
 
-<a href="#furtherreading"><strong>Further reading</strong></a>
+<strong>Further reading</strong>
 
 Codelab: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_fetch_api.html">Fetch API</a>
 
@@ -348,7 +348,7 @@ fetch('someurl/comment', {
 
 ### Custom headers
 
-The <code>init</code> parameter can be used with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers">Headers</a> interface to perform various actions on HTTP request and response headers, including retrieving, setting, adding, and removing them. An example of reading response headers was shown in a <a href="#head">previous section</a>. The following code demonstrates how a custom <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers">Headers</a> object can be created and used with a fetch request:
+The <code>init</code> parameter can be used with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers">Headers</a> interface to perform various actions on HTTP request and response headers, including retrieving, setting, adding, and removing them. An example of reading response headers was shown in a previous section. The following code demonstrates how a custom <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers">Headers</a> object can be created and used with a fetch request:
 
 #### main.js
 ```
@@ -402,7 +402,7 @@ There have been attempts to work around the same-origin policy (such as <a href=
 
 If the server you are requesting from doesn't support CORS, you should get an error in the console indicating that the cross-origin request is blocked due to the CORS <code>Access-Control-Allow-Origin</code> header being missing. 
 
-You can use <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch"><code>no-cors</code></a> mode to request opaque resources. <a href="https://fetch.spec.whatwg.org/#concept-filtered-response-opaque">Opaque responses</a> can't be accessed with JavaScript but the response can still be served or cached by a service worker. Using <code>no-cors</code> mode with fetch is relatively simple. To update the above example with <code>no-cors</code>, we pass in the <code>init</code> object with <code>mode</code> set to <code>no-cors</code>:
+You can use <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch">no-cors</a> mode to request opaque resources. <a href="https://fetch.spec.whatwg.org/#concept-filtered-response-opaque">Opaque responses</a> can't be accessed with JavaScript but the response can still be served or cached by a service worker. Using <code>no-cors</code> mode with fetch is relatively simple. To update the above example with <code>no-cors</code>, we pass in the <code>init</code> object with <code>mode</code> set to <code>no-cors</code>:
 
 #### main.js
 ```

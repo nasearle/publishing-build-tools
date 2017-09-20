@@ -8,11 +8,11 @@
 
 
 
-<a href="#introduction"><strong>Introduction</strong></a> 
+<strong>Introduction        </strong>
 
-<a href="#extension"><strong>Running Lighthouse as a Chrome extension</strong></a>
+<strong>Running Lighthouse as a Chrome extension</strong>
 
-<a href="#commandline"><strong>Running Lighthouse from the command line</strong></a>
+<strong>Running Lighthouse from the command line</strong>
 
 Codelab: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_auditing_with_lighthouse.html">Auditing with Lighthouse</a>
 

@@ -8,21 +8,21 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a> 
+<strong>Overview  </strong>
 
-<a href="#1"><strong>1. Get set up</strong></a> 
+<strong>1. Get set up  </strong>
 
-<a href="#2"><strong>2. Install global tools</strong></a> 
+<strong>2. Install global tools  </strong>
 
-<a href="#3"><strong>3. Prepare the project</strong></a> 
+<strong>3. Prepare the project  </strong>
 
-<a href="#4"><strong>4. Minify JavaScript</strong></a> 
+<strong>4. Minify JavaScript  </strong>
 
-<a href="#5"><strong>5. Prefix CSS</strong></a> 
+<strong>5. Prefix CSS  </strong>
 
-<a href="#6"><strong>6. Automate development tasks</strong></a> 
+<strong>6. Automate development tasks  </strong>
 
-<a href="#7"><strong>7. Congratulations!</strong></a>
+<strong>7. Congratulations!</strong>
 
 Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction-to-gulp.html">Introduction to Gulp</a>
 

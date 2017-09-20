@@ -8,23 +8,23 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a> 
+<strong>Overview          </strong>
 
-<a href="#1"><strong>1. Get set up</strong></a> 
+<strong>1. Get set up          </strong>
 
-<a href="#2"><strong>2. Fetching a resource</strong></a> 
+<strong>2. Fetching a resource          </strong>
 
-<a href="#3"><strong>3. Fetch an image</strong></a> 
+<strong>3. Fetch an image          </strong>
 
-<a href="#4"><strong>4. Fetch text</strong></a> 
+<strong>4. Fetch text          </strong>
 
-<a href="#5"><strong>5. Using HEAD requests</strong></a> 
+<strong>5. Using HEAD requests          </strong>
 
-<a href="#6"><strong>6. Using POST requests</strong></a> 
+<strong>6. Using POST requests          </strong>
 
-<a href="#7"><strong>7. Optional: CORS and custom headers</strong></a> 
+<strong>7. Optional: CORS and custom headers        </strong>
 
-<a href="#8"><strong>Congratulations!</strong></a> 
+<strong>Congratulations!        </strong>
 
 Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_the_fetch_api.html">Working with the Fetch API</a>
 
@@ -539,7 +539,7 @@ Save the script and refresh the page. Fill out the form (the <strong>Name</stron
 
 #### Explanation
 
-The <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData"><code>FormData</code></a> constructor can take in an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"><code>form</code></a>, and create a <code>FormData</code> object. This object is populated with the form's keys and values.
+The <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData">FormData</a> constructor can take in an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form">form</a>, and create a <code>FormData</code> object. This object is populated with the form's keys and values.
 
 #### For more information
 
@@ -625,8 +625,9 @@ You should see that the echoed request has the <code>X-Custom</code> that you ad
 Now add a <code>Y-Custom</code> header to the Headers object. Save the script, refresh the page, and click <strong>POST Request</strong>. 
 
 You should get an error similar to this in the console:
-
-<code>Fetch API cannot load http://localhost:5000/. Request header field y-custom is not allowed by Access-Control-Allow-Headers in preflight response.</code>
+```
+Fetch API cannot load http://localhost:5000/. Request header field y-custom is not allowed by Access-Control-Allow-Headers in preflight response.
+```
 
 #### Explanation
 

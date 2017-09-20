@@ -8,13 +8,13 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a>          
+<strong>Overview          </strong>
 
-<a href="#1"><strong>1.</strong><strong>Get set up</strong></a> 
+<strong>1.Get set up  </strong>
 
-<a href="#2"><strong>2. Taking the app offline</strong></a> 
+<strong>2. Taking the app offline  </strong>
 
-<a href="#3"><strong>Congratulations!</strong></a> 
+<strong>Congratulations!  </strong>
 
 Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/offline_quickstart.html">Offline Quickstart</a>
 
@@ -109,7 +109,7 @@ Save the file.
 
 This code starts by defining a cache name, and a list of URLs to be cached. An install event listener is then added to the service worker. When the service worker installs, it opens a cache and stores the app's static assets. Now these assets are available for quick loading from the cache, without a network request.
 
-Note that <strong>.</strong> is also cached. This represents the current directory, in this case, <strong>app/</strong>. We do this because the browser attempts to fetch <strong>app/</strong> first before fetching <strong>index.html</strong>. When the app is offline, this results in a 404 error if we have not cached <strong>app/</strong>. They should both be cached to be safe.  
+Note that <code>.</code> is also cached. This represents the current directory, in this case, <strong>app/</strong>. We do this because the browser attempts to fetch <strong>app/</strong> first before fetching <strong>index.html</strong>. When the app is offline, this results in a 404 error if we have not cached <strong>app/</strong>. They should both be cached to be safe.  
 
 <div class="note">
 <strong>Note:</strong> Don't worry if you don't understand all of this code; this lab is meant as an overview. The <code>event.waitUntil</code> code can be particularly confusing. This operation simply tells the browser not to preemptively terminate the service worker before the asynchronous operations inside of it have completed.
@@ -161,8 +161,7 @@ This code adds a fetch event listener to the service worker. When a resource is 
 * If the response is invalid, throws an error and logs a message to the console (<code>catch</code>).
 * If the response is valid, creates a copy of the response (<code>clone</code>), stores it in the cache, and then returns the original response.
 
-<div class=<code>"</code>note<code>"</code>>
-
+<div class="note">
 <strong>Note:</strong> We <code>clone</code> the response because the request is a stream that can only be consumed once. Because we want to put it in the cache and serve it to the user, we need to clone a copy. See Jake Archibald's <a href="https://jakearchibald.com/2014/reading-responses/">What happens when you read a response</a> article for a more in-depth explanation.
 </div>
 

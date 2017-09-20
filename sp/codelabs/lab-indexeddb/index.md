@@ -8,19 +8,19 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a>          
+<strong>Overview          </strong>
 
-<a href="#1"><strong>1. Get set up</strong></a>          
+<strong>1. Get set up          </strong>
 
-<a href="#2"><strong>2. Check for support</strong></a>          
+<strong>2. Check for support          </strong>
 
-<a href="#3"><strong>3. Creating the database and adding items</strong></a>          
+<strong>3. Creating the database and adding items          </strong>
 
-<a href="#4"><strong>4. Searching the database</strong></a>          
+<strong>4. Searching the database          </strong>
 
-<a href="#5"><strong>5. Optional: Processing orders</strong></a>          
+<strong>5. Optional: Processing orders          </strong>
 
-<a href="#6"><strong>Congratulations!</strong></a>
+<strong>Congratulations!</strong>
 
 Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working-with-indexeddb.html">Working with IndexedDB</a>
 
@@ -183,8 +183,8 @@ We have specified the <code>id</code> property as the <code>keyPath</code> for t
 
 #### For more information
 
-* <a href="https://github.com/jakearchibald/idb"><code>idb</code> - Github</a>
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/createObjectStore"><code>createObjectStore</code> method</a>
+* <a href="https://github.com/jakearchibald/idb">idb - Github</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/createObjectStore">createObjectStore method</a>
 
 ### 3.3 Add objects to the object store
 
@@ -352,8 +352,8 @@ In the example, we create an index on the <code>name</code> property, allowing u
 
 #### For more information
 
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBIndex"><code>IDBIndex</code> - MDN</a>
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/createIndex"><code>createIndex</code> method - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBIndex">IDBIndex - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/createIndex">createIndex method - MDN</a>
 
 ### 4.2 Create <code>price</code> and <code>description</code> indexes
 
@@ -407,7 +407,7 @@ This code calls the <code>get</code> method on the 'name' index to retrieve an i
 
 #### For more information
 
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/get"><code>Get</code> method - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/get">Get method - MDN</a>
 
 ### 4.4 Use a cursor object
 
@@ -464,9 +464,9 @@ After getting the price values from the page, we determine which method to call 
 
 #### For more information
 
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor"><code>IDBCursor</code> - MDN</a>
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBKeyRange"><code>IDBKeyRange</code> - MDN</a>
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor/continue"><code>cursor.continue()</code> - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor">IDBCursor - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBKeyRange">IDBKeyRange - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor/continue">cursor.continue() - MDN</a>
 
 #### Solution code
 
@@ -621,7 +621,7 @@ Here we are subtracting the quantity ordered from the quantity left in the <code
 
 #### For more information
 
-* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">new <code>Promise</code> - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">new Promise - MDN</a>
 
 ### 5.7 Update the <code>products</code> object store
 

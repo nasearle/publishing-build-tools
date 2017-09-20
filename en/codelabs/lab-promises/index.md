@@ -8,17 +8,17 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a> 
+<strong>Overview  </strong>
 
-<a href="#1"><strong>1. Get set up</strong></a> 
+<strong>1. Get set up  </strong>
 
-<a href="#2"><strong>2. </strong><strong>Using promises</strong></a> 
+<strong>2. Using promises  </strong>
 
-<a href="#3"><strong>3. Chaining promises</strong></a> 
+<strong>3. Chaining promises  </strong>
 
-<a href="#4"><strong>4. Optional: Using Promise.all and Promise.race</strong></a> 
+<strong>4. Optional: Using Promise.all and Promise.race  </strong>
 
-<a href="#congrats"><strong>Congratulations!</strong></a>
+<strong>Congratulations!</strong>
 
 Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working_with_promises.html">Working with Promises</a>
 
@@ -128,7 +128,7 @@ The <code>getImageName</code> function creates a <a href="https://developer.mozi
 var promise = new Promise(function(resolve, reject) {
   // do a thing, possibly async, then...
 
-  if (/<em> everything turned out fine </em>/) {
+  if (/* everything turned out fine */) {
     resolve("Stuff worked!");
   }
   else {

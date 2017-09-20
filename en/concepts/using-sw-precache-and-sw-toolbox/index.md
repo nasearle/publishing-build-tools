@@ -8,15 +8,15 @@
 
 
 
-<a href="#intro"><strong>Introduction</strong></a> 
+<strong>Introduction        </strong>
 
-<a href="#routes"><strong>Creating routes with sw-toolbox</strong></a> 
+<strong>Creating routes with sw-toolbox        </strong>
 
-<a href="#gulp"><strong>Using sw-precache and sw-toolbox in a gulp build file</strong></a> 
+<strong>Using sw-precache and sw-toolbox in a gulp build file        </strong>
 
-<a href="#cmdline"><strong>Running sw-precache from the command line</strong></a> 
+<strong>Running sw-precache from the command line        </strong>
 
-<a href="#further"><strong>Further reading</strong></a>
+<strong>Further reading</strong>
 
 Codelab: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_sw-precache_and_sw-toolbox.html">sw-precache and sw-toolbox</a>
 
@@ -64,7 +64,7 @@ Note: Be sure to include the sw-toolbox package as the first argument in importS
 
 ### Built-in Handlers
 
-<code>sw-toolbox</code> has five built-in handlers to cover the most common caching strategies (see the <a href="https://googlechrome.github.io/sw-toolbox/api.html#main">Tutorial: API</a> for the full list and the <a href="#strategies">Caching strategies table</a> below for a quick reference). For more information about caching strategies see the <a href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/">Offline Cookbook</a>.
+<code>sw-toolbox</code> has five built-in handlers to cover the most common caching strategies (see the <a href="https://googlechrome.github.io/sw-toolbox/api.html#main">Tutorial: API</a> for the full list and the Caching strategies table below for a quick reference). For more information about caching strategies see the <a href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/">Offline Cookbook</a>.
 
 Let's look at an example:
 ```
@@ -153,71 +153,6 @@ It's important to consider all of the caching strategies and find the right bala
 
 <strong>Table of Common Caching Strategies</strong>
 
-<table markdown="1">
-<tr><td colspan="1" rowspan="1">
-<p><strong>Strategy</strong></p>
-</td><td colspan="1" rowspan="1">
-<p><strong>The service worker ...</strong></p>
-</td><td colspan="1" rowspan="1">
-<p><strong>Best use of this strategy ....</strong></p>
-</td><td colspan="1" rowspan="1">
-<p><strong>Corresponding </p>
-<p>sw-toolbox handler </strong></p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>Cache first,</p>
-<p>Network fallback</p>
-</td><td colspan="1" rowspan="1">
-<p>Loads the local (cached) HTML and JavaScript first, if possible, bypassing the network. If cached content is not available, then the service worker returns a response from the network instead. </p>
-</td><td colspan="1" rowspan="1">
-<p>When dealing with remote resources that are very unlikely to change, such as static images. </p>
-</td><td colspan="1" rowspan="1">
-<p><code>toolbox.cacheFirst</code></p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>Network first, Cache fallback</p>
-</td><td colspan="1" rowspan="1">
-<p>Checks the network first for a response and, if successful, returns current data to the page. If the network request fails, then the service worker returns the cached entry instead. </p>
-</td><td colspan="1" rowspan="1">
-<p>When data must be as fresh as possible, such as for a real-time API response, but you still want to display something as a fallback when the network is unavailable.</p>
-</td><td colspan="1" rowspan="1">
-<p><code>toolbox.networkFirst</code></p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>Cache/network race</p>
-</td><td colspan="1" rowspan="1">
-<p>Fires the same request to the network and the cache simultaneously. In most cases, the cached data loads first and is returned directly to the page. Meanwhile, the network response updates the previously cached entry. The cache updates keep the cached data relatively fresh. The updates occur in the background and do not block rendering of the cached content. </p>
-</td><td colspan="1" rowspan="1">
-<p>When content is updated frequently, such as for articles, social media timelines, and game leaderboards. It can also be useful when chasing performance on devices with slow disk access where getting resources from the network might be quicker than pulling data from cache.</p>
-</td><td colspan="1" rowspan="1">
-<p><code>toolbox.fastest</code></p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>Network only</p>
-</td><td colspan="1" rowspan="1">
-<p>Only checks the network. There is no going to the cache for data. If the network fails, then the request fails. </p>
-</td><td colspan="1" rowspan="1">
-<p>When only fresh data can be displayed on your site. </p>
-</td><td colspan="1" rowspan="1">
-<p><code>toolbox.networkOnly</code></p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>Cache only</p>
-</td><td colspan="1" rowspan="1">
-<p>The data is cached during the install event so you can depend on the data being there.</p>
-</td><td colspan="1" rowspan="1">
-<p>When displaying static data on your site.</p>
-</td><td colspan="1" rowspan="1">
-<p><code>toolbox.cacheOnly</code></p>
-</td>
-</tr></table>
-
-
 The example below demonstrates some <code>sw-toolbox</code> strategies to cache different parts of an application.
 ```
 (function(global) {
@@ -281,6 +216,11 @@ Example 5 presents our default route. If the request did not match any prior rou
 <code>sw-precache</code> is a module for generating a service worker that precaches resources. It integrates with your build process. <code>sw-precache</code> gives you fine control over the behavior of the generated service worker. At the time of creation we can specify files to precache, scripts to import, and many other options that determine how the service worker behaves (see the <a href="https://github.com/GoogleChrome/sw-precache">sw-precache Github page</a> for more information).
 
 ### Integrating sw-precache into a gulp build system
+
+Before you can use <code>sw-precache</code>, you must install it in your project from the command line:
+```
+npm install sw-precache
+```
 
 To use <code>sw-precache</code> in gulp, we first import the plugin at the top of the gulp file.
 ```

@@ -8,19 +8,19 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a>          
+<strong>Overview          </strong>
 
-<a href="#setup"><strong>1. Get set up</strong></a>          
+<strong>1. Get set up          </strong>
 
-<a href="#notificationapi"><strong>2. Using the Notification API</strong></a>          
+<strong>2. Using the Notification API          </strong>
 
-<a href="#pushapi"><strong>3. Using the Push API</strong></a>          
+<strong>3. Using the Push API          </strong>
 
-<a href="#vapid"><strong>4. Optional: Identifying your service with VAPID</strong></a>          
+<strong>4. Optional: Identifying your service with VAPID          </strong>
 
-<a href="#best"><strong>5. Optional: Best practices</strong></a>          
+<strong>5. Optional: Best practices          </strong>
 
-<a href="#congrats"><strong>Congratulations!</strong></a>
+<strong>Congratulations!</strong>
 
 Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/introduction-to-push-notifications.html">Introduction to Push Notifications</a>
 
@@ -141,7 +141,7 @@ If the prompt does not appear, you can <a href="tools_for_pwa_developers.md#perm
 
 #### Explanation
 
-This opens a popup when the user first lands on the page prompting them to allow or block notifications. Once the user accepts, you can display a notification. This permission status is stored along with your app, so calling this again returns the user's last choice.
+This opens a popup when the user first lands on the page prompting them to allow or block notifications. Once the user accepts, you can display a notification. This permission status is stored in the browser, so calling this again returns the user's last choice.
 
 ### 2.3 Display the notification
 
@@ -163,7 +163,7 @@ Save the file and reload the page in the browser. Click <strong>allow</strong> o
 
 #### For more information
 
-* <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification"><code>showNotification</code> method - MDN</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification">showNotification method - MDN</a>
 
 ### 2.4 Add notification options
 

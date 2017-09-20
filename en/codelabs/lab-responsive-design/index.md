@@ -8,21 +8,21 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a> 
+<strong>Overview        </strong>
 
-<a href="#1"><strong>1. Get set up</strong></a> 
+<strong>1. Get set up        </strong>
 
-<a href="#2"><strong>2. Test the page</strong></a> 
+<strong>2. Test the page        </strong>
 
-<a href="#3"><strong>3. Set the visual viewport</strong></a> 
+<strong>3. Set the visual viewport        </strong>
 
-<a href="#4"><strong>4. Use media queries</strong></a> 
+<strong>4. Use media queries        </strong>
 
-<a href="#5"><strong>5. Using Flexbox</strong></a> 
+<strong>5. Using Flexbox        </strong>
 
-<a href="#6"><strong>6. Using Flexbox as a progressive enhancement</strong></a> 
+<strong>6. Using Flexbox as a progressive enhancement        </strong>
 
-<a href="#congrats"><strong>Congratulations!</strong></a>
+<strong>Congratulations!</strong>
 
 <a id="overview" />
 
@@ -155,7 +155,7 @@ The <a href="https://www.w3.org/TR/css-flexbox-1/">Flexible Box Layout Module</a
 
 ### 5.1 Comment out existing rules in CSS
 
-Comment out all of the rules in <strong>styles/main.css</strong> by wrapping them in <code>/<em></code> and <code></em>/</code>. We will make these our fallback rules for when Flexbox is not supported in the <a href="#6">Flexbox as progressive enhancement</a> section.
+Comment out all of the rules in <strong>styles/main.css</strong> by wrapping them in <code>/*</code> and <code>*/</code>. We will make these our fallback rules for when Flexbox is not supported in the Flexbox as progressive enhancement section.
 
 ### 5.2 Add Flexbox layout
 
@@ -164,9 +164,9 @@ Replace TODO 5.2 in <strong>styles/main.css</strong> with the following code:
 #### main.css
 ```
 .container {
-  display: -webkit-box;  /<em> OLD - iOS 6-, Safari 3.1-6 </em>/
-  display: -ms-flexbox;  /<em> TWEENER - IE 10 </em>/
-  display: flex;         /<em> NEW, Spec - Firefox, Chrome, Opera </em>/
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
   background: #eee;  
   overflow: auto;
 }
@@ -183,7 +183,7 @@ Save the code and refresh <strong>index.html</strong> in your browser. Disable d
 
 The first rule defines the <code>container</code> <code>div</code> as the flex container. This enables a flex context for all its direct children. We are mixing old and new syntax for including Flexbox to get broader support (see <strong>For more information</strong> for details).
 
-The second rule uses the <code>.col</code> class to create our equal width flex children. Setting the first argument of the <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#article-header-id-13"><code>flex</code></a> property to <code>1</code> for all <code>div</code>s with class <code>col</code> divides the remaining space evenly between them. This is more convenient than calculating and setting the relative width ourselves.
+The second rule uses the <code>.col</code> class to create our equal width flex children. Setting the first argument of the <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#article-header-id-13">flex</a> property to <code>1</code> for all <code>div</code>s with class <code>col</code> divides the remaining space evenly between them. This is more convenient than calculating and setting the relative width ourselves.
 
 #### For more information
 
@@ -219,7 +219,7 @@ Save the code and refresh <strong>index.html</strong> in your browser. Now if yo
 
 #### Explanation
 
-When the media query is triggered we change the layout from three-column to one-column by setting the <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#article-header-id-5"><code>flex-flow</code></a> property to <code>column</code>. This accomplishes the same result as the media query we added in step 5. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flexbox</a> provides tons of other properties like <code>flex-flow</code> that let you easily structure, re-order, and justify your content so that it responds well in any context.
+When the media query is triggered we change the layout from three-column to one-column by setting the <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#article-header-id-5">flex-flow</a> property to <code>column</code>. This accomplishes the same result as the media query we added in step 5. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flexbox</a> provides lots of other properties like <code>flex-flow</code> that let you easily structure, re-order, and justify your content so that it responds well in any context.
 
 <a id="6" />
 

@@ -8,21 +8,21 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a>          
+<strong>Overview          </strong>
 
-<a href="#1"><strong>1. Get set up</strong></a>          
+<strong>1. Get set up          </strong>
 
-<a href="#2"><strong>2. Installing the global tools</strong></a>          
+<strong>2. Installing the global tools          </strong>
 
-<a href="#3"><strong>3. Installing gulp, sw-precache, and sw-toolbox plugins</strong></a>          
+<strong>3. Installing gulp, sw-precache, and sw-toolbox plugins          </strong>
 
-<a href="#4"><strong>4. Creating the service worker with sw-precache and gulp</strong></a>          
+<strong>4. Creating the service worker with sw-precache and gulp          </strong>
 
-<a href="#5"><strong>5. Creating routes with sw-toolbox</strong></a>          
+<strong>5. Creating routes with sw-toolbox          </strong>
 
-<a href="#6"><strong>6. Optional: Creating the service worker in the command line</strong></a>          
+<strong>6. Optional: Creating the service worker in the command line          </strong>
 
-<a href="#congrats"><strong>Congratulations!</strong></a>
+<strong>Congratulations!</strong>
 
 Concepts: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/using-sw-precache-and-sw-toolbox.html">Using sw-precache and sw-toolbox</a>
 

@@ -8,15 +8,15 @@
 
 
 
-<a href="#whatisserviceworker"><strong>What is a service worker?</strong></a> 
+<strong>What is a service worker?        </strong>
 
-<a href="#whatcantheydo"><strong>What can service workers do?</strong></a> 
+<strong>What can service workers do?        </strong>
 
-<a href="#lifecycle"><strong>Service worker lifecycle</strong></a> 
+<strong>Service worker lifecycle        </strong>
 
-<a href="#events"><strong>Service worker events</strong></a>
+<strong>Service worker events</strong>
 
-<a href="#resources"><strong>Further reading</strong></a>
+<strong>Further reading</strong>
 
 Codelab: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_scripting_the_service_worker.html">Scripting the Service Worker</a>
 
@@ -39,14 +39,14 @@ Because workers run separately from the main thread, service workers are indepen
 <strong>Note:</strong> Whether notifications are received when the browser itself is not running depends on how the browser is integrated with the OS. For instance on desktop OS's, Chrome and Firefox only receive notifications when the browser is running. However, Android is designed to wake up any browser when a push message is received and will always receive push messages regardless of browser state. See the <a href="https://web-push-book.gauntface.com/chapter-07/01-faq/#why-doesnt-push-work-when-the-browser-is-closed">FAQ</a> in Matt Gaunt's <a href="https://web-push-book.gauntface.com/">Web Push Book</a> for more information.
 </div>
 
-* The service worker can't access the DOM directly. To communicate with the page, the service worker uses the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage"><code>postMessage()</code></a> method to send data and a "message" event listener to receive data.
+* The service worker can't access the DOM directly. To communicate with the page, the service worker uses the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">postMessage()</a> method to send data and a "message" event listener to receive data.
 
-Things to note about a service worker:
+Things to note about Service Worker:
 
-* Service worker is a programmable network proxy that lets you control how network requests from your page are handled.
+* A service worker is a programmable network proxy that lets you control how network requests from your page are handled.
 * Service workers only run over HTTPS. Because service workers can intercept network requests and modify responses, "man-in-the-middle" attacks could be very bad.
 
-<div class="note">
+ <div class="note">
 <strong>Note: </strong>Services like <a href="https://letsencrypt.org/">Letsencrypt</a> let you procure SSL certificates for free to install on your server. 
 </div>
 
@@ -163,7 +163,7 @@ self.addEventListener('activate', function(event) {
 });
 ```
 
-Once activated, the service worker controls all pages that load within its scope, and starts listening for events from those pages. However, pages in your app that were loaded before the service worker activation will not be under service worker control. The new service worker will only take over when you close and reopen your app, or if the service worker calls <a href="https://developer.mozilla.org/en-US/docs/Web/API/Clients/claim"><code>clients.claim()</code></a>. Until then, requests from this page will not be intercepted by the new service worker. This is intentional as a way to ensure consistency in your site.
+Once activated, the service worker controls all pages that load within its scope, and starts listening for events from those pages. However, pages in your app that were loaded before the service worker activation will not be under service worker control. The new service worker will only take over when you close and reopen your app, or if the service worker calls <a href="https://developer.mozilla.org/en-US/docs/Web/API/Clients/claim">clients.claim()</a>. Until then, requests from this page will not be intercepted by the new service worker. This is intentional as a way to ensure consistency in your site.
 
 <a id="events" />
 

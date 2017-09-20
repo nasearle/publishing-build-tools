@@ -8,21 +8,21 @@
 
 
 
-<a href="#overview"><strong>Overview</strong></a>          
+<strong>Overview          </strong>
 
-<a href="#1"><strong>1. Get set up</strong></a>          
+<strong>1. Get set up          </strong>
 
-<a href="#2"><strong>2. Set the relative width</strong></a>          
+<strong>2. Set the relative width          </strong>
 
-<a href="#3"><strong>3. Using the srcset attribute</strong></a>          
+<strong>3. Using the srcset attribute          </strong>
 
-<a href="#4"><strong>4. Using the sizes attribute</strong></a>          
+<strong>4. Using the sizes attribute          </strong>
 
-<a href="#5"><strong>5. Using media queries</strong></a>          
+<strong>5. Using media queries          </strong>
 
-<a href="#6"><strong>6. Optional: Use the picture and source elements</strong></a>          
+<strong>6. Optional: Use the picture and source elements          </strong>
 
-<a href="#7"><strong>Congratulations!</strong></a> 
+<strong>Congratulations!        </strong>
 
 <a id="overview" />
 

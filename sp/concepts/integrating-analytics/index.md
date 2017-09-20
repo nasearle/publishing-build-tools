@@ -8,21 +8,21 @@
 
 
 
-<a href="#what"><strong>What is Google Analytics?</strong></a> 
+<strong>What is Google Analytics?        </strong>
 
-<a href="#account"><strong>Creating an account</strong></a> 
+<strong>Creating an account        </strong>
 
-<a href="#addanalytics"><strong>Add analytics to your site</strong></a> 
+<strong>Add analytics to your site        </strong>
 
-<a href="#dash"><strong>Google Analytics dashboard</strong></a> 
+<strong>Google Analytics dashboard        </strong>
 
-<a href="#customevents"><strong>Custom events</strong></a> 
+<strong>Custom events        </strong>
 
-<a href="#analyticsserviceworker"><strong>Analytics and service worker</strong></a> 
+<strong>Analytics and service worker        </strong>
 
-<a href="#offline"><strong>Offline analytics</strong></a> 
+<strong>Offline analytics        </strong>
 
-<a href="#resources"><strong>Further reading</strong></a>
+<strong>Further reading</strong>
 
 Codelab: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_integrating_analytics.html">Integrating Analytics</a>
 
@@ -70,15 +70,13 @@ A Google Analytics account can be created from <a href="https://analytics.google
 
 Create another one. Select the <strong>Admin</strong> tab. Under <strong>account</strong>, select your current Google Analytics account and choose <strong>create new account</strong>. A single Gmail account can have multiple (currently 100) Google Analytics accounts. 
 
-![Adding an account](../img/638621a4df8de3ce.png)
+![Adding an account](../img/76e8d691850a2b7c.png)
 
 #### If you don't have a Google Analytics account
 
-Select <strong>Sign up</strong> to begin creating your account.
+Select <strong>Sign up</strong> to begin creating your account. The account creation screen should look like this:
 
-The account creation screen should look like this:
-
-![Creating an account](../img/77f0da1cc8479fea.png)
+![Creating an account](../img/e5475081784bd614.png)
 
 #### What would you like to track? 
 
@@ -115,7 +113,7 @@ Once you have created an account, you need to add the tracking snippet to your a
 3. Then under <strong>property</strong>, select your property (for example "GA Code Lab Site") from the dropdown list. 
 4. Now choose <strong>Tracking Info</strong>, and then <strong>Tracking Code</strong>. 
 
-![Finding the snippet](../img/e6c84f2ccde27125.png)
+![Finding the snippet](../img/dc1b90e9a8dd54c9.png)
 
 Your tracking ID looks like <code>UA-XXXXXXXX-Y</code> and your tracking code snippet looks like:
 
@@ -194,25 +192,25 @@ Google Analytics offers the <strong>analytics.js</strong> library with a debug m
 
 
 
-All of the data that is sent to Google Analytics can be viewed in the reporting tab of the Google Analytics dashboard (the Google Analytics web interface). For example, overview data is available by selecting <strong>Audience</strong> and then <strong>Overview</strong> (shown below).
+All of the data that is sent to Google Analytics can be viewed in the Google Analytics dashboard (the Google Analytics web interface). For example, overview data is available by selecting <strong>Audience</strong> and then <strong>Overview</strong> (shown below).
 
 From the overview page you can see general information such as pageview records, bounce rate, ratio of new and returning visitor, and other statistics.
 
-![Records overview](../img/1b6463f39646e4e1.png)
+![Records overview](../img/74d4a769d29dacc2.png)
 
 You can also see specific information like visitors' language, country, city, browser, operating system, service provider, screen resolution, and device.
 
-![Records details](../img/66759e07d712dd12.png)
+![Records details](../img/6f1ff51dd71cedfe.png)
 
 ### Real time analytics
 
-It's also possible to view analytics information in real time. From the same <strong>Reporting</strong> tab, select <strong>Real-Time </strong>and <strong>Overview</strong>:
+It's also possible to view analytics information in real time from the <strong>Real-Time</strong> tab. The  <strong>Overview</strong> section is shown below:
 
-![Real-time navigation](../img/b2dba5f011013e99.png)
+![Real-time navigation](../img/7939d0762e616983.png)
 
 If you are visiting your app in another tab or window, you should see yourself being tracked. The screen should look similar to this:
 
-![Real-time screen](../img/83ce80dc15443148.png)
+![Real-time screen](../img/6293fe6be6811ccd.png)
 
 These are only the basic aspects of the Google Analytics dashboard. There is an extensive set of features and functionality. 
 
@@ -248,13 +246,13 @@ Here the hit type is set to 'event' and values associated with the event are add
 <strong>Note:</strong> Many of the <code>ga</code> commands are flexible and can use multiple signatures. You can see all method signatures in the <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference">command queue reference</a>.
 </div>
 
-Event data can be viewed in the <strong>Reporting</strong> tab of the Google Analytics dashboard. Real-time events are found in the <strong>Events </strong>subsection, as shown below:
+Event data can also be viewed in the Google Analytics dashboard. Real-time events are found in the <strong>Real-Time</strong> tab under <strong>Events</strong>, and should look like the following:
 
-![Real-time events](../img/3107f35a9adc1fb3.png)
+![Real-time events](../img/83a15cc1df334a9.png)
 
-You can view past events in the Google Analytics dashboard from the <strong>Reporting</strong> tab by selecting <strong>Behavior</strong>, followed by <strong>Events</strong> and then <strong>Overview</strong>:
+Here you can see events as they are occurring. You can view past events in the Google Analytics dashboard by selecting <strong>Behavior</strong>, followed by <strong>Events</strong> and then <strong>Overview</strong>:
 
-![Recorded events](../img/3107f35a9adc1fb3.png)
+![Recorded events](../img/90b6a60013803441.png)
 
 #### For more information
 

@@ -8,13 +8,13 @@
 
 
 
-<a href="#introduction"><strong>Introduction</strong></a>
+<strong>Introduction</strong>
 
-<a href="#where"><strong>Where should offline data be stored?</strong></a>
+<strong>Where should offline data be stored?</strong>
 
-<a href="#examples"><strong>Using IndexedDB and the Cache interface</strong></a>
+<strong>Using IndexedDB and the Cache interface</strong>
 
-<a href="#resources"><strong>Further reading</strong></a>
+<strong>Further reading</strong>
 
 <a id="introduction" />
 
@@ -52,57 +52,6 @@ Debugging support for IndexedDB is available in Chrome, Opera, Firefox and Safar
 
 Different browsers allow different amounts of offline storage. This table summarizes storage limits for major browsers:
 
-<table markdown="1">
-<tr><td colspan="1" rowspan="1">
-<p><strong>Browser </strong></p>
-</td><td colspan="1" rowspan="1">
-<p><strong>Limitation</strong></p>
-</td><td colspan="1" rowspan="1">
-<p><strong>Notes</strong></p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>Chrome, Opera, and Samsung Internet</p>
-</td><td colspan="1" rowspan="1">
-<p>Up to a <a href="https://www.html5rocks.com/en/tutorials/offline/quota-research/">quota</a>. Check usage with the <a href="https://www.w3.org/TR/quota-api/">Quota API</a></p>
-</td><td colspan="1" rowspan="1">
-<p>Storage is per origin not per API (local storage, session storage, service worker cache and IndexedDB all share the same space)</p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>Firefox</p>
-</td><td colspan="1" rowspan="1">
-<p>No limit</p>
-</td><td colspan="1" rowspan="1">
-<p>Prompts after 50 MB of data is stored</p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>Mobile Safari</p>
-</td><td colspan="1" rowspan="1">
-<p>50MB</p>
-</td><td colspan="1" rowspan="1">
-<p> </p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>Desktop Safari</p>
-</td><td colspan="1" rowspan="1">
-<p>No limit</p>
-</td><td colspan="1" rowspan="1">
-<p>Prompts after 5MB of data is stored</p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>Internet Explorer (10+)</p>
-</td><td colspan="1" rowspan="1">
-<p>250MB</p>
-</td><td colspan="1" rowspan="1">
-<p>Prompts after 10MB of data is stored</p>
-</td>
-</tr></table>
-
-
 <a id="examples" />
 
 
@@ -114,41 +63,6 @@ Different browsers allow different amounts of offline storage. This table summar
 ### Storing data with IndexedDB
 
 IndexedDB is a noSQL database. IndexedDB data is stored as key-value pairs in <strong>object stores</strong>. The table below shows an example of an object store, in this case containing beverage items:
-
-<table markdown="1">
-<tr><td colspan="1" rowspan="1">
-<p><strong>#</strong></p>
-</td><td colspan="1" rowspan="1">
-<p><strong>Key (keypath 'id')</strong></p>
-</td><td colspan="1" rowspan="1">
-<p><strong>Value</strong></p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>0</p>
-</td><td colspan="1" rowspan="1">
-<p>1234</p>
-</td><td colspan="1" rowspan="1">
-<p>{id: 123, name: 'coke', price: 10.99, quantity: 200}</p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>1</p>
-</td><td colspan="1" rowspan="1">
-<p>9876</p>
-</td><td colspan="1" rowspan="1">
-<p>{id: 321, name: 'pepsi', price: 8.99, quantity: 100}</p>
-</td>
-</tr>
-<tr><td colspan="1" rowspan="1">
-<p>2</p>
-</td><td colspan="1" rowspan="1">
-<p>4567</p>
-</td><td colspan="1" rowspan="1">
-<p>{id: 222, name: 'water', price: 11.99, quantity: 300}</p>
-</td>
-</tr></table>
-
 
 The data is organized by a <strong><code>keypath</code></strong>, which in this case is the item's <strong><code>id</code></strong> property. You can learn more about IndexedDB in the corresponding <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-concepts/content/docs/working-with-indexeddb.html">text</a>, or in the <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_indexeddb.html">code lab</a>.
 

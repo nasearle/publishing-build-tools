@@ -8,11 +8,11 @@
 
 
 
-<a href="#why"><strong>Why build offline support?</strong></a> 
+<strong>Why build offline support?        </strong>
 
-<a href="#how"><strong>How do I take my app offline?</strong></a>
+<strong>How do I take my app offline?</strong>
 
-<a href="#reading"><strong>Further reading</strong></a> 
+<strong>Further reading        </strong>
 
 Codelab: <a href="https://google-developer-training.gitbooks.io/progressive-web-apps-ilt-codelabs/content/docs/lab_offline_quickstart.html">Offline Quickstart</a>
 
