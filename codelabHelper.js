@@ -63,7 +63,10 @@ function cleanup(sourceFile, destFile, bookPath) {
   markdown = markdown.replace(/^\[\]\(/gm, '[Link](');
 
   // Add image info to images using IMAGEINFO syntax
-  markdown = markdown.replace(/!\[.+?\]\((.+?)\)\[IMAGEINFO\]:.+,\s*(.+?)\n/g, '![$2](../$1)\n');
+  markdown = markdown.replace(/!\[.+?\]\((.+?)\)\[IMAGEINFO\]:.+,\s*(.+?)\n/g, '<img src="../$1" alt="$2">\n');
+
+  // Add image info to images using IMAGEINFO syntax
+  // markdown = markdown.replace(/!\[.+?\]\((.+?)\)\[IMAGEINFO\]:.+,\s*(.+?)\n/g, '![$2](../$1)\n');
 
   // Replace [ICON HERE] with the correct icon
   markdown = markdown.replace(/(\[ICON HERE\])(.*?)!\[(.*?)]\((.*?)\)/g, '<img src="$4" style="width:20px;height:20px;" alt="$3"> $2');
