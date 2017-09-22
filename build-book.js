@@ -51,33 +51,6 @@ function updateBookRecursively (jsonArray) {
   })
 }
 
-//   console.log(jsonObject);
-//   // Exit if the book has no contents
-//   if (!jsonObject.hasOwnProperty('contents') &&
-//     !jsonObject.hasOwnProperty('id')) {
-//     console.log('Config file had incorrect structure')
-//     shell.exit(1)
-//   } else if (jsonObject.hasOwnProperty('bookContents')) {
-//     jsonObject.bookContents.forEach(function (content) {
-//       updateBookRecursively(content)
-//     })
-//   } else if (jsonObject.hasOwnProperty('contents')) {
-//     currentPath = currentPath.concat('/'.concat(jsonObject.name))
-//     if (!fs.existsSync(currentPath)) {
-//       console.log(`Created folder ${currentPath}`);
-//       fs.mkdirSync(currentPath)
-//     }
-//     jsonObject.contents.forEach(function (content) {
-//       updateBookRecursively(content)
-//       if (content.hasOwnProperty('id')) {
-//         console.log(`Updating ${content.name}`);
-//         shell.exec(`${__dirname}/claat export  -f md -o "${currentPath}" ${module.id}`)
-//       }
-//     })
-//     currentPath = currentPath.substring(0, currentPath.lastIndexOf('/'))
-//   }
-// }
-
 function createSummary (config) {
   // TODO
 }
