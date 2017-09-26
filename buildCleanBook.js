@@ -1,22 +1,22 @@
 #!/usr/bin/env node
 
-const buildBook = require('./buildBook')
-const cleanBook = require('./codelabHelper')
+const downloadBook = require('./downloadBook')
+const cleanBook = require('./cleanMarkdown')
 const createSummary = require('./createSummary')
 const glob = require('globule')
 const gutil = require('gulp-util')
 const shell = require('shelljs')
 const fs = require('fs')
 
-var currentPath = process.cwd()
+let currentPath = process.cwd()
 
 try {
-  var config = fs.readFileSync(currentPath.concat('/config.json'))
+  let config = fs.readFileSync(currentPath.concat('/config.json'))
   config = JSON.parse(config)
   gutil.log(' ', 'Updating', config.title)
-  buildBook.updateBook(config)
+  downloadBook.updateBook(config)
 
-  var filesToProcess = glob.find('**/index.md')
+  let filesToProcess = glob.find('**/index.md')
   filesToProcess.forEach(function (filename) {
     cleanBook.cleanup(filename, filename)
   })

@@ -5,15 +5,10 @@
   "main": "main.js",
   "start": "main.js",
   "bin": {
-    "build-book": "updateBook.js",
+    "download-book": "quickDownload.js",
     "clean-book": "quickClean.js",
-    "create-book-summary": "createSummary.js",
+    "create-book-summary": "quickSummary.js",
     "build-clean-book": "buildCleanBook.js"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node main.js",
-    "new_build": "node new_main.js"
   },
   "repository": {
     "type": "git",

@@ -5,7 +5,6 @@ const shell = require('shelljs')
 const globby = require('globby')
 const rimraf = require('rimraf')
 const gutil = require('gulp-util')
-
 let currentPath = process.cwd()
 
 function updateBook (bookConfig) {

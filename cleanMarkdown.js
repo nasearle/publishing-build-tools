@@ -1,9 +1,9 @@
 'use strict'
 
-var fs = require('fs')
-var chalk = require('chalk')
-var glob = require('globule')
-var gutil = require('gulp-util')
+const fs = require('fs')
+const chalk = require('chalk')
+const glob = require('globule')
+const gutil = require('gulp-util')
 const rimraf = require('rimraf')
 const path = require('path')
 const remark = require('remark')

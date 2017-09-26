@@ -3,15 +3,13 @@
 const glob = require('globule')
 const fs = require('fs')
 
-var currentPath = process.cwd()
-
+let currentPath = process.cwd()
 function createSummary (bookConfig) {
-  console.log(`Creating SUMMARY.md file for ${bookConfig.title}`)
-  var result = []
+  let result = []
   result.push('# Summary')
   result.push('\n\n')
   result.push('* [Introduction](README.md)\n')
-  var indentLevel = 0
+  let indentLevel = 0
   result.push(createSummaryRecursive(bookConfig.bookContents, result, indentLevel))
   result = result.join('')
   bookConfig.langs.forEach(function (language) {
@@ -28,7 +26,7 @@ function createSummaryRecursive (jsonArray, result, indentLevel) {
       createSummaryRecursive(jsonObject.contents, result, indentLevel)
     }
     if (jsonObject.hasOwnProperty('id')) {
-      var link = glob.find(`**/${jsonObject.url}.md`)
+      let link = glob.find(`*/${jsonObject.url}/*.md`)
       result.push(`${' '.repeat(2 * indentLevel)}* [${jsonObject.name}](${link})\n`)
     }
     indentLevel--

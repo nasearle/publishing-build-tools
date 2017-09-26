@@ -1,22 +1,18 @@
 #!/usr/bin/env node
 
-const cleanBook = require('./cleanMarkdown')
 const fs = require('fs')
-const glob = require('globule')
 const gutil = require('gulp-util')
 const shell = require('shelljs')
 const chalk = require('chalk')
+const createSummary = require('./createSummary')
 
+// This must be run on a book to create a Summary file for GitBook
 let currentPath = process.cwd()
-
 try {
   let config = fs.readFileSync(currentPath.concat('/config.json'))
   config = JSON.parse(config)
-  gutil.log(' ', 'Cleaning', config.title)
-  let filesToProcess = glob.find('**/index.md')
-  filesToProcess.forEach(function (filename) {
-    cleanBook.cleanup(filename, filename)
-  })
+  gutil.log(' ', 'Creating SUMMARY.md for', config.title)
+  createSummary.createSummary(config)
 } catch (err) {
   gutil.log(chalk.red(err))
   shell.exit(1)
