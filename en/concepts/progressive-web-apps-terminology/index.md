@@ -1,5 +1,0 @@
-# Progressive Web Apps Terminology
-
-
-
-
