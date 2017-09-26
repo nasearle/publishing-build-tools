@@ -35,7 +35,6 @@ var RE_MD_INCLUDE = /^{#\s?wf_md_include\s?#}/m;
 var RE_AUTO_GENERATED = /^{#\s?wf_auto_generated\s?#}/m;
 var RE_DEVSITE_TRANSLATION = /^{# wf_devsite_translation #}/m;
 
-
 function getMatch(regEx, content, defaultResponse) {
   var result = content.match(regEx);
   if (result && result[1]) {
@@ -47,7 +46,7 @@ function getMatch(regEx, content, defaultResponse) {
 function getMatches(regEx, content) {
   let results = [];
   let myArray;
-  while((myArray = regEx.exec(content)) !== null) {
+  while ((myArray = regEx.exec(content)) !== null) {
     results.push(myArray);
   }
   return results;
