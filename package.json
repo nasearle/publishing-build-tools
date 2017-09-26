@@ -5,7 +5,10 @@
   "main": "main.js",
   "start": "main.js",
   "bin": {
-    "build-book": "build-book.js"
+    "build-book": "updateBook.js",
+    "clean-book": "quickClean.js",
+    "create-book-summary": "createSummary.js",
+    "build-clean-book": "buildCleanBook.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
