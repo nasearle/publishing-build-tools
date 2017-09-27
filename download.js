@@ -74,19 +74,19 @@ function updateBookRecursive(jsonObject) {
 
 function updateDoc(bookConfig, id) {
   var exportDoc = function(bookConfig, id) {
-    let result = findDocLocationRecursive(bookConfig, id);
-    if (result) {
-      let docDir = result[0];
-      let docPath = `${result[0]}/${result[1]}`;
-      let docName = result[2];
+    let doc = findDocLocationRecursive(bookConfig, id);
+    if (doc) {
+      let docCurrentPath = doc.currentPath;
+      let docFullPath = `${doc.currentPath}/${doc.dir}`;
+      let docName = doc.name;
       gutil.log('', chalk.cyan('Updating '), chalk.cyan(docName));
-      rimraf.sync(docPath);
-      shell.exec(`${__dirname}/claat export  -f md -o "${docDir}" ${id}`);
+      rimraf.sync(docFullPath);
+      shell.exec(`${__dirname}/claat export  -f md -o "${docCurrentPath}" ${id}`);
       let metadataFile = glob.find(`**/${jsonObject.url}/*.json`)[0];
       let metadata = fs.readFileSync(metadataFile);
       metadata = JSON.parse(metadata);
       if (metadata.status && metadata.status.indexOf('not ready') > -1) {
-        gutil.log(chalk.yellow(metadata.title), chalk.yellow('is not ready for Publishing! Please update tjedoc and republish'));
+        gutil.log(chalk.yellow(metadata.title), chalk.yellow('is not ready for Publishing! Check table in the gdoc for status'));
       }
       gutil.log('-->', chalk.cyan('Download Complete!'), '');
     } else {
@@ -109,14 +109,14 @@ function updateDoc(bookConfig, id) {
 }
 
 function findDocLocationRecursive(jsonObject, id) {
-  let result = [];
+  let doc = {};
   if (jsonObject.id === id) {
-    result.push(currentPath);
-    result.push(jsonObject.url);
-    result.push(jsonObject.name);
-    return result;
+    doc.currentPath = currentPath;
+    doc.dir = jsonObject.url;
+    doc.name = jsonObject.name;
+    return doc;
   } else {
-    for (index in jsonObject.contents) {
+    for (let index in jsonObject.contents) {
       let currentChild = jsonObject.contents[index];
       if (!currentChild.hasOwnProperty('id')) {
         let fileSafeName = currentChild.name.replace(/\s+/g, '-').toLowerCase();
@@ -126,15 +126,15 @@ function findDocLocationRecursive(jsonObject, id) {
         if (!fs.existsSync(currentPath)) {
           fs.mkdirSync(currentPath);
         }
-        result = findDocLocationRecursive(currentChild, id);
+        doc = findDocLocationRecursive(currentChild, id);
         currentPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
-        if (result !== false) {
-          return result;
+        if (doc !== false) {
+          return doc;
         }
       } else {
-        result = findDocLocationRecursive(currentChild, id);
-        if (result !== false) {
-          return result;
+        doc = findDocLocationRecursive(currentChild, id);
+        if (doc !== false) {
+          return doc;
         }
       }
     }
