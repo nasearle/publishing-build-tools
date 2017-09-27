@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const downloadBook = require('./downloadBook');
+const downloadBook = require('./download');
 const cleanBook = require('./cleanMarkdown');
 const createSummary = require('./createSummary');
 const glob = require('globule');

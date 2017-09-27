@@ -103,9 +103,15 @@ function cleanup(sourceFile, destFile) {
   // Remove any bold from headings
   markdown = markdown.replace(/^(#+) __(.*)__/gm, '$1 $2');
 
-  // These two command should stay in order:
+  // These three commands should stay in order:
   // Remove extra spaces that claat adds before markdown style links
   markdown = markdown.replace(/(\W)[^\S\n](\[.*?\]\(.*?\))/g, '$1$2');
+  // Convert markdown style links to <a> tags, where the URL contains one set
+  // of parens. Need to hardcode the number of parens in the regex because
+  // there's no way to match the number of opening parens with closing parens
+  // in a single regex. Can't just match everything to the last parens because
+  // the link itself could be inside parentheses.
+  markdown = markdown.replace(/([^\!])\[(.*?)\]\(((.*?)\((.*?)\)(.*?))\)/g, '$1<a href="$3">$2</a>');
   // Convert markdown style links to <a> tags, ignoring ![alt](url) image links
   markdown = markdown.replace(/([^!])\[(.*?)\]\((.*?)\)/g, '$1<a href="$3">$2</a>');
 
