@@ -47,10 +47,8 @@ function updateBookRecursive(jsonObject) {
     let metadataFile = glob.find(`**/${jsonObject.url}/*.json`)[0];
     let metadata = fs.readFileSync(metadataFile);
     metadata = JSON.parse(metadata);
-
     if (metadata.status && metadata.status.indexOf('not ready') > -1) {
-      gutil.log(chalk.red(metadata.title), chalk.red('is not ready for Publishing! Check table in the gdoc for status'));
-      rimraf.sync(`${currentPath}/${jsonObject.url}`);
+      gutil.log(chalk.yellow(metadata.title), chalk.yellow('is not ready for Publishing! Please update the doc and republish'));
     }
   }
 
@@ -84,11 +82,11 @@ function updateDoc(bookConfig, id) {
       gutil.log('', chalk.cyan('Updating '), chalk.cyan(docName));
       rimraf.sync(docPath);
       shell.exec(`${__dirname}/claat export  -f md -o "${docDir}" ${id}`);
-      let metadata = glob.find(`${docPath}/*.json`)[0];
-      console.log(metadata.status);
-      if (metadata.status === 'not ready') {
-        gutil.log(chalk.red(metadata.title), chalk.red('is not ready for Publishing! Check table in the gdoc for status'));
-        rimraf.sync(docPath);
+      let metadataFile = glob.find(`**/${jsonObject.url}/*.json`)[0];
+      let metadata = fs.readFileSync(metadataFile);
+      metadata = JSON.parse(metadata);
+      if (metadata.status && metadata.status.indexOf('not ready') > -1) {
+        gutil.log(chalk.yellow(metadata.title), chalk.yellow('is not ready for Publishing! Please update tjedoc and republish'));
       }
       gutil.log('-->', chalk.cyan('Download Complete!'), '');
     } else {
