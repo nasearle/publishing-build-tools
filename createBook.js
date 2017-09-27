@@ -16,7 +16,8 @@ try {
 
   shell.exec('git init');
   shell.exec(`git remote add origin ${config.gitbookRemote}`);
-  shell.exec('git pull');
+  shell.exec('git pull origin master');
+  shell.exec('git branch --set-upstream-to=origin/master master');
 
   shell.cp('-r', `${__dirname}/starting-files/styles`, `${currentPath}/`);
   shell.cp(`${__dirname}/starting-files/book.json`, `${currentPath}/`);

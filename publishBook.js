@@ -25,8 +25,8 @@ try {
 
   createSummary.createSummary(config);
 
-  // shell.exec('git add . && git commit -m "autoupdate-' + Date.now() +
-  //              '" && git push');
+  shell.exec('git add . && git commit -m "autoupdate-' + Date.now() +
+               '" && git push');
 } catch (err) {
   console.log(err);
   shell.exit(1);
