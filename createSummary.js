@@ -10,7 +10,7 @@ function createSummary(bookConfig) {
   result.push('\n\n');
   result.push('* [Introduction](README.md)\n');
   let indentLevel = 0;
-  result.push(createSummaryRecursive(bookConfig.bookContents,
+  result.push(createSummaryRecursive(bookConfig.contents,
     result, indentLevel));
   result = result.join('');
   bookConfig.langs.forEach(function(language) {
@@ -22,16 +22,12 @@ function createSummaryRecursive(jsonArray, result, indentLevel) {
   jsonArray.forEach(function(jsonObject) {
     indentLevel++;
     if (jsonObject.hasOwnProperty('contents')) {
-      // console.log(jsonObject)
-      result.push(`${' '.repeat(2 * indentLevel)}* ${jsonObject.name}
-`);
+      result.push(`${' '.repeat(2 * indentLevel)}* ${jsonObject.name}\n`);
       createSummaryRecursive(jsonObject.contents, result, indentLevel);
     }
     if (jsonObject.hasOwnProperty('id')) {
       let link = glob.find(`**/${jsonObject.url}/*.md`);
-      console.log(link);
-      result.push(`${' '.repeat(2 * indentLevel)}* [${jsonObject.name}](${link})
-`);
+      result.push(`${' '.repeat(2 * indentLevel)}* [${jsonObject.name}](${link})\n`);
     }
     indentLevel--;
   });

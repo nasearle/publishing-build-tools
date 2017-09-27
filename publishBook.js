@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const downloadBook = require('./download');
+const download = require('./download');
 const cleanBook = require('./cleanMarkdown');
 const createSummary = require('./createSummary');
 const glob = require('globule');
@@ -14,7 +14,7 @@ try {
   let config = fs.readFileSync(currentPath.concat('/config.json'));
   config = JSON.parse(config);
   gutil.log(' ', 'Updating', config.title);
-  downloadBook.updateBook(config);
+  download.updateBook(config);
 
   let filesToProcess = glob.find('**/index.md');
   filesToProcess.forEach(function(filename) {

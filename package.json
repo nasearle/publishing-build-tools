@@ -8,7 +8,7 @@
     "download-book": "quickDownloadBook.js",
     "clean-book": "quickCleanBook.js",
     "create-book-summary": "quickSummary.js",
-    "publish-book": "buildCleanBook.js",
+    "publish-book": "publishBook.js",
     "download-doc": "quickDownloadDoc.js"
   },
   "repository": {
@@ -38,6 +38,7 @@
   "dependencies": {
     "chalk": "^1.1.3",
     "del": "^2.2.2",
+    "directory-tree": "^2.0.0",
     "github": "^8.1.1",
     "globule": "^1.0.0",
     "googleapis": "^12.4.0",

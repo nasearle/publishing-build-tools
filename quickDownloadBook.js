@@ -10,7 +10,7 @@ let currentPath = process.cwd();
 try {
   let config = fs.readFileSync(currentPath.concat('/config.json'));
   config = JSON.parse(config);
-  gutil.log('  ', chalk.blue('Updating'), chalk.blue(config.title));
+  gutil.log(' ', chalk.blue('Updating'), chalk.blue(config.title));
   download.updateBook(config);
 } catch (err) {
   console.log(err);

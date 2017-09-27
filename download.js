@@ -6,6 +6,8 @@ const globby = require('globby');
 const rimraf = require('rimraf');
 const gutil = require('gulp-util');
 const chalk = require('chalk');
+const path = require('path');
+const dirTree = require('directory-tree');
 let currentPath = process.cwd();
 
 function updateBook(bookConfig) {
@@ -32,25 +34,27 @@ function updateBook(bookConfig) {
 
 function updateBookRecursive(jsonObject) {
   if (jsonObject.hasOwnProperty('id')) {
-    let exportPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
     gutil.log(' ', 'Downloading', jsonObject.name);
-    shell.exec(`${__dirname}/claat export  -f md -o "${exportPath}" ${jsonObject.id}`);
+    shell.exec(`${__dirname}/claat export  -f md -o "${currentPath}" ${jsonObject.id}`);
   }
 
   for (index in jsonObject.contents) {
     let currentChild = jsonObject.contents[index];
-    console.log(currentChild.id);
-    let fileSafeName = currentChild.name.replace(/\s+/g, '-').toLowerCase();
-    fileSafeName = fileSafeName.replace(/\./g, '-');
-    fileSafeName = fileSafeName.replace(/:/g, '');
-    currentPath = currentPath.concat('/'.concat(fileSafeName));
-    // Create the directory
-    if (!fs.existsSync(currentPath)) {
-      fs.mkdirSync(currentPath);
-    }
+    if (!currentChild.hasOwnProperty('id')) {
+      let fileSafeName = currentChild.name.replace(/\s+/g, '-').toLowerCase();
+      fileSafeName = fileSafeName.replace(/\./g, '-');
+      fileSafeName = fileSafeName.replace(/:/g, '');
+      currentPath = currentPath.concat('/'.concat(fileSafeName));
+      // Create the directory
+      if (!fs.existsSync(currentPath)) {
+        fs.mkdirSync(currentPath);
+      }
 
-    updateBookRecursive(currentChild);
-    currentPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
+      updateBookRecursive(currentChild);
+      currentPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
+    } else {
+      updateBookRecursive(currentChild);
+    }
   }
 }
 
@@ -60,22 +64,29 @@ function updateDoc(bookConfig, id) {
     if (language === 'en') {
       let result = findDocLocationRecursive(bookConfig, id);
       if (result) {
+        let docDir = result[0];
         let docPath = `${result[0]}/${result[1]}`;
         let docName = result[2];
-        gutil.log(' ', chalk.blue('Downloading'), chalk.blue(docName));
+        gutil.log('  ', chalk.blue('Downloading'), chalk.blue(docName));
         rimraf.sync(docPath);
-        shell.exec(`${__dirname}/claat export  -f md -o "${docPath}" ${id}`);
+        shell.exec(`${__dirname}/claat export  -f md -o "${docDir}" ${id}`);
+      } else {
+        console.log('remove doc');
+        const tree = dirTree(currentPath, {extensions: /\.json$/}, (item, path) => {
+            console.log(item.path);
+            let metadata = fs.readFileSync(item.path);
+            console.log(metadata.src);
+          });
       }
     }
     currentPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
   });
-  gutil.log(' ', chalk.blue('Download Complete!'), '');
+  gutil.log('->', chalk.blue('Download Complete!'), '');
 }
 
 function findDocLocationRecursive(jsonObject, id) {
   let result = [];
   if (jsonObject.id === id) {
-    currentPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
     result.push(currentPath);
     result.push(jsonObject.url);
     result.push(jsonObject.name);
@@ -83,17 +94,24 @@ function findDocLocationRecursive(jsonObject, id) {
   } else {
     for (index in jsonObject.contents) {
       let currentChild = jsonObject.contents[index];
-      let fileSafeName = currentChild.name.replace(/\s+/g, '-').toLowerCase();
-      fileSafeName = fileSafeName.replace(/\./g, '-');
-      fileSafeName = fileSafeName.replace(/:/g, '');
-      currentPath = currentPath.concat('/'.concat(fileSafeName));
-      if (!fs.existsSync(currentPath)) {
-        fs.mkdirSync(currentPath);
-      }
-      result = findDocLocationRecursive(currentChild, id);
-      currentPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
-      if (result !== false) {
-        return result;
+      if (!currentChild.hasOwnProperty('id')) {
+        let fileSafeName = currentChild.name.replace(/\s+/g, '-').toLowerCase();
+        fileSafeName = fileSafeName.replace(/\./g, '-');
+        fileSafeName = fileSafeName.replace(/:/g, '');
+        currentPath = currentPath.concat('/'.concat(fileSafeName));
+        if (!fs.existsSync(currentPath)) {
+          fs.mkdirSync(currentPath);
+        }
+        result = findDocLocationRecursive(currentChild, id);
+        currentPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
+        if (result !== false) {
+          return result;
+        }
+      } else {
+        result = findDocLocationRecursive(currentChild, id);
+        if (result !== false) {
+          return result;
+        }
       }
     }
 
