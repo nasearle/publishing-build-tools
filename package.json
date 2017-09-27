@@ -5,10 +5,11 @@
   "main": "main.js",
   "start": "main.js",
   "bin": {
-    "download-book": "quickDownload.js",
-    "clean-book": "quickClean.js",
+    "download-book": "quickDownloadBook.js",
+    "clean-book": "quickCleanBook.js",
     "create-book-summary": "quickSummary.js",
-    "build-clean-book": "buildCleanBook.js"
+    "publish-book": "buildCleanBook.js",
+    "download-doc": "quickDownloadDoc.js"
   },
   "repository": {
     "type": "git",

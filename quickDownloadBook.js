@@ -4,15 +4,16 @@ const fs = require('fs');
 const shell = require('shelljs');
 const gutil = require('gulp-util');
 const chalk = require('chalk');
-const downloadBook = require('./downloadBook');
+const download = require('./download');
 
 let currentPath = process.cwd();
 try {
   let config = fs.readFileSync(currentPath.concat('/config.json'));
   config = JSON.parse(config);
-  gutil.log(' ', 'Updating', config.title);
-  downloadBook.updateBook(config);
+  gutil.log('  ', chalk.blue('Updating'), chalk.blue(config.title));
+  download.updateBook(config);
 } catch (err) {
+  console.log(err);
   gutil.log(chalk.red(err));
   shell.exit(1);
 }

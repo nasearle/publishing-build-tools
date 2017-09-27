@@ -10,8 +10,8 @@ function createSummary(bookConfig) {
   result.push('\n\n');
   result.push('* [Introduction](README.md)\n');
   let indentLevel = 0;
-  result.push(
-    createSummaryRecursive(bookConfig.bookContents, result, indentLevel));
+  result.push(createSummaryRecursive(bookConfig.bookContents,
+    result, indentLevel));
   result = result.join('');
   bookConfig.langs.forEach(function(language) {
     fs.writeFileSync(`${currentPath}/${language}/SUMMARY.md`, result);
@@ -28,7 +28,8 @@ function createSummaryRecursive(jsonArray, result, indentLevel) {
       createSummaryRecursive(jsonObject.contents, result, indentLevel);
     }
     if (jsonObject.hasOwnProperty('id')) {
-      let link = glob.find(`*/${jsonObject.url}/*.md`);
+      let link = glob.find(`**/${jsonObject.url}/*.md`);
+      console.log(link);
       result.push(`${' '.repeat(2 * indentLevel)}* [${jsonObject.name}](${link})
 `);
     }
