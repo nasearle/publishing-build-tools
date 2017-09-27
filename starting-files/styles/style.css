@@ -1,0 +1,81 @@
+b
+ody {
+font-family: 'Roboto', sans-serif; }
+
+h1 {
+color: #000000; }
+
+img.center {
+display: block;
+margin: 0 auto;
+margin-top: 10px; }
+
+img.pv {
+width: 360px;
+height: auto; }
+
+img.ph {
+height: 360px;
+width: auto; }
+
+img.ic {
+height: 36px;
+width: auto; }
+
+div.todo {
+background-color: #FFFF00; }
+
+.book-summary {
+border-right: none;
+background-color: #304FFE;
+color: #ffffff; }
+.book-summary h2.title {
+padding: 0 0 30px;
+font-size: 24px;
+font-weight: 400;
+margin: 25px 15px;
+border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+.book-summary ul.summary li {
+color: #000000;
+font-weight: bold; }
+.book-summary ul.summary li > a {
+color: #ffffff; }
+.book-summary ul.summary li.active > a {
+background-color: #ffffff;
+color: #304FFE; }
+
+.book-body .markdown-section h1, .book-body .markdown-section h2, .book-body .markdown-section h3, .book-body .markdown-section h4, .book-body .markdown-section h5, .book-body .markdown-section h6 {
+color: #304FFE;
+font-weight: 400; }
+
+.book-body .markdown-section a {
+color: #304FFE; }
+
+.book-body .note {
+padding: 20px;
+margin: 20px 0;
+background: rgba(48, 79, 254, 0.1); }
+
+.book-body pre.prettyprint {
+border: none;
+padding: 15px; }
+
+#anchors-navbar {
+right: 0;
+border: none;
+box-shadow: none;
+background-color: #304FFE;
+color: #fff; }
+#anchors-navbar ul {
+padding-left: 10px; }
+#anchors-navbar:hover {
+background-color: #f0f0f0;
+color: #304FFE; }
+
+#goTop {
+border: none;
+box-shadow: none;
+background-color: #304FFE;
+color: #fff;
+bottom: 0;
+right: 0; }

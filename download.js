@@ -12,7 +12,7 @@ let currentPath = process.cwd();
 
 function updateBook(bookConfig) {
   // Remove all book content files (in case anything was deleted)
-  globby.sync(['*', '!config.json']).forEach(function(item) {
+  globby.sync(['*', '!config.json', '!styles/**', '!book.json']).forEach(function(item) {
     rimraf.sync(item);
   });
 
