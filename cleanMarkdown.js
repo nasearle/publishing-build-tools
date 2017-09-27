@@ -15,8 +15,10 @@ function cleanup(sourceFile, destFile) {
   gutil.log(' ', 'Processing', sourceFile);
 
   // Rename and read document metadata
-  fs.renameSync(sourceFile.replace('index.md', 'codelab.json'),
-    sourceFile.replace('index.md', 'metadata.json'));
+  if (fs.existsSync(sourceFile.replace('index.md', 'codelab.json'))) {
+    fs.renameSync(sourceFile.replace('index.md', 'codelab.json'),
+      sourceFile.replace('index.md', 'metadata.json'));
+  }
   let metadataFile = sourceFile.replace('index.md', 'metadata.json');
   let metadata = fs.readFileSync(metadataFile);
   metadata = JSON.parse(metadata);

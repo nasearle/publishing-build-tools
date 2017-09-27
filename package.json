@@ -10,7 +10,9 @@
     "create-book-summary": "quickSummary.js",
     "publish-book": "publishBook.js",
     "republish-book": "republishBook.js",
-    "download-doc": "quickDownloadDoc.js"
+    "download-doc": "quickDownloadDoc.js",
+    "clean-doc": "quickCleanDoc.js",
+    "publish-doc": "publishDoc.js"
   },
   "repository": {
     "type": "git",

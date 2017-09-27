@@ -67,21 +67,23 @@ function updateDoc(bookConfig, id) {
         let docDir = result[0];
         let docPath = `${result[0]}/${result[1]}`;
         let docName = result[2];
-        gutil.log('  ', chalk.blue('Downloading'), chalk.blue(docName));
+        gutil.log(' ', chalk.blue('Downloading'), chalk.blue(docName));
         rimraf.sync(docPath);
         shell.exec(`${__dirname}/claat export  -f md -o "${docDir}" ${id}`);
+        gutil.log('  ->', chalk.blue('Download Complete!'), '');
       } else {
-        console.log('remove doc');
         const tree = dirTree(currentPath, {extensions: /\.json$/}, (item, path) => {
-            console.log(item.path);
             let metadata = fs.readFileSync(item.path);
-            console.log(metadata.src);
+            metadata = JSON.parse(metadata);
+            if (metadata.source === id) {
+              gutil.log('  ', chalk.red('Removing'), chalk.red(metadata.title));
+              rimraf.sync(path.dirname(item.path));
+            }
           });
       }
     }
     currentPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
   });
-  gutil.log('->', chalk.blue('Download Complete!'), '');
 }
 
 function findDocLocationRecursive(jsonObject, id) {
