@@ -8,6 +8,7 @@ const gutil = require('gulp-util');
 const shell = require('shelljs');
 const fs = require('fs');
 const chalk = require('chalk');
+const gitConfig = require('git-config');
 
 let currentPath = process.cwd();
 
@@ -24,6 +25,16 @@ try {
   gutil.log(chalk.yellow('-->'), chalk.cyan('Cleaned'), chalk.cyan(config.title));
 
   createSummary.createSummary(config);
+
+  // var config = gitConfig.sync();
+  // console.log(config);
+
+  // if (fs.existsSync('.git')) {
+  //   shell.exec('git add . && git commit -m "autoupdate-' + Date.now() +
+  //                '" && git push');
+  // } else {
+  //   gutil.log(chalk.red('Not a git repository!'), chalk.red('Please run create-book'));
+  // }
 
   shell.exec('git add . && git commit -m "autoupdate-' + Date.now() +
                '" && git push');
