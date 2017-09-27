@@ -14,9 +14,6 @@ try {
   let config = fs.readFileSync(currentPath.concat('/config.json'));
   config = JSON.parse(config);
 
-  shell.exec('git init');
-  shell.exec(`git remote add origin ${config.gitbookRemote}`);
-
   gutil.log(' ', 'Updating', config.title);
   download.updateBook(config);
 
@@ -28,7 +25,7 @@ try {
   createSummary.createSummary(config);
 
   shell.exec('git add . && git commit -m "autoupdate-' + Date.now() +
-               '" && git push --set-upstream origin master');
+               '" && git push');
 } catch (err) {
   console.log(err);
   shell.exit(1);

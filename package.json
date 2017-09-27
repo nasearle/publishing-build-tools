@@ -9,6 +9,7 @@
     "clean-book": "quickCleanBook.js",
     "create-book-summary": "quickSummary.js",
     "publish-book": "publishBook.js",
+    "republish-book": "republishBook.js",
     "download-doc": "quickDownloadDoc.js"
   },
   "repository": {
