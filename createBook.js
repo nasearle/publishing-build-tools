@@ -16,6 +16,7 @@ try {
 
   shell.exec('git init');
   shell.exec(`git remote add origin ${config.gitbookRemote}`);
+  shell.exec('git pull');
 
   shell.cp('-r', `${__dirname}/starting-files/styles`, `${currentPath}/`);
   shell.cp(`${__dirname}/starting-files/book.json`, `${currentPath}/`);
