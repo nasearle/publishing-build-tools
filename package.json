@@ -8,8 +8,8 @@
     "download-book": "quickDownloadBook.js",
     "clean-book": "quickCleanBook.js",
     "create-book-summary": "quickSummary.js",
+    "create-book": "createBook.js",
     "publish-book": "publishBook.js",
-    "republish-book": "republishBook.js",
     "download-doc": "quickDownloadDoc.js",
     "clean-doc": "quickCleanDoc.js",
     "publish-doc": "publishDoc.js"

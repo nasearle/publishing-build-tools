@@ -14,18 +14,11 @@ try {
   let config = fs.readFileSync(currentPath.concat('/config.json'));
   config = JSON.parse(config);
 
-  gutil.log(' ', 'Updating', config.title);
-  download.updateBook(config);
-
-  let filesToProcess = glob.find('**/index.md');
-  filesToProcess.forEach(function(filename) {
-    cleanBook.cleanup(filename, filename);
-  });
-
-  createSummary.createSummary(config);
+  shell.exec('git init');
+  shell.exec(`git remote add origin ${config.gitbookRemote}`);
 
   shell.exec('git add . && git commit -m "autoupdate-' + Date.now() +
-               '" && git push');
+               '" && git push --set-upstream origin master');
 } catch (err) {
   console.log(err);
   shell.exit(1);
