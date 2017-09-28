@@ -11,7 +11,8 @@
     "publish-book": "publishBook.js",
     "download-doc": "quickDownloadDoc.js",
     "clean-doc": "quickCleanDoc.js",
-    "publish-doc": "publishDoc.js"
+    "publish-doc": "publishDoc.js",
+    "publish-doc-in-place": "publishDocInPlace.js"
   },
   "repository": {
     "type": "git",
