@@ -50,6 +50,7 @@
     "gulp-util": "^3.0.7",
     "handlebars": "^4.0.5",
     "handlebars-helpers": "^0.7.5",
+    "inquirer": "^3.3.0",
     "js-yaml": "^3.6.1",
     "marked": "^0.3.6",
     "mdast-util-to-string": "^1.0.2",

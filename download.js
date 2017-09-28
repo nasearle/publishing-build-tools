@@ -7,15 +7,14 @@ const glob = require('globule');
 const rimraf = require('rimraf');
 const gutil = require('gulp-util');
 const chalk = require('chalk');
-const path = require('path');
-const dirTree = require('directory-tree');
 let currentPath = process.cwd();
 
 function updateBook(bookConfig) {
 
+  // Log the name of the book you are updating
   gutil.log(chalk.cyan('Updating'), chalk.cyan(bookConfig.name));
 
-  // Remove all book content files (in case anything was deleted)
+  // Remove all book content files So we start fresh
   globby.sync(['*', '!config.json', '!styles/**', '!book.json']).forEach(function(item) {
     rimraf.sync(item);
   });
@@ -90,7 +89,7 @@ function updateDoc(bookConfig, id) {
       }
       gutil.log('-->', chalk.cyan('Download Complete!'), '');
     } else {
-      gutil.log(chalk.red(`Can\'t find doc with ID ${id} in the config file`));
+      gutil.log(chalk.red(`Can't find doc with ID ${id} in the config file`));
     }
   };
 

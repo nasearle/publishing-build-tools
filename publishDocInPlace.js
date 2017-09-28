@@ -32,18 +32,17 @@ try {
     */
     let metadataFiles = glob.find(`*/codelab.json`);
 
-    // Iterate over each one, parsing the file into a JSON object
+    /*
+   To find the directory of the exported doc, we need the url, which is
+   a unique name that CLaaT uses to create the directory for the Markdown
+   file. We can find this in the metadata file, but to find the right one
+   we need to iterate over all of them and check that the ID (stored in the
+   source field) matches the passed in doc ID.
+   */
     metadataFiles.forEach(function(metadataFile) {
       let metadata = fs.readFileSync(metadataFile);
       metadata = JSON.parse(metadata);
 
-      /*
-       To find the directory of the exported doc, we need the url, which is
-       a unique name that CLaaT uses to create the directory for the Markdown
-       file. We can find this in the metadata file, but to find the right one
-       we need to iterate over all of them and check that the ID (stored in the
-       source field) matches the passed in doc ID.
-       */
       if (docId === metadata.source) {
         // Log the name of the downloaded file
         gutil.log(' ', chalk.cyan('Downloaded'), chalk.cyan(metadata.title));
