@@ -15,6 +15,7 @@ if (fs.existsSync(`${currentPath}/.git`)) {
   try {
     let config = fs.readFileSync(currentPath.concat('/config.json'));
     config = JSON.parse(config);
+
     download.updateBook(config);
 
     gutil.log(chalk.cyan('Cleaning'), chalk.cyan(config.title));
