@@ -13,7 +13,7 @@ let currentPath = process.cwd();
 
 function updateBook(bookConfig) {
 
-  gutil.log(chalk.cyan('Updating'), chalk.cyan(bookConfig.title));
+  gutil.log(chalk.cyan('Updating'), chalk.cyan(bookConfig.name));
 
   // Remove all book content files (in case anything was deleted)
   globby.sync(['*', '!config.json', '!styles/**', '!book.json']).forEach(function(item) {
@@ -37,7 +37,7 @@ function updateBook(bookConfig) {
   } else {
     updateBookRecursive(bookConfig);
   }
-  gutil.log(chalk.yellow('-->'), chalk.cyan('Updated'), chalk.cyan(bookConfig.title));
+  gutil.log(chalk.yellow('-->'), chalk.cyan('Updated'), chalk.cyan(bookConfig.name));
 }
 
 function updateBookRecursive(jsonObject) {
@@ -82,16 +82,15 @@ function updateDoc(bookConfig, id) {
       gutil.log('', chalk.cyan('Updating '), chalk.cyan(docName));
       rimraf.sync(docFullPath);
       shell.exec(`${__dirname}/claat export  -f md -o "${docCurrentPath}" ${id}`);
-      let metadataFile = glob.find(`**/${jsonObject.url}/*.json`)[0];
+      let metadataFile = glob.find(`${docFullPath}/*.json`)[0];
       let metadata = fs.readFileSync(metadataFile);
       metadata = JSON.parse(metadata);
       if (metadata.status && metadata.status.indexOf('not ready') > -1) {
-        gutil.log(chalk.yellow(metadata.title), chalk.yellow('is not ready for Publishing! Check table in the gdoc for status'));
+        gutil.log(chalk.yellow(metadata.title), chalk.yellow('is not ready for publishing! Please update the gdoc and republish'));
       }
       gutil.log('-->', chalk.cyan('Download Complete!'), '');
     } else {
-      gutil.log(chalk.red('Please remove'), chalk.red(metadata.title),
-       chalk.red('from book content files!'));
+      gutil.log(chalk.red(`Can\'t find doc with ID ${id} in the config file`));
     }
   };
 
@@ -123,9 +122,6 @@ function findDocLocationRecursive(jsonObject, id) {
         fileSafeName = fileSafeName.replace(/\./g, '-');
         fileSafeName = fileSafeName.replace(/:/g, '');
         currentPath = currentPath.concat('/'.concat(fileSafeName));
-        if (!fs.existsSync(currentPath)) {
-          fs.mkdirSync(currentPath);
-        }
         doc = findDocLocationRecursive(currentChild, id);
         currentPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
         if (doc !== false) {

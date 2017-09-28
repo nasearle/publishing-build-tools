@@ -8,31 +8,32 @@ const gutil = require('gulp-util');
 const shell = require('shelljs');
 const fs = require('fs');
 const chalk = require('chalk');
+const rimraf = require('rimraf');
 
 let currentPath = process.cwd();
+try {
+  let config = fs.readFileSync(currentPath.concat('/config.json'));
+  config = JSON.parse(config);
 
-if (fs.existsSync(`${currentPath}/.git`)) {
-  try {
-    let config = fs.readFileSync(currentPath.concat('/config.json'));
-    config = JSON.parse(config);
+  download.updateBook(config);
 
-    download.updateBook(config);
-
-    gutil.log(chalk.cyan('Cleaning'), chalk.cyan(config.title));
-    let filesToProcess = glob.find('**/index.md');
-    filesToProcess.forEach(function(filename) {
-      cleanBook.cleanup(filename, filename);
-    });
-    gutil.log(chalk.yellow('-->'), chalk.cyan('Cleaned'), chalk.cyan(config.title));
-
-    createSummary.createSummary(config);
-
-    shell.exec('git add . && git commit -m "autoupdate-' + Date.now() +
-                 '" && git push');
-  } catch (err) {
-    console.log(err);
-    shell.exit(1);
+  gutil.log(chalk.cyan('Cleaning'), chalk.cyan(config.name));
+  let filesToProcess = glob.find('**/index.md');
+  filesToProcess.forEach(function(filename) {
+    cleanBook.cleanup(filename, filename);
+  });
+  let readmePath = `${currentPath}/readme/readme.md`;
+  if (fs.existsSync(readmePath)) {
+    console.log('exists');
+    fs.renameSync(readmePath, readmePath.replace('readme/readme.md', 'README.md'));
+    rimraf.sync(`${currentPath}/readme`);
   }
-} else {
-  gutil.log(chalk.red('Not a git repository!'), chalk.red('Please run create-book'));
+
+  gutil.log(chalk.yellow('-->'), chalk.cyan('Cleaned'), chalk.cyan(config.name));
+
+  createSummary.createSummary(config);
+
+} catch (err) {
+  console.log(err);
+  shell.exit(1);
 }

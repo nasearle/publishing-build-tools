@@ -30,11 +30,11 @@ function createSummary(bookConfig) {
       fs.writeFileSync(`${currentPath}/${language}/SUMMARY.md`, result);
     });
     fs.writeFileSync(`${currentPath}/LANGS.md`, langsResult);
-    gutil.log(chalk.cyan('Created language file for'), chalk.cyan(bookConfig.title));
+    gutil.log(chalk.cyan('Created language file for'), chalk.cyan(bookConfig.name));
   } else {
     fs.writeFileSync(`${currentPath}/SUMMARY.md`, result);
   }
-  gutil.log(chalk.cyan('Created summary for'), chalk.cyan(bookConfig.title));
+  gutil.log(chalk.cyan('Created summary for'), chalk.cyan(bookConfig.name));
 }
 
 function createSummaryRecursive(jsonArray, result, indentLevel) {
