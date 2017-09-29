@@ -120,6 +120,9 @@ function cleanup(sourceFile, destFile) {
   // Remove empty <strong> tags
   markdown = markdown.replace(/<strong>\s*<\/strong>/g, ' ');
 
+  // Put codeblocks in triple backtics ```
+  markdown = markdown.replace(/\n`([\s\S]*?)`\n/g, '```\n$1\n```\n');
+
   // Convert markdown inside a set of HTML elements to HTML.
   //   This is required because DevSite's MD parser doesn't handle markdown
   //   inside of HTML. :(
