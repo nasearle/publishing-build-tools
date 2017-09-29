@@ -52,7 +52,13 @@ function updateBook(bookConfig) {
 function updateBookRecursive(jsonObject) {
   // If the object has an ID property, that means it has a gdoc so we export it
   if (jsonObject.hasOwnProperty('id')) {
-    gutil.log('   ', 'Downloading', jsonObject.name);
+    // If this is the top level and it has an ID, that means it is a README
+    if (jsonObject.hasOwnProperty('langs')) {
+      gutil.log('   ', 'Downloading', 'README');
+    } else {
+      gutil.log('   ', 'Downloading', jsonObject.name);
+    }
+
     shell.exec(`${__dirname}/claat export  -f md -o \
       "${currentPath}" ${jsonObject.id}`);
 
