@@ -10,6 +10,7 @@
     "publish-book": "publishBook.js",
     "publish-doc": "publishDoc.js",
     "publish-doc-in-place": "publishDocInPlace.js",
+    "copy-template-files": "copyTemplateFiles.js",
     "claat": "claat"
   },
   "repository": {

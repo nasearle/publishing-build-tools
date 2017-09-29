@@ -1,15 +1,17 @@
 {
-"plugins": ["ga"],
-"pluginsConfig": {
-"ga": {
-"token": "UA-81734179-1"
-}
-},
-"styles": {
-"website": "styles/style.css",
-"ebook": "styles/style.css",
-"pdf": "styles/style.css",
-"mobi": "styles/style.css",
-"epub": "styles/style.css"
-}
+  "plugins": [
+    "ga"
+  ],
+  "pluginsConfig": {
+    "ga": {
+      "token": "UA-81734179-1"
+    }
+  },
+  "styles": {
+    "website": "styles\/style.css",
+    "ebook": "styles\/style.css",
+    "pdf": "styles\/style.css",
+    "mobi": "styles\/style.css",
+    "epub": "styles\/style.css"
+  }
 }
