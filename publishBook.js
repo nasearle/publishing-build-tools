@@ -47,6 +47,9 @@ let publishBook = function() {
       cleanBook.cleanup(filename, filename);
     });
 
+    gutil.log(chalk.yellow('-->'), chalk.cyan('Cleaned')
+      , chalk.cyan(config.name));
+
     // If there is a README, move it to the correct spot and rename
     let readmePath = `${currentPath}/readme/readme.md`;
     if (fs.existsSync(readmePath)) {
@@ -55,9 +58,6 @@ let publishBook = function() {
         , 'README.md'));
       rimraf.sync(`${currentPath}/readme`);
     }
-
-    gutil.log(chalk.yellow('-->'), chalk.cyan('Cleaned')
-      , chalk.cyan(config.name));
 
     // Create the SUMMARY.md file (and LANGS.md if necessary)
     createSummary.createSummary(config);
