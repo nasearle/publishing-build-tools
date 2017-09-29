@@ -12,7 +12,8 @@
     "download-doc": "quickDownloadDoc.js",
     "clean-doc": "quickCleanDoc.js",
     "publish-doc": "publishDoc.js",
-    "publish-doc-in-place": "publishDocInPlace.js"
+    "publish-doc-in-place": "publishDocInPlace.js",
+    "claat": "claat"
   },
   "repository": {
     "type": "git",

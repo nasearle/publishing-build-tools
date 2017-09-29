@@ -113,7 +113,7 @@ function cleanup(sourceFile, destFile) {
   // there's no way to match the number of opening parens with closing parens
   // in a single regex. Can't just match everything to the last parens because
   // the link itself could be inside parentheses.
-  markdown = markdown.replace(/([^\!])\[(.*?)\]\(((.*?)\((.*?)\)(.*?))\)/g, '$1<a href="$3">$2</a>');
+  markdown = markdown.replace(/([^\!])\[(.*?)\]\((([^\s]*?)\(([^\s]*?)\)([^\s]*?))\)/g, '$1<a href="$3">$2</a>');
   // Convert markdown style links to <a> tags, ignoring ![alt](url) image links
   markdown = markdown.replace(/([^!])\[(.*?)\]\((.*?)\)/g, '$1<a href="$3">$2</a>');
 
