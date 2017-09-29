@@ -19,7 +19,7 @@ try {
   config = JSON.parse(config);
   gutil.log(' ', 'Cleaning', config.title);
 } catch (err) {
-  if (err.message.indexOf('ENOENT') == -1) {
+  if (err.message.indexOf('ENOENT') === -1) {
     gutil.log(chalk.yellow(err.message));
     shell.exit(1);
   }

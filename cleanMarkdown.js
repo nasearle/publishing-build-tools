@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const fs = require('fs');
 const chalk = require('chalk');
@@ -100,7 +100,7 @@ function cleanup(sourceFile, destFile) {
 
   // Replace [ICON HERE] with the correct icon
   markdown = markdown.replace(/(\[ICON HERE\])(.*?)!\[(.*?)]\((.*?)\)/g,
-  '<img src="$4" style="width:20pxheight:20px" alt="$3"> $2');
+    '<img src="$4" style="width:20pxheight:20px" alt="$3"> $2');
 
   // Remove any bold from headings
   markdown = markdown.replace(/^(#+) __(.*)__/gm, '$1 $2');

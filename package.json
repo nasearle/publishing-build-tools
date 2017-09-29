@@ -5,12 +5,9 @@
   "main": "main.js",
   "start": "main.js",
   "bin": {
-    "download-book": "quickDownloadBook.js",
-    "clean-dir": "quickCleanBook.js",
+    "clean-dir": "quickCleanDir.js",
     "create-book-summary": "quickSummary.js",
     "publish-book": "publishBook.js",
-    "download-doc": "quickDownloadDoc.js",
-    "clean-doc": "quickCleanDoc.js",
     "publish-doc": "publishDoc.js",
     "publish-doc-in-place": "publishDocInPlace.js",
     "claat": "claat"

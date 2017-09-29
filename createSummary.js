@@ -29,35 +29,40 @@ function createSummary(bookConfig) {
     langsResult.push('\n');
     bookConfig.langs.forEach(function(language) {
       if (language === 'en') {
+        // If the langauge is english, write summary file
         langsResult.push('* [English](en/)\n');
+        fs.writeFileSync(`${currentPath}/${language}/SUMMARY.md`, result);
       } else if (language === 'idn') {
         langsResult.push('* [Indonesian](idn/)\n');
       } else if (language === 'sp') {
         langsResult.push('* [Spanish](sp/)\n');
+      } else {
+        langsResult.push(`* [OTHER LANGUAGE](${language}/)\n`);
       }
-      fs.writeFileSync(`${currentPath}/${language}/SUMMARY.md`, result);
     });
     langsResult = langsResult.join('');
     fs.writeFileSync(`${currentPath}/LANGS.md`, langsResult);
-    gutil.log(chalk.cyan('Created language file for'), chalk.cyan(bookConfig.name));
+    gutil.log(chalk.cyan('Created language file for')
+      , chalk.cyan(bookConfig.name));
   } else {
+    // Write the summary file at the root if there is only one language
     fs.writeFileSync(`${currentPath}/SUMMARY.md`, result);
   }
   gutil.log(chalk.cyan('Created summary for'), chalk.cyan(bookConfig.name));
 }
 
 function createSummaryRecursive(jsonArray, result, indentLevel) {
+  // Creates the SUMMARY.md from the config file
   jsonArray.forEach(function(jsonObject) {
     indentLevel++;
     if (jsonObject.hasOwnProperty('contents')) {
-      result.push(`${' '.repeat(2 * indentLevel)}* ${jsonObject.name}
-`);
+      result.push(`${' '.repeat(2 * indentLevel)}* ${jsonObject.name}`);
       createSummaryRecursive(jsonObject.contents, result, indentLevel);
     }
     if (jsonObject.hasOwnProperty('id')) {
       let link = glob.find(`**/${jsonObject.url}/*.md`);
-      result.push(`${' '.repeat(2 * indentLevel)}* [${jsonObject.name}](${link})
-`);
+      result.push(`${' '.repeat(2 * indentLevel)}* \
+        [${jsonObject.name}](${link})`);
     }
     indentLevel--;
   });

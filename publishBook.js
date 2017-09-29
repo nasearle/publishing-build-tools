@@ -17,7 +17,7 @@ let question = {
   name: 'overwrite',
   message: chalk.yellow(`This will overwrite all of your content with content \
     from GDocs, are you sure you want to continue?`),
-  default: false
+  default: false,
 };
 
 // Warning that this process will overwrite all of the exsting content.
@@ -61,7 +61,6 @@ let publishBook = function() {
 
     // Create the SUMMARY.md file (and LANGS.md if necessary)
     createSummary.createSummary(config);
-
   } catch (err) {
     console.log(err);
     shell.exit(1);

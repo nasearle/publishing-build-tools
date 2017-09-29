@@ -3,7 +3,6 @@
 const fs = require('fs');
 const gutil = require('gulp-util');
 const shell = require('shelljs');
-const chalk = require('chalk');
 const createSummary = require('./createSummary');
 
 // This must be run on a book to create a Summary file for GitBook
@@ -14,6 +13,6 @@ try {
   gutil.log(' ', 'Creating SUMMARY.md for', config.title);
   createSummary.createSummary(config);
 } catch (err) {
-  gutil.log(chalk.red(err));
+  console.log(err);
   shell.exit(1);
 }

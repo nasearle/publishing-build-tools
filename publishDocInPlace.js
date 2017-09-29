@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const download = require('./download');
 const cleanBook = require('./cleanMarkdown');
 const glob = require('globule');
 const gutil = require('gulp-util');
@@ -33,12 +32,12 @@ try {
     let metadataFiles = glob.find(`*/codelab.json`);
 
     /*
-   To find the directory of the exported doc, we need the url, which is
-   a unique name that CLaaT uses to create the directory for the Markdown
-   file. We can find this in the metadata file, but to find the right one
-   we need to iterate over all of them and check that the ID (stored in the
-   source field) matches the passed in doc ID.
-   */
+    To find the directory of the exported doc, we need the url, which is
+    a unique name that CLaaT uses to create the directory for the Markdown
+    file. We can find this in the metadata file, but to find the right one
+    we need to iterate over all of them and check that the ID (stored in the
+    source field) matches the passed in doc ID.
+    */
     metadataFiles.forEach(function(metadataFile) {
       let metadata = fs.readFileSync(metadataFile);
       metadata = JSON.parse(metadata);
@@ -49,7 +48,7 @@ try {
 
         // Run the cleanup script on the current doc
         cleanBook.cleanup(`${currentPath}/${metadata.url}/index.md`,
-        `${currentPath}/${metadata.url}/index.md`);
+          `${currentPath}/${metadata.url}/index.md`);
 
         // Log the name of the cleaned file
         gutil.log('  ', chalk.cyan('Cleaned'), chalk.cyan(metadata.title));
