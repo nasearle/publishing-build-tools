@@ -54,15 +54,15 @@ function createSummary(bookConfig) {
 function createSummaryRecursive(jsonArray, result, indentLevel) {
   // Creates the SUMMARY.md from the config file
   jsonArray.forEach(function(jsonObject) {
-    indentLevel++;
     if (jsonObject.hasOwnProperty('contents')) {
-      result.push(`${' '.repeat(2 * indentLevel)}* ${jsonObject.name}`);
+      result.push(`${' '.repeat(2 * indentLevel)}* ${jsonObject.name}\n`);
+      indentLevel++;
       createSummaryRecursive(jsonObject.contents, result, indentLevel);
     }
     if (jsonObject.hasOwnProperty('id')) {
       let link = glob.find(`**/${jsonObject.url}/*.md`);
       result.push(`${' '.repeat(2 * indentLevel)}* \
-        [${jsonObject.name}](${link})`);
+        [${jsonObject.name}](${link})\n`);
     }
     indentLevel--;
   });
