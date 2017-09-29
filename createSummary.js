@@ -48,7 +48,7 @@ function createSummary(bookConfig) {
     // Write the summary file at the root if there is only one language
     fs.writeFileSync(`${currentPath}/SUMMARY.md`, result);
   }
-  gutil.log(chalk.cyan('Created summary for'), chalk.cyan(bookConfig.name));
+  gutil.log(chalk.cyan('Created SUMMARY for'), chalk.cyan(bookConfig.name));
 }
 
 function createSummaryRecursive(jsonArray, result, indentLevel) {

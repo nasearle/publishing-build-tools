@@ -16,7 +16,7 @@ let question = {
   type: 'confirm',
   name: 'overwrite',
   message: chalk.yellow(`This will overwrite all of your content with content \
-    from GDocs, are you sure you want to continue?`),
+from GDocs, are you sure you want to continue?`),
   default: false,
 };
 
@@ -50,7 +50,7 @@ let publishBook = function() {
     // If there is a README, move it to the correct spot and rename
     let readmePath = `${currentPath}/readme/readme.md`;
     if (fs.existsSync(readmePath)) {
-      console.log('exists');
+      gutil.log(chalk.cyan('Created a README for'), chalk.cyan(config.name));
       fs.renameSync(readmePath, readmePath.replace('readme/readme.md'
         , 'README.md'));
       rimraf.sync(`${currentPath}/readme`);
