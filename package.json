@@ -6,7 +6,7 @@
   "start": "main.js",
   "bin": {
     "download-book": "quickDownloadBook.js",
-    "clean-book": "quickCleanBook.js",
+    "clean-dir": "quickCleanBook.js",
     "create-book-summary": "quickSummary.js",
     "publish-book": "publishBook.js",
     "download-doc": "quickDownloadDoc.js",
