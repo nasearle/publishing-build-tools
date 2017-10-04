@@ -11,6 +11,8 @@ const remarkHtml = require('remark-html');
 const wfRegEx = require('./wfRegEx');
 const mkdirp = require('mkdirp');
 
+let currentRegex;
+
 function cleanup(sourceFile, destFile) {
   gutil.log(' ', 'Processing', sourceFile);
 
@@ -48,21 +50,68 @@ function cleanup(sourceFile, destFile) {
   // Eliminate the Duration on Codelabs
   markdown = markdown.replace(/^\*Duration is \d+ min\*\n/gm, '');
 
+
+  // Replace Link tags with todo class which highlights the block yellow
+  currentRegex = /(.*?_*?.*?\[LINK.*?].*?_*?.*\n)/g;
+  markdown = markdown.replace(currentRegex, `<div class = "todo">$1\n</div>\n`);
+  currentRegex = /(.*?_*?.*?)(\[LINK.*?])(.*?_*?.*)\n/g;
+  markdown = markdown.replace(currentRegex, `$1$3`);
+
+  // Remove code highlight tags
+  currentRegex = /(.*?_*?.*?)(\[CODE_HIGHLIGHT.*?])(.*?_*?.*)\n/g;
+  markdown = markdown.replace(currentRegex, `$1$3`);
+
+  // Remove any bold from headings
+  currentRegex = /^(#+)(.*) __(.*)[\s]?__/gm;
+  markdown = markdown.replace(currentRegex, '$1 $2 $3');
+
   // Change bold underscores to <strong> tags
   markdown = markdown.replace(/__(.*?)__/g, '<strong>$1</strong>');
 
   // Change italics *'s to <em> tags. Doesn't replace HTML comments (/* ... */)
   markdown = markdown.replace(/([^*/])\*([^*/\n]+?)\*([^*/])/g, '$1<em>$2</em>$3');
 
+  // Fix code in tables
+  currentRegex = /(<td>.*?\n*.*)`(.*)`(.*\n*<\/td>)/g;
+  markdown = markdown.replace(currentRegex, `$1<code>$2</code>$3`);
+
+  // Put codeblocks in triple backtics ```
+  currentRegex = /\n`([^`][\s\S]*?)`\n/g;
+  let singleCodeMatches;
+  while (singleCodeMatches = currentRegex.exec(markdown)) {
+    let newCodeBlock = ['```'];
+    let markdownFromStart = markdown.substring(singleCodeMatches.index);
+    let markdownCodeLines = markdownFromStart.split('\n');
+    let endIndex;
+    for (let i = 0; i < markdownCodeLines.length; i++) {
+      let currentLine = markdownCodeLines[i];
+      if (currentLine) {
+        if (currentLine.indexOf('`') !== 0 || currentLine.slice(-1) !== '`') {
+          // We use whatever comes after the codeblock to find the ending index
+          let nextFewLines = currentLine + '\n' + markdownCodeLines[i + 1] +
+             '\n' + markdownCodeLines[i + 2];
+          endIndex = markdown.indexOf(nextFewLines);
+          newCodeBlock.push('```\n\n');
+          break;
+        } else {
+          newCodeBlock.push(currentLine.replace(/`([\s\S]*?)`/, '$1'));
+        }
+      }
+    }
+    markdown = markdown.slice(0, singleCodeMatches.index) + newCodeBlock.join('\n') + markdown.slice(endIndex);
+  }
+
+
   // Change inline backticks to <code> tags
-  markdown = markdown.replace(/`([^`\n]+?)`/g, '<code>$1</code>');
+  markdown = markdown.replace(/`([^`\n]+?)`/g, '<code> $1</code>');
 
   // Remove new line break between codeblocks and previous line so that
   // code in numbered lists doesn't reset the numbers
   markdown = markdown.replace(/\n*```/g, '\n```');
 
   // Remove empty lines in note divs
-  markdown = markdown.replace(/<div class="note">\s*\n\n/g, '<div class="note">\n');
+  markdown = markdown.replace(/<div class="note">\s*\n\n/g,
+    '<div class="note">\n');
   markdown = markdown.replace(/\n\n+<\/div>/g, '\n</div>');
 
   // Change any empty markdown links to simply [Link](url)
@@ -72,22 +121,41 @@ function cleanup(sourceFile, destFile) {
   mkdirp.sync(`${process.cwd()}/images/${metadata.id}`);
 
   // Add image info to images using IMAGEINFO syntax
-  let imageRegEx = /!\[.+?\]\(img\/(.+?)\)\n*\[IMAGEINFO\]:\s*(.+?)\.*,\s*(.+?)\n/g;
+  let imageRegEx =
+  /!\[.+?\]\(img\/(.+?)\)\n*\[IMAGEINFO\]:\s*(.+?)\.*,\s*(.+?)\n/g;
   let imageMatches;
   let oldImgName;
   let imgSrc;
+  let imgAlt;
   while ((imageMatches = imageRegEx.exec(markdown))) {
     oldImgName = imageMatches[1];
     imgSrc = imageMatches[2];
+    imgAlt = imageMatches[3];
     let oldImage = glob.find(`**/img/${oldImgName}`)[0];
     if (oldImage) {
       fs.renameSync(oldImage,
         `${process.cwd()}/images/${metadata.id}/${imgSrc}`);
     }
+    let classTag = '';
+    if (imgSrc.indexOf('pv_') > -1) {
+      classTag = 'pv';
+    } else if (imgSrc.indexOf('ph_') > -1) {
+      classTag = 'ph';
+    } else if (imgSrc.indexOf('tv_') > -1) {
+      classTag = 'tv';
+    } else if (imgSrc.indexOf('th_') > -1) {
+      classTag = 'th';
+    }
+    markdown = markdown.replace(imageMatches[0], `<img class="center \
+${classTag}" src="/images/${metadata.id}/${imgSrc}" alt="${imgAlt}">\n`);
   }
 
-  markdown = markdown.replace(imageRegEx,
-    `<img src="/images/${metadata.id}/$2" alt="$3">`);
+
+  // Remove empty lines before images
+  markdown = markdown.replace(/\n\n+<img/g, '\n<img');
+
+  // Add empty line between closed div blocks and images
+  markdown = markdown.replace(/<\/div>\n<img/g, '<\/div>\n\n<img');
 
   // Rename Markdown file and remove original
   rimraf.sync(glob.find(`**/${metadata.id}/index.md`)[0]);
@@ -95,15 +163,9 @@ function cleanup(sourceFile, destFile) {
   // Remove old image directory
   rimraf.sync(glob.find(`**/${metadata.id}/img`)[0]);
 
-  // Add image info to images using IMAGEINFO syntax
-  // markdown = markdown.replace(/!\[.+?\]\((.+?)\)\[IMAGEINFO\]:.+,\s*(.+?)\n/g, '![$2](../$1)\n')
-
   // Replace [ICON HERE] with the correct icon
   markdown = markdown.replace(/(\[ICON HERE\])(.*?)!\[(.*?)]\((.*?)\)/g,
     '<img src="$4" style="width:20pxheight:20px" alt="$3"> $2');
-
-  // Remove any bold from headings
-  markdown = markdown.replace(/^(#+) __(.*)__/gm, '$1 $2');
 
   // These three commands should stay in order:
   // Remove extra spaces that claat adds before markdown style links
@@ -119,9 +181,6 @@ function cleanup(sourceFile, destFile) {
 
   // Remove empty <strong> tags
   markdown = markdown.replace(/<strong>\s*<\/strong>/g, ' ');
-
-  // Put codeblocks in triple backtics ```
-  markdown = markdown.replace(/\n`([\s\S]*?)`\n/g, '```\n$1\n```\n');
 
   // Convert markdown inside a set of HTML elements to HTML.
   //   This is required because DevSite's MD parser doesn't handle markdown

@@ -10,10 +10,9 @@ let currentPath = process.cwd();
 // This function creates a SUMMARY.md file from the config file in the directory
 function createSummary(bookConfig) {
   let result = [];
-  //  Add the title and README
+  //  Add the title
   result.push('# Summary');
   result.push('\n');
-  result.push('* [Introduction](README.md)\n');
   // Keep track of indent level
   let indentLevel = 0;
 
@@ -60,9 +59,17 @@ function createSummaryRecursive(jsonArray, result, indentLevel) {
       createSummaryRecursive(jsonObject.contents, result, indentLevel);
     }
     if (jsonObject.hasOwnProperty('id')) {
-      let link = glob.find(`**/${jsonObject.url}/*.md`);
-      result.push(`${' '.repeat(2 * indentLevel)}* \
-        [${jsonObject.name}](${link})\n`);
+      if (jsonObject.url === 'readme') {
+        let link = glob.find(`**/README.md`);
+        result.push(`${' '.repeat(2 * indentLevel)}* \
+[${jsonObject.name}](${link})\n`);
+        indentLevel++;
+      } else {
+        let link = glob.find(`**/${jsonObject.url}/*.md`);
+        result.push(`${' '.repeat(2 * indentLevel)}* \
+[${jsonObject.name}](${link})\n`);
+        indentLevel++;
+      }
     }
     indentLevel--;
   });

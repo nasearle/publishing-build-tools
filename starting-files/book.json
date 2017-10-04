@@ -8,7 +8,7 @@
     }
   },
   "styles": {
-    "website": "styles\/style.css",
+    "website": "styles\/website.css",
     "ebook": "styles\/style.css",
     "pdf": "styles\/style.css",
     "mobi": "styles\/style.css",
