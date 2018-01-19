@@ -1,3 +1,7 @@
+THIS REPO IS DEPRECATED. THE ACTIVE REPO IS [HERE](https://github.com/google-developer-training/publishing-tools)
+
+
+
 ## Documentation
 
 The docs for the publishing process are [here](https://docs.google.com/document/d/1NYZhCdwTKY2kFLwW_qWAeGNOfnEI22AR-mBWP8H00zY/edit#heading=h.yutosj67sb9r).
